@@ -13,15 +13,17 @@ export const getCategories = async () => {
 
 // Funcion para obtener productos
 export const getProducts = async (category,filters) => {
-  const {minPrice, maxPrice,sort} = filters
+  const {brand, minPrice, maxPrice,sort} = filters
 
   const order = sort === 'lowPrice'
     ? orderBy('price','asc')
     : orderBy('price','desc')
 
-  const q = category === 'all'
+  const q = category === 'all' 
     ? query(productsRef,where('price','>=',minPrice),where('price','<=',maxPrice),order)
-    : query(productsRef,where('category','==',category),where('price','>=',minPrice),where('price','<=',maxPrice),order)
+    : brand === 'all'
+      ? query(productsRef,where('category','==',category),where('price','>=',minPrice),where('price','<=',maxPrice),order)
+      : query(productsRef,where('category','==',category),where('brand','==',brand),where('price','>=',minPrice),where('price','<=',maxPrice),order)
 
   return await getDocs(q)
 }
