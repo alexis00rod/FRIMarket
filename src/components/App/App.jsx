@@ -11,13 +11,13 @@ export const App = () => {
   },[pathname])
 
   return (
-    <div className="bg-gray-200 font-poppins">
+    <div className="bg-gray-50 font-poppins">
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="w-full max-w-screen-2xl mx-auto grow">
+        <main className="w-full max-w-screen-2xl mx-auto px-2 py-4 flex flex-col grow">
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/shop" element={<Shop />}></Route>
+            <Route path="/shop/:idCategory" element={<Shop />}></Route>
           </Routes>
         </main>
       </div>

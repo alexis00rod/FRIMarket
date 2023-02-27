@@ -12,7 +12,7 @@ const NavbarLink = ({children,...props}) => {
 
 export const Navbar = () => {
   return (
-    <header className="sticky top-0 left-0 w-full bg-white border-b-2 border-gray-500">
+    <header className="sticky top-0 left-0 z-20 w-full bg-white border-b-2 border-gray-500">
       <nav className="w-full max-w-screen-2xl mx-auto px-2 py-2 flex items-center gap-2">
         <div className="h-full px-2 flex items-center">
           <h1 className="text-2xl font-semibold">
@@ -25,7 +25,7 @@ export const Navbar = () => {
             <NavbarLink to='/'>Inicio</NavbarLink>
           </li>
           <li className="">
-            <NavbarLink to='/shop'>Tienda</NavbarLink>
+            <NavbarLink to='/shop/all'>Tienda</NavbarLink>
           </li>
         </ul>
         <ul className="h-full px-2 flex gap-2">

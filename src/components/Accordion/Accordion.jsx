@@ -6,7 +6,7 @@ export const Accordion = ({title,children}) => {
   return (
     <div className="w-full flex flex-col">
       <div 
-        className="w-full px-1 py-1 flex items-center cursor-pointer hover:text-blue-500"
+        className={`w-full px-1 py-1 flex items-center ${accordion && 'text-blue-500'} cursor-pointer hover:text-blue-500`}
         onClick={() => setAccordion(!accordion)}
       >
         <h2 className="px-1 grow font-medium">{title}</h2>
