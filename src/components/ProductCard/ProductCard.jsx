@@ -4,17 +4,17 @@ import { ProductModal } from '../index.js'
 
 export const ProductCard = ({content, style}) => {
   const [cardDetail, setCardDetail] = useState(false)
-  const {productID,name,thumb,price,description} = content
+  const {id,name,thumb,price,description} = content
 
   return (
     <>
       <article className={`px-2 py-2 flex ${style === 'grid' ? 'flex-col items-center' : 'flex-row items-start'} bg-white border border-gray-300 rounded-md duration-150 hover:shadow-md hover:scale-102`}>
-        <Link to={`/product/${productID}`} className='px-1 py-1 w-56 h-56 flex items-center justify-center flex-none'>
+        <Link to={`/product/${id}`} className='px-1 py-1 w-56 h-56 flex items-center justify-center flex-none'>
           <img src={thumb} alt={name} />
         </Link>
         <div className="px-1 w-full flex flex-col">
           <h3 className={`w-full px-1 pt-1 pb-2 flex ${style === 'grid' && 'justify-center'} text-lg font-medium border-b border-gray-300`}>
-            <Link to={`/product/${productID}`} className='w-max'>{name}</Link>
+            <Link to={`/product/${id}`} className='w-max'>{name}</Link>
           </h3>
           <div className={`px-1 py-2 ${style === 'grid' ? 'flex-row items-center' : 'flex-col'} border-b border-gray-300`}>
             <h4 className={`${style === 'list' && 'mb-3'} grow text-xl text-yellow-500 font-medium`}>${price}</h4>

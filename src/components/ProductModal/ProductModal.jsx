@@ -27,7 +27,7 @@ export const ProductModal = ({content, handle}) => {
                   {stock}
                   <i className={`fa-solid fa-${stock > 0 ? 'check' : 'circle-xmark'}`}></i>
                 </span>
-                </p>
+              </p>
               <div className="flex items-center gap-4">
                 <div className="w-max flex rounded-md overflow-hidden border border-gray-300">
                   <button className='w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-600'><i className="fa-solid fa-minus"></i></button>
