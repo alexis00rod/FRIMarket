@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { Link } from "react-router-dom"
+import { useCartContext } from '../../context/CartContext/CartContext.jsx'
 import { ProductModal } from '../index.js'
 
 export const ProductCard = ({content, style}) => {
   const [cardDetail, setCardDetail] = useState(false)
   const {id,name,thumb,price,description} = content
+  const {addToCartList} = useCartContext()
 
   return (
     <>
@@ -30,6 +32,7 @@ export const ProductCard = ({content, style}) => {
           <div className="py-2 flex gap-2">
             <button 
             className={`h-8 px-2 flex items-center ${style === 'grid' && 'grow'} gap-2 bg-blue-500 text-white rounded-md`}
+            onClick={() => addToCartList({id,name,price,thumb,qty: 1})}
             >
               <i className="fa-solid fa-cart-shopping"></i>
               <span className='text-sm'>Agregar al carrito</span>
