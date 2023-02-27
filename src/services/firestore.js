@@ -1,10 +1,11 @@
 import { app } from "./firebase";
-import { collection, getDocs, getFirestore, orderBy, query, where } from 'firebase/firestore'
+import { collection, doc, getDoc, getDocs, getFirestore, orderBy, query, where } from 'firebase/firestore'
 
 const db = getFirestore(app)
 
 // Referencias
 const productsRef = collection(db,"products")
+const productRef = (id) => doc(db,"products",id)
 
 // Funcion para obtener categorias
 export const getCategories = async () => {
@@ -27,3 +28,6 @@ export const getProducts = async (category,filters) => {
 
   return await getDocs(q)
 }
+
+// Funcion para obtener detalles del producto
+export const getProductDetail = async (id) => await getDoc(productRef(id))
