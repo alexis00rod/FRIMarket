@@ -38,11 +38,8 @@ export const Navbar = () => {
           <div className="h-full px-2 flex gap-2">
             <button className="h-10 px-2 flex items-center justify-center gap-2 bg-blue-500 text-white rounded-md"
             onClick={() => setCartMenu(!cartMenu)}>
-              <span className="text-sm">{cartQty}</span>
+              <span className="text-sm font-semibold">{cartQty}</span>
               <i className="fa-solid fa-cart-shopping"></i>
-            </button>
-            <button className="w-10 h-10 flex items-center justify-center bg-blue-500 text-white rounded-md">
-              <i className="fa-solid fa-user"></i>
             </button>
             <button className="w-10 h-10 flex items-center justify-center bg-blue-500 text-white rounded-md">
               <i className="fa-solid fa-user"></i>
