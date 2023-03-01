@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { Link } from "react-router-dom"
 import { useCartContext } from '../../context/CartContext/CartContext.jsx'
-import { ProductModal } from '../index.js'
+import { BtnAddCart, ProductModal } from '../index.js'
 
 export const ProductCard = ({content, style}) => {
   const [cardDetail, setCardDetail] = useState(false)
-  const {id,name,thumb,price,description} = content
+  const {id,name,thumb,price,description,stock} = content
   const {addToCartList} = useCartContext()
 
   return (
@@ -30,16 +30,10 @@ export const ProductCard = ({content, style}) => {
             </div>
           </div>
           <div className="py-2 flex gap-2">
+            <BtnAddCart product={content} qty={1} />
+            <button className='w-8 h-8 flex items-center justify-center flex-none bg-red-500 text-white rounded-md'><i className="fa-solid fa-heart"></i></button>
             <button 
-            className={`h-8 px-2 flex items-center ${style === 'grid' && 'grow'} gap-2 bg-blue-500 text-white rounded-md`}
-            onClick={() => addToCartList({id,name,price,thumb,qty: 1})}
-            >
-              <i className="fa-solid fa-cart-shopping"></i>
-              <span className='text-sm'>Agregar al carrito</span>
-            </button>
-            <button className='w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-md'><i className="fa-solid fa-heart"></i></button>
-            <button 
-            className='w-8 h-8 flex items-center justify-center bg-yellow-500 text-white rounded-md'
+            className='w-8 h-8 flex items-center justify-center flex-none bg-yellow-500 text-white rounded-md'
             onClick={() => setCardDetail(true)}
             >
               <i className="fa-solid fa-eye"></i>

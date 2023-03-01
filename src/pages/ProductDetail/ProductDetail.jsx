@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Loader } from '../../components'
+import { BtnAddCart, Loader } from '../../components'
+import { useCartContext } from '../../context/CartContext/CartContext'
 import { getProductDetail } from '../../services/firestore'
 
 export const ProductDetail = () => {
   const {idProduct} = useParams()
+  const {cartList} = useCartContext()
   const [productDetail, setProductDetail] = useState({})
   const [loader, setLoader] = useState(false)
+  const [qtyProducts, setQtyProducts] = useState(1)
+  const {id,name,thumb,description,brand,stock,price,type,category, userID} = productDetail
 
   useEffect(() => {
     getProductDetail(idProduct)
@@ -15,13 +19,12 @@ export const ProductDetail = () => {
       ...resp.data()
     }))
     .finally(() => setLoader(true))
+    
   },[idProduct])
 
-  console.log(productDetail)
-  
+  const productInCart = cartList.find(e => e.id === id)
+
   if(!loader) return <Loader />
-  
-  const {name,thumb,description,brand,stock,price,type,category, userID} = productDetail
 
   return (
     <div className="w-full flex flex-col gap-2">
@@ -71,19 +74,28 @@ export const ProductDetail = () => {
             <div className="w-max px-2 py-2 flex items-center gap-2">
               <span className='text-lg font-medium'>Cantidad: </span>
               <div className="w-max flex items-center border border-gray-300 rounded-md overflow-hidden">
-                <button className="w-8 h-8 flex items-center justify-center bg-gray-300 text-gray-800">
-                  <i className="fa-solid fa-minus"></i>
-                </button>
-                <span className="w-8 h-full flex items-center justify-center">1</span>
-                <button className="w-8 h-8 flex items-center justify-center bg-gray-300 text-gray-800">
-                  <i className="fa-solid fa-plus"></i>
+                <button
+                  className='w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-600 disabled:bg-gray-100 disabled:text-gray-400'
+                  onClick={() => setQtyProducts(qtyProducts - 1)}
+                  disabled={qtyProducts === 1}
+                  >
+                    <i className="fa-solid fa-minus"></i>
+                  </button>
+                  <span className='w-8 h-8 flex items-center justify-center'>
+                    {productInCart
+                    ? productInCart.qty
+                    : qtyProducts}
+                  </span>
+                  <button 
+                  className='w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-600 disabled:bg-gray-100 disabled:text-gray-400'
+                  onClick={() => stock > qtyProducts && setQtyProducts(qtyProducts + 1)}
+                  disabled={stock <= qtyProducts || cartList.find(e => e.id === id)?.qty >= stock}
+                  >
+                    <i className="fa-solid fa-plus"></i>
                 </button>
               </div>
             </div>
-            <button className="w-max h-8 px-2 flex items-center gap-2 bg-blue-500 text-white rounded-md">
-              <i className="fa-solid fa-cart-shopping"></i>
-              <span className="text-sm">Agregar al carrito</span>
-            </button>
+            <BtnAddCart product={productDetail} qty={qtyProducts} />
             <button className="w-max h-8 px-2 flex items-center gap-2 bg-red-500 text-white rounded-md">
               <i className="fa-solid fa-heart"></i>
               <span className="text-sm">Agregar a favoritos</span>

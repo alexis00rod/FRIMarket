@@ -1,5 +1,7 @@
+import { BtnAddCart } from "../index.js"
+
 export const ProductModal = ({content, handle}) => {
-  const {name,thumb,stock,description,price} = content
+  const {id,name,thumb,stock,description,price} = content
 
   return (
     <div className='fixed top-0 left-0 w-full h-full z-10 flex items-center justify-center bg-gray-900/25' onClick={() => handle(false)}>
@@ -28,17 +30,7 @@ export const ProductModal = ({content, handle}) => {
                   <i className={`fa-solid fa-${stock > 0 ? 'check' : 'circle-xmark'}`}></i>
                 </span>
               </p>
-              <div className="flex items-center gap-4">
-                <div className="w-max flex rounded-md overflow-hidden border border-gray-300">
-                  <button className='w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-600'><i className="fa-solid fa-minus"></i></button>
-                  <span className='w-8 h-8 flex items-center justify-center'>0</span>
-                  <button className='w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-600'><i className="fa-solid fa-plus"></i></button>
-                </div>
-                <button className="px-2 h-8 flex justify-center items-center gap-2 bg-blue-500 text-white rounded-md">
-                  <i className="fa-solid fa-cart-shopping"></i>
-                  <span className="text-sm">Agregar al carrito</span>
-                </button>
-              </div>
+              <BtnAddCart product={content} qty={1} />
             </div>
           </div>
         </div>
