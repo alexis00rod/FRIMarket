@@ -5,7 +5,7 @@ export const CartMenu = ({handle}) => {
   const {cartList,cartPriceTotal,cartQty, removeProductToCartList, emptyCart} = useCartContext()
 
   return (
-    <div className="fixed top-16 left-0 bottom-0 z-10 w-full flex justify-end bg-gray-900/25" onClick={() => handle(false)}>
+    <div className="fixed top-24 left-0 bottom-0 z-10 w-full flex justify-end bg-gray-900/25" onClick={() => handle(false)}>
       <div className="w-full max-w-md h-full flex flex-col bg-white border-l border-gray-500 overflow-y-scroll" onClick={e => e.stopPropagation()}>
         {cartList.length === 0
         ? <p className="px-3 py-3 flex justify-center">Tu carrito esta vacio</p>

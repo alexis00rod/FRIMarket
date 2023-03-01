@@ -22,7 +22,7 @@ export const ProductModal = ({content, handle}) => {
               <h3 className='text-lg font-medium'>{name}</h3>
             </div>
             <div className="py-2 flex flex-col gap-2">
-              <p className='text-sm text-gray-400'>{description}</p>
+              <p className='text-sm text-gray-400 line-clamp-6'>{description}</p>
               <h4 className='text-xl font-medium text-yellow-500'>${price}</h4>
               <p className='flex items-center gap-2'>Disponibilidad: 
                 <span className={`flex items-center gap-2 ${stock > 0 ? 'text-green-500' : 'text-red-500'}`}>

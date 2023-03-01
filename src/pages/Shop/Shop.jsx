@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react"
-import { NavLink, useParams } from "react-router-dom"
-import { Accordion, ProductCard, ProductsLayout } from "../../components"
+import { Link, NavLink, useParams } from "react-router-dom"
+import { Accordion, ProductsLayout } from "../../components"
 import { getCategories, getProducts } from "../../services/firestore"
 
 const SidebarLink = ({children,...props}) => {
   return (
     <NavLink {...props}
-      className={({isActive}) => `w-full flex items-center justify-between gap-2 ${isActive && "text-yellow-500"}`}
+      className={({isActive}) => `w-full flex items-center justify-between gap-2 hover:text-yellow-500 ${isActive && "text-yellow-500"}`}
       >
       {children}
     </NavLink>
@@ -19,7 +19,6 @@ export const Shop = () => {
   const [categories, setCategories] = useState(false)
   const [filters, setFilters] = useState({
     brand: 'all',
-    sort: 'lowPrice',
     minPrice: 0,
     maxPrice: 99999,
   })
@@ -59,12 +58,6 @@ export const Shop = () => {
     })
   }
 
-  const handleSort = ({target: {value}}) => {
-    setFilters({
-      ...filters,
-      sort: value
-    })
-  }
 
   const handleBrand = ({target: {value}}) => {
     setFilters({
@@ -76,9 +69,10 @@ export const Shop = () => {
   return (
     <div className="grow flex gap-2">
       <aside className="w-full max-w-xs h-max px-2 py-2 flex flex-col flex-none bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
+        {/* <SidebarLink to='/shop/all'>Ver todos los productos</SidebarLink> */}
+        <Link to='/shop/all' className="px-2 py-2 font-medium hover:text-yellow-500">Todos los productos</Link>
         {/* Categorias */}
         <Accordion title="Categorias">
-          <SidebarLink to='/shop/all'>Todas las categorias</SidebarLink>
           {categories && categories.map(category => (
             <SidebarLink 
             key={category.id} 
@@ -137,14 +131,16 @@ export const Shop = () => {
           <div className="px-2 grow">
             {products && <span>Mostrando {products.length} resultados</span>}
           </div>
-          <div className="px-2 py-2 flex gap-2">
+          {/* <div className="px-2 py-2 flex gap-2">
             <label htmlFor="sort">Ordenar por:</label>
-            <select id='sort' onChange={handleSort}>
-              {/* <option value="timestamp">Fecha de publicacion</option> */}
+            <select id='sort' onChange={handleSort} defaultValue='timestamp'>
+              <option value="timestamp">Fecha de publicacion</option>
+              <option value="a-z">A-Z</option>
+              <option value="z-a">Z-A</option>
               <option value="lowPrice">Menor precio</option>
               <option value="highPrice">Mayor precio</option>
             </select>
-          </div>
+          </div> */}
           <div className="px-1 py-1 flex">
             <button 
             className={`w-8 h-8 flex items-center justify-center ${productsLayout === 'grid' ? 'text-blue-500' : 'text-gray-500'}`}
