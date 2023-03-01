@@ -1,4 +1,3 @@
-import { connectFirestoreEmulator } from 'firebase/firestore'
 import {useState, createContext, useContext} from 'react'
 
 const CartContext = createContext()

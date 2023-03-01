@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext/CartContext'
 
@@ -40,7 +39,7 @@ export const CartProduct = ({product}) => {
             <button 
             className='w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-600 disabled:bg-gray-100 disabled:text-gray-400'
             onClick={() => addProduct(product)}
-            disabled={qty === stock}
+            disabled={qty >= stock}
             >
               <i className="fa-solid fa-plus"></i>
           </button>
