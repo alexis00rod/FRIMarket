@@ -1,19 +1,13 @@
 import { useState, useEffect } from "react"
-import { Loader } from "../../components"
+import { PostBrand } from "../../components"
 import { getCategories } from "../../services/firestore"
 
 export const Post = () => {
   const [categories, setCategories] = useState([])
   const [productToPost, setProductToPost] = useState({})
-  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    getCategories()
-      .then(resp => setCategories(resp.docs.map(element => ({
-        id: element.id,
-        ...element.data()
-      }))))
-      .finally(() => setLoading(true))
+    getCategories(setCategories)
   },[])
 
   const handleCategory = ({target: {name,id}}) => {
@@ -23,7 +17,7 @@ export const Post = () => {
     })
   }
 
-  if(!loading) return <Loader />
+  const category = categories.find(e => e.idCategory === productToPost.category)
 
   return (
     <div className="w-full max-w-screen-md mx-auto flex flex-col">
@@ -47,20 +41,29 @@ export const Post = () => {
         </div>
       : <div className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
           <div className="px-3 py-3 flex items-center gap-2">
-            <h2 className="text-xl font-semibold capitalize">
-              {categories.find(e => e.idCategory === productToPost.category).name}
-            </h2>
+            <h2 className="text-xl font-semibold capitalize">{category.name}</h2>
             <button onClick={() => setProductToPost({})} className='px-2 text-sm text-yellow-500 font-medium hover:underline'>Cambiar categoria</button>
           </div>
           <form className="w-full py-2 flex flex-col gap-2 divide-y divide-gray-300">
-            <div>
+            <div className="debug mb-2">
+              {/* Post Name */}
               <div className="px-2 py-2 flex flex-col">
-                <label htmlFor="name" className="px-1 text-sm font-medium">Nombre:</label>
-                <input type="text" name="name" id="name" className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none" />
+                <label htmlFor='name' className="px-1 text-sm font-medium">Nombre</label>
+                <input 
+                type="text"
+                name='name'
+                id='name'
+                className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none" 
+                />
               </div>
+              {/* Post Description */}
               <div className="px-2 py-2 flex flex-col">
-                <label htmlFor="description" className="px-1 text-sm font-medium">Descripcion:</label>
-                <textarea name="description" id="description" className="w-full max-w-xs h-24 px-2 py-2 border border-gray-300 rounded-md outline-none resize-none" ></textarea>
+                <label htmlFor='description' className="px-1 text-sm font-medium">Descripcion</label>
+                <textarea 
+                name='description' 
+                id='description' 
+                className="w-full max-w-xs h-24 px-2 py-2 border border-gray-300 rounded-md outline-none resize-none" 
+                ></textarea>
               </div>
             </div>
             <div>
@@ -73,10 +76,11 @@ export const Post = () => {
                 <input type="number" name="stock" id="stock" className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none" />
               </div>
             </div>
+            {/* Post Thumb */}
             <div className="px-2 py-2 flex flex-col">
-              <span className="px-1 text-sm font-medium">Foto:</span>
-              <input type="file" name="thumb" id="thumb" className="hidden" />
-              <label htmlFor="thumb" className="w-20 h-20 flex items-center justify-center border border-gray-300 rounded-md cursor-pointer">
+              <span className="px-1 text-sm font-medium">Foto</span>
+              <input type="file" name='thumb' id='thumb' className="hidden" />
+              <label htmlFor='thumb' className="w-20 h-20 flex items-center justify-center border border-gray-300 rounded-md cursor-pointer">
                 <i className="fa-solid fa-camera"></i>
               </label>
             </div>
@@ -84,19 +88,17 @@ export const Post = () => {
               <div className="px-2 py-2 flex flex-col">
                 <label htmlFor="type" className="px-1 text-sm font-medium">Tipo:</label>
                 <select name="type" id="type" className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none">
-                {categories.find(e => e.idCategory === productToPost.category).types.map(e => (
+                {category.types.map(e => (
                   <option key={e.id} value={e.id}>{e.name}</option>
                 ))}
                 </select>
               </div>
-              <div className="px-2 py-2 flex flex-col">
-                <label htmlFor="brand" className="px-1 text-sm font-medium">Marca:</label>
-                <select name="brand" id="brand" className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none">
-                {categories.find(e => e.idCategory === productToPost.category).brands.map(e => (
-                  <option key={e} value={e} className='capitalize'>{e}</option>
-                ))}
-                </select>
-              </div>
+              {/* Post Brand */}
+              <PostBrand 
+              selected={productToPost.brand}
+              category={category}
+              onChange={({target:{id}}) => setProductToPost({...productToPost,brand:id})}
+              />
             </div>
             <div className="px-2 py-2 flex flex-col">
               <label htmlFor="location" className="px-1 text-sm font-medium">Ubicacion:</label>

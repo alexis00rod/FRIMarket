@@ -6,6 +6,7 @@ import { CartProduct } from "./CartProduct/CartProduct";
 import { Footer } from "./Footer/Footer";
 import { Loader } from "./Loader/Loader";
 import { Navbar } from "./Navbar/Navbar";
+import { PostBrand } from "./PostBrand/PostBrand";
 import { ProductCard } from "./ProductCard/ProductCard";
 import { ProductModal } from "./ProductModal/ProductModal";
 import { ProductsLayout } from "./ProductsLayout/ProductsLayout";
@@ -18,5 +19,7 @@ export {
   // Cart
   CartMenu,
   CartProduct,
+  // Post
+  PostBrand,
   // Buttons
   BtnAddCart}
