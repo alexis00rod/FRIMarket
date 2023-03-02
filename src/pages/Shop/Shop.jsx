@@ -25,11 +25,7 @@ export const Shop = () => {
   const [productsLayout, setProductsLayout] = useState('grid')
 
   useEffect(() => {
-    getCategories()
-      .then(resp => setCategories(resp.docs.map(element => ({
-        id: element.id,
-        ...element.data()
-      }))))
+    getCategories(setCategories)
   },[])
 
   useEffect(() => {
