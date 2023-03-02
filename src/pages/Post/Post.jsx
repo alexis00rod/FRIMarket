@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { PostBrand, PostType, PostThumb } from "../../components"
+import { PostBrand, PostType, PostThumb, PostCategory } from "../../components"
 import { getCategories } from "../../services/firestore"
 import { uploadThumb } from "../../services/storage"
 
@@ -31,18 +31,7 @@ export const Post = () => {
       ? <div className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
           <h2 className="px-3 py-3 text-xl font-semibold">Elegir categoria</h2>
           <div className="px-2 py-4 grid grid-cols-3 gap-4">
-            {categories.map(e => (
-              <div key={e.id}>
-                <input type="radio" name="category" id={e.idCategory} onChange={handleCategory} className='hidden' />
-                <label 
-                htmlFor={e.idCategory}
-                className='w-full h-36 px-2 py-2 flex flex-col justify-center items-center bg-yellow-500 text-white rounded-md cursor-pointer'
-                >
-                  <i className={`w-full h-2/3 flex items-center justify-center flex-none text-4xl fa-solid fa-${e.icon}`}></i>
-                  <span className="grow font-medium text-center">{e.name}</span>
-                </label>
-              </div>
-            ))}
+            {categories.map(e => <PostCategory key={e.id} category={e} onChange={handleCategory} />)}
           </div>
         </div>
       : <div className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">

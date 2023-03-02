@@ -12,6 +12,7 @@ import { ProductCard } from "./ProductCard/ProductCard";
 import { ProductModal } from "./ProductModal/ProductModal";
 import { ProductsLayout } from "./ProductsLayout/ProductsLayout";
 import { PostThumb } from "./PostThumb/PostThumb";
+import { PostCategory } from "./PostCategory/PostCategory";
 
 export {
   // Main
@@ -22,8 +23,9 @@ export {
   CartMenu,
   CartProduct,
   // Post
+  PostCategory,
   PostType,
   PostBrand,
   PostThumb,
-  // Buttons
+  // ButtonPostCategorys
   BtnAddCart}
