@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
-import { PostBrand, PostType, PostThumb, PostCategory, PostName, PostDescription, PostPrice } from "../../components"
 import { getCategories } from "../../services/firestore"
 import { uploadThumb } from "../../services/storage"
+import { PostBrand, PostType, PostThumb, PostCategory, PostName, PostDescription, PostPrice, PostStock } from "../../components"
 
 export const Post = () => {
   const [categories, setCategories] = useState([])
@@ -50,10 +50,7 @@ export const Post = () => {
               {/* Post Price */}
               <PostPrice onChange={({target:{value}}) => setProductToPost({...productToPost,price:value})} />
               {/* Post Stock */}
-              <div className="px-2 py-2 flex flex-col">
-                <label htmlFor="stock" className="px-1 text-sm font-medium">Cantidad:</label>
-                <input type="number" name="stock" id="stock" className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none" />
-              </div>
+              <PostStock onChange={({target:{value}}) => setProductToPost({...productToPost,stock:value})} />
             </div>
             {/* Post Thumb */}
             <PostThumb

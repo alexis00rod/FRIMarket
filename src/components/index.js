@@ -16,12 +16,15 @@ import { PostCategory } from "./PostCategory/PostCategory";
 import { PostName } from "./PostName/PostName";
 import { PostDescription } from "./PostDescription/PostDescription";
 import { PostPrice } from "./PostPrice/PostPrice";
+import { PostStock } from "./PostStock/PostStock";
 
 export {
   // Main
   App,Navbar,Footer,Accordion,Loader,
   // Product
-  ProductCard,ProductModal,ProductsLayout,
+  ProductsLayout,
+  ProductCard,
+  ProductModal,
   // Cart
   CartMenu,
   CartProduct,
@@ -30,6 +33,7 @@ export {
   PostName,
   PostDescription,
   PostPrice,
+  PostStock,
   PostThumb,
   PostType,
   PostBrand,
