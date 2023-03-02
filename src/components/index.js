@@ -7,6 +7,7 @@ import { Footer } from "./Footer/Footer";
 import { Loader } from "./Loader/Loader";
 import { Navbar } from "./Navbar/Navbar";
 import { PostBrand } from "./PostBrand/PostBrand";
+import { PostType } from "./PostType/PostType";
 import { ProductCard } from "./ProductCard/ProductCard";
 import { ProductModal } from "./ProductModal/ProductModal";
 import { ProductsLayout } from "./ProductsLayout/ProductsLayout";
@@ -20,6 +21,7 @@ export {
   CartMenu,
   CartProduct,
   // Post
+  PostType,
   PostBrand,
   // Buttons
   BtnAddCart}

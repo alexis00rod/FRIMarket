@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { PostBrand } from "../../components"
+import { PostBrand, PostType } from "../../components"
 import { getCategories } from "../../services/firestore"
 
 export const Post = () => {
@@ -85,20 +85,18 @@ export const Post = () => {
               </label>
             </div>
             <div>
-              <div className="px-2 py-2 flex flex-col">
-                <label htmlFor="type" className="px-1 text-sm font-medium">Tipo:</label>
-                <select name="type" id="type" className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none">
-                {category.types.map(e => (
-                  <option key={e.id} value={e.id}>{e.name}</option>
-                ))}
-                </select>
-              </div>
-              {/* Post Brand */}
-              <PostBrand 
-              selected={productToPost.brand}
-              category={category}
-              onChange={({target:{id}}) => setProductToPost({...productToPost,brand:id})}
-              />
+            {/* Post Type */}
+            <PostType 
+            selected={productToPost.type} 
+            category={category}
+            onChange={({target:{id}}) => setProductToPost({...productToPost,type:id})}
+            />
+            {/* Post Brand */}
+            <PostBrand 
+            selected={productToPost.brand}
+            category={category}
+            onChange={({target:{id}}) => setProductToPost({...productToPost,brand:id})}
+            />
             </div>
             <div className="px-2 py-2 flex flex-col">
               <label htmlFor="location" className="px-1 text-sm font-medium">Ubicacion:</label>
