@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
-import { getCategories } from "../../services/firestore"
+import { addProduct, getCategories } from "../../services/firestore"
 import { uploadThumb } from "../../services/storage"
 import { PostBrand, PostType, PostThumb, PostCategory, PostName, PostDescription, PostPrice, PostStock } from "../../components"
+import { serverTimestamp } from "firebase/firestore"
 
 export const Post = () => {
   const [categories, setCategories] = useState([])
@@ -23,6 +24,16 @@ export const Post = () => {
     .then(resp => setProductToPost({...productToPost,thumb:resp}))
   }
 
+  const postProduct = e => {
+    e.preventDefault()
+    addProduct({
+      ...productToPost,
+      timestamp: serverTimestamp(),
+      idProduct:productToPost.name.toLowerCase().replace(' ','-'),
+      idUser: 'rodalrd'
+    })
+  }
+
   const category = categories.find(e => e.idCategory === productToPost.category)
 
   return (
@@ -39,7 +50,7 @@ export const Post = () => {
             <h2 className="text-xl font-semibold capitalize">{category.name}</h2>
             <button onClick={() => setProductToPost({})} className='px-2 text-sm text-yellow-500 font-medium hover:underline'>Cambiar categoria</button>
           </div>
-          <form className="w-full py-2 flex flex-col gap-2 divide-y divide-gray-300">
+          <form className="w-full py-2 flex flex-col gap-2 divide-y divide-gray-300" onSubmit={postProduct}>
             <div className="mb-2">
               {/* Post Name */}
               <PostName onChange={({target:{value}}) => setProductToPost({...productToPost,name:value})} />
@@ -48,9 +59,9 @@ export const Post = () => {
             </div>
             <div className="mb-2">
               {/* Post Price */}
-              <PostPrice onChange={({target:{value}}) => setProductToPost({...productToPost,price:value})} />
+              <PostPrice onChange={({target:{value}}) => setProductToPost({...productToPost,price:parseFloat(value)})} />
               {/* Post Stock */}
-              <PostStock onChange={({target:{value}}) => setProductToPost({...productToPost,stock:value})} />
+              <PostStock onChange={({target:{value}}) => setProductToPost({...productToPost,stock:parseFloat(value)})} />
             </div>
             {/* Post Thumb */}
             <PostThumb
