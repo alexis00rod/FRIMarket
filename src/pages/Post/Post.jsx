@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
-import { PostBrand, PostType } from "../../components"
+import { PostBrand, PostType, PostThumb } from "../../components"
 import { getCategories } from "../../services/firestore"
+import { uploadThumb } from "../../services/storage"
 
 export const Post = () => {
   const [categories, setCategories] = useState([])
@@ -15,6 +16,11 @@ export const Post = () => {
       ...productToPost,
       [name]: id
     })
+  }
+
+  const handleThumb = ({target: {files}}) => {
+    uploadThumb(files[0])
+    .then(resp => setProductToPost({...productToPost,thumb:resp}))
   }
 
   const category = categories.find(e => e.idCategory === productToPost.category)
@@ -45,7 +51,7 @@ export const Post = () => {
             <button onClick={() => setProductToPost({})} className='px-2 text-sm text-yellow-500 font-medium hover:underline'>Cambiar categoria</button>
           </div>
           <form className="w-full py-2 flex flex-col gap-2 divide-y divide-gray-300">
-            <div className="debug mb-2">
+            <div className="mb-2">
               {/* Post Name */}
               <div className="px-2 py-2 flex flex-col">
                 <label htmlFor='name' className="px-1 text-sm font-medium">Nombre</label>
@@ -66,37 +72,36 @@ export const Post = () => {
                 ></textarea>
               </div>
             </div>
-            <div>
+            <div className="mb-2">
+              {/* Post Price */}
               <div className="px-2 py-2 flex flex-col">
                 <label htmlFor="price" className="px-1 text-sm font-medium">Precio:</label>
                 <input type="text" name="price" id="price" className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none" />
               </div>
+              {/* Post Stock */}
               <div className="px-2 py-2 flex flex-col">
                 <label htmlFor="stock" className="px-1 text-sm font-medium">Cantidad:</label>
                 <input type="number" name="stock" id="stock" className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none" />
               </div>
             </div>
             {/* Post Thumb */}
-            <div className="px-2 py-2 flex flex-col">
-              <span className="px-1 text-sm font-medium">Foto</span>
-              <input type="file" name='thumb' id='thumb' className="hidden" />
-              <label htmlFor='thumb' className="w-20 h-20 flex items-center justify-center border border-gray-300 rounded-md cursor-pointer">
-                <i className="fa-solid fa-camera"></i>
-              </label>
-            </div>
-            <div>
-            {/* Post Type */}
-            <PostType 
-            selected={productToPost.type} 
-            category={category}
-            onChange={({target:{id}}) => setProductToPost({...productToPost,type:id})}
+            <PostThumb
+            selected={productToPost.thumb}
+            onChange={handleThumb}
             />
-            {/* Post Brand */}
-            <PostBrand 
-            selected={productToPost.brand}
-            category={category}
-            onChange={({target:{id}}) => setProductToPost({...productToPost,brand:id})}
-            />
+            <div className="mb-2">
+              {/* Post Type */}
+              <PostType 
+              selected={productToPost.type} 
+              category={category}
+              onChange={({target:{id}}) => setProductToPost({...productToPost,type:id})}
+              />
+              {/* Post Brand */}
+              <PostBrand 
+              selected={productToPost.brand}
+              category={category}
+              onChange={({target:{id}}) => setProductToPost({...productToPost,brand:id})}
+              />
             </div>
             <div className="px-2 py-2 flex flex-col">
               <label htmlFor="location" className="px-1 text-sm font-medium">Ubicacion:</label>

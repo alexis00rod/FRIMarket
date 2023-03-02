@@ -11,6 +11,7 @@ import { PostType } from "./PostType/PostType";
 import { ProductCard } from "./ProductCard/ProductCard";
 import { ProductModal } from "./ProductModal/ProductModal";
 import { ProductsLayout } from "./ProductsLayout/ProductsLayout";
+import { PostThumb } from "./PostThumb/PostThumb";
 
 export {
   // Main
@@ -23,5 +24,6 @@ export {
   // Post
   PostType,
   PostBrand,
+  PostThumb,
   // Buttons
   BtnAddCart}
