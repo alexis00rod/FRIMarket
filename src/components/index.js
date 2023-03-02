@@ -13,6 +13,7 @@ import { ProductModal } from "./ProductModal/ProductModal";
 import { ProductsLayout } from "./ProductsLayout/ProductsLayout";
 import { PostThumb } from "./PostThumb/PostThumb";
 import { PostCategory } from "./PostCategory/PostCategory";
+import { PostName } from "./PostName/PostName";
 
 export {
   // Main
@@ -24,6 +25,7 @@ export {
   CartProduct,
   // Post
   PostCategory,
+  PostName,
   PostType,
   PostBrand,
   PostThumb,

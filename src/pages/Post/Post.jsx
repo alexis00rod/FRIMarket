@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { PostBrand, PostType, PostThumb, PostCategory } from "../../components"
+import { PostBrand, PostType, PostThumb, PostCategory, PostName } from "../../components"
 import { getCategories } from "../../services/firestore"
 import { uploadThumb } from "../../services/storage"
 
@@ -42,15 +42,7 @@ export const Post = () => {
           <form className="w-full py-2 flex flex-col gap-2 divide-y divide-gray-300">
             <div className="mb-2">
               {/* Post Name */}
-              <div className="px-2 py-2 flex flex-col">
-                <label htmlFor='name' className="px-1 text-sm font-medium">Nombre</label>
-                <input 
-                type="text"
-                name='name'
-                id='name'
-                className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none" 
-                />
-              </div>
+              <PostName onChange={({target:{value}}) => setProductToPost({...productToPost,name:value})} />
               {/* Post Description */}
               <div className="px-2 py-2 flex flex-col">
                 <label htmlFor='description' className="px-1 text-sm font-medium">Descripcion</label>
@@ -92,14 +84,14 @@ export const Post = () => {
               onChange={({target:{id}}) => setProductToPost({...productToPost,brand:id})}
               />
             </div>
-            <div className="px-2 py-2 flex flex-col">
+            {/* <div className="px-2 py-2 flex flex-col">
               <label htmlFor="location" className="px-1 text-sm font-medium">Ubicacion:</label>
               <select name="location" id="location" className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none">
                 <option value="">Tipo 1</option>
                 <option value="">Tipo 2</option>
                 <option value="">Tipo 3</option>
               </select>
-            </div>
+            </div> */}
             <button className="w-full max-w-btn h-8 px-2 ml-2 flex items-center justify-center gap-2 bg-green-500 text-white rounded-md">
               <i className="fa-solid fa-check"></i>
               <span className="text-sm">Vender producto</span>
