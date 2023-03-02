@@ -16,7 +16,7 @@ export const ProductCard = ({content, style}) => {
         </Link>
         <div className="px-1 w-full flex flex-col">
           <h3 className={`w-full px-1 pt-1 pb-2 flex ${style === 'grid' && 'justify-center'} text-lg font-medium border-b border-gray-300`}>
-            <Link to={`/product/${id}`} className='w-max'>{name}</Link>
+            <Link to={`/product/${id}`} className='w-max line-clamp-1'>{name}</Link>
           </h3>
           <div className={`px-1 py-2 ${style === 'grid' ? 'flex-row items-center' : 'flex-col'} border-b border-gray-300`}>
             <h4 className={`${style === 'list' && 'mb-3'} grow text-xl text-yellow-500 font-medium`}>${price}</h4>

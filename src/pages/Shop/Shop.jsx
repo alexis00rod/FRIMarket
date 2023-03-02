@@ -20,7 +20,7 @@ export const Shop = () => {
   const [filters, setFilters] = useState({
     brand: 'all',
     minPrice: 0,
-    maxPrice: 99999,
+    maxPrice: 9999999999,
   })
   const [productsLayout, setProductsLayout] = useState('grid')
 
@@ -74,7 +74,6 @@ export const Shop = () => {
             key={category.id} 
             to={`/shop/${category.idCategory}`}>
               {category.name}
-              <span className="text-sm text-gray-500">({category.products})</span>
             </SidebarLink>
           ))}
         </Accordion>

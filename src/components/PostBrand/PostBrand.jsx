@@ -30,7 +30,7 @@ export const PostBrand = ({selected,category, ...props}) => {
         </button>
         {dropDown &&
         <ul 
-        className='absolute top-full left-0 w-full h-max flex flex-col bg-white border-x border-b border-gray-300 rounded-b-md shadow-md overflow-hidden'>
+        className='absolute top-full left-0 z-10 w-full h-max flex flex-col bg-white border-x border-b border-gray-300 rounded-b-md shadow-md overflow-hidden'>
           {category.brands.map(e => (
             <li key={e} className='w-full h-8' >
               <input type="radio" name="brand" id={e} className='hidden' {...props} />
