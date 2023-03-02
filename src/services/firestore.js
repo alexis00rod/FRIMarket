@@ -1,5 +1,5 @@
 import { app } from "./firebase";
-import { collection, doc, getDoc, getDocs, getFirestore, onSnapshot, orderBy, query, updateDoc, where } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, getDocs, getFirestore, onSnapshot, orderBy, query, updateDoc, where } from 'firebase/firestore'
 
 const db = getFirestore(app)
 
@@ -45,3 +45,6 @@ export const addBrand = async (category,brand) => {
     brands: [...brands,newBrand]
   })
 }
+
+// Funcion para agregar producto
+export const addProduct = async (product) => await addDoc(productsRef, product)
