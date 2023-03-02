@@ -15,6 +15,7 @@ import { PostThumb } from "./PostThumb/PostThumb";
 import { PostCategory } from "./PostCategory/PostCategory";
 import { PostName } from "./PostName/PostName";
 import { PostDescription } from "./PostDescription/PostDescription";
+import { PostPrice } from "./PostPrice/PostPrice";
 
 export {
   // Main
@@ -28,8 +29,9 @@ export {
   PostCategory,
   PostName,
   PostDescription,
+  PostPrice,
+  PostThumb,
   PostType,
   PostBrand,
-  PostThumb,
   // ButtonPostCategorys
   BtnAddCart}
