@@ -14,6 +14,7 @@ import { ProductsLayout } from "./ProductsLayout/ProductsLayout";
 import { PostThumb } from "./PostThumb/PostThumb";
 import { PostCategory } from "./PostCategory/PostCategory";
 import { PostName } from "./PostName/PostName";
+import { PostDescription } from "./PostDescription/PostDescription";
 
 export {
   // Main
@@ -26,6 +27,7 @@ export {
   // Post
   PostCategory,
   PostName,
+  PostDescription,
   PostType,
   PostBrand,
   PostThumb,

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { PostBrand, PostType, PostThumb, PostCategory, PostName } from "../../components"
+import { PostBrand, PostType, PostThumb, PostCategory, PostName, PostDescription } from "../../components"
 import { getCategories } from "../../services/firestore"
 import { uploadThumb } from "../../services/storage"
 
@@ -44,14 +44,7 @@ export const Post = () => {
               {/* Post Name */}
               <PostName onChange={({target:{value}}) => setProductToPost({...productToPost,name:value})} />
               {/* Post Description */}
-              <div className="px-2 py-2 flex flex-col">
-                <label htmlFor='description' className="px-1 text-sm font-medium">Descripcion</label>
-                <textarea 
-                name='description' 
-                id='description' 
-                className="w-full max-w-xs h-24 px-2 py-2 border border-gray-300 rounded-md outline-none resize-none" 
-                ></textarea>
-              </div>
+              <PostDescription onChange={({target:{value}}) => setProductToPost({...productToPost,description:value})} />
             </div>
             <div className="mb-2">
               {/* Post Price */}
