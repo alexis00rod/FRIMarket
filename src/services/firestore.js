@@ -21,13 +21,37 @@ export const getCategories = (obs) => {
 
 // Funcion para obtener productos
 export const getProducts = async (category,filters) => {
-  const {brand, minPrice, maxPrice} = filters
+  const {type, brand, minPrice, maxPrice} = filters
 
-  const q = category === 'all' 
-    ? query(productsRef,where('price','>=',minPrice),where('price','<=',maxPrice))
-    : brand === 'all'
-      ? query(productsRef,where('category','==',category),where('price','>=',minPrice),where('price','<=',maxPrice))
-      : query(productsRef,where('category','==',category),where('brand','==',brand),where('price','>=',minPrice),where('price','<=',maxPrice))
+  const q = category === 'all'
+  // Si categoria es igual a todos muestro todos los productos
+    ? query(productsRef,
+        where('price','>=',minPrice),
+        where('price','<=',maxPrice))
+    : type === 'allTypes' && brand === 'allBrands'
+    // Si categoria distinto de todos muestro los productos de la categoria elegida
+      ? query(productsRef,
+          where('category','==',category),
+          where('price','>=',minPrice),
+          where('price','<=',maxPrice))
+      : type === 'allTypes' && brand !== 'allBrands'
+        ? query(productsRef,
+            where('category','==',category),
+            where('brand','==',brand),
+            where('price','>=',minPrice),
+            where('price','<=',maxPrice))
+        : type !== 'allTypes' && brand === 'allBrands'
+          ? query(productsRef,
+              where('category','==',category),
+              where('type','==',type),
+              where('price','>=',minPrice),
+              where('price','<=',maxPrice))
+          : query(productsRef,
+              where('category','==',category),
+              where('type','==',type),
+              where('brand','==',brand),
+              where('price','>=',minPrice),
+              where('price','<=',maxPrice))
 
   return await getDocs(q)
 }
