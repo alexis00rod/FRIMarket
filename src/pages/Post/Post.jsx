@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import { addProduct, getCategories } from "../../services/firestore"
 import { uploadThumb } from "../../services/storage"
 import { PostBrand, PostType, PostThumb, PostCategory, PostName, PostDescription, PostPrice, PostStock } from "../../components"
@@ -7,6 +8,7 @@ import { serverTimestamp } from "firebase/firestore"
 export const Post = () => {
   const [categories, setCategories] = useState([])
   const [productToPost, setProductToPost] = useState({})
+  const navigate = useNavigate()
 
   useEffect(() => {
     getCategories(setCategories)
@@ -32,6 +34,7 @@ export const Post = () => {
       idProduct:productToPost.name.toLowerCase().replace(' ','-'),
       idUser: 'rodalrd'
     })
+    navigate('/shop/all')
   }
 
   const category = categories.find(e => e.idCategory === productToPost.category)
