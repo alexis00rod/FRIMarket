@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
-import { Cart, Home, Post, ProductDetail, Shop } from "../../pages/index.js"
+import { Cart, Home, Login, Post, ProductDetail, Shop } from "../../pages/index.js"
 import { Footer, Navbar } from "../index.js"
 
 export const App = () => {
@@ -21,6 +21,7 @@ export const App = () => {
             <Route path="/post" element={<Post />}></Route>
             <Route path="/product/:idProduct" element={<ProductDetail />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
+            <Route path="/login" element={<Login />}></Route>
           </Routes>
         </main>
       </div>
