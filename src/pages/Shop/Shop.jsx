@@ -18,7 +18,8 @@ export const Shop = () => {
   const [products, setProducts] = useState(false)
   const [categories, setCategories] = useState(false)
   const [filters, setFilters] = useState({
-    brand: 'all',
+    type: 'allTypes',
+    brand: 'allBrands',
     minPrice: 0,
     maxPrice: 9999999999,
   })
@@ -31,7 +32,8 @@ export const Shop = () => {
   useEffect(() => {
     setFilters({
       ...filters,
-      brand: 'all'
+      type: 'allTypes',
+      brand: 'allBrands'
     })
   },[idCategory])
 
@@ -46,7 +48,7 @@ export const Shop = () => {
   const handlePrice = ({target: {name,value}}) => {
     const price = name === 'minPrice'
       ? value === '' ? 0 : parseFloat(value)
-      : value === '' ? 99999 : parseFloat(value)
+      : value === '' ? 9999999999 : parseFloat(value)
 
     setFilters({
       ...filters,
@@ -54,18 +56,16 @@ export const Shop = () => {
     })
   }
 
-
-  const handleBrand = ({target: {value}}) => {
+  const handleFilter = ({target: {name,value}}) => {
     setFilters({
       ...filters,
-      brand:value
+      [name]: value
     })
   }
 
   return (
     <div className="grow flex gap-2">
       <aside className="w-full max-w-xs h-max px-2 py-2 flex flex-col flex-none bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
-        {/* <SidebarLink to='/shop/all'>Ver todos los productos</SidebarLink> */}
         <Link to='/shop/all' className="px-2 py-2 font-medium hover:text-yellow-500">Todos los productos</Link>
         {/* Categorias */}
         <Accordion title="Categorias">
@@ -77,27 +77,36 @@ export const Shop = () => {
             </SidebarLink>
           ))}
         </Accordion>
+        {/* Tipo */}
         {categories && idCategory !== 'all' &&
-          // Marcas
-          <Accordion title="Marcas">
+          <Accordion title='Tipo'>
             <div className="px-1 py-1">
-              <input type="radio" name="brand" id="all" onChange={handleBrand} defaultValue='all' checked={filters.brand === 'all'} />
-              <label htmlFor="all" className="px-1">Todas las marcas</label>
+              <input type="radio" name="type" id="allTypes" defaultValue='allTypes' onChange={handleFilter} checked={filters.type === 'allTypes'} />
+              <label htmlFor="allTypes" className="px-1">Todos los tipos</label>
             </div>
-              {categories.find(category => category.idCategory === idCategory).brands.map(brand => (
-                <div key={brand} className="px-1 py-1">
-                  <input type="radio" name="brand" id={brand} onChange={handleBrand} defaultValue={brand} checked={filters.brand === brand}/>
-                  <label htmlFor={brand} className='px-1 capitalize'>{brand}</label>
-                </div>
-              ))}
+            {categories.find(category => category.idCategory === idCategory).types.map(type => (
+              <div key={type} className="px-1 py-1">
+                <input type="radio" name="type" id={type} onChange={handleFilter} defaultValue={type} checked={filters.type === type} />
+                <label htmlFor={type} className='px-1'>{type}</label>
+              </div>
+            ))}
           </Accordion>
         }
-        {/* Ubicacion */}
-        {/* <Accordion title="Ubicacion">
-          {['Buenos Aires','Formosa'].map((e,i) => (
-            <span key={i}>{e}</span>
-          ))}
-        </Accordion> */}
+        {/* Marcas */}
+        {categories && idCategory !== 'all' &&
+          <Accordion title="Marcas">
+            <div className="px-1 py-1">
+              <input type="radio" name="brand" id="allBrands" defaultValue='allBrands' onChange={handleFilter} checked={filters.brand === 'allBrands'} />
+              <label htmlFor="allBrands" className="px-1">Todas las marcas</label>
+            </div>
+            {categories.find(category => category.idCategory === idCategory).brands.map(brand => (
+              <div key={brand} className="px-1 py-1">
+                <input type="radio" name="brand" id={brand} onChange={handleFilter} defaultValue={brand} checked={filters.brand === brand} />
+                <label htmlFor={brand} className='px-1 capitalize'>{brand}</label>
+              </div>
+            ))}
+          </Accordion>
+        }
         {/* Precio */}
         <Accordion title='Precio'>
           <div className="flex flex-col gap-2">
