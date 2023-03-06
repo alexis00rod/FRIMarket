@@ -4,11 +4,13 @@ import { addProduct, getCategories } from "../../services/firestore"
 import { uploadThumb } from "../../services/storage"
 import { PostBrand, PostType, PostThumb, PostCategory, PostName, PostDescription, PostPrice, PostStock } from "../../components"
 import { serverTimestamp } from "firebase/firestore"
+import { useAuthContext } from "../../context/AuthContext/AuthContext"
 
 export const Post = () => {
   const [categories, setCategories] = useState([])
   const [productToPost, setProductToPost] = useState({})
   const navigate = useNavigate()
+  const {userLogged} = useAuthContext()
 
   useEffect(() => {
     getCategories(setCategories)
@@ -32,7 +34,7 @@ export const Post = () => {
       ...productToPost,
       timestamp: serverTimestamp(),
       idProduct:productToPost.name.toLowerCase().replace(' ','-'),
-      idUser: 'rodalrd'
+      idUser: userLogged.email
     })
     navigate('/shop/all')
   }

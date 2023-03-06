@@ -6,11 +6,11 @@ export const CartMenu = ({handle}) => {
 
   return (
     <div className="fixed top-24 left-0 bottom-0 z-10 w-full flex justify-end bg-gray-900/25" onClick={() => handle(false)}>
-      <div className="w-full max-w-md h-full flex flex-col bg-white border-l border-gray-500 overflow-y-scroll" onClick={e => e.stopPropagation()}>
+      <div className="w-full max-w-md h-full flex flex-col bg-white border-l border-gray-500" onClick={e => e.stopPropagation()}>
         {cartList.length === 0
         ? <p className="px-3 py-3 flex justify-center">Tu carrito esta vacio</p>
-        : <>
-            <ul className="flex flex-col divide-y divide-gray-300">
+        : <div className="debug h-full flex flex-col">
+            <ul className="flex flex-col grow divide-y divide-gray-300 overflow-y-scroll">
               {cartList.map(e => (
                 <li key={e.id} className='px-3 py-3 w-full flex gap-2'>
                   <figure className="w-20 h-20 px-1 py-1 flex items-center justify-center border border-gray-300 rounded-md">
@@ -39,9 +39,9 @@ export const CartMenu = ({handle}) => {
                 <span className="text-yellow-500">${cartPriceTotal}</span>
                 <span className="text-sm">x {cartQty} productos</span>
               </div>
-              <div className="w-max flex gap-2">
+              <div className="w-full flex flex-col items-center gap-2">
                 <button
-                className="h-8 px-2 flex items-center gap-2 bg-red-500 text-white rounded-md"
+                className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-red-500 text-white rounded-md"
                 onClick={() => emptyCart()}
                 >
                   <i className="fa-solid fa-trash"></i>
@@ -49,20 +49,20 @@ export const CartMenu = ({handle}) => {
                 </button>
                 <Link 
                 to='/cart' 
-                className="h-8 px-2 flex items-center gap-2 bg-blue-500 text-white rounded-md" 
+                className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-blue-500 text-white rounded-md" 
                 title="Ver carrito"
                 onClick={() => handle(false)}
                 >
                   <i className="fa-solid fa-cart-shopping"></i>
                   <span className="text-sm">Ver carrito</span>
                 </Link>
-                <button className="h-8 px-2 flex items-center gap-2 bg-green-500 text-white rounded-md" title="Ir a pagar">
+                <button className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-green-500 text-white rounded-md" title="Ir a pagar">
                   <i className="fa-solid fa-check"></i>
                   <span className="text-sm">Ir a pagar</span>
                 </button>
               </div>
             </div>
-          </>
+          </div>
         }
       </div>
     </div>
