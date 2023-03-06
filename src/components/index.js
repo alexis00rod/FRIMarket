@@ -17,25 +17,23 @@ import { PostName } from "./PostName/PostName";
 import { PostDescription } from "./PostDescription/PostDescription";
 import { PostPrice } from "./PostPrice/PostPrice";
 import { PostStock } from "./PostStock/PostStock";
+import { UserMenu } from "./UserMenu/UserMenu";
+import { SignupName } from "./SignupName/SignupName";
+import { SignupEmail } from "./SignupEmail/SignupEmail";
+import { SignupPass } from "./SignupPass/SignupPass";
 
 export {
   // Main
-  App,Navbar,Footer,Accordion,Loader,
+  App, Navbar, Footer, Accordion, Loader, 
   // Product
-  ProductsLayout,
-  ProductCard,
-  ProductModal,
+  ProductsLayout, ProductCard, ProductModal, 
   // Cart
-  CartMenu,
-  CartProduct,
+  CartMenu, CartProduct, 
   // Post
-  PostCategory,
-  PostName,
-  PostDescription,
-  PostPrice,
-  PostStock,
-  PostThumb,
-  PostType,
-  PostBrand,
+  PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
+  // User
+  UserMenu,
+  // Signup
+  SignupName, SignupEmail, SignupPass,
   // ButtonPostCategorys
   BtnAddCart}
