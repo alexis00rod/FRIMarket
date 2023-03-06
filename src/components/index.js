@@ -21,6 +21,8 @@ import { UserMenu } from "./UserMenu/UserMenu";
 import { SignupName } from "./SignupName/SignupName";
 import { SignupEmail } from "./SignupEmail/SignupEmail";
 import { SignupPass } from "./SignupPass/SignupPass";
+import { LoginEmail } from "./LoginEmail/LoginEmail";
+import { LoginPass } from "./LoginPass/LoginPass";
 
 export {
   // Main
@@ -35,5 +37,7 @@ export {
   UserMenu,
   // Signup
   SignupName, SignupEmail, SignupPass,
+  // Login
+  LoginEmail, LoginPass,
   // ButtonPostCategorys
   BtnAddCart}
