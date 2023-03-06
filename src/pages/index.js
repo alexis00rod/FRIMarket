@@ -4,5 +4,6 @@ import { Login } from "./Login/Login";
 import { Post } from "./Post/Post";
 import { ProductDetail } from "./ProductDetail/ProductDetail";
 import { Shop } from "./Shop/Shop";
+import { Signup } from "./Signup/Signup";
 
-export {Home,Shop,ProductDetail,Cart,Post,Login}
+export {Home,Shop,ProductDetail,Cart,Post,Login,Signup}
