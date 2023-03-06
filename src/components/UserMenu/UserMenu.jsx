@@ -10,7 +10,7 @@ export const UserMenu = ({handle}) => {
       <div className="w-full max-w-md h-full flex flex-col bg-white border-l border-gray-500 divide-y divide-gray-300 overflow-y-scroll" onClick={e => e.stopPropagation()}>
         {userLogged
         ? <>
-            <Link to='/' className="px-3 py-3 flex items-center gap-2 hover:text-yellow-500">
+            <Link to={`/profile/${userLogged.email}`} className="px-3 py-3 flex items-center gap-2 hover:text-yellow-500">
               <i className="fa-solid fa-user"></i>
               <div className="flex flex-col">
                 <span className="text-lg font-medium">{userLogged.displayName}</span>
@@ -41,27 +41,6 @@ export const UserMenu = ({handle}) => {
               <i className="fa-solid fa-plus"></i>Crear usuario
             </Link>
           </>}
-        {/* {userLogged
-        ? <>
-            <Link to={`/profile`} className="px-3 py-3 flex items-center gap-2 hover:text-yellow-500">
-              {userLogged}
-            </Link>
-          </>
-        : <>
-            <Link 
-            to='/login' 
-            className="px-3 py-3 flex items-center gap-2 hover:text-yellow-500"
-            onClick={() => handle(false)}
-            >
-              <i className="fa-solid fa-right-to-bracket"></i>Iniciar sesion
-            </Link>
-            <Link 
-            to='/signup' 
-            className="px-3 py-3 flex items-center gap-2 hover:text-yellow-500"
-            onClick={() => handle(false)}
-            >
-              <i className="fa-solid fa-plus"></i>Crear usuario</Link>
-          </>} */}
       </div>
     </div>
   )

@@ -10,7 +10,7 @@ export const ProductDetail = () => {
   const [productDetail, setProductDetail] = useState({})
   const [loader, setLoader] = useState(false)
   const [qtyProducts, setQtyProducts] = useState(1)
-  const {id,name,thumb,description,brand,stock,price,type,category, userID} = productDetail
+  const {id,name,thumb,description,brand,stock,price,type,category, idUser} = productDetail
 
   useEffect(() => {
     getProductDetail(idProduct)
@@ -110,8 +110,11 @@ export const ProductDetail = () => {
             </button>
           </div>
           <div className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 rounded-md">
-            <h4 className='px-2 py-2 text-2xl font-medium'>Publicado por</h4>
-            {/* <Link to='/'>{userID}</Link> */}
+            <h4 className='px-2 py-2 text-2xl font-medium'>Publicado por:</h4>
+            <Link to={`/profile/${idUser}`} className='px-2 py-2 w-max flex items-center gap-2 hover:text-yellow-500'>
+              <i className="w-10 h-10 flex items-center justify-center fa-solid fa-user"></i>
+              <span className='font-medium'>{idUser}</span>
+            </Link>
           </div>
           <div className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 rounded-md">
             <h4 className='px-2 py-2 text-2xl font-medium'>Publicado en</h4>
