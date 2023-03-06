@@ -82,6 +82,9 @@ export const addProfile = async (user) => {
   })
 }
 
+// Funcion para obtener usuario
+export const getUser = async (user) => await getDoc(userRef(user))
+
 // Funcion para obtener publicaciones de un usuario
 export const getUserProducts = (user) => {
   const q = query(productsRef,where('idUser','==',user))
