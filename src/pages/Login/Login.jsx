@@ -1,13 +1,22 @@
 import { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { LoginEmail, LoginPass } from "../../components"
+import { loginEmailPass } from "../../services/auth"
 
 export const Login = () => {
   const [loginUser, setLoginUser] = useState({})
+  const [loginError, setLoginError] = useState()
+  const navigate = useNavigate()
 
-  const login = e => {
+  const login = async e => {
     e.preventDefault()
-    console.log(loginUser)
+    setLoginError("")
+    try {
+      await loginEmailPass(loginUser)
+      navigate('/')
+    } catch (err) {
+      setLoginError(`${err}`)
+    }
   }
 
   return (
@@ -17,6 +26,7 @@ export const Login = () => {
         <Link to='/signup' className="px-2 text-sm text-yellow-500 font-medium hover:underline">Crear usuario</Link>
       </div>
       <form className="py-2 flex flex-col gap-2" onSubmit={login}>
+        {loginError && <p className="px-2 py-2 text-sm text-red-500">{loginError}</p>}
         <LoginEmail onChange={({target:{value}}) => setLoginUser({...loginUser, email:value})} />
         <LoginPass onChange={({target:{value}}) => setLoginUser({...loginUser, password:value})}/>
         <div className="w-full px-2 flex flex-col gap-2">
