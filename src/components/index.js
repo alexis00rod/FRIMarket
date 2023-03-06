@@ -23,6 +23,7 @@ import { SignupEmail } from "./SignupEmail/SignupEmail";
 import { SignupPass } from "./SignupPass/SignupPass";
 import { LoginEmail } from "./LoginEmail/LoginEmail";
 import { LoginPass } from "./LoginPass/LoginPass";
+import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 
 export {
   // Main
@@ -35,6 +36,8 @@ export {
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // User
   UserMenu,
+  // Profile
+  ProfileInfo,
   // Signup
   SignupName, SignupEmail, SignupPass,
   // Login
