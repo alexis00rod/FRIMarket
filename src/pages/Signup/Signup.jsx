@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { SignupEmail, SignupName, SignupPass } from "../../components/index.js"
 import { signupEmailPass } from "../../services/auth.js"
+import { addProfile } from "../../services/firestore.js"
 
 export const Signup = () => {
   const [signupUser, setSignupUser] = useState({})
@@ -10,10 +11,10 @@ export const Signup = () => {
 
   const signup = async e => {
     e.preventDefault()
-    // console.log(signupUser)
     setSignupError("")
     try {
       await signupEmailPass(signupUser)
+      await addProfile(signupUser)
       navigate('/login')
     } catch (err) {
       setSignupError(`${err.code.replace("auth/","")}`)

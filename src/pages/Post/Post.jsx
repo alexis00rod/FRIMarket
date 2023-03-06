@@ -36,7 +36,7 @@ export const Post = () => {
       idProduct:productToPost.name.toLowerCase().replace(' ','-'),
       idUser: userLogged.email
     })
-    navigate('/shop/all')
+    navigate(`/profile/${userLogged.email}`)
   }
 
   const category = categories.find(e => e.idCategory === productToPost.category)
