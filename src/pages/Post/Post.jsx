@@ -1,16 +1,28 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { addProduct, getCategories } from "../../services/firestore"
+import { addProduct, getCategories, getUser, updatePostsUser } from "../../services/firestore"
 import { uploadThumb } from "../../services/storage"
-import { PostBrand, PostType, PostThumb, PostCategory, PostName, PostDescription, PostPrice, PostStock } from "../../components"
+import { PostBrand, PostType, PostThumb, PostCategory, PostName, PostDescription, PostPrice, PostStock, Loader } from "../../components"
 import { serverTimestamp } from "firebase/firestore"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
 
 export const Post = () => {
   const [categories, setCategories] = useState([])
   const [productToPost, setProductToPost] = useState({})
+  const [userToPost, setUserToPost] = useState({})
+  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
   const {userLogged} = useAuthContext()
+
+  useEffect(() => {
+    userLogged &&
+      getUser(userLogged.email)
+      .then(resp => setUserToPost({
+        id: resp.id,
+        ...resp.data()
+      }))
+        .finally(() => setLoading(true))
+  },[userLogged])
 
   useEffect(() => {
     getCategories(setCategories)
@@ -34,12 +46,15 @@ export const Post = () => {
       ...productToPost,
       timestamp: serverTimestamp(),
       idProduct:productToPost.name.toLowerCase().replace(' ','-'),
-      idUser: userLogged.email
+      idUser: userToPost.idUser
     })
-    navigate(`/profile/${userLogged.email}`)
+    updatePostsUser(userToPost)
+    navigate(`/profile/${userToPost.idUser}`)
   }
 
   const category = categories.find(e => e.idCategory === productToPost.category)
+
+  if(!loading) return <Loader />
 
   return (
     <div className="w-full max-w-screen-md mx-auto flex flex-col">
