@@ -26,6 +26,7 @@ import { LoginPass } from "./LoginPass/LoginPass";
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 import { SignupUserID } from "./SignupUserID/SignupUserID";
 import { SignupPhoto } from "./SignupPhoto/SignupPhoto";
+import { ProductDetailUser } from "./ProductDetailUser/ProductDetailUser";
 
 export {
   // Main
@@ -36,6 +37,8 @@ export {
   CartMenu, CartProduct, 
   // Post
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
+  // Product details
+  ProductDetailUser,
   // User
   UserMenu,
   // Profile
@@ -44,5 +47,5 @@ export {
   SignupUserID, SignupName, SignupPhoto, SignupEmail, SignupPass,
   // Login
   LoginEmail, LoginPass,
-  // ButtonPostCategorys
+  // Buttons
   BtnAddCart}
