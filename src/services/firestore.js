@@ -1,5 +1,5 @@
 import { app } from "./firebase";
-import { addDoc, collection, doc, getDoc, getDocs, getFirestore, onSnapshot, orderBy, query, setDoc, updateDoc, where } from 'firebase/firestore'
+import { addDoc, collection, doc, getDoc, getDocs, getFirestore, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
 
 const db = getFirestore(app)
 
@@ -8,6 +8,7 @@ const categoriesRef = collection(db,"categories")
 const categoryRef = (id) => doc(db,"categories",id)
 const productsRef = collection(db,"products")
 const productRef = (id) => doc(db,"products",id)
+const usersRef = collection(db,'users')
 const userRef = (id) => doc(db,"users",id)
 
 // Funcion para obtener categorias
@@ -75,18 +76,32 @@ export const addBrand = async (category,brand) => {
 export const addProduct = async (product) => await addDoc(productsRef, product)
 
 // Funcion para agregar usuario
-export const addProfile = async (user) => {
-  const {email} = user
+export const addProfile = async ({idUser,displayName,email,photoURL}) => {
   return await setDoc(userRef(email),{
-    idUser: email
+    idUser,
+    displayName,
+    email,
+    photoURL,
+    joined: serverTimestamp()
   })
 }
 
 // Funcion para obtener usuario
-export const getUser = async (user) => await getDoc(userRef(user))
+export const getUser = async (email) => await getDoc(userRef(email))
+
+// Funcion para obtener usuario por id
+export const getUserById = async (id) => await getDocs(query(usersRef,where('idUser','==',id)))
 
 // Funcion para obtener publicaciones de un usuario
 export const getUserProducts = (user) => {
   const q = query(productsRef,where('idUser','==',user))
   return getDocs(q)
+}
+
+// Funcion para actualizar contador de publicaciones del usuario
+export const updatePostsUser = async ({email,posts}) => {
+  const postsCounter = posts ? posts + 1 : 1
+  await updateDoc(userRef(email),{
+    posts : postsCounter
+  })
 }
