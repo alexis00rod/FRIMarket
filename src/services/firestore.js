@@ -1,5 +1,5 @@
 import { app } from "./firebase";
-import { addDoc, collection, doc, getDoc, getDocs, getFirestore, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
 
 const db = getFirestore(app)
 
@@ -10,6 +10,8 @@ const productsRef = collection(db,"products")
 const productRef = (id) => doc(db,"products",id)
 const usersRef = collection(db,'users')
 const userRef = (id) => doc(db,"users",id)
+const wishlistRef = (id) => collection(db,"users",id,'wishlist')
+const wishlistDocRef = (email,id) => doc(db,'users',email,'wishlist',id)
 
 // Funcion para obtener categorias
 export const getCategories = (obs) => {
@@ -104,4 +106,33 @@ export const updatePostsUser = async ({email,posts}) => {
   await updateDoc(userRef(email),{
     posts : postsCounter
   })
+}
+
+// Funcion para agregar producto a favoritos
+export const addProductWishlist = async (user,product) => {
+  const {email} = user
+  const {id} = product
+  await setDoc(wishlistDocRef(email,id),product)
+}
+
+// Funcion para eliminar producto de favoritos
+export const removeProductWishlist = async (user,product) => {
+  const {email} = user
+  const {id} = product
+  // wishlistDocRef(email,id)
+  await deleteDoc(wishlistDocRef(email,id))
+}
+
+// Funcion para ver si existe producto en favoritos
+export const getProductInWishlist = (user,product,obs) => {
+  const {email} = user
+  const {id} = product
+
+  onSnapshot(wishlistDocRef(email,id), (
+    snap => {
+      snap.exists()
+      ? obs(true)
+      : obs(false)
+    }
+  ))
 }
