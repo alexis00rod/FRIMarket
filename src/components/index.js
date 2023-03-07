@@ -27,6 +27,7 @@ import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 import { SignupUserID } from "./SignupUserID/SignupUserID";
 import { SignupPhoto } from "./SignupPhoto/SignupPhoto";
 import { ProductDetailUser } from "./ProductDetailUser/ProductDetailUser";
+import { BtnAddWishlist } from "./BtnAddWishlist/BtnAddWishlist";
 
 export {
   // Main
@@ -48,4 +49,6 @@ export {
   // Login
   LoginEmail, LoginPass,
   // Buttons
-  BtnAddCart}
+  BtnAddCart,
+  BtnAddWishlist
+}

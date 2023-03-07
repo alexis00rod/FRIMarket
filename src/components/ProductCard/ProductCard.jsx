@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from "react-router-dom"
-import { BtnAddCart, ProductModal } from '../index.js'
+import { BtnAddCart, BtnAddWishlist, ProductModal } from '../index.js'
 
 export const ProductCard = ({content, style}) => {
   const [cardDetail, setCardDetail] = useState(false)
@@ -28,8 +28,11 @@ export const ProductCard = ({content, style}) => {
             </div>
           </div>
           <div className="py-2 flex gap-2">
+            {/* Add to cart */}
             <BtnAddCart product={content} qty={1} />
-            <button className='w-8 h-8 flex items-center justify-center flex-none bg-red-500 text-white rounded-md'><i className="fa-solid fa-heart"></i></button>
+            {/* Add to wishlist */}
+            <BtnAddWishlist product={content} toggle/>
+            {/* <button className='w-8 h-8 flex items-center justify-center flex-none bg-red-500 text-white rounded-md'><i className="fa-solid fa-heart"></i></button> */}
             <button 
             className='w-8 h-8 flex items-center justify-center flex-none bg-yellow-500 text-white rounded-md'
             onClick={() => setCardDetail(true)}

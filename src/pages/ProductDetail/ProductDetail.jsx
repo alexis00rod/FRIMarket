@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { BtnAddCart, Loader } from '../../components'
+import { BtnAddCart, BtnAddWishlist, Loader, ProductDetailUser } from '../../components'
 import { useCartContext } from '../../context/CartContext/CartContext'
 import { getProductDetail, getUserById } from '../../services/firestore'
 
@@ -10,7 +10,7 @@ export const ProductDetail = () => {
   const [productDetail, setProductDetail] = useState({})
   const [loader, setLoader] = useState(false)
   const [qtyProducts, setQtyProducts] = useState(1)
-  const {id,name,thumb,description,brand,stock,price,type,category, idUser} = productDetail
+  const {id,name,thumb,description,brand,stock,price,type,category,reviews, idUser} = productDetail
 
   useEffect(() => {
     getProductDetail(idProduct)
@@ -57,8 +57,11 @@ export const ProductDetail = () => {
         </div>
         <div className="px-2 py-2 flex flex-col grow gap-2">
           <div className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 rounded-md">
+            {/* Detail name */}
             <h2 className='px-2 py-2 text-3xl font-medium'>{name}</h2>
+            {/* Detail price */}
             <h3 className='px-2 py-2 text-3xl text-yellow-500 font-medium'>${price}</h3>
+            {/* Detail reviews */}
             <div className="px-2 py-2 flex items-center gap-2 divide-x divide-gray-300">
               <div className="h-full flex items-center text-sm text-yellow-500">
                 <i className="fa-solid fa-star"></i>
@@ -67,13 +70,14 @@ export const ProductDetail = () => {
                 <i className="fa-solid fa-star"></i>
                 <i className="fa-solid fa-star"></i>
               </div>
-              <span className='h-full px-2 flex items-center'>x Reseñas</span>
+              <span className='h-full px-2 flex items-center'>{reviews ? reviews.lenght : 0} Reseñas</span>
               <button className='h-full px-2 flex items-center gap-2 text-sm text-gray-700'>
                 <i className="fa-solid fa-pen"></i>
                 <span>Escribir reseña</span>
               </button>
             </div>
           </div>
+          {/* Detail cta */}
           <div className="w-full px-2 py-2 flex items-center gap-2 bg-white border border-gray-300 rounded-md">
             <div className="w-max px-2 py-2 flex items-center gap-2">
               <span className='text-lg font-medium'>Cantidad: </span>
@@ -99,29 +103,22 @@ export const ProductDetail = () => {
                 </button>
               </div>
             </div>
+            {/* Add to cartlist */}
             <BtnAddCart product={productDetail} qty={qtyProducts} />
-            <button className="w-max h-8 px-2 flex items-center gap-2 bg-red-500 text-white rounded-md">
-              <i className="fa-solid fa-heart"></i>
-              <span className="text-sm">Agregar a favoritos</span>
-            </button>
+            {/* Add to wishlist */}
+            <BtnAddWishlist product={productDetail} />
+            {/* Share */}
             <button className="w-max h-8 px-2 flex items-center gap-2 bg-yellow-500 text-white rounded-md">
               <i className="fa-solid fa-share"></i>
               <span className="text-sm">Compartir</span>
             </button>
           </div>
-          <div className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 rounded-md">
-            <h4 className='px-2 py-2 text-2xl font-medium'>Publicado por:</h4>
-            <Link to={`/profile/${idUser}`} 
-            className='px-2 py-2 w-max flex items-center gap-2 hover:text-yellow-500'
-            >
-              <i className="w-10 h-10 flex items-center justify-center fa-solid fa-user"></i>
-              <span className='font-medium'>{idUser}</span>
-            </Link>
-          </div>
-          <div className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 rounded-md">
+          {/* Detail user */}
+          <ProductDetailUser user={idUser} />
+          {/* Detail location */}
+          {/* <div className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 rounded-md">
             <h4 className='px-2 py-2 text-2xl font-medium'>Publicado en</h4>
-            {/* <span>Buenos Aires</span> */}
-          </div>
+          </div> */}
         </div>
       </section>
     </div>
