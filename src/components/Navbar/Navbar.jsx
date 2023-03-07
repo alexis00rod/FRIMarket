@@ -56,10 +56,7 @@ export const Navbar = () => {
               <NavbarLink to='/'>Inicio</NavbarLink>
             </li>
             <li className="">
-              <NavbarLink to='/shop/all'>Comprar</NavbarLink>
-            </li>
-            <li className="">
-              <NavbarLink to='/post'>Vender</NavbarLink>
+              <NavbarLink to='/shop/all'>Tienda</NavbarLink>
             </li>
           </ul>
         </nav>

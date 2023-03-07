@@ -1,7 +1,7 @@
 export const SignupName = ({...props}) => {
   return (
     <div className="px-2 py-2 flex flex-col">
-      <label htmlFor='name' className="px-1 text-sm font-medium">Nombre</label>
+      <label htmlFor='name' className="px-1 text-sm font-medium">Nombre y apellido</label>
       <input 
       type="text" 
       name="name" 

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { BtnAddCart, Loader } from '../../components'
 import { useCartContext } from '../../context/CartContext/CartContext'
-import { getProductDetail } from '../../services/firestore'
+import { getProductDetail, getUserById } from '../../services/firestore'
 
 export const ProductDetail = () => {
   const {idProduct} = useParams()
@@ -111,7 +111,9 @@ export const ProductDetail = () => {
           </div>
           <div className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 rounded-md">
             <h4 className='px-2 py-2 text-2xl font-medium'>Publicado por:</h4>
-            <Link to={`/profile/${idUser}`} className='px-2 py-2 w-max flex items-center gap-2 hover:text-yellow-500'>
+            <Link to={`/profile/${idUser}`} 
+            className='px-2 py-2 w-max flex items-center gap-2 hover:text-yellow-500'
+            >
               <i className="w-10 h-10 flex items-center justify-center fa-solid fa-user"></i>
               <span className='font-medium'>{idUser}</span>
             </Link>
