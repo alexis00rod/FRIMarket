@@ -24,6 +24,8 @@ import { SignupPass } from "./SignupPass/SignupPass";
 import { LoginEmail } from "./LoginEmail/LoginEmail";
 import { LoginPass } from "./LoginPass/LoginPass";
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
+import { SignupUserID } from "./SignupUserID/SignupUserID";
+import { SignupPhoto } from "./SignupPhoto/SignupPhoto";
 
 export {
   // Main
@@ -39,7 +41,7 @@ export {
   // Profile
   ProfileInfo,
   // Signup
-  SignupName, SignupEmail, SignupPass,
+  SignupUserID, SignupName, SignupPhoto, SignupEmail, SignupPass,
   // Login
   LoginEmail, LoginPass,
   // ButtonPostCategorys
