@@ -136,3 +136,6 @@ export const getProductInWishlist = (user,product,obs) => {
     }
   ))
 }
+
+// Funcion para obtener lista de favoritos
+export const getWishlist = async ({email}) => await getDocs(wishlistRef(email))
