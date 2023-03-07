@@ -48,8 +48,11 @@ export const UserMenu = ({handle}) => {
                 : <div className="py-2">
                     <Loader />
                   </div>  }
-              <MenuLink to={`/post`} icon='shop'>
+              <MenuLink to='/post' icon='shop'>
                 Vender
+              </MenuLink>
+              <MenuLink to='/wishlist' icon='heart'>
+                Mis favoritos
               </MenuLink>
               <button 
               onClick={() => {

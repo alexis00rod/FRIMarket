@@ -6,5 +6,6 @@ import { ProductDetail } from "./ProductDetail/ProductDetail";
 import { Profile } from "./Profile/Profile";
 import { Shop } from "./Shop/Shop";
 import { Signup } from "./Signup/Signup";
+import { Wishlist } from "./Wishlist/Wishlist";
 
-export {Home,Shop,ProductDetail,Cart,Post,Login,Signup,Profile}
+export {Home,Shop,ProductDetail,Cart,Post,Login,Signup,Profile,Wishlist}
