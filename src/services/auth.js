@@ -4,10 +4,10 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 export const auth = getAuth(app)
 
 // Funcion para  crear usuario con email y contraseña
-export const signupEmailPass = ({name,email,password}) => {
+export const signupEmailPass = ({email, password, displayName, photoURL}) => {
   return createUserWithEmailAndPassword(auth, email, password)
   .then(credential => {
-    updateProfile(auth.currentUser,{displayName:name})
+    updateProfile(auth.currentUser,{displayName,photoURL})
   })
 }
 
