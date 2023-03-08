@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
 import { Cart, Home, Login, Post, ProductDetail, Profile, Shop, Signup, Wishlist } from "../../pages/index.js"
-import { Footer, Navbar } from "../index.js"
+import { Footer, Navbar, ProtectedRoutes } from "../index.js"
 
 export const App = () => {
   const {pathname} = useLocation()
@@ -18,13 +18,13 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/shop/:idCategory" element={<Shop />}></Route>
-            <Route path="/post" element={<Post />}></Route>
+            <Route path="/post" element={<ProtectedRoutes><Post /></ProtectedRoutes>}></Route>
             <Route path="/product/:idProduct" element={<ProductDetail />}></Route>
-            <Route path="/cart" element={<Cart />}></Route>
+            <Route path="/cart" element={<ProtectedRoutes><Cart /></ProtectedRoutes>}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<Signup />} ></Route>
             <Route path="/profile/:idUser" element={<Profile />}></Route>
-            <Route path="/wishlist" element={<Wishlist />}></Route>
+            <Route path="/wishlist" element={<ProtectedRoutes><Wishlist /></ProtectedRoutes>}></Route>
           </Routes>
         </main>
       </div>
