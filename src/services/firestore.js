@@ -119,7 +119,6 @@ export const addProductWishlist = async (user,product) => {
 export const removeProductWishlist = async (user,product) => {
   const {email} = user
   const {id} = product
-  // wishlistDocRef(email,id)
   await deleteDoc(wishlistDocRef(email,id))
 }
 
@@ -144,8 +143,9 @@ export const getWishlist = async ({email}) => await getDocs(wishlistRef(email))
 export const searchProducts = async (toSearch) => {
   const resp = await getDocs(productsRef)
   const products = await resp.docs.map(e => ({id: e.id,...e.data()}))
-  return await products.filter(e => 
-    e.name.toLowerCase().includes(toSearch.toLowerCase()) 
-    || 
-    e.brand.toLowerCase().includes(toSearch.toLowerCase()))
+  return await products.filter(e =>
+    e.name.toLowerCase().includes(toSearch.toLowerCase())
+    ||
+    e.brand.toLowerCase().includes(toSearch.toLowerCase())
+  )
 }

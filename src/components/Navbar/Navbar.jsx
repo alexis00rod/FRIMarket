@@ -47,16 +47,12 @@ export const Navbar = () => {
             </div>
           </div>
         </div>
-        <nav className="w-full h-12 px-1 bg-blue-500 text-white">
-          <ul className="w-full max-w-screen-2xl h-full mx-auto px-2 flex gap-2 grow">
-            <li className="">
-              <NavbarLink to='/'>Inicio</NavbarLink>
-            </li>
-            <li className="">
-              <NavbarLink to='/shop/all'>Tienda</NavbarLink>
-            </li>
-          </ul>
-        </nav>
+        <div className="w-full h-12 px-1 bg-blue-500 text-white">
+          <nav className="w-full max-w-screen-2xl h-full mx-auto px-2 flex items-center gap-2">
+            <NavbarLink to='/'>Inicio</NavbarLink>
+            <NavbarLink to='/shop/all'>Tienda</NavbarLink>
+          </nav>
+        </div>
       </header>
       {cartMenu && <CartMenu handle={setCartMenu} />}
       {userMenu && <UserMenu handle={setUserMenu} />}

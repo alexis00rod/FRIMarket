@@ -54,7 +54,7 @@ export const UserMenu = ({handle}) => {
               <MenuLink to='/wishlist' icon='heart'>
                 Mis favoritos
               </MenuLink>
-              <MenuLink to='/settings' icon='gear'>
+              <MenuLink to='/settings/profile' icon='gear'>
                 Configuraciones
               </MenuLink>
               <button 

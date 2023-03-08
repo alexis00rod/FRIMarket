@@ -3,16 +3,6 @@ import { Link, NavLink, useParams } from "react-router-dom"
 import { Accordion, Loader, ProductsLayout } from "../../components"
 import { getCategories, getProducts } from "../../services/firestore"
 
-const SidebarLink = ({children,...props}) => {
-  return (
-    <NavLink {...props}
-      className={({isActive}) => `w-full flex items-center justify-between gap-2 hover:text-yellow-500 ${isActive && "text-yellow-500"}`}
-      >
-      {children}
-    </NavLink>
-  )
-}
-
 export const Shop = () => {
   const { idCategory } = useParams()
   const [products, setProducts] = useState(false)
@@ -63,6 +53,41 @@ export const Shop = () => {
     })
   }
 
+  const SidebarLink = ({children,...props}) => {
+    return (
+      <NavLink {...props}
+        className={({isActive}) => `w-full px-1 flex items-center justify-between gap-2 hover:text-yellow-500 ${isActive && "text-yellow-500"}`}
+        >
+        {children}
+      </NavLink>
+    )
+  }
+
+  const InputFilter = ({id, name,...props}) => {
+    return (
+      <div className="px-1">
+        <input 
+        type="radio" 
+        name={name} 
+        id={id} 
+        defaultValue={id} 
+        className=''
+        {...props}
+        />
+        <label 
+        htmlFor={id} 
+        className='px-1 capitalize checked:text-yellow-500 cursor-pointer'
+        >
+          {id === 'allTypes'
+          ? 'Todos los tipos'
+          : id === 'allBrands'
+            ? 'Todas las marcas'
+            : id}
+        </label>
+      </div>
+    )
+  }
+
   const category = categories && categories.find(category => category.idCategory === idCategory)
 
   return (
@@ -85,30 +110,16 @@ export const Shop = () => {
         {/* Tipo */}
         {categories && idCategory !== 'all' &&
           <Accordion title='Tipo'>
-            <div className="px-1 py-1">
-              <input type="radio" name="type" id="allTypes" defaultValue='allTypes' onChange={handleFilter} checked={filters.type === 'allTypes'} />
-              <label htmlFor="allTypes" className="px-1">Todos los tipos</label>
-            </div>
-            {category.types.map(type => (
-              <div key={type} className="px-1 py-1">
-                <input type="radio" name="type" id={type} onChange={handleFilter} defaultValue={type} checked={filters.type === type} />
-                <label htmlFor={type} className='px-1'>{type}</label>
-              </div>
-            ))}
+            <InputFilter id='allTypes' name='type' onChange={handleFilter} checked={filters.type === 'allTypes'} />
+            {category.types.map(type => <InputFilter key={type} id={type} name='type' onChange={handleFilter} checked={filters.type === type} />)}
           </Accordion>
         }
         {/* Marcas */}
         {categories && idCategory !== 'all' &&
           <Accordion title="Marcas">
-            <div className="px-1 py-1">
-              <input type="radio" name="brand" id="allBrands" defaultValue='allBrands' onChange={handleFilter} checked={filters.brand === 'allBrands'} />
-              <label htmlFor="allBrands" className="px-1">Todas las marcas</label>
-            </div>
+            <InputFilter id='allBrands' name='brand' onChange={handleFilter} checked={filters.brand === 'allBrands'} />
             {category.brands.map(brand => (
-              <div key={brand} className="px-1 py-1">
-                <input type="radio" name="brand" id={brand} onChange={handleFilter} defaultValue={brand} checked={filters.brand === brand} />
-                <label htmlFor={brand} className='px-1 capitalize'>{brand}</label>
-              </div>
+              <InputFilter key={brand} id={brand} name='brand' onChange={handleFilter} checked={filters.brand === brand} />
             ))}
           </Accordion>
         }
