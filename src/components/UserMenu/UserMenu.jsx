@@ -54,6 +54,9 @@ export const UserMenu = ({handle}) => {
               <MenuLink to='/wishlist' icon='heart'>
                 Mis favoritos
               </MenuLink>
+              <MenuLink to='/settings' icon='gear'>
+                Configuraciones
+              </MenuLink>
               <button 
               onClick={() => {
                 logout()
