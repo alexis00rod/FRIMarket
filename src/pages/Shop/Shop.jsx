@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, NavLink, useParams } from "react-router-dom"
-import { Accordion, ProductsLayout } from "../../components"
+import { Accordion, Loader, ProductsLayout } from "../../components"
 import { getCategories, getProducts } from "../../services/firestore"
 
 const SidebarLink = ({children,...props}) => {
@@ -63,19 +63,24 @@ export const Shop = () => {
     })
   }
 
+  const category = categories && categories.find(category => category.idCategory === idCategory)
+
   return (
     <div className="grow flex gap-2">
       <aside className="w-full max-w-xs h-max px-2 py-2 flex flex-col flex-none bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
         <Link to='/shop/all' className="px-2 py-2 font-medium hover:text-yellow-500">Todos los productos</Link>
         {/* Categorias */}
         <Accordion title="Categorias">
-          {categories && categories.map(category => (
+          {categories
+          ? categories.map(category => (
             <SidebarLink 
             key={category.id} 
             to={`/shop/${category.idCategory}`}>
               {category.name}
             </SidebarLink>
-          ))}
+            ))
+          : <Loader />
+          }
         </Accordion>
         {/* Tipo */}
         {categories && idCategory !== 'all' &&
@@ -84,7 +89,7 @@ export const Shop = () => {
               <input type="radio" name="type" id="allTypes" defaultValue='allTypes' onChange={handleFilter} checked={filters.type === 'allTypes'} />
               <label htmlFor="allTypes" className="px-1">Todos los tipos</label>
             </div>
-            {categories.find(category => category.idCategory === idCategory).types.map(type => (
+            {category.types.map(type => (
               <div key={type} className="px-1 py-1">
                 <input type="radio" name="type" id={type} onChange={handleFilter} defaultValue={type} checked={filters.type === type} />
                 <label htmlFor={type} className='px-1'>{type}</label>
@@ -99,7 +104,7 @@ export const Shop = () => {
               <input type="radio" name="brand" id="allBrands" defaultValue='allBrands' onChange={handleFilter} checked={filters.brand === 'allBrands'} />
               <label htmlFor="allBrands" className="px-1">Todas las marcas</label>
             </div>
-            {categories.find(category => category.idCategory === idCategory).brands.map(brand => (
+            {category.brands.map(brand => (
               <div key={brand} className="px-1 py-1">
                 <input type="radio" name="brand" id={brand} onChange={handleFilter} defaultValue={brand} checked={filters.brand === brand} />
                 <label htmlFor={brand} className='px-1 capitalize'>{brand}</label>

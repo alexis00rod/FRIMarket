@@ -9,7 +9,7 @@ export const CartMenu = ({handle}) => {
       <div className="w-full max-w-md h-full flex flex-col bg-white border-l border-gray-500" onClick={e => e.stopPropagation()}>
         {cartList.length === 0
         ? <p className="px-3 py-3 flex justify-center">Tu carrito esta vacio</p>
-        : <div className="debug h-full flex flex-col">
+        : <div className="h-full flex flex-col">
             <ul className="flex flex-col grow divide-y divide-gray-300 overflow-y-scroll">
               {cartList.map(e => (
                 <li key={e.id} className='px-3 py-3 w-full flex gap-2'>
