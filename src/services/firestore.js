@@ -139,3 +139,13 @@ export const getProductInWishlist = (user,product,obs) => {
 
 // Funcion para obtener lista de favoritos
 export const getWishlist = async ({email}) => await getDocs(wishlistRef(email))
+
+// Funcion para buscar productos
+export const searchProducts = async (toSearch) => {
+  const resp = await getDocs(productsRef)
+  const products = await resp.docs.map(e => ({id: e.id,...e.data()}))
+  return await products.filter(e => 
+    e.name.toLowerCase().includes(toSearch.toLowerCase()) 
+    || 
+    e.brand.toLowerCase().includes(toSearch.toLowerCase()))
+}
