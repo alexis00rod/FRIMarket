@@ -29,10 +29,11 @@ import { SignupPhoto } from "./SignupPhoto/SignupPhoto";
 import { ProductDetailUser } from "./ProductDetailUser/ProductDetailUser";
 import { BtnAddWishlist } from "./BtnAddWishlist/BtnAddWishlist";
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes";
+import { Searchbox } from "./Searchbox/Searchbox";
 
 export {
   // Main
-  App, Navbar, Footer, Accordion, Loader, ProtectedRoutes,
+  App, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox,
   // Product
   ProductsLayout, ProductCard, ProductModal, 
   // Cart

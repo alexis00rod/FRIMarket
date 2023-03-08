@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
-import { useAuthContext } from "../../context/AuthContext/AuthContext.jsx"
 import { useCartContext } from "../../context/CartContext/CartContext.jsx"
-import { CartMenu, UserMenu } from "../index.js"
+import { CartMenu, Searchbox, UserMenu } from "../index.js"
 
 const NavbarLink = ({children,...props}) => {
   return (
@@ -24,14 +23,12 @@ export const Navbar = () => {
       <header className="sticky top-0 left-0 w-full">
         <div className="w-full h-12 px-1 bg-white">
           <div className="w-full max-w-screen-2xl h-full px-1 mx-auto flex items-center">
-            <h1 className="w-max h-full px-2 flex items-center text-3xl text-blue-500 font-black"><span className="text-yellow-500">FRI</span>Market</h1>
+            <Link to='/' className="w-max px-2">
+              <h1 className="flex items-center text-3xl text-blue-500 font-black"><span className="text-yellow-500">FRI</span>Market</h1>
+            </Link>
             <div className="h-full px-2 flex items-center justify-end grow">
-              <form className="w-full max-w-3xl h-8 flex items-center border border-gray-300 rounded-md">
-                <input type="text" name="" id="" className="h-full px-2 grow outline-none" />
-                <button type="submit" className="w-8 h-full flex items-center justify-center bg-gray-100 border-l border-gray-300">
-                  <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
-              </form>
+              {/* Search */}
+              <Searchbox />
             </div>
             <div className="h-full px-2 flex items-center gap-2">
               <button 
