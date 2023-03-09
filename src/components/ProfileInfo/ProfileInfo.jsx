@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
 
 export const ProfileInfo = ({user}) => {
@@ -13,9 +14,9 @@ export const ProfileInfo = ({user}) => {
           <h3 className="text-sm leading-4">@{idUser}</h3>
         </div>
         {userLogged && userLogged.email === email &&
-        <button className="w-8 h-8 flex items-center justify-center hover:text-yellow-500">
+        <Link to='/settings/profile' className="w-8 h-8 flex items-center justify-center hover:text-yellow-500">
           <i className="fa-solid fa-pen"></i>
-        </button>}
+        </Link>}
       </li>
       <li className="px-2 py-2 flex items-center grow">
         <span className="font-medium">Publicaciones:</span>

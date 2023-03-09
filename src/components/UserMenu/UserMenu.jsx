@@ -1,23 +1,9 @@
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
 import { logout } from "../../services/auth"
-import { getUser } from "../../services/firestore"
-import { Loader } from "../Loader/Loader"
 
 export const UserMenu = ({handle}) => {
-  const {userLogged} = useAuthContext()
-  const [userProfile, setUserProfile] = useState()
-
-  useEffect(() => {
-    userLogged && 
-      getUser(userLogged.email)
-        .then(resp => setUserProfile({
-          id: resp.id,
-          ...resp.data()
-        }))
-    
-  }, [userLogged])
+  const {userLogged, userLoggedProfile} = useAuthContext()
 
   const MenuLink = ({icon,children,...props}) => {
     return (
@@ -37,17 +23,13 @@ export const UserMenu = ({handle}) => {
       <div className="w-full max-w-md h-full flex flex-col bg-white border-l border-gray-500 divide-y divide-gray-300 overflow-y-scroll" onClick={e => e.stopPropagation()}>
           {userLogged
           ? <>
-              {userProfile
-                ? <MenuLink to={`/profile/${userProfile.idUser}`}>
-                    <img src={userProfile.photoURL} alt={userProfile.displayName} className='w-10 h-10 object-cover rounded-md' />
-                    <div className="flex flex-col">
-                      <span className="text-lg font-medium">{userProfile.displayName}</span>
-                      <span className="text-xs leading-3">{userProfile.email}</span>
-                    </div>
-                  </MenuLink>
-                : <div className="py-2">
-                    <Loader />
-                  </div>  }
+              <MenuLink to={`/profile/${userLoggedProfile.idUser}`}>
+                <img src={userLoggedProfile.photoURL} alt={userLoggedProfile.displayName} className='w-10 h-10 object-cover rounded-md' />
+                <div className="flex flex-col">
+                  <span className="text-lg font-medium">{userLoggedProfile.displayName}</span>
+                  <span className="text-xs leading-3">{userLoggedProfile.email}</span>
+                </div>
+              </MenuLink>
               <MenuLink to='/post' icon='shop'>
                 Vender
               </MenuLink>
