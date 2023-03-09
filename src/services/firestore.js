@@ -89,7 +89,12 @@ export const addProfile = async ({idUser,displayName,email,photoURL}) => {
 }
 
 // Funcion para obtener usuario
-export const getUser = async (email) => await getDoc(userRef(email))
+export const getUser = async (user,set) => {
+  const {email} = user
+  onSnapshot(userRef(email),(snap => {
+    set({id: snap.id,...snap.data()})
+  }))
+}
 
 // Funcion para obtener usuario por id
 export const getUserById = async (id) => await getDocs(query(usersRef,where('idUser','==',id)))
@@ -149,3 +154,6 @@ export const searchProducts = async (toSearch) => {
     e.brand.toLowerCase().includes(toSearch.toLowerCase())
   )
 }
+
+// Funcion para actualizar informacion de usuario
+export const updateProfileInfo = async (email,newProfile) => await updateDoc(userRef(email),newProfile)
