@@ -1,5 +1,5 @@
 import { app } from "./firebase";
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, limit, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc, where } from 'firebase/firestore'
 
 const db = getFirestore(app)
 
@@ -157,3 +157,6 @@ export const searchProducts = async (toSearch) => {
 
 // Funcion para actualizar informacion de usuario
 export const updateProfileInfo = async (email,newProfile) => await updateDoc(userRef(email),newProfile)
+
+// Funcion para obtener productos similares
+export const getSimilarProducts = async (type) => await getDocs(query(collection(db,'products'),where('type','==',type),limit(5)))
