@@ -30,6 +30,7 @@ import { ProductDetailUser } from "./ProductDetailUser/ProductDetailUser";
 import { BtnAddWishlist } from "./BtnAddWishlist/BtnAddWishlist";
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes";
 import { Searchbox } from "./Searchbox/Searchbox";
+import { ProductsDetailSimilar } from "./ProductDetailSimilar/ProductDetailSimilar";
 
 export {
   // Main
@@ -41,7 +42,7 @@ export {
   // Post
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // Product details
-  ProductDetailUser,
+  ProductDetailUser, ProductsDetailSimilar,
   // User
   UserMenu,
   // Profile
