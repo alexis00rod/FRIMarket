@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { BtnAddCart, BtnAddWishlist, Loader, ProductDetailUser, ProductsDetailSimilar } from '../../components'
+import { useParams } from 'react-router-dom'
+import { BtnAddCart, BtnAddWishlist, Loader, ProductDetailReviews, ProductDetailUser, ProductsDetailSimilar } from '../../components'
 import { useCartContext } from '../../context/CartContext/CartContext'
-import { getProductDetail, getUserById } from '../../services/firestore'
+import { getProductDetail } from '../../services/firestore'
 
 export const ProductDetail = () => {
   const {idProduct} = useParams()
@@ -10,8 +10,7 @@ export const ProductDetail = () => {
   const [productDetail, setProductDetail] = useState({})
   const [loader, setLoader] = useState(false)
   const [qtyProducts, setQtyProducts] = useState(1)
-  const {id,name,thumb,description,brand,stock,price,type,category,reviews, idUser} = productDetail
-
+  
   useEffect(() => {
     getProductDetail(idProduct)
     .then(resp => setProductDetail({
@@ -21,7 +20,8 @@ export const ProductDetail = () => {
     .finally(() => setLoader(true))
     
   },[idProduct])
-
+  
+  const {id,name,thumb,description,brand,stock,price,type,category, idUser} = productDetail
   const productInCart = cartList.find(e => e.id === id)
 
   if(!loader) return <Loader />
@@ -114,6 +114,7 @@ export const ProductDetail = () => {
             <ProductDetailUser user={idUser} />
           </div>
         </div>
+        <ProductDetailReviews product={id} />
         <ProductsDetailSimilar type={type} />
       </section>
     </div>

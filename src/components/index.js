@@ -31,6 +31,8 @@ import { BtnAddWishlist } from "./BtnAddWishlist/BtnAddWishlist";
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes";
 import { Searchbox } from "./Searchbox/Searchbox";
 import { ProductsDetailSimilar } from "./ProductDetailSimilar/ProductDetailSimilar";
+import { ProductDetailReviews } from "./ProductDetailReviews/ProductDetailReviews";
+import { ReviewCard } from "./ReviewCard/ReviewCard";
 
 export {
   // Main
@@ -42,7 +44,7 @@ export {
   // Post
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // Product details
-  ProductDetailUser, ProductsDetailSimilar,
+  ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, ReviewCard,
   // User
   UserMenu,
   // Profile
