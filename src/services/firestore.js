@@ -90,14 +90,21 @@ export const addProfile = async ({idUser,displayName,email,photoURL}) => {
 
 // Funcion para obtener usuario
 export const getUser = async (user,set) => {
-  const {email} = user
-  onSnapshot(userRef(email),(snap => {
+  // const {email} = user
+  onSnapshot(userRef(user),(snap => {
     set({id: snap.id,...snap.data()})
   }))
 }
 
 // Funcion para obtener usuario por id
-export const getUserById = async (id) => await getDocs(query(usersRef,where('idUser','==',id)))
+export const getUserById = (user,set) => {
+  onSnapshot(query(usersRef,where('idUser','==',user)),(snap => {
+    set({
+      id: snap.docs[0].id,
+      ...snap.docs[0].data()
+    })
+  }))
+}
 
 // Funcion para obtener publicaciones de un usuario
 export const getUserProducts = (user) => {
@@ -159,4 +166,24 @@ export const searchProducts = async (toSearch) => {
 export const updateProfileInfo = async (email,newProfile) => await updateDoc(userRef(email),newProfile)
 
 // Funcion para obtener productos similares
-export const getSimilarProducts = async (type) => await getDocs(query(collection(db,'products'),where('type','==',type),limit(5)))
+export const getSimilarProducts = async (type) => await getDocs(query(productsRef,where('type','==',type),limit(5)))
+
+// Funcion para obtener reviews de un producto
+export const getProductReviews = async (product,obs) => {
+  onSnapshot(collection(db,'products',product,'reviews'),(snap => {
+    obs(snap.docs.map(e => ({
+      id: e.id,
+      ...e.data()
+    })))
+  }))
+}
+
+// Funcion para agregar reseña
+export const addReview = async (user,product,review) => {
+  const {email} = user
+  return await addDoc(collection(db,'products',product,'reviews'),{
+    timestamp: serverTimestamp(),
+    email, 
+    ...review
+  })
+}
