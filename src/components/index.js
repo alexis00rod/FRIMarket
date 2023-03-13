@@ -33,6 +33,7 @@ import { Searchbox } from "./Searchbox/Searchbox";
 import { ProductsDetailSimilar } from "./ProductDetailSimilar/ProductDetailSimilar";
 import { ProductDetailReviews } from "./ProductDetailReviews/ProductDetailReviews";
 import { ReviewCard } from "./ReviewCard/ReviewCard";
+import { ProfilePosts } from "./ProfilePosts/ProfilePosts";
 
 export {
   // Main
@@ -48,7 +49,7 @@ export {
   // User
   UserMenu,
   // Profile
-  ProfileInfo,
+  ProfileInfo, ProfilePosts,
   // Signup
   SignupUserID, SignupName, SignupPhoto, SignupEmail, SignupPass,
   // Login
