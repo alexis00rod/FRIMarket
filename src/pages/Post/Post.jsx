@@ -36,7 +36,7 @@ export const Post = () => {
       idProduct:productToPost.name.toLowerCase().replace(' ','-'),
       idUser: userLoggedProfile.email
     })
-    updatePostsUser(userLoggedProfile)
+    updatePostsUser(userLoggedProfile,'add')
     navigate(`/profile/${userLoggedProfile.idUser}`)
   }
 

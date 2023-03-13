@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { Loader, SellerCard } from '../../components/index.js'
 import { getUsers } from '../../services/firestore'
 
