@@ -61,7 +61,11 @@ export const getProducts = async (category,filters) => {
 }
 
 // Funcion para obtener detalles del producto
-export const getProductDetail = async (id) => await getDoc(productRef(id))
+export const getProductDetail = (id,obs) => {
+  onSnapshot(productRef(id),(snap => {
+    obs({id:snap.id,...snap.data()})
+  }))
+}
 
 // Funcion para agregar marca nueva
 export const addBrand = async (category,brand) => {
@@ -113,10 +117,11 @@ export const getUserProducts = (user) => {
 }
 
 // Funcion para actualizar contador de publicaciones del usuario
-export const updatePostsUser = async ({email,posts}) => {
-  const postsCounter = posts ? posts + 1 : 1
+export const updatePostsUser = async ({email,posts},action) => {
+  const addPost = posts ? posts + 1 : 1
+  const removePost = posts - 1
   await updateDoc(userRef(email),{
-    posts : postsCounter
+    posts : action === 'add' ? addPost : removePost
   })
 }
 
@@ -191,4 +196,13 @@ export const addReview = async (user,product,review) => {
 // Funcion para obtener usuarios
 export const getUsers = async () => {
   return await getDocs(usersRef)
+}
+
+// Funcion para borrar producto
+export const deleteProduct = async (product) => await deleteDoc(productRef(product))
+
+// Funcion para editar producto
+export const editProduct = async (product, changes) => {
+  const {id} = product
+  await updateDoc(productRef(id),changes)
 }
