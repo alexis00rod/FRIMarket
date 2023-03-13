@@ -35,6 +35,7 @@ import { ProductDetailReviews } from "./ProductDetailReviews/ProductDetailReview
 import { ReviewCard } from "./ReviewCard/ReviewCard";
 import { ProfilePosts } from "./ProfilePosts/ProfilePosts";
 import { SellerCard } from "./SellerCard/SellerCard";
+import { EditProduct } from "./EditProduct/EditProduct";
 
 export {
   // Main
@@ -46,7 +47,7 @@ export {
   // Post
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // Product details
-  ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, ReviewCard,
+  ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, ReviewCard, EditProduct,
   // Sellers
   SellerCard,
   // User

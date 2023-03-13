@@ -1,30 +1,27 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { BtnAddCart, BtnAddWishlist, Loader, ProductDetailReviews, ProductDetailUser, ProductsDetailSimilar } from '../../components'
+import { BtnAddCart, BtnAddWishlist, EditProduct, Loader, ProductDetailReviews, ProductDetailUser, ProductsDetailSimilar } from '../../components'
+import { useAuthContext } from '../../context/AuthContext/AuthContext'
 import { useCartContext } from '../../context/CartContext/CartContext'
 import { getProductDetail } from '../../services/firestore'
 
 export const ProductDetail = () => {
-  const {idProduct} = useParams()
+  const {userLogged} = useAuthContext()
   const {cartList} = useCartContext()
-  const [productDetail, setProductDetail] = useState({})
-  const [loader, setLoader] = useState(false)
+  const {idProduct} = useParams()
+  const [productDetail, setProductDetail] = useState()
   const [qtyProducts, setQtyProducts] = useState(1)
+  const [editProduct, setEditProduct] = useState(false)
   
   useEffect(() => {
-    getProductDetail(idProduct)
-    .then(resp => setProductDetail({
-      id: resp.id,
-      ...resp.data()
-    }))
-    .finally(() => setLoader(true))
+    getProductDetail(idProduct,setProductDetail)
     
   },[idProduct])
+
+  if(!productDetail) return <Loader />
   
   const {id,name,thumb,description,brand,stock,price,type,category, idUser} = productDetail
   const productInCart = cartList.find(e => e.id === id)
-
-  if(!loader) return <Loader />
 
   return (
     <div className="w-full flex flex-col gap-2">
@@ -64,7 +61,18 @@ export const ProductDetail = () => {
           <div className="flex flex-col grow gap-4">
             <div className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
               {/* Detail name */}
-              <h2 className='px-2 py-2 text-2xl font-medium line-clamp-1'>{name}</h2>
+              <div className="px-2 py-2 flex items-center">
+                <h2 className='flex grow text-2xl font-medium line-clamp-1'>{name}</h2>
+                {userLogged && userLogged.email === idUser &&
+                <button 
+                className='w-8 h-8 flex items-center justify-center hover:text-yellow-500' 
+                title='Editar producto'
+                onClick={() => setEditProduct(true)}
+                >
+                  <i className="fa solid fa-pen"></i>
+                </button>
+                }
+              </div>
               <div className="w-full px-2 pt-2 flex flex-col gap-2">
                 {/* Detail price */}
                 <h3 className='grow text-3xl text-yellow-500 font-medium'>${price}</h3>
@@ -116,6 +124,7 @@ export const ProductDetail = () => {
         </div>
         <ProductDetailReviews product={id} />
         <ProductsDetailSimilar type={type} />
+        {editProduct && <EditProduct product={productDetail} handle={setEditProduct} />}
       </section>
     </div>
   )
