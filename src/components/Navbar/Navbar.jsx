@@ -51,6 +51,7 @@ export const Navbar = () => {
           <nav className="w-full max-w-screen-2xl h-full mx-auto px-2 flex items-center gap-2">
             <NavbarLink to='/'>Inicio</NavbarLink>
             <NavbarLink to='/shop/all'>Tienda</NavbarLink>
+            <NavbarLink to='/sellers'>Vendedores</NavbarLink>
           </nav>
         </div>
       </header>
