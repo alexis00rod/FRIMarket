@@ -187,3 +187,8 @@ export const addReview = async (user,product,review) => {
     ...review
   })
 }
+
+// Funcion para obtener usuarios
+export const getUsers = async () => {
+  return await getDocs(usersRef)
+}
