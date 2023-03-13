@@ -1,28 +1,16 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
-import { addProduct, getCategories, getUser, updatePostsUser } from "../../services/firestore"
+import { addProduct, getCategories, updatePostsUser } from "../../services/firestore"
+import { useAuthContext } from "../../context/AuthContext/AuthContext"
 import { uploadThumb } from "../../services/storage"
 import { PostBrand, PostType, PostThumb, PostCategory, PostName, PostDescription, PostPrice, PostStock, Loader } from "../../components"
 import { serverTimestamp } from "firebase/firestore"
-import { useAuthContext } from "../../context/AuthContext/AuthContext"
 
 export const Post = () => {
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState()
   const [productToPost, setProductToPost] = useState({})
-  const [userToPost, setUserToPost] = useState({})
-  const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
-  const {userLogged} = useAuthContext()
-
-  useEffect(() => {
-    userLogged &&
-      getUser(userLogged.email)
-      .then(resp => setUserToPost({
-        id: resp.id,
-        ...resp.data()
-      }))
-        .finally(() => setLoading(true))
-  },[userLogged])
+  const {userLoggedProfile} = useAuthContext()
 
   useEffect(() => {
     getCategories(setCategories)
@@ -36,7 +24,7 @@ export const Post = () => {
   }
 
   const handleThumb = ({target: {files}}) => {
-    uploadThumb(files[0])
+    uploadThumb(userLoggedProfile,files[0])
     .then(resp => setProductToPost({...productToPost,thumb:resp}))
   }
 
@@ -46,15 +34,15 @@ export const Post = () => {
       ...productToPost,
       timestamp: serverTimestamp(),
       idProduct:productToPost.name.toLowerCase().replace(' ','-'),
-      idUser: userToPost.idUser
+      idUser: userLoggedProfile.email
     })
-    updatePostsUser(userToPost)
-    navigate(`/profile/${userToPost.idUser}`)
+    updatePostsUser(userLoggedProfile)
+    navigate(`/profile/${userLoggedProfile.idUser}`)
   }
 
-  const category = categories.find(e => e.idCategory === productToPost.category)
+  const category = categories && categories.find(e => e.idCategory === productToPost.category)
 
-  if(!loading) return <Loader />
+  if(!categories) return <Loader />
 
   return (
     <div className="w-full max-w-screen-md mx-auto flex flex-col">

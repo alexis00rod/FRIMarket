@@ -15,7 +15,7 @@ export const AuthContextProvider = ({children}) => {
   
   useEffect(() => {
     userLogged &&
-    getUser(userLogged,setUserLoggedProfile)
+    getUser(userLogged.email,setUserLoggedProfile)
   },[userLogged])
 
   return (

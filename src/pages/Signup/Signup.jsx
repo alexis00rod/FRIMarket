@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { SignupEmail, SignupName, SignupPass, SignupPhoto, SignupUserID } from "../../components/index.js"
 import { signupEmailPass } from "../../services/auth.js"
 import { addProfile } from "../../services/firestore.js"
-import { uploadToStorage } from "../../services/storage.js"
+import { uploadUserPhoto } from "../../services/storage.js"
 
 export const Signup = () => {
   const [signupUser, setSignupUser] = useState({})
@@ -24,9 +24,8 @@ export const Signup = () => {
 
   const handleUserPhoto = ({target:{files}}) => {
     setSignupUser({...signupUser,photoURL:false})
-
-    uploadToStorage(files[0])
-    .then(resp => setSignupUser({...signupUser,photoURL:resp}))
+    uploadUserPhoto(signupUser,files[0])
+      .then(resp => setSignupUser({...signupUser,photoURL:resp}))
   }
 
   return (

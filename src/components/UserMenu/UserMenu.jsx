@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
 import { logout } from "../../services/auth"
+import { Loader } from "../Loader/Loader"
 
 export const UserMenu = ({handle}) => {
   const {userLogged, userLoggedProfile} = useAuthContext()

@@ -13,8 +13,6 @@ export const ProductsDetailSimilar = ({type}) => {
     }))))
   },[type])
 
-  console.log(type)
-
   return (
     <div className="w-full px-2 py-2 bg-white border border-gray-300 rounded-md divide-y divide-gray-300">
       <h3 className='w-full px-2 py-2 text-xl font-medium'>Productos similares</h3>

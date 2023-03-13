@@ -8,7 +8,7 @@ export const ProductCard = ({content, style}) => {
 
   return (
     <>
-      <article className={`px-2 py-2 flex ${style === 'grid' ? 'flex-col items-center' : 'flex-row items-start'} bg-white border border-gray-300 rounded-md duration-150 hover:shadow-md hover:scale-102`}>
+      <article className={`px-2 py-2 flex ${style === 'grid' ? 'flex-col items-center' : 'flex-row items-start'} bg-white border border-gray-300 rounded-md duration-150 hover:shadow-xl`}>
         <Link to={`/product/${id}`} className='w-full max-w-xs h-56 px-1 py-1 flex items-center justify-center overflow-hidden'>
           <img src={thumb} alt={name} className='h-full object-contain' />
         </Link>
