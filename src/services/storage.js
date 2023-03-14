@@ -11,7 +11,7 @@ export const uploadThumb = async (user,file) => {
   const {name} = file
 
   await uploadBytes(productThumbRef(email,name),file)
-  const url = await getDownloadURL(userPhotoRef(email,name))
+  const url = await getDownloadURL(productThumbRef(email,name))
   return url
 }
 
