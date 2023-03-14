@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { SignupEmail, SignupName, SignupPass, SignupPhoto, SignupUserID } from "../../components/index.js"
+import { SignupEmail, SignupLocation, SignupName, SignupPass, SignupPhoto, SignupUserID } from "../../components/index.js"
 import { signupEmailPass } from "../../services/auth.js"
 import { addProfile } from "../../services/firestore.js"
 import { uploadUserPhoto } from "../../services/storage.js"
@@ -40,10 +40,16 @@ export const Signup = () => {
         <SignupPass onChange={({target:{value}}) => setSignupUser({...signupUser,password:value})} />
         <div className="flex gap-2">
           <SignupPhoto selected={signupUser.photoURL} onChange={handleUserPhoto} />
-          <div className="flex flex-col grow">
+          <div className="flex flex-col justify-between grow">
             <SignupName onChange={({target:{value}}) => setSignupUser({...signupUser,displayName:value})} />
             <SignupUserID onChange={({target:{value}}) => setSignupUser({...signupUser, idUser: value})} />
           </div>
+        </div>
+        <div className="w-full">
+          <SignupLocation 
+          selected={signupUser.province}
+          onChange={({target:{name,id}}) => setSignupUser({...signupUser,[name]:id})} 
+          />
         </div>
         <div className="w-full px-2 py-2 flex flex-col gap-2">
           <button type="submit" className="w-full h-8 flex justify-center items-center bg-blue-500 text-white text-sm rounded md">

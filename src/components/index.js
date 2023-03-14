@@ -36,6 +36,7 @@ import { ReviewCard } from "./ReviewCard/ReviewCard";
 import { ProfilePosts } from "./ProfilePosts/ProfilePosts";
 import { SellerCard } from "./SellerCard/SellerCard";
 import { EditProduct } from "./EditProduct/EditProduct";
+import { SignupLocation } from "./SignupLocation/SignupLocation";
 
 export {
   // Main
@@ -55,7 +56,7 @@ export {
   // Profile
   ProfileInfo, ProfilePosts,
   // Signup
-  SignupUserID, SignupName, SignupPhoto, SignupEmail, SignupPass,
+  SignupUserID, SignupName, SignupPhoto, SignupEmail, SignupPass, SignupLocation,
   // Login
   LoginEmail, LoginPass,
   // Buttons
