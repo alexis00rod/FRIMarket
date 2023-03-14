@@ -82,12 +82,10 @@ export const addBrand = async (category,brand) => {
 export const addProduct = async (product) => await addDoc(productsRef, product)
 
 // Funcion para agregar usuario
-export const addProfile = async ({idUser,displayName,email,photoURL}) => {
+export const addProfile = async (profile) => {
+  const {email} = profile
   return await setDoc(userRef(email),{
-    idUser,
-    displayName,
-    email,
-    photoURL,
+    ...profile,
     joined: serverTimestamp()
   })
 }
