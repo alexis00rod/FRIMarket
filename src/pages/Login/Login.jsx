@@ -15,7 +15,7 @@ export const Login = () => {
       await loginEmailPass(loginUser)
       navigate('/')
     } catch (err) {
-      setLoginError(`${err}`)
+      setLoginError(`${err.code.replace("auth/","")}`)
     }
   }
 
