@@ -25,39 +25,36 @@ export const getCategories = (obs) => {
 
 // Funcion para obtener productos
 export const getProducts = async (category,filters) => {
-  const {type, brand, minPrice, maxPrice} = filters
+  const {type, brand, minPrice, maxPrice, province} = filters
 
-  const q = category === 'all'
-  // Si categoria es igual a todos muestro todos los productos
-    ? query(productsRef,
-        where('price','>=',minPrice),
-        where('price','<=',maxPrice))
-    : type === 'allTypes' && brand === 'allBrands'
-    // Si categoria distinto de todos muestro los productos de la categoria elegida
-      ? query(productsRef,
-          where('category','==',category),
-          where('price','>=',minPrice),
-          where('price','<=',maxPrice))
-      : type === 'allTypes' && brand !== 'allBrands'
-        ? query(productsRef,
-            where('category','==',category),
-            where('brand','==',brand),
-            where('price','>=',minPrice),
-            where('price','<=',maxPrice))
-        : type !== 'allTypes' && brand === 'allBrands'
-          ? query(productsRef,
-              where('category','==',category),
-              where('type','==',type),
-              where('price','>=',minPrice),
-              where('price','<=',maxPrice))
-          : query(productsRef,
-              where('category','==',category),
-              where('type','==',type),
-              where('brand','==',brand),
-              where('price','>=',minPrice),
-              where('price','<=',maxPrice))
+  let products
 
-  return await getDocs(q)
+  if(category === 'all') {
+    products = query(productsRef,where('price','>=',minPrice),where('price','<=',maxPrice))
+  }
+  if(category !== 'all') {
+    products = query(productsRef,where('category','==',category),where('price','>=',minPrice),where('price','<=',maxPrice))
+  }
+  if(category === 'all' && province !== 'allProvinces') {
+    products = query(productsRef,where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
+  }
+  if(category !== 'all' && province !== 'allProvinces') {
+    products = query(productsRef,where('category','==',category),where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
+  }
+  if(type !== 'allTypes') {
+    products = query(productsRef,where('category','==',category),where('type','==',type),where('price','>=',minPrice),where('price','<=',maxPrice))
+  }
+  if(brand !== 'allBrands') {
+    products = query(productsRef,where('category','==',category),where('brand','==',brand),where('price','>=',minPrice),where('price','<=',maxPrice))
+  }
+  if(type !== 'allTypes' && brand !== 'allBrands') {
+    products = query(productsRef,where('type','==',type),where('brand','==',brand),where('price','>=',minPrice),where('price','<=',maxPrice))
+  }
+  if(type !== 'allTypes' && brand !== 'allBrands' && province !== 'allProvinces') {
+    products = query(productsRef,where('type','==',type),where('brand','==',brand),where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
+  }
+
+  return await getDocs(products)
 }
 
 // Funcion para obtener detalles del producto
