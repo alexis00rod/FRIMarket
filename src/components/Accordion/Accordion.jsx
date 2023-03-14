@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-export const Accordion = ({title,children}) => {
-  const [accordion, setAccordion] = useState(true)
+export const Accordion = ({title,open = true,children}) => {
+  const [accordion, setAccordion] = useState(open)
 
   return (
     <div className="w-full flex flex-col">
