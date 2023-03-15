@@ -189,8 +189,12 @@ export const addReview = async (user,product,review) => {
 }
 
 // Funcion para obtener usuarios
-export const getUsers = async () => {
-  return await getDocs(usersRef)
+export const getUsers = async (location) => {
+  const users = location === 'all'
+    ? usersRef
+    : query(usersRef,where('province','==',location))
+    
+  return await getDocs(users)
 }
 
 // Funcion para borrar producto
