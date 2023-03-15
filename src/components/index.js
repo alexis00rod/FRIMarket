@@ -38,6 +38,7 @@ import { SellerCard } from "./SellerCard/SellerCard";
 import { EditProduct } from "./EditProduct/EditProduct";
 import { SignupLocation } from "./SignupLocation/SignupLocation";
 import { ShopFiltersMenu } from "./ShopFiltersMenu/ShopFiltersMenu";
+import { SellersLocations } from "./SellersLocation/SellersLocations";
 
 export {
   // Main
@@ -53,7 +54,7 @@ export {
   // Product details
   ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, ReviewCard, EditProduct,
   // Sellers
-  SellerCard,
+  SellerCard, SellersLocations,
   // User
   UserMenu,
   // Profile
