@@ -37,10 +37,13 @@ import { ProfilePosts } from "./ProfilePosts/ProfilePosts";
 import { SellerCard } from "./SellerCard/SellerCard";
 import { EditProduct } from "./EditProduct/EditProduct";
 import { SignupLocation } from "./SignupLocation/SignupLocation";
+import { ShopFiltersMenu } from "./ShopFiltersMenu/ShopFiltersMenu";
 
 export {
   // Main
   App, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox,
+  // Shop
+  ShopFiltersMenu,
   // Product
   ProductsLayout, ProductCard, ProductModal, 
   // Cart
