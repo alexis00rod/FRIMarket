@@ -1,7 +1,8 @@
 import { useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
-import { Cart, Home, Login, Post, ProductDetail, Profile, Search, Sellers, Settings, SettingsPrivacity, SettingsProfile, Shop, Signup, Wishlist } from "../../pages/index.js"
 import { Footer, Navbar, ProtectedRoutes } from "../index.js"
+import { Cart, Home, Login, Post, ProductDetail, Profile, Search, Sellers, Settings, SettingsPrivacity, SettingsProfile, Shop, Signup, Wishlist } from "../../pages/index.js"
+import { ShopContextProvider } from "../../context/ShopContext/ShopContext.jsx"
 
 export const App = () => {
   const {pathname} = useLocation()
@@ -17,7 +18,7 @@ export const App = () => {
         <main className="w-full max-w-screen-2xl mx-auto px-2 py-4 flex flex-col grow">
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/shop/:idCategory" element={<Shop />}></Route>
+            <Route path="/shop/:idCategory" element={<ShopContextProvider><Shop /></ShopContextProvider>}></Route>
             <Route path="/post" element={<ProtectedRoutes><Post /></ProtectedRoutes>}></Route>
             <Route path="/product/:idProduct" element={<ProductDetail />}></Route>
             <Route path="/cart" element={<ProtectedRoutes><Cart /></ProtectedRoutes>}></Route>
