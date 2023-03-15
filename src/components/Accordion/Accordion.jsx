@@ -15,10 +15,9 @@ export const Accordion = ({title,open = true,children}) => {
         </button>
       </div>
       {accordion &&
-        <div className="w-full px-2 py-2 flex flex-col">
-          {children}
-        </div>
-      }
+      <div className="w-full px-2 pb-2 flex flex-col">
+        {children}
+      </div>}
     </div>
   )
 }
