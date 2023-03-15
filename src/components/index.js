@@ -39,6 +39,7 @@ import { EditProduct } from "./EditProduct/EditProduct";
 import { SignupLocation } from "./SignupLocation/SignupLocation";
 import { ShopFiltersMenu } from "./ShopFiltersMenu/ShopFiltersMenu";
 import { SellersLocations } from "./SellersLocation/SellersLocations";
+import { SellersSort } from "./SellersSort/SellersSort";
 
 export {
   // Main
@@ -54,7 +55,7 @@ export {
   // Product details
   ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, ReviewCard, EditProduct,
   // Sellers
-  SellerCard, SellersLocations,
+  SellerCard, SellersLocations, SellersSort,
   // User
   UserMenu,
   // Profile
