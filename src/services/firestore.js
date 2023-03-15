@@ -189,11 +189,19 @@ export const addReview = async (user,product,review) => {
 }
 
 // Funcion para obtener usuarios
-export const getUsers = async (location) => {
+export const getUsers = async (location,sort) => {
+  const order = sort === 'sales'
+    ? orderBy('sales','desc')
+    : sort === 'posts'
+      ? orderBy('posts','desc')
+      : sort === 'new'
+        ? orderBy('joined','desc')
+        : orderBy('joined','asc')
+
   const users = location === 'all'
-    ? usersRef
-    : query(usersRef,where('province','==',location))
-    
+    ? query(usersRef,order)
+    : query(usersRef,where('province','==',location),order)
+
   return await getDocs(users)
 }
 
