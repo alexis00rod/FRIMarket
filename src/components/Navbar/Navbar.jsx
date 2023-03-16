@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, NavLink } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext/CartContext.jsx"
-import { CartMenu, Searchbox, UserMenu } from "../index.js"
+import { CartMenu, Logo, Searchbox, UserMenu } from "../index.js"
 
 const NavbarLink = ({children,...props}) => {
   return (
@@ -23,9 +23,7 @@ export const Navbar = () => {
       <header className="sticky top-0 left-0 w-full">
         <div className="w-full h-12 px-1 bg-white">
           <div className="w-full max-w-screen-2xl h-full px-1 mx-auto flex items-center">
-            <Link to='/' className="w-max px-2">
-              <h1 className="flex items-center text-3xl text-blue-500 font-black"><span className="text-yellow-500">FRI</span>Market</h1>
-            </Link>
+            <Logo />
             <div className="h-full px-2 flex items-center justify-end grow">
               {/* Search */}
               <Searchbox />

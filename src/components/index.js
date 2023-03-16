@@ -46,10 +46,11 @@ import { ProductsSort } from "./ProductsSort/ProductsSort";
 import { HomeTabs } from "./HomeTabs/HomeTabs";
 import { HomeHero } from "./HomeHero/HomeHero";
 import { HomeSpecialProducts } from "./HomeSpecialProducts/HomeSpecialProducts";
+import { Logo } from "./Logo/Logo";
 
 export {
   // Main
-  App, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox,
+  App, Logo, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox,
   // Home
   HomeHero, HomeTabs, HomeSpecialProducts,
   // Shop
