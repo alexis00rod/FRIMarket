@@ -41,6 +41,7 @@ import { ShopFiltersMenu } from "./ShopFiltersMenu/ShopFiltersMenu";
 import { SellersLocations } from "./SellersLocation/SellersLocations";
 import { SellersSort } from "./SellersSort/SellersSort";
 import { ProductDetailLocation } from "./ProductDetailLocation/ProductDetailLocation";
+import { ProductDetailDate } from "./ProductDetailDate/ProductDetailDate";
 
 export {
   // Main
@@ -54,7 +55,7 @@ export {
   // Post
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // Product details
-  ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, ReviewCard, EditProduct, ProductDetailLocation,
+  ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, ReviewCard, EditProduct, ProductDetailLocation, ProductDetailDate,
   // Sellers
   SellerCard, SellersLocations, SellersSort,
   // User

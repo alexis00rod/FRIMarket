@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { BtnAddCart, BtnAddWishlist, EditProduct, Loader, ProductDetailLocation, ProductDetailReviews, ProductDetailUser, ProductsDetailSimilar } from '../../components'
+import { BtnAddCart, BtnAddWishlist, EditProduct, Loader, ProductDetailDate, ProductDetailLocation, ProductDetailReviews, ProductDetailUser, ProductsDetailSimilar } from '../../components'
 import { useAuthContext } from '../../context/AuthContext/AuthContext'
 import { useCartContext } from '../../context/CartContext/CartContext'
 import { getProductDetail } from '../../services/firestore'
@@ -19,7 +19,7 @@ export const ProductDetail = () => {
 
   if(!productDetail) return <Loader />
   
-  const {id,name,thumb,description,brand,stock,price,type,category,province, idUser} = productDetail
+  const {id,name,thumb,description,brand,stock,price,type,category,province,timestamp, idUser} = productDetail
   const productInCart = cartList.find(e => e.id === id)
 
   return (
@@ -74,9 +74,10 @@ export const ProductDetail = () => {
               </div>
               <div className="w-full px-2 pt-2 flex flex-col gap-2">
                 {/* Detail price */}
-                <h3 className='grow text-3xl text-yellow-500 font-medium'>${price}</h3>
-                <div className="w-full flex justify-between">
+                <h3 className='pt-2 pb-1 grow text-3xl text-yellow-500 font-medium'>${price}</h3>
+                <div className="w-full flex flex-col">
                   <ProductDetailLocation location={province} />
+                  <ProductDetailDate date={timestamp} />
                 </div>
               </div>
             </div>
