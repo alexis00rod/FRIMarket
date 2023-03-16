@@ -43,7 +43,6 @@ export const HomeTabs = () => {
     slider.current.scrollLeft += slider.current.offsetWidth;
   }
 
-
   return (
     <div className="px-2 py-2 flex flex-col gap-4">
       <div className="w-full flex flex-col items-center justify-center gap-2">
