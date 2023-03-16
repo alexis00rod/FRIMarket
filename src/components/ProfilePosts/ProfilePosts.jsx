@@ -19,5 +19,5 @@ export const ProfilePosts = ({user}) => {
 
   if(!loading) return <Loader />
 
-  return <ProductsLayout products={posts} layout='grid' />
+  return <ProductsLayout products={posts} layout='grid' sort='postDate' />
 }

@@ -21,7 +21,7 @@ export const Wishlist = () => {
         <h2 className="px-3 py-3 text-xl font-semibold">Lista de favoritos</h2>
       </div>
       <section className="w-full">
-        <ProductsLayout products={wishlist} layout='grid' />
+        <ProductsLayout products={wishlist} layout='grid' sort='postDate' />
       </section>
     </div>
   )
