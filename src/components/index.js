@@ -45,12 +45,13 @@ import { ProductDetailDate } from "./ProductDetailDate/ProductDetailDate";
 import { ProductsSort } from "./ProductsSort/ProductsSort";
 import { HomeTabs } from "./HomeTabs/HomeTabs";
 import { HomeHero } from "./HomeHero/HomeHero";
+import { HomeSpecialProducts } from "./HomeSpecialProducts/HomeSpecialProducts";
 
 export {
   // Main
   App, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox,
   // Home
-  HomeHero, HomeTabs,
+  HomeHero, HomeTabs, HomeSpecialProducts,
   // Shop
   ShopFiltersMenu,
   // Product

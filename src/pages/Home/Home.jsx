@@ -1,4 +1,4 @@
-import { HomeHero } from "../../components"
+import { HomeHero, HomeSpecialProducts } from "../../components"
 import { HomeTabs } from "../../components/HomeTabs/HomeTabs"
 
 export const Home = () => {
@@ -7,7 +7,7 @@ export const Home = () => {
       <HomeHero />
       <HomeTabs />
       <span>HomeBanners2</span>
-      <span>HomeSpecialsProducts</span>
+      <HomeSpecialProducts />
       <span>HomeBanners3</span>
     </section>
   )
