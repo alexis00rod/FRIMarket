@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { ProductsLayout, ShopFiltersMenu } from "../../components"
+import { ProductsLayout, ProductsSort, ShopFiltersMenu } from "../../components"
 import { useShopContext } from "../../context/ShopContext/ShopContext"
 import { getProducts } from "../../services/firestore"
 
@@ -10,6 +10,7 @@ export const Shop = () => {
   const [products, setProducts] = useState(false)
   const [productsLayout, setProductsLayout] = useState('grid')
   const [filterMenu, setFilterMenu] = useState(false)
+  const [productsSort, setProductsSort] = useState('postDate')
 
   useEffect(() => {
     setFilters({
@@ -42,6 +43,7 @@ export const Shop = () => {
           <div className="px-2 grow">
             {products && <span>Mostrando {products.length} resultados</span>}
           </div>
+          <ProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)}/>
           <div className="px-1 py-1 flex">
             <button 
             className={`w-8 h-8 flex items-center justify-center ${productsLayout === 'grid' ? 'text-blue-500' : 'text-gray-500'}`}
@@ -60,7 +62,7 @@ export const Shop = () => {
           </div>
         </div>
         {/* Products list */}
-        <ProductsLayout products={products} layout={productsLayout} />
+        <ProductsLayout products={products} layout={productsLayout} sort={productsSort} />
       </section>
     </div>
   )

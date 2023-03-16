@@ -42,6 +42,7 @@ import { SellersLocations } from "./SellersLocation/SellersLocations";
 import { SellersSort } from "./SellersSort/SellersSort";
 import { ProductDetailLocation } from "./ProductDetailLocation/ProductDetailLocation";
 import { ProductDetailDate } from "./ProductDetailDate/ProductDetailDate";
+import { ProductsSort } from "./ProductsSort/ProductsSort";
 
 export {
   // Main
@@ -49,7 +50,7 @@ export {
   // Shop
   ShopFiltersMenu,
   // Product
-  ProductsLayout, ProductCard, ProductModal, 
+  ProductsLayout, ProductCard, ProductModal, ProductsSort,
   // Cart
   CartMenu, CartProduct, 
   // Post
