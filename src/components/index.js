@@ -43,10 +43,13 @@ import { SellersSort } from "./SellersSort/SellersSort";
 import { ProductDetailLocation } from "./ProductDetailLocation/ProductDetailLocation";
 import { ProductDetailDate } from "./ProductDetailDate/ProductDetailDate";
 import { ProductsSort } from "./ProductsSort/ProductsSort";
+import { HomeTabs } from "./HomeTabs/HomeTabs";
 
 export {
   // Main
   App, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox,
+  // Home
+  HomeTabs,
   // Shop
   ShopFiltersMenu,
   // Product
