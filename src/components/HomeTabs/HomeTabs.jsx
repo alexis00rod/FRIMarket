@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { getFeaturedCategories, getFeaturedProducts } from "../../services/firestore"
 import { Loader, ProductCard } from "../index.js"
 
@@ -6,6 +6,7 @@ export const HomeTabs = () => {
   const [tabs, setTabs] = useState('')
   const [featuredCategories, setFeaturedCategories] = useState()
   const [featuredProducts, setFeaturedProducts] = useState()
+  const slider = useRef(null)
 
   useEffect(() => {
     getFeaturedCategories()
@@ -32,13 +33,22 @@ export const HomeTabs = () => {
 
   },[tabs])
 
-  console.log()
+  const handlePrevSlide = e => {
+    e.preventDefault()
+    slider.current.scrollLeft -= slider.current.offsetWidth;
+  }
+
+  const handleNextSlide = e => {
+    e.preventDefault()
+    slider.current.scrollLeft += slider.current.offsetWidth;
+  }
+
 
   return (
     <div className="px-2 py-2 flex flex-col gap-4">
-      <div className="w-full h-40 flex items-center justify-center">
+      <div className="w-full flex flex-col items-center justify-center gap-2">
         {featuredCategories
-        ? <div className="w-full h-full grid grid-cols-6 border border-gray-300 divide-x divide-gray-300 rounded-md overflow-hidden">
+        ? <div className="w-full h-40 grid grid-cols-6 border border-gray-300 divide-x divide-gray-300 rounded-md overflow-hidden">
             {featuredCategories.map(e => (
               <div 
               key={e.id} 
@@ -53,12 +63,28 @@ export const HomeTabs = () => {
           </div>
         : <Loader />}
       </div>
-      <div className="w-full flex gap-4 overflow-x-scroll">
-        {featuredProducts
-        ? featuredProducts.map(e => <ProductCard key={e.id} content={e} style='grid' />)
-        : <div className="w-full h-40 flex items-center justify-center">
-            <Loader />
-          </div>}
+      <div className="w-full flex flex-col gap-2">
+        <div className="w-full flex gap-4 overflow-x-auto scroll-smooth scrollbar-none" ref={slider}>
+          {featuredProducts
+          ? featuredProducts.map(e => <ProductCard key={e.id} content={e} style='grid' />)
+          : <div className="w-full h-40 flex items-center justify-center">
+              <Loader />
+            </div>}
+        </div>
+        <div className="px-2 py-2 flex justify-center items-center gap-4">
+          <button 
+          className="w-8 h-8 flex items-center justify-center flex-none bg-blue-500 text-white rounded-md"
+          onClick={handlePrevSlide}
+          >
+            <i className="fa-solid fa-chevron-left"></i>
+          </button>
+          <button 
+          className="w-8 h-8 flex items-center justify-center flex-none bg-blue-500 text-white rounded-md"
+          onClick={handleNextSlide}
+          >
+            <i className="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
       </div>
     </div>
   )
