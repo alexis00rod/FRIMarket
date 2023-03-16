@@ -213,3 +213,15 @@ export const editProduct = async (product, changes) => {
   const {id} = product
   await updateDoc(productRef(id),changes)
 }
+
+// Funcion para obtener categorias destacadas
+export const getFeaturedCategories = async () => {
+  const q = query(categoriesRef,orderBy('products','desc'),limit(6))
+  return await getDocs(q)
+}
+
+// Funcion para obtener productos destacados
+export const getFeaturedProducts = async (category) => {
+  const q = query(productsRef,where('category','==',category),orderBy('price','desc'),limit(7))
+  return await getDocs(q)
+}
