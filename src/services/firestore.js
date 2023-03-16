@@ -232,3 +232,9 @@ export const getAds = async () => {
   const q = adsRef
   return await getDocs(q)
 }
+
+// Funcion para obtener productos especiales
+export const getSpecialProducts = async () => {
+  const q = query(productsRef,orderBy('price','asc'),limit(4))
+  return await getDocs(q)
+}
