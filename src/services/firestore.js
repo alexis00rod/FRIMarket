@@ -12,6 +12,7 @@ const usersRef = collection(db,'users')
 const userRef = (id) => doc(db,"users",id)
 const wishlistRef = (id) => collection(db,"users",id,'wishlist')
 const wishlistDocRef = (email,id) => doc(db,'users',email,'wishlist',id)
+const adsRef = collection(db,'ads')
 
 // Funcion para obtener categorias
 export const getCategories = (obs) => {
@@ -223,5 +224,11 @@ export const getFeaturedCategories = async () => {
 // Funcion para obtener productos destacados
 export const getFeaturedProducts = async (category) => {
   const q = query(productsRef,where('category','==',category),orderBy('price','desc'),limit(7))
+  return await getDocs(q)
+}
+
+// Funcion para obtener publicidades
+export const getAds = async () => {
+  const q = adsRef
   return await getDocs(q)
 }
