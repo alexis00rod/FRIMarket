@@ -16,7 +16,7 @@ export const BtnAddWishlist = ({product,toggle}) => {
   const Button = ({icon,title,...props}) => {
     return (
       <button 
-      className={`${toggle ? 'w-8' : 'w-full max-w-btn'} h-8 px-2 flex items-center justify-center gap-2 bg-red-500 text-white rounded-md `}
+      className={`${toggle ? 'w-8' : 'w-full max-w-btn'} h-8 px-2 flex justify-center items-center gap-2 bg-red-500 text-white rounded-md disabled:bg-red-400`}
       title={title}
       {...props}
       >

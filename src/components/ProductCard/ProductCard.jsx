@@ -1,10 +1,56 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
+import { formatDate } from '../../services/formatDate.js'
+import { getLocation } from '../../services/locations.js'
 import { BtnAddCart, BtnAddWishlist, ProductModal } from '../index.js'
 
 export const ProductCard = ({content, style}) => {
   const [cardDetail, setCardDetail] = useState(false)
-  const {id,name,thumb,price,description} = content
+  const {id,name,thumb,price,description,province,timestamp} = content
+  const [location, setLocation] = useState({})
+  const [date, setDate] = useState({})
+
+  useEffect(() => {
+    getLocation(province)
+    .then(resp => setLocation(resp))
+    
+  },[province])
+
+  return (
+    <>
+      <article className={`px-1 py-1 flex ${style === 'grid' ? 'flex-col items-center' : 'flex-row items-start'} bg-white border border-gray-300 rounded-md duration-150 hover:shadow-xl`}>
+        <Link to={`/product/${id}`} className='w-full max-w-xs h-56 px-1 py-1 flex items-center justify-center flex-none overflow-hidden'>
+          <img src={thumb} alt={name} className='h-full object-contain' />
+        </Link>
+        <div className="px-2 py-1 w-full h-full flex flex-col justify-between grow">
+          <div className={`flex flex-col ${style === 'list' && ''}`}>
+            <h4 className={`px-1 py-1 text-lg text-yellow-500 font-medium`}>${price}</h4>
+            <h3 className={`w-full px-1 py-1 flex font-medium`}>
+              <Link to={`/product/${id}`} className='w-max line-clamp-1'>{name}</Link>
+            </h3>
+            {style === 'list' && <p className='py-1 mb-2 text-sm text-gray-500 line-clamp-2'>{description}</p>}
+          </div>
+          <div className={`flex flex-col`}>
+            <p className='px-1 text-sm text-gray-500 truncate'>{location.nombre}, Argentina</p>
+            <p className='px-1 text-sm text-gray-500 truncate' >{formatDate(timestamp.toDate())}</p>
+          </div>
+          <div 
+          className={`w-full px-1 pt-2 flex gap-2 `}
+          >
+            <BtnAddCart product={content} qty={1} />
+            <BtnAddWishlist product={content} toggle={style === 'grid'}/>
+            <button 
+            className='w-8 h-8 flex items-center justify-center flex-none bg-yellow-500 text-white rounded-md'
+            onClick={() => setCardDetail(true)}
+            >
+              <i className="fa-solid fa-eye"></i>
+            </button>
+          </div>
+        </div>
+      </article>
+      {cardDetail && <ProductModal content={content} handle={setCardDetail} />}
+    </>
+  )
 
   return (
     <>
