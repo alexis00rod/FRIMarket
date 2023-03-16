@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { BtnAddCart, BtnAddWishlist, EditProduct, Loader, ProductDetailReviews, ProductDetailUser, ProductsDetailSimilar } from '../../components'
+import { BtnAddCart, BtnAddWishlist, EditProduct, Loader, ProductDetailLocation, ProductDetailReviews, ProductDetailUser, ProductsDetailSimilar } from '../../components'
 import { useAuthContext } from '../../context/AuthContext/AuthContext'
 import { useCartContext } from '../../context/CartContext/CartContext'
 import { getProductDetail } from '../../services/firestore'
@@ -15,12 +15,11 @@ export const ProductDetail = () => {
   
   useEffect(() => {
     getProductDetail(idProduct,setProductDetail)
-    
   },[idProduct])
 
   if(!productDetail) return <Loader />
   
-  const {id,name,thumb,description,brand,stock,price,type,category, idUser} = productDetail
+  const {id,name,thumb,description,brand,stock,price,type,category,province, idUser} = productDetail
   const productInCart = cartList.find(e => e.id === id)
 
   return (
@@ -77,8 +76,7 @@ export const ProductDetail = () => {
                 {/* Detail price */}
                 <h3 className='grow text-3xl text-yellow-500 font-medium'>${price}</h3>
                 <div className="w-full flex justify-between">
-                  <span className='text-sm text-gray-500'>Buenos Aires, Argentina</span>
-                  <span className='text-sm text-gray-500'>Hoy</span>
+                  <ProductDetailLocation location={province} />
                 </div>
               </div>
             </div>

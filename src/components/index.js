@@ -40,6 +40,7 @@ import { SignupLocation } from "./SignupLocation/SignupLocation";
 import { ShopFiltersMenu } from "./ShopFiltersMenu/ShopFiltersMenu";
 import { SellersLocations } from "./SellersLocation/SellersLocations";
 import { SellersSort } from "./SellersSort/SellersSort";
+import { ProductDetailLocation } from "./ProductDetailLocation/ProductDetailLocation";
 
 export {
   // Main
@@ -53,7 +54,7 @@ export {
   // Post
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // Product details
-  ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, ReviewCard, EditProduct,
+  ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, ReviewCard, EditProduct, ProductDetailLocation,
   // Sellers
   SellerCard, SellersLocations, SellersSort,
   // User
