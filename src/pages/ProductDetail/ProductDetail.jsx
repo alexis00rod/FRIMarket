@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { BtnAddCart, BtnAddWishlist, EditProduct, Loader, ProductDetailDate, ProductDetailLocation, ProductDetailReviews, ProductDetailUser, ProductsDetailSimilar } from '../../components'
+import { BtnAddCart, BtnAddWishlist, EditProduct, Loader, ProductDetailDate, ProductDetailLocation, ProductDetailUser, ProductReviews, ProductsDetailSimilar } from '../../components'
 import { useAuthContext } from '../../context/AuthContext/AuthContext'
 import { useCartContext } from '../../context/CartContext/CartContext'
 import { getProductDetail } from '../../services/firestore'
@@ -121,7 +121,7 @@ export const ProductDetail = () => {
             <ProductDetailUser user={idUser} />
           </div>
         </div>
-        <ProductDetailReviews product={id} />
+        <ProductReviews product={id} />
         <ProductsDetailSimilar type={type} />
         {editProduct && <EditProduct product={productDetail} handle={setEditProduct} />}
       </section>
