@@ -170,8 +170,18 @@ export const updateProfileInfo = async (email,newProfile) => await updateDoc(use
 export const getSimilarProducts = async (type) => await getDocs(query(productsRef,where('type','==',type),limit(5)))
 
 // Funcion para obtener reviews de un producto
-export const getProductReviews = async (product,obs) => {
-  onSnapshot(collection(db,'products',product,'reviews'),(snap => {
+export const getProductReviews = async (product,sort,obs) => {
+  const order = sort === 'new'
+  ? orderBy('timestamp','desc')
+  : sort === 'old'
+    ? orderBy('timestamp','asc')
+    : sort === 'highRating'
+      ? orderBy('rating','desc')
+      : orderBy('rating','asc')
+
+  const q = query(collection(db,'products',product,'reviews'),order)
+
+  onSnapshot(q,(snap => {
     obs(snap.docs.map(e => ({
       id: e.id,
       ...e.data()
