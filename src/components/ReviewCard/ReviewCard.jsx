@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getUser } from "../../services/firestore"
+import { formatDate } from "../../services/formatDate"
 
 export const ReviewCard = ({review}) => {
   const [userReview, setUserReview] = useState([])
@@ -10,7 +11,7 @@ export const ReviewCard = ({review}) => {
   },[review])
 
   const {idUser,photoURL, displayName} = userReview
-  const {rating,title,body} = review
+  const {rating,title,body,timestamp} = review
 
   return (
     <li className="px-2 py-4 flex gap-2">
@@ -25,8 +26,9 @@ export const ReviewCard = ({review}) => {
             {rating}
           </span>
         </div>
-        <h4 className="mb-1 text-lg font-medium">{title}</h4>
-        <p className="text-sm line-clamp-2">{body}</p>
+        <h4 className="mb-1 font-medium">{title}</h4>
+        <p className="line-clamp-2">{body}</p>
+        <span className="pt-1 text-sm text-gray-600">{timestamp && formatDate(timestamp.toDate())}</span>
       </div>
     </li>
   )
