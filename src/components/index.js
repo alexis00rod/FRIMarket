@@ -51,6 +51,7 @@ import { ProductsList } from "./ProductsList/ProductsList";
 import { Slider } from "./Slider/Slider";
 import { ProductReviews } from "./ProductReviews/ProductReviews";
 import { ReviewsSort } from "./ReviewsSort/ReviewsSort";
+import { ReviewRating } from "./ReviewRating/ReviewRating";
 
 export {
   // Main
@@ -68,7 +69,7 @@ export {
   // Product details
   ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, EditProduct, ProductDetailLocation, ProductDetailDate,
   // Reviews
-  ReviewsSort, ProductReviews, ReviewCard,
+  ReviewsSort, ProductReviews, ReviewCard, ReviewRating,
   // Sellers
   SellerCard, SellersLocations, SellersSort,
   // User

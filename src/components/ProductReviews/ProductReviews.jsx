@@ -2,14 +2,14 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
 import { addReview, getProductReviews } from "../../services/firestore"
-import { ReviewCard, ReviewsSort } from "../index.js"
+import { ReviewCard, ReviewRating, ReviewsSort } from "../index.js"
 
 export const ProductReviews = ({product}) => {
   const {userLogged} = useAuthContext()
   const navigate = useNavigate()
   const [reviews, setReviews] = useState([])
   const [writeReview, setWriteReview] = useState(false)
-  const [review, setReview] = useState({})
+  const [review, setReview] = useState({rating:0})
   const [reviewsSort, setReviewsSort] = useState('new')
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const ProductReviews = ({product}) => {
   const handleReview = ({target:{name,value}}) => {
     setReview({
       ...review,
-      [name]: name === 'rating' ? parseFloat(value) : value
+      [name]: value
     })
   }
 
@@ -50,18 +50,9 @@ export const ProductReviews = ({product}) => {
     </div>
     {writeReview
     ? <form className='w-full py-2 flex flex-col gap-2' onSubmit={submitReview}>
-        <div className="px-2 py-2 flex flex-col">
-          <label htmlFor="rating" className='px-1 text-sm font-medium'>Calificacion</label>
-          <input 
-          type="number" 
-          name="rating" 
-          id="rating" 
-          min={0} 
-          max={5} 
-          className='w-max h-8 px-2 border border-gray-300 rounded-md outline-none'
-          onChange={handleReview}
-          />
-        </div>
+        {/* Review rating */}
+        <ReviewRating initial={review} obs={setReview} />
+        {/* Review title */}
         <div className="px-2 py-2 flex flex-col">
           <label htmlFor="title" className='px-1 text-sm font-medium'>Titulo de la reseña</label>
           <input 
