@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { getSpecialProducts } from '../../services/firestore'
-import { ProductCard } from '../ProductCard/ProductCard'
+import { ProductCard, Slider } from '../index.js'
+import { useSlider } from '../../hooks/useSlider'
 
 export const HomeSpecialProducts = () => {
   const [specialProducts, setSpecialProducts] = useState([])
-  const slider = useRef(null)
+  const {slider,handlePrevSlide, handleNextSlide} = useSlider()
 
   useEffect(() => {
     getSpecialProducts()
@@ -13,16 +14,6 @@ export const HomeSpecialProducts = () => {
         ...e.data()
       }))))
   },[])
-
-  const handlePrevSlide = e => {
-    e.preventDefault()
-    slider.current.scrollLeft -= slider.current.offsetWidth;
-  }
-
-  const handleNextSlide = e => {
-    e.preventDefault()
-    slider.current.scrollLeft += slider.current.offsetWidth;
-  }
 
   return (
     <div className='w-full flex flex-col gap-4'>
@@ -41,11 +32,11 @@ export const HomeSpecialProducts = () => {
           <i className="fa-solid fa-chevron-right"></i>
         </button>
       </div>
-      <div className="w-full flex overflow-x-auto scroll-smooth scrollbar-none" ref={slider}>
-        {specialProducts.map(e => (
+      <Slider slider={slider}>
+      {specialProducts.map(e => (
           <ProductCard key={e.id} content={e} style='grid' size='m' />
         ))}
-      </div>
+      </Slider>
     </div>
   )
 }

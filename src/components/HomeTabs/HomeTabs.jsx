@@ -1,12 +1,13 @@
 import { useEffect, useRef, useState } from "react"
+import { useSlider } from "../../hooks/useSlider"
 import { getFeaturedCategories, getFeaturedProducts } from "../../services/firestore"
-import { Loader, ProductCard } from "../index.js"
+import { Loader, ProductCard, Slider } from "../index.js"
 
 export const HomeTabs = () => {
   const [tabs, setTabs] = useState('')
+  const {slider,handleNextSlide,handlePrevSlide} = useSlider()
   const [featuredCategories, setFeaturedCategories] = useState()
   const [featuredProducts, setFeaturedProducts] = useState()
-  const slider = useRef(null)
 
   useEffect(() => {
     getFeaturedCategories()
@@ -33,16 +34,6 @@ export const HomeTabs = () => {
 
   },[tabs])
 
-  const handlePrevSlide = e => {
-    e.preventDefault()
-    slider.current.scrollLeft -= slider.current.offsetWidth;
-  }
-
-  const handleNextSlide = e => {
-    e.preventDefault()
-    slider.current.scrollLeft += slider.current.offsetWidth;
-  }
-
   return (
     <div className="px-2 py-2 flex flex-col gap-4">
       <div className="w-full flex flex-col items-center justify-center gap-2">
@@ -63,13 +54,13 @@ export const HomeTabs = () => {
         : <Loader />}
       </div>
       <div className="w-full flex flex-col gap-2">
-        <div className="w-full flex gap-4 overflow-x-auto scroll-smooth scrollbar-none" ref={slider}>
-          {featuredProducts
-          ? featuredProducts.map(e => <ProductCard key={e.id} content={e} size='s' />)
-          : <div className="w-full h-40 flex items-center justify-center">
-              <Loader />
-            </div>}
-        </div>
+        {featuredProducts
+        ? <Slider slider={slider}>
+            {featuredProducts.map(e => <ProductCard key={e.id} content={e} size='s' />)}
+          </Slider>
+        : <div className="w-full h-40 flex items-center justify-center">
+            <Loader />
+          </div>}
         <div className="px-2 py-2 flex justify-center items-center gap-4">
           <button 
           className="w-8 h-8 flex items-center justify-center flex-none bg-blue-500 text-white rounded-md"
