@@ -49,6 +49,8 @@ import { HomeSpecialProducts } from "./HomeSpecialProducts/HomeSpecialProducts";
 import { Logo } from "./Logo/Logo";
 import { ProductsList } from "./ProductsList/ProductsList";
 import { Slider } from "./Slider/Slider";
+import { ProductReviews } from "./ProductReviews/ProductReviews";
+import { ReviewsSort } from "./ReviewsSort/ReviewsSort";
 
 export {
   // Main
@@ -64,7 +66,9 @@ export {
   // Post
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // Product details
-  ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, ReviewCard, EditProduct, ProductDetailLocation, ProductDetailDate,
+  ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, EditProduct, ProductDetailLocation, ProductDetailDate,
+  // Reviews
+  ReviewsSort, ProductReviews, ReviewCard,
   // Sellers
   SellerCard, SellersLocations, SellersSort,
   // User
