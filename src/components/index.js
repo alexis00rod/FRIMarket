@@ -47,6 +47,7 @@ import { HomeTabs } from "./HomeTabs/HomeTabs";
 import { HomeHero } from "./HomeHero/HomeHero";
 import { HomeSpecialProducts } from "./HomeSpecialProducts/HomeSpecialProducts";
 import { Logo } from "./Logo/Logo";
+import { ProductsList } from "./ProductsList/ProductsList";
 
 export {
   // Main
@@ -56,7 +57,7 @@ export {
   // Shop
   ShopFiltersMenu,
   // Product
-  ProductsLayout, ProductCard, ProductModal, ProductsSort,
+  ProductsLayout, ProductCard, ProductModal, ProductsSort, ProductsList,
   // Cart
   CartMenu, CartProduct, 
   // Post
