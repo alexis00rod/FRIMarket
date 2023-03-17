@@ -65,7 +65,7 @@ export const HomeTabs = () => {
       <div className="w-full flex flex-col gap-2">
         <div className="w-full flex gap-4 overflow-x-auto scroll-smooth scrollbar-none" ref={slider}>
           {featuredProducts
-          ? featuredProducts.map(e => <ProductCard key={e.id} content={e} style='grid' />)
+          ? featuredProducts.map(e => <ProductCard key={e.id} content={e} size='s' />)
           : <div className="w-full h-40 flex items-center justify-center">
               <Loader />
             </div>}

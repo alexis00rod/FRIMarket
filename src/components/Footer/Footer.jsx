@@ -27,7 +27,7 @@ export const Footer = () => {
             <span className="w-full px-2 flex items-center font-medium">Categorias</span>
           </li>
           {categories && categories.map(e => (
-            <li className="px-2 w-full h-7 flex items-center">
+            <li key={e.id} className="px-2 w-full h-7 flex items-center">
               <Link to={`/shop/${e.idCategory}`} className='w-max flex items-center text-sm hover:text-yellow-500'>
                 {e.name}
               </Link>

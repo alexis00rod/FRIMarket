@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import { getUserProducts } from "../../services/firestore"
-import { Loader, ProductsLayout } from "../index.js"
+import { Loader, ProductsList } from "../index.js"
 
-export const ProfilePosts = ({user}) => {
+export const ProfilePosts = ({user,sort,layout}) => {
   const {email} = user
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(false)
@@ -19,5 +19,5 @@ export const ProfilePosts = ({user}) => {
 
   if(!loading) return <Loader />
 
-  return <ProductsLayout products={posts} layout='grid' sort='postDate' />
+  return <ProductsList products={posts} sort={sort} size={layout} maxCols={4} />
 }
