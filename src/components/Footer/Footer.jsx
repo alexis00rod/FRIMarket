@@ -51,7 +51,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className="w-full px-2 py-1 bg-gray-300">
-        <div className="w-full max-w-screen-2xl px-2 py-1 mx-auto">
+        <div className="w-full max-w-screen-2xl px-2 py-1 mx-auto flex justify-center">
           <span className="text-sm">Copyright © 2023</span>
         </div>
       </div>

@@ -20,7 +20,7 @@ export const App = () => {
             <Route path="/" element={<Home />}></Route>
             <Route path="/shop/:idCategory" element={<ShopContextProvider><Shop /></ShopContextProvider>}></Route>
             <Route path="/post" element={<ProtectedRoutes><Post /></ProtectedRoutes>}></Route>
-            <Route path="/product/:idProduct" element={<ProductDetail />}></Route>
+            <Route path="/product/:idDetail" element={<ProductDetail />}></Route>
             <Route path="/cart" element={<ProtectedRoutes><Cart /></ProtectedRoutes>}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/signup" element={<Signup />} ></Route>

@@ -8,18 +8,18 @@ import { getProductDetail } from '../../services/firestore'
 export const ProductDetail = () => {
   const {userLogged} = useAuthContext()
   const {cartList} = useCartContext()
-  const {idProduct} = useParams()
+  const {idDetail} = useParams()
   const [productDetail, setProductDetail] = useState()
   const [qtyProducts, setQtyProducts] = useState(1)
   const [editProduct, setEditProduct] = useState(false)
   
   useEffect(() => {
-    getProductDetail(idProduct,setProductDetail)
-  },[idProduct])
+    getProductDetail(idDetail,setProductDetail)
+  },[idDetail])
 
   if(!productDetail) return <Loader />
   
-  const {id,name,thumb,description,brand,stock,price,type,category,province,timestamp, idUser} = productDetail
+  const {id,name,thumb,description,brand,stock,price,type,category,province,timestamp, idUser, idProduct} = productDetail
   const productInCart = cartList.find(e => e.id === id)
 
   return (
@@ -122,7 +122,7 @@ export const ProductDetail = () => {
           </div>
         </div>
         <ProductReviews product={id} />
-        <ProductsDetailSimilar type={type} />
+        <ProductsDetailSimilar product={idProduct} type={type} />
         {editProduct && <EditProduct product={productDetail} handle={setEditProduct} />}
       </section>
     </div>
