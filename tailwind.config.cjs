@@ -14,6 +14,9 @@ module.exports = {
       },
       maxWidth: {
         'btn' : '12rem'
+      },
+      maxHeight: {
+        'dropdown' : '12rem'
       }
   },
   },
