@@ -5,17 +5,17 @@ import { Loader } from "../Loader/Loader"
 import { ProductCard } from "../ProductCard/ProductCard"
 import { Slider } from "../Slider/Slider"
 
-export const ProductsDetailSimilar = ({type}) => {
+export const ProductsDetailSimilar = ({product,type}) => {
   const [similarProducts, setSimilarProducts] = useState()
   const {slider,handleNextSlide,handlePrevSlide} = useSlider()
 
   useEffect(() => {
-    getSimilarProducts(type)
-    .then(resp => setSimilarProducts(resp.docs.map(e => ({
-      id: e.id,
-      ...e.data()
-    }))))
-  },[type])
+    getSimilarProducts(product,type)
+      .then(resp => setSimilarProducts(resp.docs.map(e => ({
+        id: e.id,
+        ...e.data()
+      }))))
+  },[product,type])
 
   return (
     <div className='w-full flex flex-col gap-4'>
