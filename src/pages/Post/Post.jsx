@@ -1,20 +1,17 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { addProduct, getCategories, updatePostsUser } from "../../services/firestore"
+import { addProduct, updatePostsUser } from "../../services/firestore"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
 import { uploadThumb } from "../../services/storage"
 import { PostBrand, PostType, PostThumb, PostCategory, PostName, PostDescription, PostPrice, PostStock, Loader } from "../../components"
 import { serverTimestamp } from "firebase/firestore"
+import { useCategories } from "../../hooks/useCategories"
 
 export const Post = () => {
-  const [categories, setCategories] = useState()
+  const {categories} = useCategories()
   const [productToPost, setProductToPost] = useState({})
   const navigate = useNavigate()
   const {userLoggedProfile} = useAuthContext()
-
-  useEffect(() => {
-    getCategories(setCategories)
-  },[])
 
   const handleCategory = ({target: {name,id}}) => {
     setProductToPost({
@@ -91,14 +88,6 @@ export const Post = () => {
               onChange={({target:{id}}) => setProductToPost({...productToPost,brand:id})}
               />
             </div>
-            {/* <div className="px-2 py-2 flex flex-col">
-              <label htmlFor="location" className="px-1 text-sm font-medium">Ubicacion:</label>
-              <select name="location" id="location" className="w-full max-w-xs h-8 px-2 border border-gray-300 rounded-md outline-none">
-                <option value="">Tipo 1</option>
-                <option value="">Tipo 2</option>
-                <option value="">Tipo 3</option>
-              </select>
-            </div> */}
             <button className="w-full max-w-btn h-8 px-2 ml-2 flex items-center justify-center gap-2 bg-green-500 text-white rounded-md">
               <i className="fa-solid fa-check"></i>
               <span className="text-sm">Vender producto</span>

@@ -1,14 +1,9 @@
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { getCategories } from "../../services/firestore.js"
+import { useCategories } from "../../hooks/useCategories.jsx"
 import { Logo } from "../index.js"
 
 export const Footer = () => {
-  const [categories, setCategories] = useState([])
-
-  useEffect(() => {
-    getCategories(setCategories)
-  },[])
+  const {categories} = useCategories()
 
   return (
     <footer className="w-full flex flex-col bg-gray-200">
