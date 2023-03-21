@@ -8,21 +8,11 @@ import { getProducts } from "../../services/firestore"
 
 export const Shop = () => {
   const { idCategory } = useParams()
-  const {filters, setFilters, categories} = useShopContext()
+  const {filters, categories} = useShopContext()
   const {cardSize, setCardSize} = useCardSize()
   const {productsSort, setProductsSort} = useProductsSort()
   const [products, setProducts] = useState(false)
   const [filterMenu, setFilterMenu] = useState(false)
-  
-
-  useEffect(() => {
-    setFilters({
-      ...filters,
-      type: 'allTypes',
-      brand: 'allBrands',
-      province: 'allProvinces'
-    })
-  },[idCategory])
 
   useEffect(() => {
     getProducts(idCategory,filters)

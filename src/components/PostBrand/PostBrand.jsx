@@ -3,7 +3,7 @@ import { addBrand } from '../../services/firestore'
 
 export const PostBrand = ({selected,category, ...props}) => {
   const [brandToAdd, setBrandToAdd] = useState('')
-  const [searchBrand, setSearchBrand] = useState()
+  const [searchBrand, setSearchBrand] = useState('')
   const [dropDown, setDropDown] = useState(false)
 
   useEffect(() => {
@@ -62,8 +62,7 @@ export const PostBrand = ({selected,category, ...props}) => {
           <div className="w-full h-8 flex flex-none">
             <input 
             type="text" 
-            name="" 
-            id="" 
+            name="addBrand" 
             className='px-2 grow outline-none placeholder:text-sm' 
             placeholder='Escribe nombre de la marca'
             value={brandToAdd}

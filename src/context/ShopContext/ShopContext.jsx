@@ -50,7 +50,6 @@ export const ShopContextProvider = ({children}) => {
       minPrice: 0,
       maxPrice: 9999999999,
     })
-    navigate('/shop/all')
   }
 
   return (

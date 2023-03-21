@@ -21,25 +21,32 @@ export const ShopFiltersMenu = ({handle, category}) => {
       className="w-full max-w-md h-full px-2 py-2 flex flex-col bg-white border-r-2 border-gray-600 divide-y divide-gray-300 overflow-y-scroll" 
       onClick={e => e.stopPropagation()}
       >
-        <div className="px-1 py-2 mb-1 flex items-center">
-          <h2 className="px-1 grow text-lg font-medium">Filtros</h2>
+        <div className="px-1 pt-1 pb-2 flex items-center justify-end">
           <button className="w-8 h-8 flex items-center justify-center hover:text-red-500" onClick={() => handle(false)}>
             <i className="fa-solid fa-x"></i>
           </button>
         </div>
         {/* Categorias */}
         <Accordion title='Categorias'>
-          <SidebarLink to='/shop/all'>Todas las categorias</SidebarLink>
+          <SidebarLink 
+          to='/shop/all'
+          onClick={cleanFilters}
+          >
+            Todas las categorias
+          </SidebarLink>
           {categories
           ? categories.map(category => (
-              <SidebarLink 
-              key={category.id} 
-              to={`/shop/${category.idCategory}`}>
+            <SidebarLink 
+            key={category.id} 
+            to={`/shop/${category.idCategory}`}
+            onClick={cleanFilters}
+            >
                 {category.name}
               </SidebarLink>
             ))
-          : <Loader />}
+            : <Loader />}
         </Accordion>
+        <h2 className="w-full px-2 py-2 mb-1 text-lg font-medium">Filtros</h2>
         {category &&
         <>
         {/* Tipo */}

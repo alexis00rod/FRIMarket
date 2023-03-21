@@ -2,7 +2,6 @@ import { useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
 import { Footer, Navbar, ProtectedRoutes } from "../index.js"
 import { Cart, Home, Login, Post, ProductDetail, Profile, Search, Sellers, Settings, SettingsPrivacity, SettingsProfile, Shop, Signup, Wishlist } from "../../pages/index.js"
-import { ShopContextProvider } from "../../context/ShopContext/ShopContext.jsx"
 
 export const App = () => {
   const {pathname} = useLocation()
