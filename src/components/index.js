@@ -52,10 +52,11 @@ import { Slider } from "./Slider/Slider";
 import { ProductReviews } from "./ProductReviews/ProductReviews";
 import { ReviewsSort } from "./ReviewsSort/ReviewsSort";
 import { ReviewRating } from "./ReviewRating/ReviewRating";
+import { CategoriesMenu } from "./CategoriesMenu/CategoriesMenu";
 
 export {
   // Main
-  App, Logo, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider,
+  App, Logo, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, CategoriesMenu,
   // Home
   HomeHero, HomeTabs, HomeSpecialProducts,
   // Shop
