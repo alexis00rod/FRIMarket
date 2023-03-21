@@ -13,7 +13,7 @@ const SidebarLink = ({children,...props}) => {
 }
 
 export const ShopFiltersMenu = ({handle, category}) => {
-  const {categories, locations, filters, handleFilter, handlePrice} = useShopContext()
+  const {categories, locations, filters, handleFilter, handlePrice, cleanFilters} = useShopContext()
 
   return (
     <div className="fixed top-24 left-0 bottom-0 w-full flex bg-black/30" onClick={() => handle(false)}>
@@ -162,7 +162,12 @@ export const ShopFiltersMenu = ({handle, category}) => {
         </Accordion>
         {/* Limpiar filtro */}
         <div className="px-1 py-2">
-          <button className="w-full h-8 flex items-center justify-center bg-blue-500 text-white rounded-md">Limpiar filtros</button>
+          <button 
+          className="w-full h-8 flex items-center justify-center bg-blue-500 text-white rounded-md"
+          onClick={cleanFilters}
+          >
+            Limpiar filtros
+          </button>
         </div>
       </aside>
     </div>

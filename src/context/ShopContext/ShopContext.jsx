@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext, createContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { getCategories } from '../../services/firestore'
 import { getLocations } from '../../services/locations'
 
@@ -15,6 +16,7 @@ export const ShopContextProvider = ({children}) => {
     minPrice: 0,
     maxPrice: 9999999999,
   })
+  const navigate = useNavigate()
 
   useEffect(() => {
     getCategories(setCategories)
@@ -40,9 +42,20 @@ export const ShopContextProvider = ({children}) => {
     })
   }
 
+  const cleanFilters = () => {
+    setFilters({
+      type: 'allTypes',
+      brand: 'allBrands',
+      province: 'allProvinces',
+      minPrice: 0,
+      maxPrice: 9999999999,
+    })
+    navigate('/shop/all')
+  }
+
   return (
     <ShopContext.Provider 
-    value={{categories,locations,filters,setFilters,handleFilter,handlePrice}}>
+    value={{categories,locations,filters,setFilters,handleFilter,handlePrice,cleanFilters}}>
       {children}
     </ShopContext.Provider>
   )
