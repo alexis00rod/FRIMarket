@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
-import { Footer, Navbar, ProtectedRoutes } from "../index.js"
+import { Breadcrumb, Footer, Navbar, ProtectedRoutes } from "../index.js"
 import { Cart, Home, Login, Post, ProductDetail, Profile, Search, Sellers, Settings, SettingsPrivacity, SettingsProfile, Shop, Signup, Wishlist } from "../../pages/index.js"
 
 export const App = () => {
@@ -14,7 +14,6 @@ export const App = () => {
     <div className="bg-gray-50 font-poppins">
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="w-full max-w-screen-2xl mx-auto px-2 py-4 flex flex-col grow">
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/shop/:idCategory" element={<Shop />}></Route>
@@ -32,7 +31,6 @@ export const App = () => {
             </Route>
             <Route path="/sellers" element={<Sellers />}></Route>
           </Routes>
-        </main>
       </div>
       <Footer />
     </div>
