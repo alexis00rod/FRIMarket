@@ -53,10 +53,13 @@ import { ProductReviews } from "./ProductReviews/ProductReviews";
 import { ReviewsSort } from "./ReviewsSort/ReviewsSort";
 import { ReviewRating } from "./ReviewRating/ReviewRating";
 import { CategoriesMenu } from "./CategoriesMenu/CategoriesMenu";
+import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb";
 
 export {
   // Main
   App, Logo, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, CategoriesMenu,
+  // Breadcrumb
+  Breadcrumb, BreadcrumbLink,
   // Home
   HomeHero, HomeTabs, HomeSpecialProducts,
   // Shop
