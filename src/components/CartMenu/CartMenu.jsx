@@ -56,10 +56,10 @@ export const CartMenu = ({handle}) => {
                   <i className="fa-solid fa-cart-shopping"></i>
                   <span className="text-sm">Ver carrito</span>
                 </Link>
-                <button className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-green-500 text-white rounded-md" title="Ir a pagar">
+                <Link to='/checkout' className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-green-500 text-white rounded-md" title="Ir a pagar">
                   <i className="fa-solid fa-check"></i>
                   <span className="text-sm">Ir a pagar</span>
-                </button>
+                </Link>
               </div>
             </div>
           </div>

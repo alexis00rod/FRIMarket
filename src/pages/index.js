@@ -1,4 +1,5 @@
 import { Cart } from "./Cart/Cart";
+import { Checkout } from "./Checkout/Checkout";
 import { Home } from "./Home/Home";
 import { Login } from "./Login/Login";
 import { Post } from "./Post/Post";
@@ -28,4 +29,5 @@ export {
   SettingsProfile,
   SettingsPrivacity,
   Sellers,
+  Checkout
 }

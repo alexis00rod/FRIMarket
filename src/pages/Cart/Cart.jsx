@@ -31,20 +31,20 @@ export const Cart = () => {
             <span className="font-medium">Total del carrito</span>
             <h4 className="mb-2 text-2xl text-yellow-500 font-medium">${cartPriceTotal}</h4>
             <button
-            className="h-8 px-2 flex items-center gap-2 bg-red-500 text-white rounded-md"
+            className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-red-500 text-white rounded-md"
             onClick={() => emptyCart()}
             >
               <i className="fa-solid fa-trash"></i>
               <span className="text-sm">Vaciar carrito</span>
             </button>
-            <Link to='/shop/all' className="h-8 px-2 flex items-center gap-2 bg-blue-500 text-white rounded-md" >
+            <Link to='/shop/all' className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-blue-500 text-white rounded-md" >
               <i className="fa-solid fa-cart-shopping"></i>
-              <span className="text-sm">Continuar comprando</span>
+              <span className="text-sm">Volver a la tienda</span>
             </Link>
-            <button className="h-8 px-2 flex items-center gap-2 bg-green-500 text-white rounded-md">
+            <Link to='/checkout' className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-green-500 text-white rounded-md">
               <i className="fa-solid fa-check"></i>
               <span className="text-sm">Ir a pagar</span>
-            </button>
+            </Link>
           </div>
         </section>}
       </main>
