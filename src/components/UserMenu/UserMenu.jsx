@@ -9,7 +9,7 @@ export const UserMenu = ({handle}) => {
   const MenuLink = ({icon,children,...props}) => {
     return (
       <Link
-      className="px-3 py-3 flex items-center gap-2 hover:text-yellow-500"
+      className="w-full px-3 py-3 flex items-center gap-2 hover:text-yellow-500"
       onClick={() => handle(false)}
       {...props}
         >
@@ -24,20 +24,30 @@ export const UserMenu = ({handle}) => {
       <div className="w-full max-w-md h-full flex flex-col bg-white border-l border-gray-500 divide-y divide-gray-300 overflow-y-scroll" onClick={e => e.stopPropagation()}>
           {userLogged
           ? <>
-              <MenuLink to={`/profile/${userLoggedProfile.idUser}`}>
-                <img src={userLoggedProfile.photoURL} alt={userLoggedProfile.displayName} className='w-10 h-10 object-cover rounded-md' />
-                <div className="flex flex-col">
-                  <span className="text-lg font-medium">{userLoggedProfile.displayName}</span>
-                  <span className="text-xs leading-3">{userLoggedProfile.email}</span>
-                </div>
-              </MenuLink>
+              <div className="w-full flex items-center">
+                <MenuLink to={`/profile/${userLoggedProfile.idUser}`}>
+                  <img src={userLoggedProfile.photoURL} alt={userLoggedProfile.displayName} className='w-10 h-10 object-cover rounded-md' />
+                  <div className="flex flex-col grow">
+                    <span className="text-lg font-medium">{userLoggedProfile.displayName}</span>
+                    <span className="text-xs leading-3">{userLoggedProfile.email}</span>
+                  </div>
+                </MenuLink>
+                <Link 
+                to='/editProfile' 
+                className="w-8 h-8 flex items-center justify-center flex-none hover:text-yellow-500"
+                title="Editar perfil"
+                onClick={() => handle(false)}
+                >
+                  <i className="fa-solid fa-pen"></i>
+                </Link>
+              </div>
               <MenuLink to='/post' icon='shop'>
                 Vender
               </MenuLink>
               <MenuLink to='/wishlist' icon='heart'>
                 Mis favoritos
               </MenuLink>
-              <MenuLink to='/settings/profile' icon='gear'>
+              <MenuLink to='/settings' icon='gear'>
                 Configuraciones
               </MenuLink>
               <button 

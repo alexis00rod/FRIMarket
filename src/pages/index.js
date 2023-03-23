@@ -1,5 +1,6 @@
 import { Cart } from "./Cart/Cart";
 import { Checkout } from "./Checkout/Checkout";
+import { EditProfile } from "./EditProfile/EditProfile";
 import { Home } from "./Home/Home";
 import { Login } from "./Login/Login";
 import { Post } from "./Post/Post";
@@ -9,7 +10,6 @@ import { Search } from "./Search/Search";
 import { Sellers } from "./Sellers/Sellers";
 import { Settings } from "./Settings/Settings";
 import { SettingsPrivacity } from "./SettingsPrivacity/SettingsPrivacity";
-import { SettingsProfile } from "./SettingsProfile/SettingsProfile";
 import { Shop } from "./Shop/Shop";
 import { Signup } from "./Signup/Signup";
 import { Wishlist } from "./Wishlist/Wishlist";
@@ -26,8 +26,8 @@ export {
   Wishlist,
   Search,
   Settings,
-  SettingsProfile,
   SettingsPrivacity,
   Sellers,
-  Checkout
+  Checkout,
+  EditProfile
 }

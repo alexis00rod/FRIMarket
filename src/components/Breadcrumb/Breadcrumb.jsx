@@ -27,7 +27,7 @@ export const Breadcrumb = ({children}) => {
         {pathname.includes('wishlist') && <BreadcrumbLink name='Lista de favoritos' to='/wishlist' />}
         {pathname.includes('post') && <BreadcrumbLink name='Vender producto' to='/post' />}
         {pathname.includes('cart') && <BreadcrumbLink name='Carrito' to='/cart' />}
-        {/* {pathname.includes('search') && <BreadcrumbLink name='Buscador' to='/search' />} */}
+        {pathname.includes('editProfile') && <BreadcrumbLink name='Editar perfil' to='/editProfile' />}
         {children}
       </div>
     </div>
