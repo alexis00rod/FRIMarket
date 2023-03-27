@@ -54,10 +54,23 @@ import { ReviewsSort } from "./ReviewsSort/ReviewsSort";
 import { ReviewRating } from "./ReviewRating/ReviewRating";
 import { CategoriesMenu } from "./CategoriesMenu/CategoriesMenu";
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb";
+import { SelectProvince } from "./SelectProvince/SelectProvince";
+import { SelectCity } from "./SelectCity/SelectCity";
+import { InputDisplayName } from "./InputDisplayName/InputDisplayName";
+import { InputEmail } from "./InputEmail/InputEmail";
+import { InputPhone } from "./InputPhone/InputPhone";
+import { InputAddress } from "./InputAddress/InputAddress";
+import { InputCP } from "./InputCP/InputCP";
+import { InputUserID } from "./InputUserID/InputUserID";
+import { InputBio } from "./InputBio/InputBio";
 
 export {
   // Main
-  App, Logo, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, CategoriesMenu,
+  App, Logo, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, CategoriesMenu, 
+  // Form
+  InputDisplayName, InputEmail, InputPhone, InputAddress, InputCP, InputUserID, InputBio,
+  // Select
+  SelectProvince, SelectCity,
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
   // Home
