@@ -13,6 +13,7 @@ const userRef = (id) => doc(db,"users",id)
 const wishlistRef = (id) => collection(db,"users",id,'wishlist')
 const wishlistDocRef = (email,id) => doc(db,'users',email,'wishlist',id)
 const adsRef = collection(db,'ads')
+const ordersRef = (id) => collection(db,'users',id,'orders')
 
 // Funcion para obtener categorias
 export const getCategories = (obs) => {
@@ -251,3 +252,27 @@ export const getSpecialProducts = async () => {
   const q = query(productsRef,orderBy('price','asc'),limit(4))
   return await getDocs(q)
 }
+
+// Funcion para realizar compra
+export const addOrder = async (order) => {
+  const {user:{email}} = order
+  const orderID = await addDoc(ordersRef(email),{
+    ...order,
+    date: serverTimestamp()
+  })
+  return orderID.id
+}
+
+// Funcion para actualizar producto
+export const updateProduct = (cartList) => {
+  cartList.forEach(element => {
+    const {id, qty, stock, sales} = element
+    return updateDoc(productRef(id),{
+      sales: sales ? sales + qty : qty,
+      stock: stock - qty
+    })
+  })
+}
+
+// Funcion para obtener ordenes
+export const getOrder = async (user,order) => await getDoc(doc(db,"users",user,"orders",order))
