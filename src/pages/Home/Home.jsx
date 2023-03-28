@@ -7,9 +7,9 @@ export const Home = () => {
       <section className="w-full flex flex-col gap-4">
         <HomeHero />
         <HomeTabs />
-        <span>HomeBanners2</span>
+        {/* <span>HomeBanners2</span> */}
         <HomeSpecialProducts />
-        <span>HomeBanners3</span>
+        {/* <span>HomeBanners3</span> */}
       </section>
     </main>
     

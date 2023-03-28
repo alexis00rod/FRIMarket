@@ -21,9 +21,9 @@ export const Settings = () => {
             <SettingLink to='/settings/profile'>Editar perfil</SettingLink>
             <SettingLink to='/settings/privacity'>Privacidad</SettingLink>
           </aside>
-          <section className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
+          {/* <section className="w-full px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md"> */}
             <Outlet />
-          </section>
+          {/* </section> */}
         </div>
       </main>
     </>

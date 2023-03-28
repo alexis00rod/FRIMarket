@@ -23,8 +23,7 @@ export const SelectProvince = ({selected, ...props}) => {
         onClick={handleDropDown}
         >
           <span className='h-full px-2 flex items-center grow capitalize'>
-            
-            {/* {selected && provinces && provinces.find(e => e.id === selected).nombre} */}
+            {selected && provinces && provinces.find(e => e.id === selected)?.nombre}
           </span>
           <i className={`w-8 h-full flex items-center justify-center fa-solid fa-chevron-${dropDown ? 'up' : 'down'}`}></i>
         </button>
