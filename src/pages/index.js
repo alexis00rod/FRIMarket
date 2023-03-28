@@ -3,6 +3,7 @@ import { Checkout } from "./Checkout/Checkout";
 import { EditProfile } from "./EditProfile/EditProfile";
 import { Home } from "./Home/Home";
 import { Login } from "./Login/Login";
+import { Order } from "./Order/Order";
 import { Post } from "./Post/Post";
 import { ProductDetail } from "./ProductDetail/ProductDetail";
 import { Profile } from "./Profile/Profile";
@@ -29,5 +30,6 @@ export {
   SettingsPrivacity,
   Sellers,
   Checkout,
-  EditProfile
+  EditProfile,
+  Order
 }
