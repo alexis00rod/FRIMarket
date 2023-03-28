@@ -1,11 +1,9 @@
 import { Accordion } from "./Accordion/Accordion";
 import { App } from "./App/App";
 import { BtnAddCart } from "./BtnAddCart/BtnAddCart";
-import { CartMenu } from "./CartMenu/CartMenu";
 import { CartProduct } from "./CartProduct/CartProduct";
 import { Footer } from "./Footer/Footer";
 import { Loader } from "./Loader/Loader";
-import { Navbar } from "./Navbar/Navbar";
 import { PostBrand } from "./PostBrand/PostBrand";
 import { PostType } from "./PostType/PostType";
 import { ProductCard } from "./ProductCard/ProductCard";
@@ -17,7 +15,6 @@ import { PostName } from "./PostName/PostName";
 import { PostDescription } from "./PostDescription/PostDescription";
 import { PostPrice } from "./PostPrice/PostPrice";
 import { PostStock } from "./PostStock/PostStock";
-import { UserMenu } from "./UserMenu/UserMenu";
 import { SignupName } from "./SignupName/SignupName";
 import { SignupEmail } from "./SignupEmail/SignupEmail";
 import { SignupPass } from "./SignupPass/SignupPass";
@@ -52,7 +49,6 @@ import { Slider } from "./Slider/Slider";
 import { ProductReviews } from "./ProductReviews/ProductReviews";
 import { ReviewsSort } from "./ReviewsSort/ReviewsSort";
 import { ReviewRating } from "./ReviewRating/ReviewRating";
-import { CategoriesMenu } from "./CategoriesMenu/CategoriesMenu";
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb";
 import { SelectProvince } from "./SelectProvince/SelectProvince";
 import { SelectCity } from "./SelectCity/SelectCity";
@@ -64,10 +60,15 @@ import { InputCP } from "./InputCP/InputCP";
 import { InputUserID } from "./InputUserID/InputUserID";
 import { InputBio } from "./InputBio/InputBio";
 import { InputPhoto } from "./InputPhoto/InputPhoto";
+import { Button } from "./Button/Button";
+
+import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
 
 export {
   // Main
-  App, Logo, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, CategoriesMenu, 
+  App, Logo, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, Button,
+  // Navbar
+  Navbar, NavbarMenu, CartMenu, UserMenu,
   // Form
   InputDisplayName, InputEmail, InputPhone, InputAddress, InputCP, InputUserID, InputBio, InputPhoto,
   // Select
@@ -81,7 +82,7 @@ export {
   // Product
   ProductsLayout, ProductCard, ProductModal, ProductsSort, ProductsList,
   // Cart
-  CartMenu, CartProduct, 
+  CartProduct, 
   // Post
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // Product details
@@ -90,8 +91,6 @@ export {
   ReviewsSort, ProductReviews, ReviewCard, ReviewRating,
   // Sellers
   SellerCard, SellersLocations, SellersSort,
-  // User
-  UserMenu,
   // Profile
   ProfileInfo, ProfilePosts,
   // Signup
