@@ -7,6 +7,7 @@ export const useProfile = () => {
   const {userLogged} = useAuthContext()
   
   useEffect(() => {
+    userLogged &&
     getUser(userLogged.email,setProfile)
 
   },[userLogged])

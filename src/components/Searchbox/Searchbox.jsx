@@ -11,19 +11,20 @@ export const Searchbox = () => {
   }
 
   return (
-    <form 
-    className="w-full max-w-3xl h-8 flex items-center border border-gray-300 rounded-md"
-    onSubmit={searchProduct}
-    >
-      <input 
-      type="text" 
-      name="search" 
-      className="h-full px-2 grow outline-none" 
-      onChange={({target:{value}}) => setToSearch(value)}
-      />
-      <button type="submit" className="w-8 h-full flex items-center justify-center bg-gray-100 border-l border-gray-300">
-        <i className="fa-solid fa-magnifying-glass"></i>
-      </button>
-    </form>
+    <div className="searchbox">
+      <form onSubmit={searchProduct}>
+        <input 
+        type="text" 
+        name="search" 
+        onChange={({target:{value}}) => setToSearch(value)}
+        />
+        <button 
+        type="submit" 
+        className="btn btn-gray btn-search"
+        >
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </form>
+    </div>
   )
 }
