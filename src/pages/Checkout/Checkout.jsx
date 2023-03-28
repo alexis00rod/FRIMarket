@@ -1,19 +1,20 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext/CartContext'
 import { useProfile } from '../../hooks/useProfile'
 import { InputAddress, InputCP, InputDisplayName, InputEmail, InputPhone, Loader, SelectCity, SelectProvince } from '../../components'
-
+import { addOrder, updateProduct } from '../../services/firestore'
 
 export const Checkout = () => {
   const {profile} = useProfile()
-  const {cartList, cartPriceTotal, cartQty, delivery} = useCartContext()
-  const [order, setOrder] = useState({})
+  const {cartList, cartPriceTotal, cartQty, delivery, emptyCart} = useCartContext()
+  const [order, setOrder] = useState()
+  const navigate = useNavigate()
 
-  const submitOrder = e => {
-    e.preventDefault()
-    console.log({
+  useEffect(() => {
+    profile && setOrder({...order,
       user:{
+        idUser: profile.idUser,
         displayName: profile.displayName,
         email: profile.email,
         phone: profile.phone,
@@ -21,39 +22,60 @@ export const Checkout = () => {
         city: profile.city,
         address: profile.address,
         cp: profile.cp,
-        // cardNumber: profile.cardNumber,
-        // cardDate: profile.cardDate,
-        // cardCVV: profile.cardCVV,
       },
-      cart: {
+      cart:{
         cartList,
         cartPriceTotal,
-        cartQty
+        cartQty,
+        delivery
       }
     })
+  },[profile])
+
+  const handleOrder = ({target:{name,value,id}}) => {
+    setOrder({
+      ...order,
+      user: {
+        ...order.user,
+        [name]: 
+          name === 'phone' || name === 'cp' 
+          ? parseInt(value) 
+          : name === 'province' || name === 'city'
+            ? id
+            : value
+      }
+    })
+  }
+  
+  const submitOrder = e => {
+    e.preventDefault()
+    addOrder(order)
+    .then(resp => navigate(`/checkout/${resp}`))
+    updateProduct(cartList)
+    emptyCart()
   }
 
   return (
     <main className="w-full max-w-screen-2xl mx-auto px-2 py-4 flex flex-col grow">
       <form className="w-full flex gap-4" onSubmit={submitOrder}>
-        {profile
+        {order
         ? <>
             <section className='flex flex-col gap-4 grow'>
               <div className="w-full h-max px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
                 <h2 className="px-2 py-2 text-lg font-semibold capitalize">Datos personales</h2>
                 <div className='w-full flex flex-col'>
-                  <InputDisplayName defaultValue={profile.displayName} onChange={({target: {name,value}}) => setOrder({...order,[name]:value})} />
-                  <InputEmail defaultValue={profile.email} onChange={({target: {name,value}}) => setOrder({...order,[name]:value})} />
-                  <InputPhone defaultValue={profile.phone} onChange={({target: {name,value}}) => setOrder({...order,[name]:value})} />
+                  <InputDisplayName defaultValue={order.user.displayName} onChange={handleOrder} />
+                  <InputEmail defaultValue={order.user.email} onChange={handleOrder} />
+                  <InputPhone defaultValue={order.user.phone} onChange={handleOrder} />
                 </div>
               </div>
               <div className="w-full h-max px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
                 <h2 className="px-2 py-2 text-lg font-semibold capitalize">Datos de envio</h2>
                 <div>
-                  <SelectProvince selected={profile.province} onChange={({target: {name,value}}) => setOrder({...order,[name]:value})} />
-                  <SelectCity selected={profile.city} onChange={({target: {name,value}}) => setOrder({...order,[name]:value})} />
-                  <InputAddress defaultValue={profile.address} onChange={({target: {name,value}}) => setOrder({...order,[name]:value})} />
-                  <InputCP defaultValue={profile.cp} onChange={({target: {name,value}}) => setOrder({...order,[name]:value})} />
+                  <SelectProvince selected={order.user.province} onChange={handleOrder} />
+                  <SelectCity selected={order.user.city} province={order.user.province} onChange={handleOrder} />
+                  <InputAddress defaultValue={order.user.address} onChange={handleOrder} />
+                  <InputCP defaultValue={order.user.cp} onChange={handleOrder} />
                 </div>
               </div>
               <div className="w-full h-max px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
@@ -66,8 +88,8 @@ export const Checkout = () => {
                     name="cardNumber" 
                     id="cardNumber" 
                     className="w-full h-8 px-2 border border-gray-300 rounded-md outline-none"
-                    defaultValue={profile.cardNumber}
-                    onChange={({target: {name,value}}) => setOrder({...order,[name]:value})}
+                    defaultValue={order.user.cardNumber}
+                    onChange={handleOrder}
                     />
                   </div>
                   <div className="px-2 py-2 flex flex-col">
@@ -77,8 +99,8 @@ export const Checkout = () => {
                     name="cardDate" 
                     id="cardDate" 
                     className="w-full h-8 px-2 border border-gray-300 rounded-md outline-none"
-                    defaultValue={profile.cardDate}
-                    onChange={({target: {name,value}}) => setOrder({...order,[name]:value})}
+                    defaultValue={order.user.cardDate}
+                    onChange={handleOrder}
                     />
                   </div>
                   <div className="px-2 py-2 flex flex-col">
@@ -88,8 +110,8 @@ export const Checkout = () => {
                     name="cardCVV" 
                     id="cardCVV" 
                     className="w-full h-8 px-2 border border-gray-300 rounded-md outline-none"
-                    defaultValue={profile.cardCVV}
-                    onChange={({target: {name,value}}) => setOrder({...order,[name]:value})}
+                    defaultValue={order.user.cardCVV}
+                    onChange={handleOrder}
                     />
                   </div>
                 </div> */}
@@ -130,8 +152,8 @@ export const Checkout = () => {
               <h3 className='flex items-center gap-2 font-medium'>Total: <span className='text-lg text-yellow-500'>${cartPriceTotal + delivery}</span></h3>
             </div>
             <button 
-            className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-green-500 text-white rounded-md"
-            // onClick={submitOrder}
+            className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-green-500 text-white rounded-md disabled:bg-green-400"
+            disabled={cartList.length === 0}
             >
               <i className="fa-solid fa-check"></i>
               <span className="text-sm">Finalizar compra</span>
