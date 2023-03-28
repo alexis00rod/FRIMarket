@@ -7,3 +7,125 @@
 .debug {
   @apply border border-red-500
 }
+
+/* Navbar */
+.navbar {
+  @apply sticky top-0 left-0 z-30 w-full
+}
+.navbar-top {
+  @apply w-full px-1 bg-white
+}
+.navbar-bot {
+  @apply w-full  px-1 bg-blue-500 text-white
+}
+
+/* Navbar menu */
+.navbar-menu {
+  @apply debug
+}
+
+/* Logo */
+.logo {
+  @apply w-max mx-auto px-2 flex
+}
+.logo h1 {
+  @apply flex items-center text-3xl text-blue-500 font-black
+}
+.logo h1 span {
+  @apply text-yellow-500
+}
+
+/* Searchbox */
+.searchbox {
+  @apply flex items-center justify-end grow
+}
+.searchbox form {
+  @apply w-full max-w-3xl h-10 flex items-center border border-gray-300 rounded-md overflow-hidden
+}
+.searchbox input {
+  @apply h-full px-2 grow outline-none
+}
+/* Buttons */
+.btn {
+  @apply min-w-btn h-10 px-2 flex items-center justify-center gap-2 flex-none rounded-md duration-200
+}
+.btn i {
+  @apply text-lg
+}
+/* Buttons colors */
+.btn-blue {
+  @apply bg-blue-500 text-white hover:bg-blue-600/90
+}
+.btn-gray {
+  @apply bg-gray-200 text-gray-900 hover:bg-gray-300
+}
+.btn-green {
+  @apply bg-green-500 text-white hover:bg-green-600/90
+}
+.btn-black {
+  @apply hover:text-yellow-500
+}
+
+/* Btn styles */
+.btn-search {
+  @apply border-l border-gray-300
+}
+
+.btn-link {
+  @apply px-3 font-medium
+}
+.btn-link-active {
+  @apply bg-blue-600/90
+}
+
+.btn-cart {
+  @apply relative
+}
+.btn-cart span {
+  @apply absolute -bottom-1 -left-1 bg-red-500 w-5 h-5 flex items-center justify-center text-sm font-medium rounded-full
+}
+
+.btn-menu {
+  @apply relative flex flex-col justify-around;
+}
+.btn-menu span {
+  @apply absolute w-3/5 h-1 block bg-white duration-200 rounded-full;
+}
+.btn-menu span:nth-child(1) {
+  @apply mb-4;
+}
+.btn-menu span:nth-child(3) {
+  @apply mt-4;
+}
+.btn-menu-active span:nth-child(1) {
+  @apply mb-0 rotate-45;
+}
+.btn-menu-active span:nth-child(2) {
+  @apply hidden;
+}
+.btn-menu-active span:nth-child(3) {
+  @apply mt-0 -rotate-45;
+}
+
+/* Menu */
+.menu {
+  @apply absolute top-full w-max max-w-xs mt-2 px-2 py-2 flex flex-col bg-white text-black border border-gray-300 divide-y divide-gray-300 rounded-md
+}
+.menu-left {
+  @apply left-0
+}
+.menu-right {
+  @apply right-0
+}
+.menu-item {
+  @apply relative w-full flex items-center cursor-pointer
+}
+.menu-link {
+  @apply w-full px-2 py-2 flex items-center gap-2 text-gray-700 font-medium duration-200 hover:text-yellow-500
+}
+.menu-link i {
+  @apply w-6 h-6 text-lg flex items-center justify-center
+}
+.menu-link-active {
+  @apply text-yellow-500
+}
