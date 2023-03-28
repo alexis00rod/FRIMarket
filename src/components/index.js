@@ -63,12 +63,13 @@ import { InputAddress } from "./InputAddress/InputAddress";
 import { InputCP } from "./InputCP/InputCP";
 import { InputUserID } from "./InputUserID/InputUserID";
 import { InputBio } from "./InputBio/InputBio";
+import { InputPhoto } from "./InputPhoto/InputPhoto";
 
 export {
   // Main
   App, Logo, Navbar, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, CategoriesMenu, 
   // Form
-  InputDisplayName, InputEmail, InputPhone, InputAddress, InputCP, InputUserID, InputBio,
+  InputDisplayName, InputEmail, InputPhone, InputAddress, InputCP, InputUserID, InputBio, InputPhoto,
   // Select
   SelectProvince, SelectCity,
   // Breadcrumb
