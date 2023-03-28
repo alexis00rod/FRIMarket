@@ -12,6 +12,9 @@ module.exports = {
       scale: {
         '102': '1.02'
       },
+      minWidth: {
+        'btn': '2.5rem' 
+      },
       maxWidth: {
         'btn' : '12rem'
       },
