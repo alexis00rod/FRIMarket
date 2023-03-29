@@ -1,6 +1,5 @@
 import { Accordion } from "./Accordion/Accordion";
 import { App } from "./App/App";
-import { BtnAddCart } from "./BtnAddCart/BtnAddCart";
 import { CartProduct } from "./CartProduct/CartProduct";
 import { Footer } from "./Footer/Footer";
 import { Loader } from "./Loader/Loader";
@@ -23,8 +22,6 @@ import { LoginPass } from "./LoginPass/LoginPass";
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 import { SignupUserID } from "./SignupUserID/SignupUserID";
 import { SignupPhoto } from "./SignupPhoto/SignupPhoto";
-import { ProductDetailUser } from "./ProductDetailUser/ProductDetailUser";
-import { BtnAddWishlist } from "./BtnAddWishlist/BtnAddWishlist";
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes";
 import { Searchbox } from "./Searchbox/Searchbox";
 import { ProductsDetailSimilar } from "./ProductDetailSimilar/ProductDetailSimilar";
@@ -37,8 +34,6 @@ import { SignupLocation } from "./SignupLocation/SignupLocation";
 import { ShopFiltersMenu } from "./ShopFiltersMenu/ShopFiltersMenu";
 import { SellersLocations } from "./SellersLocation/SellersLocations";
 import { SellersSort } from "./SellersSort/SellersSort";
-import { ProductDetailLocation } from "./ProductDetailLocation/ProductDetailLocation";
-import { ProductDetailDate } from "./ProductDetailDate/ProductDetailDate";
 import { ProductsSort } from "./ProductsSort/ProductsSort";
 import { HomeTabs } from "./HomeTabs/HomeTabs";
 import { HomeHero } from "./HomeHero/HomeHero";
@@ -60,16 +55,21 @@ import { InputCP } from "./InputCP/InputCP";
 import { InputUserID } from "./InputUserID/InputUserID";
 import { InputBio } from "./InputBio/InputBio";
 import { InputPhoto } from "./InputPhoto/InputPhoto";
-import { Button } from "./Button/Button";
 
 import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
+import { Button, BtnShare, BtnAddCart, BtnAddWishlist } from './Button/button'
 import { Modal } from "./Modal/Modal";
+import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA } from "./Detail/detail";
 
 export {
   // Main
-  App, Logo, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, Button, Modal,
+  App, Logo, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, Modal,
   // Navbar
   Navbar, NavbarMenu, CartMenu, UserMenu,
+  // Button
+  Button, BtnShare, BtnAddCart, BtnAddWishlist,
+  // Detail
+  DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA,
   // Form
   InputDisplayName, InputEmail, InputPhone, InputAddress, InputCP, InputUserID, InputBio, InputPhoto,
   // Select
@@ -87,7 +87,7 @@ export {
   // Post
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // Product details
-  ProductDetailUser, ProductsDetailSimilar, ProductDetailReviews, EditProduct, ProductDetailLocation, ProductDetailDate,
+  ProductsDetailSimilar, ProductDetailReviews, EditProduct,
   // Reviews
   ReviewsSort, ProductReviews, ReviewCard, ReviewRating,
   // Sellers
@@ -98,7 +98,4 @@ export {
   SignupUserID, SignupName, SignupPhoto, SignupEmail, SignupPass, SignupLocation,
   // Login
   LoginEmail, LoginPass,
-  // Buttons
-  BtnAddCart,
-  BtnAddWishlist
 }
