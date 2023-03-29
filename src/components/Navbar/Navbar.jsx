@@ -1,4 +1,6 @@
+import { useState } from "react"
 import { NavLink } from "react-router-dom"
+import { useScrollActive } from "../../hooks/useScrollActive.jsx"
 import { CartMenu, Logo, NavbarMenu, Searchbox, UserMenu } from "../index.js"
 
 const NavbarLink = ({children,...props}) => {
@@ -12,9 +14,13 @@ const NavbarLink = ({children,...props}) => {
 }
 
 export const Navbar = () => {
+  const {scrollActive} = useScrollActive()
+
+  console.log(scrollActive)
+
   return (
-    <header className="navbar">
-      <div className="navbar-top">
+    <header className='navbar'>
+      <div className='navbar-top'>
         <div className="w-full max-w-screen-2xl h-full px-2 py-2 mx-auto flex flex-wrap items-center md:gap-2">
           <Logo />
           <Searchbox />
@@ -24,7 +30,7 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
-      <div className="navbar-bot">
+      <div className='navbar-bot'>
         <nav className="w-full max-w-screen-2xl h-full mx-auto px-2 py-2 flex items-center">
           <div className="hidden w-full md:flex gap-2">
             <NavbarLink to='/'>Inicio</NavbarLink>
