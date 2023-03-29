@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { useShopContext } from "../../context/ShopContext/ShopContext.jsx"
-import { Accordion, Loader } from "../index.js"
+import { Accordion, Button, Loader, Modal } from "../index.js"
 
 const SidebarLink = ({children,...props}) => {
   return (
@@ -16,16 +16,8 @@ export const ShopFiltersMenu = ({handle, category}) => {
   const {categories, locations, filters, handleFilter, handlePrice, cleanFilters} = useShopContext()
 
   return (
-    <div className="fixed top-24 left-0 bottom-0 w-full flex bg-black/30" onClick={() => handle(false)}>
-      <aside 
-      className="w-full max-w-md h-full px-2 py-2 flex flex-col bg-white border-r-2 border-gray-600 divide-y divide-gray-300 overflow-y-scroll" 
-      onClick={e => e.stopPropagation()}
-      >
-        <div className="px-1 pt-1 pb-2 flex items-center justify-end">
-          <button className="w-8 h-8 flex items-center justify-center hover:text-red-500" onClick={() => handle(false)}>
-            <i className="fa-solid fa-x"></i>
-          </button>
-        </div>
+    <Modal title='Filtros' handle={handle} position='left'>
+      <div className="w-full h-full px-2 flex flex-col divide-y divide-gray-300 overflow-y-scroll scroll">
         {/* Categorias */}
         <Accordion title='Categorias'>
           <SidebarLink 
@@ -46,7 +38,6 @@ export const ShopFiltersMenu = ({handle, category}) => {
             ))
             : <Loader />}
         </Accordion>
-        <h2 className="w-full px-2 py-2 mb-1 text-lg font-medium">Filtros</h2>
         {category &&
         <>
         {/* Tipo */}
@@ -168,15 +159,10 @@ export const ShopFiltersMenu = ({handle, category}) => {
           </div>
         </Accordion>
         {/* Limpiar filtro */}
-        <div className="px-1 py-2">
-          <button 
-          className="w-full h-8 flex items-center justify-center bg-blue-500 text-white rounded-md"
-          onClick={cleanFilters}
-          >
-            Limpiar filtros
-          </button>
+        <div className="px-2 py-2">
+          <Button color='btn-blue' style='btn-form' onClick={cleanFilters} >Limpiar filtros</Button>
         </div>
-      </aside>
-    </div>
+      </div>
+    </Modal>
   )
 }

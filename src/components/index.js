@@ -63,10 +63,11 @@ import { InputPhoto } from "./InputPhoto/InputPhoto";
 import { Button } from "./Button/Button";
 
 import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
+import { Modal } from "./Modal/Modal";
 
 export {
   // Main
-  App, Logo, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, Button,
+  App, Logo, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, Button, Modal,
   // Navbar
   Navbar, NavbarMenu, CartMenu, UserMenu,
   // Form
