@@ -10,7 +10,7 @@ export const CartMenu = ({handle}) => {
   return (
     <div className="relative">
       <Button icon='cart-shopping' color='btn-blue' style='btn-cart' onClick={() => setMenu(!menu)}>
-        <span>{cartQty}</span>
+        {cartQty !== 0 && <span>{cartQty}</span>}
       </Button>
       {menu &&
       <div className="menu menu-right">

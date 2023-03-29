@@ -17,7 +17,9 @@ export const NavbarMenu = () => {
 
   return (
     <div className="relative">
-      <Button color='btn-blue' style='btn-menu' onClick={() => setMenu(!menu)} />
+      <Button color='btn-blue' style={`btn-menu ${menu && 'btn-menu-active'}`} onClick={() => setMenu(!menu)}>
+        <span></span><span></span><span></span>
+      </Button>
       {menu &&
       <ul className="menu menu-left">
         <li className="menu-item">
