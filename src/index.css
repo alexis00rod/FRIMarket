@@ -17,10 +17,10 @@ body {
   @apply sticky top-0 left-0 z-30 w-full
 }
 .navbar-top {
-  @apply w-full px-1 bg-white
+  @apply w-full px-2 bg-white 
 }
 .navbar-bot {
-  @apply w-full  px-1 bg-blue-500 text-white
+  @apply w-full px-2 bg-blue-500 text-white
 }
 
 /* Navbar menu */
@@ -58,10 +58,10 @@ body {
 }
 /* Buttons colors */
 .btn-blue {
-  @apply bg-blue-500 text-white hover:bg-blue-600/90
+  @apply bg-blue-500 text-white hover:bg-blue-600/90 disabled:bg-blue-400
 }
 .btn-gray {
-  @apply bg-gray-200 text-gray-900 hover:bg-gray-300
+  @apply bg-gray-200 text-gray-900 hover:bg-gray-300 disabled:bg-gray-100 disabled:hover:bg-gray-100
 }
 .btn-green {
   @apply bg-green-500 text-white hover:bg-green-600/90
@@ -71,6 +71,12 @@ body {
 }
 .btn-white {
   @apply bg-white text-black hover:text-blue-500
+}
+.btn-yellow {
+  @apply bg-yellow-500 text-white hover:bg-yellow-600/90
+}
+.btn-red {
+  @apply bg-red-500 text-white hover:bg-red-600/90
 }
 
 /* Btn styles */
@@ -116,6 +122,9 @@ body {
 .btn-form {
   @apply w-full 
 }
+.btn-toggle {
+  /* @apply  */
+}
 
 /* Menu */
 .menu {
@@ -147,7 +156,13 @@ body {
 
 /* Box */
 .box {
-  @apply w-full px-2 py-2 bg-white border border-gray-300 rounded-md
+  @apply w-full h-max px-2 py-2 bg-white border border-gray-300 rounded-md
+}
+.box-header {
+  @apply w-full px-2 py-2 border-b border-gray-300
+}
+.box-body {
+  @apply w-full px-2 pt-4 pb-2
 }
 
 /* Modal */
@@ -162,6 +177,38 @@ body {
 }
 .modal-header h3 {
   @apply px-2 grow text-lg font-medium
+}
+
+/* Seller card */
+.sellerCard {
+  /* @apply px-2 py-2 flex flex-col bg-white rounded-md border border-gray-300 divide-y divide-gray-300 hover:shadow-lg cursor-pointer */
+  @apply box divide-y divide-gray-300
+}
+.sellerCard-profile {
+  @apply px-2 py-2 flex flex-col md:flex-row items-center md:items-start
+  /* @apply pb-2 flex flex-col md:flex-row items-center md:items-start gap-2 */
+  /* @apply  px-2 pt-2 pb-4 flex flex-wrap */
+}
+.sellerCard-photo {
+  @apply w-full sm:w-36 h-36 md:w-32 md:h-32 lg:w-28 lg:h-28 xl:w-24 xl:h-24 flex flex-none object-cover rounded-md
+  /* @apply w-full sm:w-36 h-36 lg:w-28 lg:h-28 xl:w-24 xl:h-24 flex flex-none object-cover rounded-md */
+  /* @apply w-24 h-24 object-cover rounded-md */
+}
+.sellerCard-name {
+  @apply w-full font-medium truncate
+  /* @apply w-full truncate font-medium */
+  /* @apply truncate */
+}
+.sellerCard-id {
+  @apply w-full md:mb-2 text-sm text-gray-700 truncate
+  /* @apply w-full md:mb-2 text-sm text-gray-500 truncate */
+}
+.sellerCard-bio {
+  @apply w-full text-sm text-gray-500 line-clamp-2
+  /* @apply hidden md:flex text-sm text-gray-500 line-clamp-3 */
+}
+.sellerCard-info {
+  /* @apply  */
 }
 
 /* Scroll */
