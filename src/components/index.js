@@ -5,7 +5,6 @@ import { Footer } from "./Footer/Footer";
 import { Loader } from "./Loader/Loader";
 import { PostBrand } from "./PostBrand/PostBrand";
 import { PostType } from "./PostType/PostType";
-import { ProductCard } from "./ProductCard/ProductCard";
 import { ProductModal } from "./ProductModal/ProductModal";
 import { ProductsLayout } from "./ProductsLayout/ProductsLayout";
 import { PostThumb } from "./PostThumb/PostThumb";
@@ -27,7 +26,6 @@ import { Searchbox } from "./Searchbox/Searchbox";
 import { ProductsDetailSimilar } from "./ProductDetailSimilar/ProductDetailSimilar";
 import { ProductDetailReviews } from "./ProductDetailReviews/ProductDetailReviews";
 import { ProfilePosts } from "./ProfilePosts/ProfilePosts";
-import { SellerCard } from "./SellerCard/SellerCard";
 import { EditProduct } from "./EditProduct/EditProduct";
 import { SignupLocation } from "./SignupLocation/SignupLocation";
 import { ShopFiltersMenu } from "./ShopFiltersMenu/ShopFiltersMenu";
@@ -58,18 +56,21 @@ import { Modal } from "./Modal/Modal";
 import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA } from "./Detail/detail";
 import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews";
 import { InputText, Textarea, InputRating } from "./Form/form";
+import { SellerCard, ProductCard } from "./Card/card";
 
 export {
   // Main
   App, Logo, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, Modal,
   // Navbar
   Navbar, NavbarMenu, CartMenu, UserMenu,
-  // Button
+  // Buttons
   Button, BtnShare, BtnAddCart, BtnAddWishlist,
   // Detail
   DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA,
   // Reviews
   Reviews, ReviewsSort, ReviewRating, ReviewCard,
+  // Cards
+  ProductCard, SellerCard,
   // Form
   InputText, Textarea, InputRating,
   // Form
@@ -83,7 +84,7 @@ export {
   // Shop
   ShopFiltersMenu,
   // Product
-  ProductsLayout, ProductCard, ProductModal, ProductsSort, ProductsList,
+  ProductsLayout, ProductModal, ProductsSort, ProductsList,
   // Cart
   CartProduct, 
   // Post
@@ -91,7 +92,7 @@ export {
   // Product details
   ProductsDetailSimilar, ProductDetailReviews, EditProduct,
   // Sellers
-  SellerCard, SellersLocations, SellersSort,
+  SellersLocations, SellersSort,
   // Profile
   ProfileInfo, ProfilePosts,
   // Signup
