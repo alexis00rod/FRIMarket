@@ -9,16 +9,21 @@ module.exports = {
       fontFamily: {
         'poppins': ['"Poppins"', 'sans-serif'],
       },
-      scale: {
-        '102': '1.02'
+      height: {
+        'btn': '2rem',
       },
       minWidth: {
-        'btn': '2.5rem'
+        'btn': '2rem'
       },
       maxWidth: {
-        'btn-s' : '2.5rem',
+        // Button
+        'btn-s' : '2rem',
         'btn-m' : 'max-content',
-        'btn-l' : '12rem',
+        'btn-l' : '15.625rem',
+        // Product card
+        'productCard-s': '20rem',
+        'productCard-m': '43.438rem',
+        'productCard-l': '100%'
       },
       minHeight: {
         'textarea': '7rem'
