@@ -20,16 +20,16 @@ export const Sellers = () => {
   return (
     <>
       <Breadcrumb />
-      <main className="w-full max-w-screen-2xl mx-auto px-2 py-4 flex flex-col grow">
-        <div className='w-full flex flex-col gap-4'>
-          <div className="w-full px-2 py-2 flex items-center gap-4 bg-white border border-gray-300 rounded md">
+      <main>
+        <section className='w-full flex flex-col gap-2 md:gap-4'>
+          <div className="box flex items-center flex-wrap">
             <SellersLocations selected={location} onChange={({target:{id}}) => setLocation(id)} />
             <SellersSort selected={sort} onChange={({target:{id}}) => setSort(id)} />
           </div>
-          <div className="grid grid-cols-4 gap-4">
+          <div className="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4">
             {sellers.map(e => <SellerCard key={e.id} seller={e} />)}
           </div>
-        </div>
+        </section>
       </main>
     </>
   )
