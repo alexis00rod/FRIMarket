@@ -12,6 +12,10 @@ body {
   @apply scroll
 }
 
+main {
+  @apply w-full max-w-screen-2xl mx-auto px-1 md:px-2 py-2 md:py-4 flex flex-col grow
+}
+
 /* Navbar */
 .navbar {
   @apply sticky top-0 left-0 z-30 w-full
@@ -44,7 +48,7 @@ body {
   @apply flex items-center justify-end grow
 }
 .searchbox form {
-  @apply w-full max-w-3xl h-10 flex items-center border border-gray-300 rounded-md overflow-hidden
+  @apply w-full max-w-3xl h-max flex items-center border border-gray-300 rounded-md overflow-hidden
 }
 .searchbox input {
   @apply h-full px-2 grow outline-none
@@ -52,7 +56,7 @@ body {
 
 /* Buttons */
 .btn {
-  @apply min-w-btn h-btn px-2 flex items-center justify-center gap-2 flex-none rounded-md duration-200
+  @apply min-w-btn h-btn px-2 flex items-center justify-center gap-2 flex-none rounded-md duration-200 cursor-pointer
 }
 
 /* Button size */
@@ -250,34 +254,31 @@ body {
 
 /* Seller card */
 .sellerCard {
-  /* @apply px-2 py-2 flex flex-col bg-white rounded-md border border-gray-300 divide-y divide-gray-300 hover:shadow-lg cursor-pointer */
-  @apply box divide-y divide-gray-300
+  @apply box flex flex-col sm:flex-row duration-200 hover:shadow-lg
 }
-.sellerCard-profile {
-  @apply px-2 py-2 flex flex-col md:flex-row items-center md:items-start
-  /* @apply pb-2 flex flex-col md:flex-row items-center md:items-start gap-2 */
-  /* @apply  px-2 pt-2 pb-4 flex flex-wrap */
-}
+/* Seller card photo */
 .sellerCard-photo {
-  @apply w-full sm:w-36 h-36 md:w-32 md:h-32 lg:w-28 lg:h-28 xl:w-24 xl:h-24 flex flex-none object-cover rounded-md
-  /* @apply w-full sm:w-36 h-36 lg:w-28 lg:h-28 xl:w-24 xl:h-24 flex flex-none object-cover rounded-md */
-  /* @apply w-24 h-24 object-cover rounded-md */
+  @apply px-1 py-1 w-full h-36 sm:h-full sm:w-36 flex flex-none object-cover rounded-md
 }
+/* Seller card profile */
+.sellerCard-profile {
+  @apply px-1 md:px-2 py-1 md:py-2 flex flex-col justify-between gap-2
+}
+/* Seller card name */
 .sellerCard-name {
-  @apply w-full font-medium truncate
-  /* @apply w-full truncate font-medium */
-  /* @apply truncate */
+  @apply w-full font-medium line-clamp-1
 }
+/* Seller card id */
 .sellerCard-id {
-  @apply w-full md:mb-2 text-sm text-gray-700 truncate
-  /* @apply w-full md:mb-2 text-sm text-gray-500 truncate */
+  @apply w-full mb-1 text-sm font-medium text-gray-500 line-clamp-1
 }
+/* Seller card bio */
 .sellerCard-bio {
-  @apply w-full text-sm text-gray-500 line-clamp-2
-  /* @apply hidden md:flex text-sm text-gray-500 line-clamp-3 */
+  @apply hidden lg:flex text-sm text-gray-500 lg:line-clamp-2
 }
-.sellerCard-info {
-  /* @apply  */
+/* Seller card post & Seller card sales */
+.sellerCard-posts, .sellerCard-sales {
+  @apply w-full flex items-center gap-2
 }
 
 /* Input */
