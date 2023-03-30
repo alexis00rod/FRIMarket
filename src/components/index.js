@@ -26,7 +26,6 @@ import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes";
 import { Searchbox } from "./Searchbox/Searchbox";
 import { ProductsDetailSimilar } from "./ProductDetailSimilar/ProductDetailSimilar";
 import { ProductDetailReviews } from "./ProductDetailReviews/ProductDetailReviews";
-import { ReviewCard } from "./ReviewCard/ReviewCard";
 import { ProfilePosts } from "./ProfilePosts/ProfilePosts";
 import { SellerCard } from "./SellerCard/SellerCard";
 import { EditProduct } from "./EditProduct/EditProduct";
@@ -41,9 +40,6 @@ import { HomeSpecialProducts } from "./HomeSpecialProducts/HomeSpecialProducts";
 import { Logo } from "./Logo/Logo";
 import { ProductsList } from "./ProductsList/ProductsList";
 import { Slider } from "./Slider/Slider";
-import { ProductReviews } from "./ProductReviews/ProductReviews";
-import { ReviewsSort } from "./ReviewsSort/ReviewsSort";
-import { ReviewRating } from "./ReviewRating/ReviewRating";
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb";
 import { SelectProvince } from "./SelectProvince/SelectProvince";
 import { SelectCity } from "./SelectCity/SelectCity";
@@ -60,6 +56,8 @@ import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
 import { Button, BtnShare, BtnAddCart, BtnAddWishlist } from './Button/button'
 import { Modal } from "./Modal/Modal";
 import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA } from "./Detail/detail";
+import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews";
+import { InputText, Textarea, InputRating } from "./Form/form";
 
 export {
   // Main
@@ -70,6 +68,10 @@ export {
   Button, BtnShare, BtnAddCart, BtnAddWishlist,
   // Detail
   DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA,
+  // Reviews
+  Reviews, ReviewsSort, ReviewRating, ReviewCard,
+  // Form
+  InputText, Textarea, InputRating,
   // Form
   InputDisplayName, InputEmail, InputPhone, InputAddress, InputCP, InputUserID, InputBio, InputPhoto,
   // Select
@@ -88,8 +90,6 @@ export {
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // Product details
   ProductsDetailSimilar, ProductDetailReviews, EditProduct,
-  // Reviews
-  ReviewsSort, ProductReviews, ReviewCard, ReviewRating,
   // Sellers
   SellerCard, SellersLocations, SellersSort,
   // Profile

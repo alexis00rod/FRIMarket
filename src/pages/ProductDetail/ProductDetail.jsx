@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Breadcrumb, BreadcrumbLink, DetailCTA, DetailDescription, DetailImage, DetailTitle, DetailUser, Loader, ProductReviews, ProductsDetailSimilar } from '../../components'
+import { Breadcrumb, BreadcrumbLink, DetailCTA, DetailDescription, DetailImage, DetailTitle, DetailUser, Loader, ProductsDetailSimilar, Reviews } from '../../components'
 import { getProductDetail } from '../../services/firestore'
 
 export const ProductDetail = () => {
@@ -36,7 +36,7 @@ export const ProductDetail = () => {
               <DetailUser user={idUser} />
             </div>
           </div>
-          <ProductReviews product={id} />
+          <Reviews product={id} />
           <ProductsDetailSimilar product={idProduct} type={type} />
         </section>
       </main>
