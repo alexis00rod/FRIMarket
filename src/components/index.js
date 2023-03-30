@@ -6,7 +6,6 @@ import { Loader } from "./Loader/Loader";
 import { PostBrand } from "./PostBrand/PostBrand";
 import { PostType } from "./PostType/PostType";
 import { ProductModal } from "./ProductModal/ProductModal";
-import { ProductsLayout } from "./ProductsLayout/ProductsLayout";
 import { PostThumb } from "./PostThumb/PostThumb";
 import { PostCategory } from "./PostCategory/PostCategory";
 import { PostName } from "./PostName/PostName";
@@ -29,14 +28,10 @@ import { ProfilePosts } from "./ProfilePosts/ProfilePosts";
 import { EditProduct } from "./EditProduct/EditProduct";
 import { SignupLocation } from "./SignupLocation/SignupLocation";
 import { ShopFiltersMenu } from "./ShopFiltersMenu/ShopFiltersMenu";
-import { SellersLocations } from "./SellersLocation/SellersLocations";
-import { SellersSort } from "./SellersSort/SellersSort";
-import { ProductsSort } from "./ProductsSort/ProductsSort";
 import { HomeTabs } from "./HomeTabs/HomeTabs";
 import { HomeHero } from "./HomeHero/HomeHero";
 import { HomeSpecialProducts } from "./HomeSpecialProducts/HomeSpecialProducts";
 import { Logo } from "./Logo/Logo";
-import { ProductsList } from "./ProductsList/ProductsList";
 import { Slider } from "./Slider/Slider";
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb";
 import { SelectCity } from "./SelectCity/SelectCity";
@@ -56,7 +51,8 @@ import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription
 import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews";
 import { InputText, Textarea, InputRating } from "./Form/form";
 import { SellerCard, ProductCard } from "./Card/card";
-import { Select, SelectItem, SelectProvince, SelectSellersSort } from "./Select/select";
+import { Select, SelectItem, SelectProductsSort, SelectProvince, SelectSellersSort } from "./Select/select";
+import { ProductsList, ProductsLayout } from "./Products/products";
 
 export {
   // Main
@@ -72,7 +68,9 @@ export {
   // Cards
   ProductCard, SellerCard,
   // Select
-  Select, SelectItem, SelectProvince, SelectSellersSort,
+  Select, SelectItem, SelectProvince, SelectSellersSort, SelectProductsSort,
+  // Products
+  ProductsList, ProductsLayout,
   // Form
   InputText, Textarea, InputRating,
   // Form
@@ -86,15 +84,13 @@ export {
   // Shop
   ShopFiltersMenu,
   // Product
-  ProductsLayout, ProductModal, ProductsSort, ProductsList,
+  ProductModal,
   // Cart
   CartProduct, 
   // Post
   PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // Product details
   ProductsDetailSimilar, ProductDetailReviews, EditProduct,
-  // Sellers
-  SellersLocations, SellersSort,
   // Profile
   ProfileInfo, ProfilePosts,
   // Signup
