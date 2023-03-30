@@ -1,23 +1,13 @@
 import { useEffect, useState } from "react"
+import { useUserPosts } from "../../hooks/useUserPosts"
 import { getUserProducts } from "../../services/firestore"
 import { Loader, ProductsList } from "../index.js"
 
 export const ProfilePosts = ({user,sort,layout}) => {
   const {email} = user
-  const [posts, setPosts] = useState([])
-  const [loading, setLoading] = useState(false)
+  const {userPosts} = useUserPosts(email)
 
-  useEffect(() => {
-    getUserProducts(email)
-      .then(resp => setPosts(resp.docs.map(e => ({
-        id: e.id,
-        ...e.data()
-      }))))
-      .finally(() => setLoading(true))
+  if(!userPosts) return <Loader />
 
-  },[user])
-
-  if(!loading) return <Loader />
-
-  return <ProductsList products={posts} sort={sort} size={layout} maxCols={4} />
+  return <ProductsList products={userPosts} sort={sort} size={layout} maxCols={4} />
 }
