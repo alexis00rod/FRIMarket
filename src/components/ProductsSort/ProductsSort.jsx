@@ -32,14 +32,14 @@ export const ProductsSort = ({selected, ...props}) => {
   }
 
   return (
-    <div className="w-full max-w-sm px-2 py-2 flex items-center gap-2">
-      <span className="px-1 flex flex-none text-sm font-medium">Ordenar por:</span>
-      <div className="relative w-full h-8">
+    <div className="w-full max-w-sm px-2 py-2 flex flex-col md:flex-row items-center gap-2">
+      <span className="w-max px-1 flex flex-none text-sm font-medium">Ordenar por:</span>
+      <div className="relative h-10 grow">
         <button 
         className={`w-full h-full flex border border-gray-300 ${dropDown ? 'rounded-t-md' : 'rounded-md'}`} 
         onClick={handleDropDown}
         >
-          <span className='h-full px-2 flex items-center grow'>
+          <span className='h-full px-2 flex items-center truncate grow'>
             {selected === 'highPrice'
               ? 'Precio: mas alto'
               : selected === 'lowPrice'

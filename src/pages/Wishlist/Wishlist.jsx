@@ -22,12 +22,14 @@ export const Wishlist = () => {
   return (
     <>
       <Breadcrumb />
-      <main className="w-full max-w-screen-2xl mx-auto px-2 py-4 flex flex-col grow">
+      <main>
         <div className="w-full flex flex-col gap-4 grow">
-          <div className="w-full px-2 py-2 flex items-center bg-white border border-gray-300 rounded-md">
-            <h2 className="px-3 py-3 grow text-xl font-semibold">Lista de favoritos</h2>
-            <ProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
-            <ProductsLayout size={cardSize}  onChange={({target:{id}}) => setCardSize(id)} />
+          <div className="box flex items-center flex-wrap">
+            <h2 className="px-1 md:px-2 py-1 md:py-2 grow text-lg font-medium">Lista de favoritos</h2>
+            <div className="flex justify-end gap-2 md:gap-4 grow">
+              <ProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
+              <ProductsLayout size={cardSize} handle={setCardSize} />
+            </div>
           </div>
           <section className="w-full">
             <ProductsList products={wishlist} sort={productsSort} size={cardSize} maxCols={5} />
