@@ -281,6 +281,35 @@ main {
   @apply w-full flex items-center gap-2
 }
 
+/* Select */
+.select {
+  @apply w-full max-w-xs flex flex-col flex-none grow
+}
+.select-label {
+  @apply px-2 text-sm font-medium
+}
+.select-body {
+  @apply relative w-full h-8
+}
+.select-handle {
+  @apply w-full h-full flex border border-gray-300
+}
+.select-selected {
+  @apply h-full px-2 flex items-center grow truncate
+}
+.select-arrow {
+  @apply w-8 h-full flex items-center justify-center duration-200
+}
+.select-expand {
+  @apply absolute top-full left-0 z-10 w-full h-max max-h-48 flex flex-col bg-white border-x border-b border-gray-300 rounded-b-md shadow-md overflow-y-scroll scroll
+}
+.select-item {
+  @apply w-full h-8 flex flex-none text-sm hover:bg-gray-100 cursor-pointer
+}
+.select-item-input {
+  @apply w-full h-full px-2 flex items-center truncate cursor-pointer
+}
+
 /* Input */
 .input {
   @apply w-full pb-2 flex flex-col
