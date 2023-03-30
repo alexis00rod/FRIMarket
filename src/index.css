@@ -49,34 +49,44 @@ body {
 .searchbox input {
   @apply h-full px-2 grow outline-none
 }
+
 /* Buttons */
 .btn {
-  @apply min-w-btn h-10 px-2 flex items-center justify-center gap-2 flex-none rounded-md duration-200
+  @apply min-w-btn h-btn px-2 flex items-center justify-center gap-2 flex-none rounded-md duration-200
 }
-.btn i {
-  @apply text-lg
+
+/* Button size */
+.btn-s {
+  @apply max-w-btn-s
 }
+.btn-m {
+  @apply max-w-btn-m
+}
+.btn-l {
+  @apply grow max-w-btn-l
+}
+
 /* Buttons colors */
 .btn-blue {
-  @apply bg-blue-500 text-white hover:bg-blue-600/90 disabled:bg-blue-400
+  @apply bg-blue-500 text-white hover:bg-blue-600/90 disabled:bg-blue-400 disabled:hover:bg-blue-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-blue-500/30
 }
 .btn-gray {
-  @apply bg-gray-200 text-gray-900 hover:bg-gray-300 disabled:bg-gray-100 disabled:hover:bg-gray-100
+  @apply bg-gray-200 text-gray-900 hover:bg-gray-300 disabled:bg-gray-100 disabled:hover:bg-gray-100 disabled:hover:shadow-none hover:shadow-lg hover:shadow-gray-500/30
 }
 .btn-green {
-  @apply bg-green-500 text-white hover:bg-green-600/90
+  @apply bg-green-500 text-white hover:bg-green-600/90 disabled:bg-green-400 disabled:hover:bg-green-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-green-500/30
 }
 .btn-black {
-  @apply hover:text-yellow-500
+  @apply hover:text-yellow-500 
 }
 .btn-white {
-  @apply bg-white text-black hover:text-blue-500
+  @apply bg-white text-black hover:text-blue-500 
 }
 .btn-yellow {
-  @apply bg-yellow-500 text-white hover:bg-yellow-600/90
+  @apply bg-yellow-500 text-white hover:bg-yellow-600/90 disabled:bg-yellow-400 disabled:hover:bg-yellow-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-yellow-500/30
 }
 .btn-red {
-  @apply bg-red-500 text-white hover:bg-red-600/90
+  @apply bg-red-500 text-white hover:bg-red-600/90 disabled:bg-red-400 disabled:hover:bg-red-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-red-500/30
 }
 
 /* Btn styles */
@@ -122,9 +132,6 @@ body {
 .btn-form {
   @apply w-full 
 }
-.btn-toggle {
-  /* @apply  */
-}
 
 /* Menu */
 .menu {
@@ -151,18 +158,18 @@ body {
 
 /* Main */
 .main {
-  @apply w-full max-w-screen-2xl mx-auto px-2 py-4 flex flex-col grow
+  @apply w-full max-w-screen-2xl mx-auto px-1 md:px-2 py-2 md:py-4 flex flex-col grow
 }
 
 /* Box */
 .box {
-  @apply w-full h-max px-2 py-2 bg-white border border-gray-300 rounded-md
+  @apply w-full px-1 md:px-2 py-1 md:py-2 bg-white border border-gray-300 rounded-md
 }
 .box-header {
-  @apply w-full px-2 py-2 border-b border-gray-300
+  @apply w-full px-1 md:px-2 py-1 md:py-2 border-b border-gray-300
 }
 .box-body {
-  @apply w-full px-2 pt-4 pb-2
+  @apply w-full px-1 md:px-2 pt-2 md:pt-4 pb-1 md:pb-2
 }
 
 /* Modal */
@@ -177,6 +184,68 @@ body {
 }
 .modal-header h3 {
   @apply px-2 grow text-lg font-medium
+}
+
+/* Product card */
+.productCard {
+  @apply box flex flex-none duration-200 hover:shadow-lg
+}
+/* Product card size */
+.productCard-s {
+  @apply max-w-productCard-s flex-col
+}
+.productCard-m {
+  @apply max-w-productCard-m flex-col sm:flex-row items-center sm:items-start
+}
+.productCard-l {
+  @apply max-w-productCard-l flex-col sm:flex-row
+}
+/* Product card thumb */
+.productCard-thumb {
+  @apply w-full max-w-xs px-1 py-1 flex justify-center items-center flex-none 
+}
+.productCard-thumb img {
+  @apply h-full object-contain
+}
+.productCard-s .productCard-thumb {
+  @apply h-48 sm:h-56
+}
+.productCard-m .productCard-thumb {
+  @apply h-48 sm:h-full
+}
+.productCard-l .productCard-thumb {
+  @apply h-48 sm:h-56
+}
+/* Product card title */
+.productCard-title {
+  @apply w-full px-1 md:px-2 py-2 border-b border-gray-300
+}
+.productCard-title h3 {
+  @apply w-full font-medium line-clamp-1
+}
+/* Product card brand */
+.productCard-brand {
+  @apply px-1 md:px-2 text-sm text-gray-500 uppercase
+}
+/* Product card price */
+.productCard-price {
+  @apply w-full px-1 md:px-2 pt-1 text-xl text-yellow-500 font-semibold
+}
+/* Product card description */
+.productCard-description {
+  @apply w-full px-1 md:px-2 text-sm text-gray-500 line-clamp-2
+}
+/* Product card location & Product card date */
+.productCard-location, .productCard-date {
+  @apply px-1 md:px-2 text-sm text-gray-500 line-clamp-1
+}
+/* Product card stock */
+.productCard-stock {
+  @apply w-full px-1 md:px-2 flex items-center gap-2
+}
+/* Product card cta */
+.productCard-CTA {
+  @apply w-full px-1 md:px-2 flex gap-2
 }
 
 /* Seller card */
@@ -209,6 +278,20 @@ body {
 }
 .sellerCard-info {
   /* @apply  */
+}
+
+/* Input */
+.input {
+  @apply w-full pb-2 flex flex-col
+}
+.input label {
+  @apply px-1 text-sm font-medium
+}
+.input input[type = 'text'] {
+  @apply w-full h-8 px-2 border border-gray-300 rounded-md outline-none
+}
+.input textarea {
+  @apply w-full min-h-textarea max-h-28 px-2 py-2 border border-gray-300 rounded-md outline-none resize-none scroll
 }
 
 /* Scroll */
