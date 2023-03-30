@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react'
-import { Breadcrumb, Loader, SellerCard, SellersLocations, SellersSort } from '../../components/index.js'
+import { Breadcrumb, Loader, SelectProvince, SelectSellersSort, SellerCard } from '../../components/index.js'
 import { getUsers } from '../../services/firestore'
 
 export const Sellers = () => {
   const [sellers, setSellers] = useState()
-  const [location, setLocation] = useState('all')
+  const [province, setProvince] = useState('all')
   const [sort, setSort] = useState('old')
 
   useEffect(() => {
-    getUsers(location,sort)
+    getUsers(province,sort)
     .then(resp => setSellers(resp.docs.map(e => ({
       id: e.id,
       ...e.data()
     }))))
-  },[location,sort])
+  },[province,sort])
 
   if(!sellers) return <Loader />
 
@@ -22,9 +22,9 @@ export const Sellers = () => {
       <Breadcrumb />
       <main>
         <section className='w-full flex flex-col gap-2 md:gap-4'>
-          <div className="box flex items-center flex-wrap">
-            <SellersLocations selected={location} onChange={({target:{id}}) => setLocation(id)} />
-            <SellersSort selected={sort} onChange={({target:{id}}) => setSort(id)} />
+          <div className="box flex items-center flex-wrap gap-2 md:gap-4">
+            <SelectProvince label='Buscar por ubicacion' selected={province} onChange={({target: {id}}) => setProvince(id)} />
+            <SelectSellersSort selected={sort} onChange={({target: {id}}) => setSort(id)} />
           </div>
           <div className="w-full grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4">
             {sellers.map(e => <SellerCard key={e.id} seller={e} />)}

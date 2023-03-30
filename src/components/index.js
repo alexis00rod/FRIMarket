@@ -39,7 +39,6 @@ import { Logo } from "./Logo/Logo";
 import { ProductsList } from "./ProductsList/ProductsList";
 import { Slider } from "./Slider/Slider";
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb";
-import { SelectProvince } from "./SelectProvince/SelectProvince";
 import { SelectCity } from "./SelectCity/SelectCity";
 import { InputDisplayName } from "./InputDisplayName/InputDisplayName";
 import { InputEmail } from "./InputEmail/InputEmail";
@@ -57,6 +56,7 @@ import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription
 import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews";
 import { InputText, Textarea, InputRating } from "./Form/form";
 import { SellerCard, ProductCard } from "./Card/card";
+import { Select, SelectItem, SelectProvince, SelectSellersSort } from "./Select/select";
 
 export {
   // Main
@@ -71,12 +71,14 @@ export {
   Reviews, ReviewsSort, ReviewRating, ReviewCard,
   // Cards
   ProductCard, SellerCard,
+  // Select
+  Select, SelectItem, SelectProvince, SelectSellersSort,
   // Form
   InputText, Textarea, InputRating,
   // Form
   InputDisplayName, InputEmail, InputPhone, InputAddress, InputCP, InputUserID, InputBio, InputPhoto,
   // Select
-  SelectProvince, SelectCity,
+  SelectCity,
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
   // Home
