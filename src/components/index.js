@@ -39,8 +39,8 @@ import { Modal } from "./Modal/Modal"
 import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA } from "./Detail/detail"
 import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews"
 import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber } from "./Form/form"
-import { SellerCard, ProductCard } from "./Card/card"
-import { Select, SelectCity, SelectItem, SelectProductsSort, SelectProvince, SelectSearch, SelectSellersSort } from "./Select/select"
+import { SellerCard, ProductCard, CategoryCard } from "./Card/card"
+import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProductsSort, SelectProvince, SelectSearch, SelectSellersSort } from "./Select/select"
 import { ProductsList, ProductsLayout } from "./Products/products"
 
 export {
@@ -55,9 +55,9 @@ export {
   // Reviews
   Reviews, ReviewsSort, ReviewRating, ReviewCard,
   // Cards
-  ProductCard, SellerCard,
+  ProductCard, SellerCard, CategoryCard,
   // Select
-  Select, SelectItem, SelectProvince, SelectSellersSort, SelectProductsSort, SelectCity, SelectSearch,
+  Select, SelectItem, SelectProvince, SelectSellersSort, SelectProductsSort, SelectCity, SelectSearch, SelectProductBrand, SelectAddItem, SelectProductType,
   // Products
   ProductsList, ProductsLayout,
   // Form
