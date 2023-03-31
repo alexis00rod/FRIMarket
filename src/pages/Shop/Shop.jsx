@@ -33,7 +33,7 @@ export const Shop = () => {
       <main>
         <section className="w-full px-1 md:px-2 flex flex-col gap-2 md:gap-4">
           <div className="box flex items-center flex-wrap">
-            <Button icon='sliders' color='btn-white' onClick={() => setFilterMenu(!filterMenu)}  >
+            <Button icon='sliders' size='btn-m' color='btn-white' onClick={() => setFilterMenu(!filterMenu)}  >
               Filtros
             </Button>
             <div className="flex justify-end gap-2 md:gap-4 grow">

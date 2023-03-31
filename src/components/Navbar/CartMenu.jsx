@@ -9,7 +9,7 @@ export const CartMenu = ({handle}) => {
 
   return (
     <div className="relative">
-      <Button icon='cart-shopping' color='btn-blue' style='btn-cart' onClick={() => setMenu(!menu)}>
+      <Button icon='cart-shopping' color='btn-blue' size='btn-s' style='btn-cart' onClick={() => setMenu(!menu)}>
         {cartQty !== 0 && <span>{cartQty}</span>}
       </Button>
       {menu &&
@@ -47,20 +47,20 @@ export const CartMenu = ({handle}) => {
               <div className="w-full flex items-center justify-center gap-2">
                 <Link 
                 to='/cart' 
-                className="btn btn-blue" 
+                className="btn btn-blue btn-m" 
                 title="Ver carrito"
                 onClick={() => handle(false)}
                 >
                   <i className="fa-solid fa-cart-shopping"></i>
-                  <span className="text-sm">Ver carrito</span>
+                  <span className="text-sm font-medium">Ver carrito</span>
                 </Link>
                 <Link 
                 to='/checkout' 
-                className="btn btn-green" 
+                className="btn btn-green btn-m" 
                 title="Ir a pagar"
                 >
                   <i className="fa-solid fa-check"></i>
-                  <span className="text-sm">Ir a pagar</span>
+                  <span className="text-sm font-medium">Ir a pagar</span>
                 </Link>
               </div>
             </div>

@@ -20,6 +20,20 @@ export const SelectItem = ({name,id,children,...props}) => {
   )
 }
 
+export const SelectSearch = ({name, placeholder, ...props}) => {
+  return (
+    <li className='select-search'>
+      <input 
+        type="text" 
+        name={name} 
+        className='select-search-input' 
+        placeholder={placeholder}
+        {...props}
+        />
+    </li>
+  )
+}
+
 export const Select = ({label, selected, children}) => {
   const [expand, setExpand] = useState(false)
 
@@ -27,11 +41,16 @@ export const Select = ({label, selected, children}) => {
     setExpand(false)
   },[selected])
 
+  const handleExpand = e => {
+    e.preventDefault()
+    setExpand(!expand)
+  }
+
   return (
     <div className="select">
       <span className="select-label">{label}</span>
       <div className="select-body">
-        <button className={`select-handle ${expand ? 'rounded-t-md' : 'rounded-md'}`} onClick={() => setExpand(!expand)}>
+        <button className={`select-handle ${expand ? 'rounded-t-md' : 'rounded-md'}`} onClick={handleExpand}>
           <span className="select-selected">{selected}</span>
           <i className={`select-arrow ${expand && '-rotate-180'} fa-solid fa-chevron-down`}></i>
         </button>

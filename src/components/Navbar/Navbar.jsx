@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { NavLink } from "react-router-dom"
 import { useScrollActive } from "../../hooks/useScrollActive.jsx"
 import { CartMenu, Logo, NavbarMenu, Searchbox, UserMenu } from "../index.js"
@@ -6,9 +5,9 @@ import { CartMenu, Logo, NavbarMenu, Searchbox, UserMenu } from "../index.js"
 const NavbarLink = ({children,...props}) => {
   return (
     <NavLink {...props}
-      className={({isActive}) => `btn btn-blue btn-link ${isActive && "btn-link-active"}`}
+      className={({isActive}) => `btn btn-blue btn-m ${isActive && "btn-blue-active"}`}
       >
-      {children}
+      <span className="font-medium">{children}</span>
     </NavLink>
   )
 }
@@ -16,7 +15,7 @@ const NavbarLink = ({children,...props}) => {
 export const Navbar = () => {
   const {scrollActive} = useScrollActive()
 
-  console.log(scrollActive)
+  // console.log(scrollActive)
 
   return (
     <header className='navbar'>

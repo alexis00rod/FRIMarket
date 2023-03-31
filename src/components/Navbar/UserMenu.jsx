@@ -5,14 +5,14 @@ import { useProfile } from "../../hooks/useProfile"
 import { logout } from "../../services/auth"
 import { Button, Loader } from "../index.js"
 
-export const UserMenu = ({handle}) => {
+export const UserMenu = () => {
   const {userLogged} = useAuthContext()
   const [menu, setMenu] = useState(false)
   const {profile} = useProfile()
 
   return (
     <div className="relative">
-      <Button icon='user' color='btn-blue' onClick={() => setMenu(!menu)} />
+      <Button icon='user' color='btn-blue' size='btn-s' onClick={() => setMenu(!menu)} />
       {menu &&
       <ul className="menu menu-right">
         {userLogged
@@ -26,7 +26,7 @@ export const UserMenu = ({handle}) => {
                     <span className="text-xs leading-3">{profile.email}</span>
                   </div>
                 </Link>
-                <Link className="btn btn-black" title="Editar perfil">
+                <Link to='/editProfile' className="btn btn-black btn-s" title="Editar perfil">
                   <i className="fa-solid fa-pen"></i>
                 </Link>
               </li>

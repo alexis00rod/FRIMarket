@@ -4,7 +4,7 @@ export const DetailDescription = ({product}) => {
     <div className="box">
       <h4 className='box-header text-lg font-medium'>Descripcion</h4>
       <div className="box-body flex flex-col">
-        <p className="pb-2 text-sm line-clamp-6">{description}</p>
+        <p className="w-full mb-2 text-sm line-clamp-4">{description}</p>
         <div className="flex flex-col">
           <p className='flex items-center gap-2 capitalize'>
             <span className='font-medium'>Marca: </span>{brand}
