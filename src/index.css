@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url("./styles/productCard.css");
+@import url("./styles/form.css");
+@import url("./styles/select.css");
 
 @tailwind base;
 @tailwind components;
@@ -208,73 +210,6 @@ main {
   @apply box-body flex flex-col
 }
 
-/* Product card */
-/* .productCard {
-  @apply box flex flex-none duration-200 hover:shadow-lg
-} */
-/* Product card size */
-/* .productCard-s {
-  @apply max-w-productCard-s flex-col
-}
-.productCard-m {
-  @apply max-w-productCard-m flex-col sm:flex-row items-center sm:items-start
-}
-.productCard-l {
-  @apply max-w-productCard-l flex-col sm:flex-row
-} */
-/* Product card thumb */
-/* .productCard-thumb {
-  @apply debug relative w-full max-w-xs  flex justify-center items-center flex-none 
-}
-.productCard-thumb img {
-  @apply h-full object-contain duration-200
-}
-.productCard-s .productCard-thumb {
-  @apply h-48 sm:h-56
-}
-.productCard-m .productCard-thumb {
-  @apply h-48 sm:h-full
-}
-.productCard-l .productCard-thumb {
-  @apply h-48 sm:h-56
-} */
-/* Product card title */
-/* .productCard-title {
-  @apply w-full px-1 md:px-2 py-2 border-b border-gray-300
-}
-.productCard-title h3 {
-  @apply w-full font-medium line-clamp-1
-} */
-/* Product card brand */
-/* .productCard-brand {
-  @apply px-1 md:px-2 text-sm text-gray-500 uppercase
-} */
-/* Product card price */
-/* .productCard-price {
-  @apply w-full px-1 md:px-2 pt-1 text-xl text-yellow-500 font-semibold
-} */
-/* Product card description */
-/* .productCard-description {
-  @apply w-full px-1 md:px-2 text-sm text-gray-500 line-clamp-2
-} */
-/* Product card location & Product card date */
-/* .productCard-location, .productCard-date {
-  @apply px-1 md:px-2 text-sm text-gray-500 line-clamp-1
-} */
-/* Product card stock */
-/* .productCard-stock {
-  @apply w-full px-1 md:px-2 flex items-center gap-2
-} */
-/* Product card cta */
-/* .productCard-CTA {
-  @apply debug absolute top-0 right-0 h-full px-1 flex flex-col justify-center gap-2 duration-200 opacity-0
-}
-
-.productCard:hover img {
-  @apply scale-105
-} */
-
-
 /* Seller card */
 .sellerCard {
   @apply box flex flex-col sm:flex-row duration-200 hover:shadow-lg
@@ -335,73 +270,6 @@ main {
 .categoryCard-post .categoryCard-title {}
 .categoryCard-slider .categoryCard-title {
   @apply items-end
-}
-
-/* Select */
-.select {
-  @apply debug max-w-xs flex flex-col flex-none grow
-}
-.select-label {
-  @apply px-2 text-sm font-medium
-}
-.select-body {
-  @apply relative w-full h-8
-}
-.select-handle {
-  @apply w-full h-full flex border border-gray-300
-}
-.select-selected {
-  @apply h-full px-2 flex items-center grow truncate capitalize
-}
-.select-arrow {
-  @apply w-8 h-full flex items-center justify-center duration-200
-}
-.select-expand {
-  @apply absolute top-full left-0 z-10 w-full h-max max-h-48 flex flex-col bg-white border-x border-b border-gray-300 rounded-b-md shadow-md overflow-y-scroll scroll
-}
-.select-item {
-  @apply w-full h-8 flex flex-none text-sm hover:bg-gray-100 cursor-pointer
-}
-.select-item label {
-  @apply w-full h-full px-2 flex items-center truncate cursor-pointer capitalize
-}
-.select-item-handle {
-  @apply w-full h-8 flex flex-none bg-gray-50 text-sm
-}
-.select-item-handle input {
-  @apply px-2 grow bg-transparent outline-none placeholder:text-sm
-}
-.select-item-handle button {
-  @apply w-8 h-full flex items-center justify-center text-gray-500 duration-200 hover:text-green-500
-}
-
-/* Input */
-.input {
-  @apply debug w-full flex flex-col
-}
-.input-label {
-  @apply px-2 text-sm font-medium
-}
-.input input[type = 'text'],
-.input input[type = 'email'],
-.input input[type = 'password'],
-.input input[type = 'number']{
-  @apply w-full h-8 px-2 border border-gray-300 rounded-md outline-none
-}
-.input textarea {
-  @apply w-full min-h-textarea max-h-28 px-2 py-2 border border-gray-300 rounded-md outline-none resize-none scroll
-}
-.input-photo {
-  @apply w-28 h-28 px-1 py-1 flex items-center justify-center flex-none border border-gray-300 rounded-md cursor-pointer
-}
-.input-photo img {
-  @apply w-full h-full object-cover
-}
-.input-search {
-  @apply w-full max-w-2xl flex items-center border border-gray-300 rounded-md overflow-hidden
-}
-.input-search input {
-  @apply h-full px-2 grow outline-none
 }
 
 /* Scroll */

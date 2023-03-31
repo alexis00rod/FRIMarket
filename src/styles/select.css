@@ -1,0 +1,51 @@
+/* SELECT */
+.select {
+  @apply w-full min-w-select max-w-select flex flex-col flex-none
+}
+
+/* LABEL */
+.select-label {
+  @apply px-2 text-sm font-medium
+}
+
+/* BODY */
+.select-body {
+  @apply relative w-full h-8
+}
+
+/* HANDLE */
+.select-handle {
+  @apply w-full h-full flex border border-gray-300
+}
+
+/* SELECTED */
+.select-selected {
+  @apply h-full px-2 flex items-center grow truncate capitalize
+}
+
+/* ARROW */
+.select-arrow {
+  @apply w-8 h-full flex items-center justify-center duration-200
+}
+
+/* EXPAND */
+.select-expand {
+  @apply absolute top-full left-0 z-10 w-full h-max max-h-48 flex flex-col bg-white border-x border-b border-gray-300 rounded-b-md shadow-md overflow-y-scroll scroll
+}
+
+/* ITEM */
+.select-item {
+  @apply w-full h-8 flex flex-none text-sm hover:bg-gray-100 cursor-pointer
+}
+.select-item label {
+  @apply w-full h-full px-2 flex items-center truncate cursor-pointer capitalize
+}
+.select-item-handle {
+  @apply w-full h-8 flex flex-none bg-gray-50 text-sm
+}
+.select-item-handle input {
+  @apply px-2 grow bg-transparent outline-none placeholder:text-sm
+}
+.select-item-handle button {
+  @apply w-8 h-full flex items-center justify-center text-gray-500 duration-200 hover:text-green-500
+}
