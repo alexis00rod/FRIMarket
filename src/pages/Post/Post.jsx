@@ -18,7 +18,12 @@ export const Post = () => {
               || name === 'brand' 
               || name === 'province' 
               || name === 'city'
-              ? id :value 
+              ? id 
+              : name === 'price'
+                || name === 'stock'
+                || name === 'phone'
+                  ? parseFloat(value)
+                  : value 
 
     setProductToPost({
       ...productToPost,

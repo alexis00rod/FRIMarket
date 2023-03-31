@@ -12,7 +12,6 @@ export const SelectItem = ({name,id,children,...props}) => {
       />
       <label 
       htmlFor={id}
-      className='select-item-input'
       >
         {children}
       </label>

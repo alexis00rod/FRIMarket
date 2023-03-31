@@ -5,7 +5,7 @@ export const InputNumber = ({label,name,id, ...props}) => {
       <input 
       type="number" 
       name={name} 
-      id={id} 
+      id={id}
       {...props}
       />
     </div>

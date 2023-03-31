@@ -5,7 +5,7 @@ import { Home } from "./Home/Home";
 import { Login } from "./Login/Login";
 import { Order } from "./Order/Order";
 import { Post } from "./Post/Post";
-import { ProductDetail } from "./ProductDetail/ProductDetail";
+import { Detail } from "./Detail/Detail";
 import { Profile } from "./Profile/Profile";
 import { Search } from "./Search/Search";
 import { Sellers } from "./Sellers/Sellers";
@@ -18,7 +18,7 @@ import { Wishlist } from "./Wishlist/Wishlist";
 export {
   Home,
   Shop,
-  ProductDetail,
+  Detail,
   Cart,
   Post,
   Login,

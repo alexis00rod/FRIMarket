@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { Button } from "../Button/Button"
+import { Button } from "../index.js"
 
 const NavbarLink = ({children,...props}) => {
   return (
@@ -17,7 +17,7 @@ export const NavbarMenu = () => {
 
   return (
     <div className="relative">
-      <Button color='btn-blue' style={`btn-menu ${menu && 'btn-menu-active'}`} onClick={() => setMenu(!menu)}>
+      <Button color='btn-blue' size='btn-s' style={`btn-menu ${menu && 'btn-menu-active'}`} onClick={() => setMenu(!menu)}>
         <span></span><span></span><span></span>
       </Button>
       {menu &&
