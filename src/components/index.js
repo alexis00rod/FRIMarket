@@ -5,7 +5,6 @@ import { Footer } from "./Footer/Footer"
 import { Loader } from "./Loader/Loader"
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
-import { Searchbox } from "./Searchbox/Searchbox"
 import { ProductsDetailSimilar } from "./ProductDetailSimilar/ProductDetailSimilar"
 import { ProductDetailReviews } from "./ProductDetailReviews/ProductDetailReviews"
 import { ProfilePosts } from "./ProfilePosts/ProfilePosts"
@@ -30,7 +29,7 @@ import { Button, BtnShare, BtnAddCart, BtnAddWishlist } from './Button/button'
 import { Modal } from "./Modal/Modal"
 import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA } from "./Detail/detail"
 import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews"
-import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber } from "./Form/form"
+import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch } from "./Form/form"
 import { SellerCard, ProductCard, CategoryCard } from "./Card/card"
 import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProductsSort, SelectProvince, SelectSearch, SelectSellersSort } from "./Select/select"
 import { ProductsList, ProductsLayout } from "./Products/products"
@@ -38,7 +37,7 @@ import { PostProductDetail, PostProductLocation, PostProductPrice, PostProductTh
 
 export {
   // Main
-  App, Logo, Footer, Accordion, Loader, ProtectedRoutes, Searchbox, Slider, Modal,
+  App, Logo, Footer, Accordion, Loader, ProtectedRoutes, Slider, Modal,
   // Navbar
   Navbar, NavbarMenu, CartMenu, UserMenu,
   // Buttons
@@ -54,7 +53,7 @@ export {
   // Products
   ProductsList, ProductsLayout,
   // Form
-  InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber,
+  InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch,
   // Post
   PostProductDetail, PostProductLocation, PostProductPrice, PostProductThumb, PostProductUser, PostProductCategory,
   // Form

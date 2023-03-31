@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { useScrollActive } from "../../hooks/useScrollActive.jsx"
-import { CartMenu, Logo, NavbarMenu, Searchbox, UserMenu } from "../index.js"
+import { CartMenu, Logo, NavbarMenu, UserMenu, InputSearch } from "../index.js"
 
 const NavbarLink = ({children,...props}) => {
   return (
@@ -22,7 +22,9 @@ export const Navbar = () => {
       <div className='navbar-top'>
         <div className="w-full max-w-screen-2xl h-full px-2 py-2 mx-auto flex flex-wrap items-center md:gap-2">
           <Logo />
-          <Searchbox />
+          <div className="h-full flex justify-end grow">
+            <InputSearch />
+          </div>
           <div className="hidden md:flex gap-2">
             <CartMenu />
             <UserMenu />
