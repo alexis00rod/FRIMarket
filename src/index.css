@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("./styles/productCard.css");
 
 @tailwind base;
 @tailwind components;
@@ -18,7 +19,7 @@ main {
 
 /* Navbar */
 .navbar {
-  @apply sticky top-0 left-0 z-30 w-full
+  @apply sticky top-0 left-0 z-40 w-full
 }
 .navbar-top {
   @apply w-full px-2 bg-white 
@@ -42,17 +43,6 @@ main {
 .logo h1 span {
   @apply text-yellow-500
 }
-
-/* Searchbox */
-/* .searchbox {
-  @apply flex items-center justify-end grow
-}
-.searchbox form {
-  @apply w-full max-w-3xl h-max flex items-center border border-gray-300 rounded-md overflow-hidden
-}
-.searchbox input {
-  @apply h-full px-2 grow outline-none
-} */
 
 /* Buttons */
 .btn {
@@ -132,6 +122,7 @@ main {
 .btn-form {
   @apply w-full 
 }
+
 
 /* Link */
 .link {
@@ -218,11 +209,11 @@ main {
 }
 
 /* Product card */
-.productCard {
+/* .productCard {
   @apply box flex flex-none duration-200 hover:shadow-lg
-}
+} */
 /* Product card size */
-.productCard-s {
+/* .productCard-s {
   @apply max-w-productCard-s flex-col
 }
 .productCard-m {
@@ -230,13 +221,13 @@ main {
 }
 .productCard-l {
   @apply max-w-productCard-l flex-col sm:flex-row
-}
+} */
 /* Product card thumb */
-.productCard-thumb {
-  @apply w-full max-w-xs px-1 py-1 flex justify-center items-center flex-none 
+/* .productCard-thumb {
+  @apply debug relative w-full max-w-xs  flex justify-center items-center flex-none 
 }
 .productCard-thumb img {
-  @apply h-full object-contain
+  @apply h-full object-contain duration-200
 }
 .productCard-s .productCard-thumb {
   @apply h-48 sm:h-56
@@ -246,38 +237,43 @@ main {
 }
 .productCard-l .productCard-thumb {
   @apply h-48 sm:h-56
-}
+} */
 /* Product card title */
-.productCard-title {
+/* .productCard-title {
   @apply w-full px-1 md:px-2 py-2 border-b border-gray-300
 }
 .productCard-title h3 {
   @apply w-full font-medium line-clamp-1
-}
+} */
 /* Product card brand */
-.productCard-brand {
+/* .productCard-brand {
   @apply px-1 md:px-2 text-sm text-gray-500 uppercase
-}
+} */
 /* Product card price */
-.productCard-price {
+/* .productCard-price {
   @apply w-full px-1 md:px-2 pt-1 text-xl text-yellow-500 font-semibold
-}
+} */
 /* Product card description */
-.productCard-description {
+/* .productCard-description {
   @apply w-full px-1 md:px-2 text-sm text-gray-500 line-clamp-2
-}
+} */
 /* Product card location & Product card date */
-.productCard-location, .productCard-date {
+/* .productCard-location, .productCard-date {
   @apply px-1 md:px-2 text-sm text-gray-500 line-clamp-1
-}
+} */
 /* Product card stock */
-.productCard-stock {
+/* .productCard-stock {
   @apply w-full px-1 md:px-2 flex items-center gap-2
-}
+} */
 /* Product card cta */
-.productCard-CTA {
-  @apply w-full px-1 md:px-2 flex gap-2
+/* .productCard-CTA {
+  @apply debug absolute top-0 right-0 h-full px-1 flex flex-col justify-center gap-2 duration-200 opacity-0
 }
+
+.productCard:hover img {
+  @apply scale-105
+} */
+
 
 /* Seller card */
 .sellerCard {

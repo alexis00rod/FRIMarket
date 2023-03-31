@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import { formatDate } from '../../services/formatDate.js'
 import { getLocation } from '../../services/locations.js'
 import { BtnAddCart, BtnAddWishlist, Button, ProductDetail } from '../index.js'
+import moment from 'moment'
 
 export const ProductCard = ({content, size}) => {
   const [cardDetail, setCardDetail] = useState(false)
@@ -17,24 +17,18 @@ export const ProductCard = ({content, size}) => {
 
   return (
     <article className={`productCard productCard-${size}`}>
-      {/* Thumb */}
       <Link to={`/product/${id}`} className='productCard-thumb'>
-        <img src={thumb} alt={name} />
+        <img src={thumb} alt={name}/>
       </Link>
-      <div className='pb-1 md:pb-2 grow flex flex-col gap-1 md:gap-2'>
-        {/* Name */}
+      <div className='productCard-body'>
         <Link to={`/product/${id}`} className='productCard-title'><h3>{name}</h3></Link>
-        {/* Brand */}
         {size === 'm' && <span className='productCard-brand'>{brand}</span>}
-        {/* Price */}
         <h4 className='productCard-price'>${price}</h4>
-        {/* Description */}
         {size !== 's' && <p className='productCard-description'>{description}</p>}
-        <div className={`flex ${size !== 's' ? 'flex-row' : 'flex-col'} justify-between`}>
-          <p className='productCard-location'>{location.nombre}, Argentina</p>
-          <p className='productCard-date'>{formatDate(timestamp.toDate())}</p>
+        <div className="w-full flex items-center justify-between">
+          <span className='productCard-location'>{location.nombre}</span>
+          <span className='productCard-date'>{moment(timestamp.toDate()).fromNow()}</span>
         </div>
-        {/* Stock */}
         {size === 'm' &&
         <p className='productCard-stock'>
           <span className='font-medium'>Disponibilidad:</span> 
@@ -43,17 +37,19 @@ export const ProductCard = ({content, size}) => {
             <i className={`fa-solid fa-${stock > 0 ? 'check' : 'circle-xmark'}`}></i>
           </span>
         </p>}
-        {/* CTA */}
-        <div className='productCard-CTA'>
-          {/* Add  to cart button */}
-          <BtnAddCart product={content} qty={1} size='btn-l' />
-          {/* Add to wishlist button */}
-          <BtnAddWishlist product={content} size={size !== 'l' ? 'btn-s' : 'btn-l'}/>
-          {/* Show product modal button */}
+        {size !== 's' && 
+        <div className='productCard-CTA-m'>
+          <BtnAddCart product={content} qty={1} size='btn-m' />
+          <BtnAddWishlist product={content} size='btn-s'/>
           <Button icon='eye' color='btn-yellow' size='btn-s' title='Ver producto' onClick={() => setCardDetail(true)} />
-        </div>
+        </div>}
       </div>
-      {/* Product modal */}
+      {size === 's' && 
+      <div className='productCard-CTA-s'>
+        <BtnAddCart product={content} qty={1} size='btn-s' />
+        <BtnAddWishlist product={content} size='btn-s'/>
+        <Button icon='eye' color='btn-yellow' size='btn-s' title='Ver producto' onClick={() => setCardDetail(true)} />
+      </div>}
       {cardDetail && <ProductDetail product={content} handle={setCardDetail} />}
     </article>
   )

@@ -1,0 +1,122 @@
+/* Product card */
+.productCard {
+  @apply relative box flex flex-none duration-200 hover:shadow-lg overflow-hidden
+}
+
+/* Product card size */
+.productCard-s {
+  @apply max-w-productCard-s flex-col
+}
+.productCard-m {
+  @apply max-w-productCard-m flex-col sm:flex-row items-center sm:items-start
+}
+.productCard-l {
+  @apply max-w-productCard-l flex-col sm:flex-row
+}
+
+/* Product card thumb */
+.productCard-thumb {
+  @apply w-full max-w-xs  flex justify-center items-center flex-none overflow-hidden
+}
+.productCard-thumb img {
+  @apply h-full object-contain duration-200
+}
+.productCard-s .productCard-thumb {
+  @apply h-48 sm:h-56
+}
+.productCard-m .productCard-thumb {
+  @apply h-48 sm:h-full
+}
+.productCard-l .productCard-thumb {
+  @apply h-48 sm:h-56
+}
+.productCard-s:hover .productCard-thumb img {
+  @apply scale-105
+}
+
+/* Product card body */
+.productCard-body {
+  @apply grow flex flex-col gap-2
+}
+
+/* Product card title */
+.productCard-title {
+  @apply w-full px-2 py-2 border-b border-gray-300
+}
+
+.productCard-title h3 {
+  @apply w-full font-medium line-clamp-1
+}
+
+/* Product card brand */
+.productCard-brand {
+  @apply px-2 text-sm text-gray-500 uppercase
+}
+
+/* Product card price */
+.productCard-price {
+  @apply w-full px-2 text-xl text-yellow-500 font-semibold
+}
+
+/* Product card description */
+.productCard-description {
+  @apply w-full px-1 md:px-2 text-sm text-gray-500 line-clamp-2
+}
+
+/* Product card location & Product card date */
+.productCard-location, .productCard-date {
+  @apply px-2 text-sm text-gray-500 line-clamp-1
+}
+
+/* Product card stock */
+.productCard-stock {
+  @apply w-full px-1 md:px-2 flex items-center gap-2
+}
+
+/* CTA size s */
+.productCard-CTA-s {
+  @apply absolute top-4 left-0 flex flex-col gap-2
+}
+.productCard-CTA-s button {
+  @apply -translate-x-full
+}
+.productCard-CTA-s button:nth-child(1) {
+  @apply delay-75
+}
+.productCard-CTA-s button:nth-child(2) {
+  @apply delay-100
+}
+.productCard-CTA-s button:nth-child(3) {
+  @apply delay-150
+}
+.productCard:hover .productCard-CTA-s button {
+  @apply translate-x-4
+}
+
+/* CTA size m */
+.productCard-CTA-m {
+  @apply w-full px-2 flex items-center gap-2
+}
+.productCard-CTA-m button:nth-child(1) {
+  @apply z-30
+}
+.productCard-CTA-m button:nth-child(2) {
+  @apply z-20
+}
+.productCard-CTA-m button:nth-child(3) {
+  @apply z-10
+}
+.productCard-CTA-m button:nth-child(2),
+.productCard-CTA-m button:nth-child(3) {
+  @apply opacity-0
+}
+.productCard-CTA-m button:nth-child(2) {
+  @apply -translate-x-10 delay-100
+}
+.productCard-CTA-m button:nth-child(3) {
+  @apply -translate-x-20 delay-150
+}
+.productCard:hover .productCard-CTA-m button:nth-child(2),
+.productCard:hover .productCard-CTA-m button:nth-child(3) {
+  @apply translate-x-0 opacity-100
+}
