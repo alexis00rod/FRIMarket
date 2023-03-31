@@ -3,15 +3,6 @@ import { App } from "./App/App"
 import { CartProduct } from "./CartProduct/CartProduct"
 import { Footer } from "./Footer/Footer"
 import { Loader } from "./Loader/Loader"
-import { PostBrand } from "./PostBrand/PostBrand"
-import { PostType } from "./PostType/PostType"
-import { ProductModal } from "./ProductModal/ProductModal"
-import { PostThumb } from "./PostThumb/PostThumb"
-import { PostCategory } from "./PostCategory/PostCategory"
-import { PostName } from "./PostName/PostName"
-import { PostDescription } from "./PostDescription/PostDescription"
-import { PostPrice } from "./PostPrice/PostPrice"
-import { PostStock } from "./PostStock/PostStock"
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
 import { Searchbox } from "./Searchbox/Searchbox"
@@ -32,6 +23,7 @@ import { InputAddress } from "./InputAddress/InputAddress"
 import { InputCP } from "./InputCP/InputCP"
 import { InputUserID } from "./InputUserID/InputUserID"
 import { InputBio } from "./InputBio/InputBio"
+import { ProductModal } from "./ProductModal/ProductModal"
 
 import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
 import { Button, BtnShare, BtnAddCart, BtnAddWishlist } from './Button/button'
@@ -42,6 +34,7 @@ import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto
 import { SellerCard, ProductCard, CategoryCard } from "./Card/card"
 import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProductsSort, SelectProvince, SelectSearch, SelectSellersSort } from "./Select/select"
 import { ProductsList, ProductsLayout } from "./Products/products"
+import { PostProductDetail, PostProductLocation, PostProductPrice, PostProductThumb, PostProductUser, PostProductCategory } from "./PostProduct/postProduct"
 
 export {
   // Main
@@ -62,6 +55,8 @@ export {
   ProductsList, ProductsLayout,
   // Form
   InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber,
+  // Post
+  PostProductDetail, PostProductLocation, PostProductPrice, PostProductThumb, PostProductUser, PostProductCategory,
   // Form
   InputDisplayName, InputPhone, InputAddress, InputCP, InputUserID, InputBio,
   // Breadcrumb
@@ -74,8 +69,6 @@ export {
   ProductModal,
   // Cart
   CartProduct, 
-  // Post
-  PostCategory, PostName, PostDescription, PostPrice, PostStock, PostThumb, PostType, PostBrand, 
   // Product details
   ProductsDetailSimilar, ProductDetailReviews, EditProduct,
   // Profile
