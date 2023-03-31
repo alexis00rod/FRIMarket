@@ -22,14 +22,27 @@ export const SelectItem = ({name,id,children,...props}) => {
 
 export const SelectSearch = ({name, placeholder, ...props}) => {
   return (
-    <li className='select-search'>
+    <li className='select-item-handle'>
       <input 
-        type="text" 
-        name={name} 
-        className='select-search-input' 
-        placeholder={placeholder}
-        {...props}
-        />
+      type="text" 
+      name={name}  
+      placeholder={placeholder}
+      {...props}
+      />
+    </li>
+  )
+}
+
+export const SelectAddItem = ({placeholder, name, act, ...props}) => {
+  return (
+    <li className='select-item-handle'>
+      <input 
+      type="text" 
+      name={name} 
+      placeholder={placeholder}
+      {...props}
+      />
+      <button onClick={act}><i className="fa-solid fa-check"></i></button>
     </li>
   )
 }
