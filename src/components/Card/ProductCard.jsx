@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { formatDate } from '../../services/formatDate.js'
 import { getLocation } from '../../services/locations.js'
-import { BtnAddCart, BtnAddWishlist, Button, ProductModal } from '../index.js'
+import { BtnAddCart, BtnAddWishlist, Button, ProductDetail } from '../index.js'
 
 export const ProductCard = ({content, size}) => {
   const [cardDetail, setCardDetail] = useState(false)
@@ -54,7 +54,7 @@ export const ProductCard = ({content, size}) => {
         </div>
       </div>
       {/* Product modal */}
-      {cardDetail && <ProductModal content={content} handle={setCardDetail} />}
+      {cardDetail && <ProductDetail product={content} handle={setCardDetail} />}
     </article>
   )
 }

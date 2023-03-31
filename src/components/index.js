@@ -8,8 +8,6 @@ import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
 import { ProductsDetailSimilar } from "./ProductDetailSimilar/ProductDetailSimilar"
 import { ProductDetailReviews } from "./ProductDetailReviews/ProductDetailReviews"
 import { ProfilePosts } from "./ProfilePosts/ProfilePosts"
-import { EditProduct } from "./EditProduct/EditProduct"
-import { ShopFiltersMenu } from "./ShopFiltersMenu/ShopFiltersMenu"
 import { HomeTabs } from "./HomeTabs/HomeTabs"
 import { HomeHero } from "./HomeHero/HomeHero"
 import { HomeSpecialProducts } from "./HomeSpecialProducts/HomeSpecialProducts"
@@ -22,11 +20,10 @@ import { InputAddress } from "./InputAddress/InputAddress"
 import { InputCP } from "./InputCP/InputCP"
 import { InputUserID } from "./InputUserID/InputUserID"
 import { InputBio } from "./InputBio/InputBio"
-import { ProductModal } from "./ProductModal/ProductModal"
 
 import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
 import { Button, BtnShare, BtnAddCart, BtnAddWishlist } from './Button/button'
-import { Modal } from "./Modal/Modal"
+import { Modal, EditProduct, ProductDetail, ShopFilter } from "./Modal/modal"
 import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA } from "./Detail/detail"
 import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews"
 import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch } from "./Form/form"
@@ -37,7 +34,7 @@ import { PostProductDetail, PostProductLocation, PostProductPrice, PostProductTh
 
 export {
   // Main
-  App, Logo, Footer, Accordion, Loader, ProtectedRoutes, Slider, Modal,
+  App, Logo, Footer, Accordion, Loader, ProtectedRoutes, Slider, 
   // Navbar
   Navbar, NavbarMenu, CartMenu, UserMenu,
   // Buttons
@@ -56,20 +53,19 @@ export {
   InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch,
   // Post
   PostProductDetail, PostProductLocation, PostProductPrice, PostProductThumb, PostProductUser, PostProductCategory,
+  // Modal
+  Modal, EditProduct, ProductDetail, ShopFilter,
+
   // Form
   InputDisplayName, InputPhone, InputAddress, InputCP, InputUserID, InputBio,
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
   // Home
   HomeHero, HomeTabs, HomeSpecialProducts,
-  // Shop
-  ShopFiltersMenu,
-  // Product
-  ProductModal,
   // Cart
   CartProduct, 
   // Product details
-  ProductsDetailSimilar, ProductDetailReviews, EditProduct,
+  ProductsDetailSimilar, ProductDetailReviews,
   // Profile
   ProfileInfo, ProfilePosts,
 }

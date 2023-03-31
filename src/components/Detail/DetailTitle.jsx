@@ -12,7 +12,7 @@ export const DetailTitle = ({product}) => {
       <div className="box-header flex items-center">
         <h2 className='flex grow text-xl font-medium line-clamp-1'>{name}</h2>
         {userLogged && userLogged.email === idUser &&
-        <Button icon='pen' color='btn-black' title='Editar producto' onClick={() => setEditProduct(true)}  />}
+        <Button icon='pen' size='btn-s' color='btn-black' title='Editar producto' onClick={() => setEditProduct(true)}  />}
       </div>
       <div className="box-body flex flex-col ">
         <h3 className='pb-2 text-3xl text-yellow-500 font-medium'>${price}</h3>

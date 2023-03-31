@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Breadcrumb, BreadcrumbLink, Button, ProductsLayout, ProductsList, SelectProductsSort, ShopFiltersMenu } from "../../components"
+import { Breadcrumb, BreadcrumbLink, Button, ProductsLayout, ProductsList, SelectProductsSort, ShopFilter } from "../../components"
 import { useShopContext } from "../../context/ShopContext/ShopContext"
 import { useCardSize } from "../../hooks/useCardSize"
 import { useProductsSort } from "../../hooks/useProductsSort"
@@ -47,7 +47,7 @@ export const Shop = () => {
             {products && <h2 className="px-2 py-1 grow">Mostrando {products.length} resultados</h2>}
           </div>
         </section>
-        {filterMenu && <ShopFiltersMenu handle={setFilterMenu} category={category} />}
+        {filterMenu && <ShopFilter handle={setFilterMenu} category={category} />}
       </main>
     </>
   )

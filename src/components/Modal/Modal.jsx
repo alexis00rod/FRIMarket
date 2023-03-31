@@ -1,14 +1,16 @@
-import { Button } from "../Button/Button"
+import { Button } from '../index.js'
 
-export const Modal = ({title,handle,children}) => {
+export const Modal = ({title, handle, direction, size, children}) => {
   return (
-    <div className="modal" onClick={() => handle(false)}>
-      <div className="modal-container" onClick={e => e.stopPropagation()}>
+    <div className={`modal ${direction}`} onClick={() => handle(false)}>
+      <div className={`modal-container ${size}`} onClick={e => e.stopPropagation()}>
         <div className="modal-header">
           <h3>{title}</h3>
-          <Button icon='x' color='btn-gray' onClick={() => handle(false)} />
+          <Button icon='x' color='btn-gray' size='btn-s' onClick={() => handle(false)} />
         </div>
-        {children}
+        <div className="modal-body">
+          {children}
+        </div>
       </div>
     </div>
   )
