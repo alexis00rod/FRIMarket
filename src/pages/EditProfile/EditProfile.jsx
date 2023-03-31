@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Breadcrumb, InputAddress, InputBio, InputCP, InputDisplayName, InputPhone, InputPhoto, InputUserID, Loader, SelectCity, SelectProvince } from "../../components"
+import { Breadcrumb, Button, InputNumber, InputPhoto, InputText, Loader, SelectCity, SelectProvince, Textarea } from "../../components"
 import { useProfile } from "../../hooks/useProfile"
 import { updateProfileInfo } from "../../services/firestore"
 import { uploadUserPhoto } from "../../services/storage"
@@ -10,15 +10,15 @@ export const EditProfile = () => {
   const [editProfile, setEditProfile] = useState({})
   const navigate = useNavigate()
 
-  const handlePhoto = ({target:{files}}) => {
-    uploadUserPhoto(profile,files[0])
-      .then(resp => setEditProfile({...editProfile,photoURL:resp}))
+  const handleUserPhoto = ({target:{files}}) => {
+    // uploadUserPhoto(profile,files[0])
+    //   .then(resp => setEditProfile({...editProfile,photoURL:resp}))
   }
 
   const submitEditProfile = e => {
     e.preventDefault()
-    updateProfileInfo(profile.email,editProfile)
-    navigate('/')
+    // updateProfileInfo(profile.email,editProfile)
+    // navigate('/')
   }
 
   const handleEditProfile = ({target:{name,value,id}}) => {
@@ -33,20 +33,118 @@ export const EditProfile = () => {
     })
   }
 
+  console.log(editProfile)
+
+  if(!profile) return <Loader />
+
+  return (
+    <>
+      <Breadcrumb />
+      <main>
+        <form className="box box-form flex flex-col">
+          <h2 className="box-header text-lg font-medium">Editar perfil</h2>
+          {profile
+          ? <div className="box-body flex flex-col items-center gap-4 divide-y divide-gray-300">
+              <div className="w-full flex flex-col gap-4">
+                <h3 className="font-medium">Datos personales</h3>
+                <div className="w-full flex gap-4">
+                  <div className="flex flex-col justify-between gap-4">
+                    <InputText 
+                    label='Nombre y apellido' 
+                    id='displayName' 
+                    name='displayName'
+                    defaultValue={editProfile.displayName ? editProfile.displayName : profile.displayName}
+                    onChange={handleEditProfile} 
+                    />
+                    <InputText 
+                    label='Nombre de usuario' 
+                    id='idUser' 
+                    name='idUser' 
+                    defaultValue={editProfile.idUser ? editProfile.idUser : profile.idUser}
+                    onChange={handleEditProfile} 
+                    />
+                  </div>
+                  <InputPhoto 
+                  label='Foto' 
+                  id='photoURL' 
+                  mame='photoURL' 
+                  photo={editProfile.photoURL ? editProfile.photoURL : profile.photoURL} 
+                  onChange={handleUserPhoto} 
+                  />
+                </div>
+                <Textarea 
+                label='Biografia' 
+                name='bio' 
+                id='bio'
+                defaultValue={editProfile.bio ? editProfile.bio : profile.bio} 
+                onChange={handleEditProfile} 
+                />
+                <InputNumber 
+                label='Telefono' 
+                id='phone' 
+                name='phone' 
+                defaultValue={editProfile.phone ? editProfile.phone : profile.phone}
+                onChange={handleEditProfile} 
+                />
+              </div>
+              <div className="w-full flex flex-col gap-4">
+                <h3 className="font-medium">Datos de envio</h3>
+                <div className="flex gap-4">
+                  <SelectProvince 
+                  label='Provincia' 
+                  selected={editProfile.province ? editProfile.province : profile.province} 
+                  onChange={handleEditProfile} 
+                  />
+                  <SelectCity 
+                  label='Ciudad' 
+                  selected={editProfile.city ? editProfile.city : profile.city} 
+                  province={editProfile.province ? editProfile.province : profile.province} 
+                  onChange={handleEditProfile}
+                  />
+                </div>
+                <div className="flex gap-4">
+                  <InputText 
+                  label='Direccion' 
+                  id='address' 
+                  name='address' 
+                  defaultValue={editProfile.address ? editProfile.address : profile.address}
+                  onChange={handleEditProfile} 
+                  />
+                  <InputNumber 
+                  label='Codigo postal'
+                  id='cp'
+                  name='cp'
+                  defaultValue={editProfile.cp ? editProfile.cp : profile.cp}
+                  onChange={handleEditProfile} 
+                  />
+                </div>
+              </div>
+              <Button icon='check' color='btn-green' size='btn-l'>
+                <span className="text-sm font-medium">Guardar cambios</span>
+              </Button>
+            </div>
+          : <div className="w-full px-2 pt-4">
+              <Loader />
+            </div>}
+        </form>
+      </main>
+    </>
+  )
+
   return (
     <>
     <Breadcrumb />
-    <main className="w-full max-w-screen-2xl mx-auto px-2 py-4 flex flex-col grow">
+    <main>
       <form 
-      className="w-full max-w-xl px-2 pt-2 pb-4 mx-auto flex flex-col bg-white border border-gray-300 rounded-md divide-y divide-gray-300"
+      className="box max-w-xl mx-auto"
       onSubmit={submitEditProfile}
       >
-        <h3 className="px-2 py-2 text-lg font-semibold">Editar perfil</h3>
+        <h3 className="box-header text-lg font-medium">Editar perfil</h3>
         {profile
         ? <>
             {/* Personal info */}
             <div className="w-full py-2 flex flex-col">
-              <h4 className="w-full px-2 py-1 font-semibold">Datos personales</h4>
+              <h4 className="w-full px-2 py-1 font-medium">Datos personales</h4>
               <div className="w-full flex flex-col">
                 <div className="w-full flex gap-2">
                   <InputPhoto photo={profile.photoURL} newPhoto={editProfile.photoURL} name={profile.displayName} onChange={handlePhoto} />
@@ -62,12 +160,12 @@ export const EditProfile = () => {
             </div> 
             {/* Shipping info */}
             <div className="w-full py-2 flex flex-col">
-              <h4 className="w-full px-2 py-1 font-semibold">Datos de envio</h4>
+              <h4 className="w-full px-2 py-1 font-medium">Datos de envio</h4>
               <div className="w-full flex flex-col">
-                <SelectProvince 
+                {/* <SelectProvince 
                 selected={editProfile.province ? editProfile.province : profile.province} 
                 onChange={handleEditProfile} 
-                />
+                /> */}
                 <SelectCity 
                 selected={editProfile.city ? editProfile.city : profile.city} 
                 province={editProfile.province ? editProfile.province : profile.province} 
@@ -77,10 +175,15 @@ export const EditProfile = () => {
                 <InputCP defaultValue={profile.cp} onChange={handleEditProfile} />
               </div>
             </div>
-            <button type="submit" className="w-full max-w-btn h-8 px-2 ml-2 flex items-center justify-center gap-2 bg-green-500 text-white rounded-md">
+            <div className="w-full px-2 pt-4 flex items-center justify-center">
+              <Button type='submit' icon='check' size='btn-l' color='btn-green'>
+                <span className="text-sm">Guardar cambios</span>
+              </Button>
+            </div>
+            {/* <button type="submit" className="w-full max-w-btn h-8 px-2 ml-2 flex items-center justify-center gap-2 bg-green-500 text-white rounded-md">
               <i className="fa-solid fa-check"></i>
               <span className="text-sm">Guardar cambios</span>
-            </button>
+            </button> */}
               </>
         : <div className="w-full px-2 pt-4">
             <Loader />

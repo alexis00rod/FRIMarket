@@ -1,26 +1,15 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { SignupEmail, SignupLocation, SignupName, SignupPass, SignupPhoto, SignupUserID } from "../../components/index.js"
+import { Button, InputEmail, InputPassword, InputPhoto, InputText, SelectCity, SelectProvince } from "../../components/index.js"
 import { signupEmailPass } from "../../services/auth.js"
 import { addProfile } from "../../services/firestore.js"
 import { uploadUserPhoto } from "../../services/storage.js"
 
 export const Signup = () => {
   const [signupUser, setSignupUser] = useState({})
+  const [singupProfile, setSingupProfile] = useState(false)
   const [signupError, setSignupError] = useState()
   const navigate = useNavigate()
-
-  const signup = async e => {
-    e.preventDefault()
-    setSignupError("")
-    try {
-      await signupEmailPass(signupUser)
-      await addProfile(signupUser)
-      navigate('/login')
-    } catch (err) {
-      setSignupError(`${err.code.replace("auth/","")}`)
-    }
-  }
 
   const handleUserPhoto = ({target:{files}}) => {
     setSignupUser({...signupUser,photoURL:false})
@@ -28,38 +17,66 @@ export const Signup = () => {
       .then(resp => setSignupUser({...signupUser,photoURL:resp}))
   }
 
+  const handleSignup = ({target: {name,value,id}}) => {
+    setSignupUser({
+      ...signupUser,
+      [name]: name === 'province' || name === 'city' ? id : value
+    })
+  }
+
+  const nextStep = async e => {
+    e.preventDefault()
+    try {
+      await signupEmailPass(signupUser)
+      setSingupProfile(true)
+    } catch (err) {
+      setSignupError(`${err.code.replace("auth/","")}`)
+    }
+  }
+
+  const submitSignup = async e => {
+    e.preventDefault()
+    setSignupError("")
+    await addProfile(signupUser)
+    navigate('/login')
+  }
+
   return (
-    <main className="w-full max-w-screen-2xl mx-auto px-2 py-4 flex flex-col grow">
-      <div className="w-full max-w-xl px-2 py-2 mx-auto flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
-        <div className="px-3 py-3 flex items-center gap-2">
-          <h2 className="text-xl font-semibold capitalize">Crear usuario</h2>
-          <Link to='/login' className="px-2 text-sm text-yellow-500 font-medium hover:underline">Iniciar sesion</Link>
-        </div>
-        <form className="py-2 flex flex-col gap-2" onSubmit={signup}>
-          {signupError && <p className="px-2 py-2 text-sm text-red-500">{signupError}</p>}
-          <SignupEmail onChange={({target:{value}}) => setSignupUser({...signupUser,email:value})} />
-          <SignupPass onChange={({target:{value}}) => setSignupUser({...signupUser,password:value})} />
-          <div className="flex gap-2">
-            <SignupPhoto selected={signupUser.photoURL} onChange={handleUserPhoto} />
-            <div className="flex flex-col justify-between grow">
-              <SignupName onChange={({target:{value}}) => setSignupUser({...signupUser,displayName:value})} />
-              <SignupUserID onChange={({target:{value}}) => setSignupUser({...signupUser, idUser: value})} />
+    <main>
+      <div className="box box-form">
+        <h2 className="box-header text-xl font-medium">Crear usuario</h2>
+        <form className="box-body flex flex-col gap-4" onSubmit={submitSignup}>
+          <div className="w-full flex flex-col items-center gap-4">
+            {!singupProfile
+            ? <>
+                {signupError && <p className="px-2 py-2 text-sm text-red-500">{signupError}</p>}
+                <InputEmail label='Email' value={signupUser.email} onChange={handleSignup} />
+                <InputPassword label='Contraseña' id='password' value={signupUser.password} onChange={handleSignup} />
+                <InputPassword label='Repetir contraseña' id='confirmPassword' value={signupUser.confirmPassword} onChange={handleSignup} />
+              </>
+            : <>
+                <div className="w-full flex gap-4">
+                  <div className="w-full flex flex-col justify-between">
+                    <InputText label='Nombre y apellido' id='displayName' name='displayName' onChange={handleSignup} />
+                    <InputText label='Nombre de usuario' id='idUser' name='idUser' onChange={handleSignup} />
+                  </div>
+                  <InputPhoto id='photoURL' label='Foto' photo={signupUser.photoURL} onChange={handleUserPhoto} />
+                </div>
+                <div className="w-full flex flex-wrap gap-4">
+                  <SelectProvince label='Provincia' selected={signupUser.province} onChange={handleSignup} />
+                  <SelectCity label='Ciudad' province={signupUser.province} selected={signupUser.city} onChange={handleSignup} />
+                </div>
+              </>}
+            <div className="w-full flex items-center justify-between flex-wrap">
+              <Link to='/login' className="link link-black">Iniciar sesion</Link>
+              <Link to='/shop/all' className="link link-black">Volver a la tienda</Link>
             </div>
-          </div>
-          <div className="w-full">
-            <SignupLocation 
-            selected={signupUser.province}
-            onChange={({target:{name,id}}) => setSignupUser({...signupUser,[name]:id})} 
-            />
-          </div>
-          <div className="w-full px-2 py-2 flex flex-col gap-2">
-            <button type="submit" className="w-full h-8 flex justify-center items-center bg-blue-500 text-white text-sm rounded md">
-              Crear usuario
-            </button>
+            {!singupProfile
+            ? <Button color='btn-blue' size='btn-l' onClick={nextStep}><span className="text-sm font-medium">Siguiente</span></Button>
+            : <Button type='submit' color='btn-blue' size='btn-l' ><span className="text-sm font-medium">Crear usuario</span></Button>}
           </div>
         </form>
       </div>
     </main>
-    
   )
 }
