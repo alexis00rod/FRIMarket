@@ -56,7 +56,7 @@ main {
 
 /* Buttons */
 .btn {
-  @apply min-w-btn h-btn px-2 flex items-center justify-center gap-2 flex-none rounded-md duration-200 cursor-pointer
+  @apply w-full min-w-btn h-btn flex items-center justify-center gap-2 flex-none rounded-md duration-200 cursor-pointer
 }
 
 /* Button size */
@@ -64,15 +64,18 @@ main {
   @apply max-w-btn-s
 }
 .btn-m {
-  @apply max-w-btn-m
+  @apply max-w-btn-m px-2
 }
 .btn-l {
-  @apply grow max-w-btn-l
+  @apply grow max-w-btn-l px-2
 }
 
 /* Buttons colors */
 .btn-blue {
   @apply bg-blue-500 text-white hover:bg-blue-600/90 disabled:bg-blue-400 disabled:hover:bg-blue-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-blue-500/30
+}
+.btn-blue-active {
+  @apply bg-blue-600/90
 }
 .btn-gray {
   @apply bg-gray-200 text-gray-900 hover:bg-gray-300 disabled:bg-gray-100 disabled:hover:bg-gray-100 disabled:hover:shadow-none hover:shadow-lg hover:shadow-gray-500/30
@@ -96,13 +99,6 @@ main {
 /* Btn styles */
 .btn-search {
   @apply border-l border-gray-300
-}
-
-.btn-link {
-  @apply px-3 font-medium
-}
-.btn-link-active {
-  @apply bg-blue-600/90
 }
 
 .btn-cart {
@@ -137,6 +133,18 @@ main {
   @apply w-full 
 }
 
+/* Link */
+.link {
+  @apply w-max px-2 py-2 text-sm font-medium duration-200 hover:underline
+}
+/* Link colors */
+.link-black {
+  @apply text-black hover:text-yellow-500
+}
+.link-yellow {
+  @apply text-yellow-500 hover:text-yellow-600/90
+}
+
 /* Menu */
 .menu {
   @apply absolute top-full w-max max-w-xs mt-2 px-2 py-2 flex flex-col bg-white text-black border border-gray-300 divide-y divide-gray-300 rounded-md
@@ -167,13 +175,16 @@ main {
 
 /* Box */
 .box {
-  @apply w-full px-1 md:px-2 py-1 md:py-2 bg-white border border-gray-300 rounded-md
+  @apply w-full px-2 py-2 bg-white border border-gray-300 rounded-md
 }
 .box-header {
-  @apply w-full px-1 md:px-2 py-1 md:py-2 border-b border-gray-300
+  @apply w-full px-2 py-2 border-b border-gray-300
 }
 .box-body {
-  @apply w-full px-1 md:px-2 pt-2 md:pt-4 pb-1 md:pb-2
+  @apply w-full px-2 pt-4 pb-2
+}
+.box-form {
+  @apply max-w-screen-sm mx-auto
 }
 
 /* Modal */
@@ -309,19 +320,33 @@ main {
 .select-item-input {
   @apply w-full h-full px-2 flex items-center truncate cursor-pointer
 }
+.select-search {
+  @apply w-full h-8 flex flex-none text-sm
+}
+.select-search-input {
+  @apply w-full h-full px-2 outline-none placeholder:text-sm
+}
 
 /* Input */
 .input {
   @apply w-full pb-2 flex flex-col
 }
-.input label {
+.input-label {
   @apply px-1 text-sm font-medium
 }
-.input input[type = 'text'] {
+.input input[type = 'text'],
+.input input[type = 'email'],
+.input input[type = 'password']{
   @apply w-full h-8 px-2 border border-gray-300 rounded-md outline-none
 }
 .input textarea {
   @apply w-full min-h-textarea max-h-28 px-2 py-2 border border-gray-300 rounded-md outline-none resize-none scroll
+}
+.input-photo {
+  @apply w-28 h-28 px-1 py-1 flex items-center justify-center flex-none border border-gray-300 rounded-md cursor-pointer
+}
+.input-photo img {
+  @apply w-full h-full object-cover
 }
 
 /* Scroll */
