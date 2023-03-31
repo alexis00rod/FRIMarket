@@ -44,7 +44,7 @@ main {
 }
 
 /* Searchbox */
-.searchbox {
+/* .searchbox {
   @apply flex items-center justify-end grow
 }
 .searchbox form {
@@ -52,7 +52,7 @@ main {
 }
 .searchbox input {
   @apply h-full px-2 grow outline-none
-}
+} */
 
 /* Buttons */
 .btn {
@@ -292,9 +292,42 @@ main {
   @apply w-full flex items-center gap-2
 }
 
+/* Category card */
+.categoryCard {
+  @apply w-full h-36 flex
+}
+.categoryCard-input {
+  @apply w-full h-full px-2 py-2 flex flex-col items-center duration-200 cursor-pointer
+}
+.categoryCard-post {
+  @apply bg-yellow-500 text-white hover:bg-yellow-600/90 rounded-md
+}
+.categoryCard-slider {
+  @apply bg-white text-gray-700 hover:bg-yellow-500 hover:text-white
+}
+.categoryCard-icon {
+  @apply w-full px-2 py-2 flex justify-center
+}
+.categoryCard-title {
+  @apply w-full px-2 flex justify-center grow text-center font-medium
+}
+.categoryCard-products {
+  @apply text-sm
+}
+.categoryCard-post .categoryCard-icon {
+  @apply h-2/3 items-center text-4xl
+}
+.categoryCard-slider .categoryCard-icon {
+  @apply h-1/2 items-end text-5xl
+}
+.categoryCard-post .categoryCard-title {}
+.categoryCard-slider .categoryCard-title {
+  @apply items-end
+}
+
 /* Select */
 .select {
-  @apply w-full max-w-xs flex flex-col flex-none grow
+  @apply debug max-w-xs flex flex-col flex-none grow
 }
 .select-label {
   @apply px-2 text-sm font-medium
@@ -306,7 +339,7 @@ main {
   @apply w-full h-full flex border border-gray-300
 }
 .select-selected {
-  @apply h-full px-2 flex items-center grow truncate
+  @apply h-full px-2 flex items-center grow truncate capitalize
 }
 .select-arrow {
   @apply w-8 h-full flex items-center justify-center duration-200
@@ -317,22 +350,25 @@ main {
 .select-item {
   @apply w-full h-8 flex flex-none text-sm hover:bg-gray-100 cursor-pointer
 }
-.select-item-input {
-  @apply w-full h-full px-2 flex items-center truncate cursor-pointer
+.select-item label {
+  @apply w-full h-full px-2 flex items-center truncate cursor-pointer capitalize
 }
-.select-search {
-  @apply w-full h-8 flex flex-none text-sm
+.select-item-handle {
+  @apply w-full h-8 flex flex-none bg-gray-50 text-sm
 }
-.select-search-input {
-  @apply w-full h-full px-2 outline-none placeholder:text-sm
+.select-item-handle input {
+  @apply px-2 grow bg-transparent outline-none placeholder:text-sm
+}
+.select-item-handle button {
+  @apply w-8 h-full flex items-center justify-center text-gray-500 duration-200 hover:text-green-500
 }
 
 /* Input */
 .input {
-  @apply w-full pb-2 flex flex-col
+  @apply debug w-full flex flex-col
 }
 .input-label {
-  @apply px-1 text-sm font-medium
+  @apply px-2 text-sm font-medium
 }
 .input input[type = 'text'],
 .input input[type = 'email'],
@@ -348,6 +384,12 @@ main {
 }
 .input-photo img {
   @apply w-full h-full object-cover
+}
+.input-search {
+  @apply w-full max-w-2xl flex items-center border border-gray-300 rounded-md overflow-hidden
+}
+.input-search input {
+  @apply h-full px-2 grow outline-none
 }
 
 /* Scroll */
