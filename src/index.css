@@ -336,7 +336,8 @@ main {
 }
 .input input[type = 'text'],
 .input input[type = 'email'],
-.input input[type = 'password']{
+.input input[type = 'password'],
+.input input[type = 'number']{
   @apply w-full h-8 px-2 border border-gray-300 rounded-md outline-none
 }
 .input textarea {
