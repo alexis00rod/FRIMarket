@@ -191,14 +191,30 @@ main {
 .modal {
   @apply fixed top-0 left-0 bottom-0 z-40 w-full flex bg-black/30
 }
+.modal-left {
+  @apply justify-start
+}
+.modal-center {
+  @apply justify-center items-center
+}
 .modal-container {
-  @apply w-full max-w-md px-2 py-2 flex flex-col gap-2 bg-white
+  @apply box flex flex-col max-h-screen overflow-y-scroll scroll
+}
+/* .modal-s {} */
+.modal-m {
+  @apply max-w-md
+}
+.modal-l {
+  @apply max-w-2xl
 }
 .modal-header {
-  @apply w-full flex items-center
+  @apply box-header flex items-center
 }
 .modal-header h3 {
-  @apply px-2 grow text-lg font-medium
+  @apply grow text-lg font-medium
+}
+.modal-body {
+  @apply box-body flex flex-col
 }
 
 /* Product card */
