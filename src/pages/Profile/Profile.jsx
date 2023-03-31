@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Breadcrumb, BreadcrumbLink, Loader, ProductsLayout, ProductsSort, ProfileInfo } from '../../components/index.js'
+import { Breadcrumb, BreadcrumbLink, Loader, ProductsLayout, ProfileInfo, SelectProductsSort } from '../../components/index.js'
 import { ProfilePosts } from "../../components/index.js"
 import { useCardSize } from "../../hooks/useCardSize.jsx"
 import { useProductsSort } from "../../hooks/useProductsSort.jsx"
@@ -32,7 +32,7 @@ export const Profile = () => {
             <div className="box flex items-center flex-wrap">
               <h3 className="px-1 md:px-2 py-1 md:py-2 grow text-lg font-medium">Publicaciones</h3>
               <div className="flex justify-end gap-2 md:gap-4 grow">
-                <ProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
+                <SelectProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
                 <ProductsLayout size={cardSize} handle={setCardSize} />
               </div>
             </div>
