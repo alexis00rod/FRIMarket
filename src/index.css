@@ -2,6 +2,7 @@
 @import url("./styles/productCard.css");
 @import url("./styles/form.css");
 @import url("./styles/select.css");
+@import url("./styles/accordion.css");
 
 @tailwind base;
 @tailwind components;
@@ -37,7 +38,7 @@ main {
 
 /* Logo */
 .logo {
-  @apply w-max mx-auto px-2 flex
+  @apply w-max px-2 flex
 }
 .logo h1 {
   @apply flex items-center text-3xl text-blue-500 font-black

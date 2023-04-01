@@ -1,0 +1,15 @@
+.accordion {
+  @apply w-full max-w-lg flex flex-col
+}
+.accordion-handle {
+  @apply w-full h-8 flex flex-none bg-gray-200 rounded-md duration-200 hover:bg-gray-300/90
+}
+.accordion-title {
+  @apply h-full px-2 flex items-center justify-start font-medium grow
+}
+.accordion-arrow {
+  @apply w-8 h-full flex items-center justify-center duration-200
+}
+.accordion-expand {
+  @apply w-full h-0 px-2 flex flex-col duration-200 overflow-hidden opacity-0
+}
