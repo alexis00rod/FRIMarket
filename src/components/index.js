@@ -14,12 +14,6 @@ import { HomeSpecialProducts } from "./HomeSpecialProducts/HomeSpecialProducts"
 import { Logo } from "./Logo/Logo"
 import { Slider } from "./Slider/Slider"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
-import { InputDisplayName } from "./InputDisplayName/InputDisplayName"
-import { InputPhone } from "./InputPhone/InputPhone"
-import { InputAddress } from "./InputAddress/InputAddress"
-import { InputCP } from "./InputCP/InputCP"
-import { InputUserID } from "./InputUserID/InputUserID"
-import { InputBio } from "./InputBio/InputBio"
 
 import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
 import { Button, BtnShare, BtnAddCart, BtnAddWishlist } from './Button/button'
@@ -55,9 +49,6 @@ export {
   PostProductDetail, PostProductLocation, PostProductPrice, PostProductThumb, PostProductUser, PostProductCategory,
   // Modal
   Modal, EditProduct, ProductDetail, ShopFilter,
-
-  // Form
-  InputDisplayName, InputPhone, InputAddress, InputCP, InputUserID, InputBio,
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
   // Home

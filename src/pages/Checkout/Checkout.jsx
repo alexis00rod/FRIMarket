@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext/CartContext'
 import { useProfile } from '../../hooks/useProfile'
-import { InputAddress, InputCP, InputDisplayName, InputEmail, InputPhone, Loader, SelectCity, SelectProvince } from '../../components'
+import { Button, InputEmail, InputNumber, InputText, Loader, SelectProvince, SelectCity} from '../../components'
 import { addOrder, updateProduct } from '../../services/firestore'
 
 export const Checkout = () => {
@@ -64,57 +64,85 @@ export const Checkout = () => {
               <div className="w-full h-max px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
                 <h2 className="px-2 py-2 text-lg font-semibold capitalize">Datos personales</h2>
                 <div className='w-full flex flex-col'>
-                  <InputDisplayName defaultValue={order.user.displayName} onChange={handleOrder} />
-                  <InputEmail defaultValue={order.user.email} onChange={handleOrder} />
-                  <InputPhone defaultValue={order.user.phone} onChange={handleOrder} />
+                  <InputText 
+                  label='Nombre y apellido' 
+                  size='input-l' 
+                  id='displayName' 
+                  name='displayName' 
+                  defaultValue={order.user.displayName} 
+                  onChange={handleOrder} 
+                  />
+                  <InputEmail 
+                  label='Email'
+                  size='input-l'
+                  id='email'
+                  name='email'
+                  defaultValue={order.user.email} 
+                  onChange={handleOrder} 
+                  />
+                  <InputNumber 
+                  label='Numero de telefono'
+                  size='input-l'
+                  id='phone'
+                  name='phone'
+                  defaultValue={order.user.phone} 
+                  onChange={handleOrder}
+                  />
                 </div>
               </div>
               <div className="w-full h-max px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
                 <h2 className="px-2 py-2 text-lg font-semibold capitalize">Datos de envio</h2>
                 <div>
-                  <SelectProvince selected={order.user.province} onChange={handleOrder} />
-                  <SelectCity selected={order.user.city} province={order.user.province} onChange={handleOrder} />
-                  <InputAddress defaultValue={order.user.address} onChange={handleOrder} />
-                  <InputCP defaultValue={order.user.cp} onChange={handleOrder} />
+                  {/* <SelectProvince selected={order.user.province} onChange={handleOrder} /> */}
+                  {/* <SelectCity selected={order.user.city} province={order.user.province} onChange={handleOrder} /> */}
+                  <InputText 
+                  label='Direccion'
+                  size='input-l'
+                  id='address'
+                  name='address'
+                  defaultValue={order.user.address} 
+                  onChange={handleOrder}
+                  />
+                  <InputNumber 
+                  label='Codigo postal'
+                  size='input-l'
+                  id='cp'
+                  name='cp'
+                  defaultValue={order.user.cp} 
+                  onChange={handleOrder}
+                  />
                 </div>
               </div>
               <div className="w-full h-max px-2 py-2 flex flex-col bg-white border border-gray-300 divide-y divide-gray-300 rounded-md">
                 <h2 className="px-2 py-2 text-lg font-semibold capitalize">Metodo de pago</h2>
-                {/* <div>
-                  <div className="px-2 py-2 flex flex-col">
-                    <label htmlFor='cardNumber' className="px-1 text-sm font-medium">Numero de tarjeta</label>
-                    <input 
-                    type="number" 
-                    name="cardNumber" 
-                    id="cardNumber" 
-                    className="w-full h-8 px-2 border border-gray-300 rounded-md outline-none"
-                    defaultValue={order.user.cardNumber}
-                    onChange={handleOrder}
-                    />
-                  </div>
-                  <div className="px-2 py-2 flex flex-col">
-                    <label htmlFor='cardDate' className="px-1 text-sm font-medium">Fecha de expiracion</label>
-                    <input 
-                    type="number" 
-                    name="cardDate" 
-                    id="cardDate" 
-                    className="w-full h-8 px-2 border border-gray-300 rounded-md outline-none"
-                    defaultValue={order.user.cardDate}
-                    onChange={handleOrder}
-                    />
-                  </div>
-                  <div className="px-2 py-2 flex flex-col">
-                    <label htmlFor='cardCVV' className="px-1 text-sm font-medium">Codigo de seguridad</label>
-                    <input 
-                    type="number" 
-                    name="cardCVV" 
-                    id="cardCVV" 
-                    className="w-full h-8 px-2 border border-gray-300 rounded-md outline-none"
-                    defaultValue={order.user.cardCVV}
-                    onChange={handleOrder}
-                    />
-                  </div>
-                </div> */}
+                <div>
+                  <InputNumber 
+                  label='Numero de tarjeta'
+                  size='input-l'
+                  id="cardNumber" 
+                  name="cardNumber" 
+                  defaultValue={order.user.cardNumber}
+                  onChange={handleOrder}
+                  />
+                  <InputNumber 
+                  label='Fecha de expiracion'
+                  size='input-l'
+                  name="cardDate" 
+                  id="cardDate" 
+                  className="w-full h-8 px-2 border border-gray-300 rounded-md outline-none"
+                  defaultValue={order.user.cardDate}
+                  onChange={handleOrder}
+                  />
+                  <InputNumber 
+                  label='Codigo de seguridad'
+                  size='input-l'
+                  name="cardCVV" 
+                  id="cardCVV" 
+                  className="w-full h-8 px-2 border border-gray-300 rounded-md outline-none"
+                  defaultValue={order.user.cardCVV}
+                  onChange={handleOrder}
+                  />
+                </div>
               </div>
             </section>
           </>
@@ -151,13 +179,9 @@ export const Checkout = () => {
               <h3 className='flex items-center gap-2 font-medium'>Envio: <span className='text-yellow-500'>${delivery}</span></h3>
               <h3 className='flex items-center gap-2 font-medium'>Total: <span className='text-lg text-yellow-500'>${cartPriceTotal + delivery}</span></h3>
             </div>
-            <button 
-            className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-green-500 text-white rounded-md disabled:bg-green-400"
-            disabled={cartList.length === 0}
-            >
-              <i className="fa-solid fa-check"></i>
+            <Button type='submit' icon='check' color='btn-green' size='btn-l' disabled={cartList.length === 0}>
               <span className="text-sm">Finalizar compra</span>
-            </button>
+            </Button>
           </div>
         </aside>
       </form>

@@ -1,6 +1,6 @@
 /* SELECT */
 .select {
-  @apply w-full min-w-select max-w-select flex flex-col flex-none
+  @apply w-full md:max-w-select flex flex-col flex-none
 }
 
 /* LABEL */

@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react"
 import { useSlider } from "../../hooks/useSlider"
 import { getSimilarProducts } from "../../services/firestore"
-import { Loader } from "../Loader/Loader"
-import { ProductCard } from "../ProductCard/ProductCard"
-import { Slider } from "../Slider/Slider"
+import { Button, Loader, ProductCard, Slider } from "../index.js"
 
 export const ProductsDetailSimilar = ({product,type}) => {
   const [similarProducts, setSimilarProducts] = useState()
@@ -21,18 +19,8 @@ export const ProductsDetailSimilar = ({product,type}) => {
     <div className='w-full flex flex-col gap-4'>
       <div className="w-full px-2 py-2 flex items-center gap-4 bg-white border border-gray-300 rounded-md">
         <h4 className="px-2 text-lg font-semibold grow">Productos similares</h4>
-        <button 
-        className="w-8 h-8 flex items-center justify-center flex-none bg-blue-500 text-white rounded-md"
-        onClick={handlePrevSlide}
-        >
-          <i className="fa-solid fa-chevron-left"></i>
-        </button>
-        <button 
-        className="w-8 h-8 flex items-center justify-center flex-none bg-blue-500 text-white rounded-md"
-        onClick={handleNextSlide}
-        >
-          <i className="fa-solid fa-chevron-right"></i>
-        </button>
+        <Button icon='chevron-left' color='btn-blue' size='btn-s' onClick={handlePrevSlide} />
+        <Button icon='chevron-right' color='btn-blue' size='btn-s' onClick={handleNextSlide} />
       </div>
       {similarProducts
       ? <Slider slider={slider}>

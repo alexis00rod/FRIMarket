@@ -49,7 +49,6 @@ export const CartMenu = ({handle}) => {
                 to='/cart' 
                 className="btn btn-blue btn-m" 
                 title="Ver carrito"
-                onClick={() => handle(false)}
                 >
                   <i className="fa-solid fa-cart-shopping"></i>
                   <span className="text-sm font-medium">Ver carrito</span>
