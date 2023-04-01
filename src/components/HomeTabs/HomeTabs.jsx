@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import { useSlider } from "../../hooks/useSlider"
 import { getFeaturedCategories, getFeaturedProducts } from "../../services/firestore"
-import { Loader, ProductCard, Slider } from "../index.js"
+import { CategoryCard, Loader, ProductCard, Slider } from "../index.js"
 
 export const HomeTabs = () => {
   const [tabs, setTabs] = useState('')
@@ -38,17 +38,9 @@ export const HomeTabs = () => {
     <div className="px-2 py-2 flex flex-col gap-4">
       <div className="w-full flex flex-col items-center justify-center gap-2">
         {featuredCategories
-        ? <div className="w-full h-40 grid grid-cols-6 border border-gray-300 divide-x divide-gray-300 rounded-md overflow-hidden">
+        ? <div className="w-full grid grid-cols-6 border border-gray-300 divide-x divide-gray-300 rounded-md overflow-hidden">
             {featuredCategories.map(e => (
-              <div 
-              key={e.id} 
-              className={`h-full px-2 py-2 flex flex-col justify-center items-center ${e.idCategory === tabs ? 'bg-yellow-500 text-white' : 'bg-white text-gray-600'} cursor-pointer hover:bg-yellow-500 hover:text-white `}
-              onClick={() => setTabs(e.idCategory)}
-              >
-                <i className={`h-1/2 flex justify-center items-end text-5xl fa-solid fa-${e.icon}`}></i>
-                <h3 className="flex items-end justify-center grow text-center font-medium">{e.name}</h3>
-                <span className="text-sm">{e.products} productos</span>
-              </div>
+              <CategoryCard key={e.id} category={e} />
             ))}
           </div>
         : <Loader />}

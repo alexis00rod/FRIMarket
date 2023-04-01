@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
 import { useCartContext } from "../../context/CartContext/CartContext"
-import { Button } from "./Button"
+import { Button } from "../index.js"
 
-export const BtnAddCart = ({product, qty}) => {
+export const BtnAddCart = ({product, qty, size}) => {
   const {userLogged} = useAuthContext()
   const {cartList,addToCartList} = useCartContext()
   const {id, stock} = product
@@ -15,9 +15,18 @@ export const BtnAddCart = ({product, qty}) => {
     : navigate('/login')
   }
 
+  console.log(size)
+
   return (
-    <Button icon='cart-shopping' color='btn-blue' onClick={addProduct} disabled={stock < 1 || stock <= cartList.find(e => e.id === id)?.qty} >
-      <span className="hidden sm:flex text-sm font-medium">Agregar al carrito</span>
+    <Button 
+    icon='cart-shopping' 
+    color='btn-blue'
+    size={size} 
+    onClick={addProduct} 
+    disabled={stock < 1 || stock <= cartList.find(e => e.id === id)?.qty}
+    title='Añadir al carrito'
+    >
+      {size !== 'btn-s' && <span className="text-sm font-medium">Agregar al carrito</span>}
     </Button>
   )
 }

@@ -73,50 +73,50 @@
   @apply w-full px-1 md:px-2 flex items-center gap-2
 }
 
-/* CTA-S */
-.productCard-CTA-s {
+/* CTA-col */
+.productCard-CTA-col {
   @apply absolute top-4 left-0 flex flex-col gap-2
 }
-.productCard-CTA-s button {
+.productCard-CTA-col button {
   @apply -translate-x-full
 }
-.productCard-CTA-s button:nth-child(1) {
+.productCard-CTA-col button:nth-child(1) {
   @apply delay-75
 }
-.productCard-CTA-s button:nth-child(2) {
+.productCard-CTA-col button:nth-child(2) {
   @apply delay-100
 }
-.productCard-CTA-s button:nth-child(3) {
+.productCard-CTA-col button:nth-child(3) {
   @apply delay-150
 }
-.productCard:hover .productCard-CTA-s button {
+.productCard:hover .productCard-CTA-col button {
   @apply translate-x-4
 }
 
 /* CTA-M */
-.productCard-CTA-m {
+.productCard-CTA-row {
   @apply w-full px-2 flex items-center gap-2
 }
-.productCard-CTA-m button:nth-child(1) {
+.productCard-CTA-row button:nth-child(1) {
   @apply z-30
 }
-.productCard-CTA-m button:nth-child(2) {
+.productCard-CTA-row button:nth-child(2) {
   @apply z-20
 }
-.productCard-CTA-m button:nth-child(3) {
+.productCard-CTA-row button:nth-child(3) {
   @apply z-10
 }
-.productCard-CTA-m button:nth-child(2),
-.productCard-CTA-m button:nth-child(3) {
+.productCard-CTA-row button:nth-child(2),
+.productCard-CTA-row button:nth-child(3) {
   @apply opacity-0
 }
-.productCard-CTA-m button:nth-child(2) {
+.productCard-CTA-row button:nth-child(2) {
   @apply -translate-x-10 delay-100
 }
-.productCard-CTA-m button:nth-child(3) {
+.productCard-CTA-row button:nth-child(3) {
   @apply -translate-x-20 delay-150
 }
-.productCard:hover .productCard-CTA-m button:nth-child(2),
-.productCard:hover .productCard-CTA-m button:nth-child(3) {
+.productCard:hover .productCard-CTA-row button:nth-child(2),
+.productCard:hover .productCard-CTA-row button:nth-child(3) {
   @apply translate-x-0 opacity-100
 }

@@ -18,7 +18,7 @@ export const ShopFilter = ({handle, category}) => {
   return (
     <Modal title='Filtros' size='modal-m' position='left' handle={handle} >
       <div className="w-full h-full flex flex-col gap-4 items-center">
-        <div className="w-full flex flex-col divide-y divide gray-300">
+        <div className="w-full flex flex-col gap-4">
           {/* Categorias */}
           <Accordion title='Categorias'>
             <SidebarLink 

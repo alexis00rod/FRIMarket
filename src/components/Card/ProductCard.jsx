@@ -38,14 +38,14 @@ export const ProductCard = ({content, size}) => {
           </span>
         </p>}
         {size !== 's' && 
-        <div className='productCard-CTA-m'>
+        <div className='productCard-CTA-row'>
           <BtnAddCart product={content} qty={1} size='btn-m' />
           <BtnAddWishlist product={content} size='btn-s'/>
           <Button icon='eye' color='btn-yellow' size='btn-s' title='Ver producto' onClick={() => setCardDetail(true)} />
         </div>}
       </div>
       {size === 's' && 
-      <div className='productCard-CTA-s'>
+      <div className='productCard-CTA-col'>
         <BtnAddCart product={content} qty={1} size='btn-s' />
         <BtnAddWishlist product={content} size='btn-s'/>
         <Button icon='eye' color='btn-yellow' size='btn-s' title='Ver producto' onClick={() => setCardDetail(true)} />
