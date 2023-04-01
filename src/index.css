@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("./styles/navbar.css");
 @import url("./styles/productCard.css");
 @import url("./styles/form.css");
 @import url("./styles/select.css");
 @import url("./styles/accordion.css");
+@import url("./styles/slider.css");
 
 @tailwind base;
 @tailwind components;
@@ -18,22 +20,6 @@ body {
 
 main {
   @apply w-full max-w-screen-2xl mx-auto px-1 md:px-2 py-2 md:py-4 flex flex-col grow
-}
-
-/* Navbar */
-.navbar {
-  @apply sticky top-0 left-0 z-40 w-full
-}
-.navbar-top {
-  @apply w-full px-2 bg-white 
-}
-.navbar-bot {
-  @apply w-full px-2 bg-blue-500 text-white
-}
-
-/* Navbar menu */
-.navbar-menu {
-  @apply debug
 }
 
 /* Logo */
@@ -125,6 +111,15 @@ main {
 .btn-form {
   @apply w-full 
 }
+.btn-hero {
+  @apply absolute top-1/2 -translate-y-1/2
+}
+.btn-hero-left {
+  @apply left-4
+} 
+.btn-hero-right {
+  @apply right-4
+} 
 
 
 /* Link */
