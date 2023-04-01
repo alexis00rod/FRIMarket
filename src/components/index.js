@@ -26,7 +26,7 @@ import { Button, BtnShare, BtnAddCart, BtnAddWishlist } from './Button/button'
 import { Modal, EditProduct, ProductDetail, ShopFilter } from "./Modal/modal"
 import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA } from "./Detail/detail"
 import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews"
-import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch } from "./Form/form"
+import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch, InputProductQty } from "./Form/form"
 import { SellerCard, ProductCard, CategoryCard } from "./Card/card"
 import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProductsSort, SelectProvince, SelectSearch, SelectSellersSort } from "./Select/select"
 import { ProductsList, ProductsLayout } from "./Products/products"
@@ -50,7 +50,7 @@ export {
   // Products
   ProductsList, ProductsLayout,
   // Form
-  InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch,
+  InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch, InputProductQty,
   // Post
   PostProductDetail, PostProductLocation, PostProductPrice, PostProductThumb, PostProductUser, PostProductCategory,
   // Modal
