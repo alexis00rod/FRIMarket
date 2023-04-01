@@ -1,0 +1,66 @@
+/* INPUT BOX */
+.input-box {
+  @apply w-full flex flex-col justify-end
+}
+
+/* SIZE */
+.input-xs {
+  @apply w-max
+}
+.input-s {
+  @apply max-w-input-s
+}
+.input-m {
+  @apply sm:max-w-input-m
+}
+.input-l {
+  @apply max-w-input-l
+}
+
+/* LABEL */
+.input-label {
+  @apply px-2 text-sm font-medium
+}
+/* INPUT */
+.input-box input[type = 'text'],
+.input-box input[type = 'email'],
+.input-box input[type = 'password'],
+.input-box input[type = 'number']{
+  @apply w-full h-8 px-2 border border-gray-300 rounded-md outline-none
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  @apply appearance-none m-0
+}
+input[type = 'file'] {
+  @apply hidden
+}
+
+/* TEXTAREA */
+.input-box textarea {
+  @apply w-full min-h-textarea max-h-28 px-2 py-2 border border-gray-300 rounded-md outline-none resize-none scroll
+}
+
+/* PHOTO */
+.input-photo {
+  @apply w-28 h-28 px-1 py-1 flex items-center justify-center flex-none border border-gray-300 rounded-md cursor-pointer
+}
+.input-photo img {
+  @apply w-full h-full object-cover
+}
+
+/* SEARCH */
+.input-search {
+  @apply w-full max-w-2xl flex items-center border border-gray-300 rounded-md overflow-hidden
+}
+.input-search input {
+  @apply h-full px-2 grow outline-none
+}
+
+/* QUANTITY */
+.input-qty {
+  @apply flex
+}
+.input-qty input {
+  @apply w-12 px-2 flex items-center justify-center flex-none outline-none
+}
