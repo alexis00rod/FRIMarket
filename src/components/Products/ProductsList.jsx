@@ -25,7 +25,7 @@ export const ProductsList = ({products, sort, size, maxCols}) => {
     <div className={`w-full
       grid ${size !== 'l' 
       ? `grid-cols-2 md:grid-cols-3 lg:grid-cols-4 ${maxCols === 5 && 'xl:grid-cols-5'}`
-      : 'grid-cols-1'}
+      : 'grid-cols-1 2xl:grid-cols-2'}
       gap-2 md:gap-4
     `}>
       {products.sort(order).map(element => <ProductCard key={element.id} content={element} size={size} />)}

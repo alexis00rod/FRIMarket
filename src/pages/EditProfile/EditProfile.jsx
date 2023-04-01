@@ -45,12 +45,13 @@ export const EditProfile = () => {
           <h2 className="box-header text-lg font-medium">Editar perfil</h2>
           {profile
           ? <div className="box-body flex flex-col items-center gap-4 divide-y divide-gray-300">
-              <div className="w-full flex flex-col gap-4">
+              <div className="w-full px-2 pb-4 flex flex-col gap-4">
                 <h3 className="font-medium">Datos personales</h3>
                 <div className="w-full flex gap-4">
-                  <div className="flex flex-col justify-between gap-4">
+                  <div className="flex flex-col justify-between grow gap-4">
                     <InputText 
                     label='Nombre y apellido' 
+                    size='input-l'
                     id='displayName' 
                     name='displayName'
                     defaultValue={editProfile.displayName ? editProfile.displayName : profile.displayName}
@@ -58,6 +59,7 @@ export const EditProfile = () => {
                     />
                     <InputText 
                     label='Nombre de usuario' 
+                    size='input-l'
                     id='idUser' 
                     name='idUser' 
                     defaultValue={editProfile.idUser ? editProfile.idUser : profile.idUser}
@@ -74,6 +76,7 @@ export const EditProfile = () => {
                 </div>
                 <Textarea 
                 label='Biografia' 
+                size='input-l'
                 name='bio' 
                 id='bio'
                 defaultValue={editProfile.bio ? editProfile.bio : profile.bio} 
@@ -81,15 +84,16 @@ export const EditProfile = () => {
                 />
                 <InputNumber 
                 label='Telefono' 
+                size='input-l'
                 id='phone' 
                 name='phone' 
                 defaultValue={editProfile.phone ? editProfile.phone : profile.phone}
                 onChange={handleEditProfile} 
                 />
               </div>
-              <div className="w-full flex flex-col gap-4">
+              <div className="w-full px-2 py-4 flex flex-col gap-4">
                 <h3 className="font-medium">Datos de envio</h3>
-                <div className="flex gap-4">
+                <div className="w-full flex flex-col md:flex-row items-center justify-between flex-wrap gap-4">
                   <SelectProvince 
                   label='Provincia' 
                   selected={editProfile.province ? editProfile.province : profile.province} 
@@ -102,9 +106,10 @@ export const EditProfile = () => {
                   onChange={handleEditProfile}
                   />
                 </div>
-                <div className="flex gap-4">
+                <div className="w-full flex justify-between flex-wrap gap-4">
                   <InputText 
                   label='Direccion' 
+                  size='input-m'
                   id='address' 
                   name='address' 
                   defaultValue={editProfile.address ? editProfile.address : profile.address}
@@ -112,6 +117,7 @@ export const EditProfile = () => {
                   />
                   <InputNumber 
                   label='Codigo postal'
+                  size='input-m'
                   id='cp'
                   name='cp'
                   defaultValue={editProfile.cp ? editProfile.cp : profile.cp}

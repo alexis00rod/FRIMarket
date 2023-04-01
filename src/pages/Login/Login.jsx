@@ -32,8 +32,19 @@ export const Login = () => {
         <h2 className="box-header text-xl font-medium">Iniciar sesion</h2>
         <form className="box-body flex flex-col gap-4" onSubmit={submitLogin}>
           {loginError && <p className="px-2 py-2 text-sm text-red-500">{loginError}</p>}
-          <InputEmail label='Email' value={loginUser.email} onChange={handleLogin} />
-          <InputPassword label='Contraseña' id='password' value={loginUser.password} onChange={handleLogin} />
+          <InputEmail 
+          label='Email' 
+          size='input-l'
+          value={loginUser.email} 
+          onChange={handleLogin} 
+          />
+          <InputPassword 
+          label='Contraseña' 
+          size='input-l'
+          id='password' 
+          value={loginUser.password} 
+          onChange={handleLogin} 
+          />
           <div className="w-full flex flex-col items-center gap-4">
             <div className="w-full flex items-center justify-between flex-wrap">
               <Link to='/' className="link link-black">¿Olvidaste tu contraseña?</Link>

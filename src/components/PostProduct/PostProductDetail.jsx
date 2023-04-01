@@ -7,7 +7,7 @@ export const PostProductDetail = ({product, category, handle}) => {
     <div className="w-full px-2 pb-4 flex flex-col gap-4">
       <h4 className="font-medium">Incluye algunos detalles</h4>
       <div className="w-full flex flex-col gap-4">
-        <div className="w-full flex gap-4">
+        <div className="w-full flex flex-col md:flex-row items-center justify-between flex-wrap gap-4">
           <SelectProductType 
           category={category} 
           selected={type} 
@@ -22,6 +22,7 @@ export const PostProductDetail = ({product, category, handle}) => {
         <div className="w-full flex flex-col gap-4">
           <InputText 
           label='Nombre del producto' 
+          size='input-l'
           name='name' 
           id='name'
           defaultValue={name}
@@ -29,6 +30,7 @@ export const PostProductDetail = ({product, category, handle}) => {
           />
           <Textarea 
           label='Descripcion' 
+          size='input-l'
           name='description' 
           id='description' 
           defaultValue={description}

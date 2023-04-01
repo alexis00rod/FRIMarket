@@ -35,8 +35,22 @@ export const EditProduct = ({product, handle}) => {
       <form className="w-full px-2 flex flex-col gap-4" onSubmit={submitChanges}>
         <h4 className="font-medium">{name}</h4>
         <div className="w-full flex flex-wrap gap-4">
-          <InputNumber label='Precio' name='price' id='price' defaultValue={price} onChange={handleEditProduct} />
-          <InputNumber label='Cantidad' name='stock' id='stock' defaultValue={stock} onChange={handleEditProduct} />
+          <InputNumber 
+          label='Precio' 
+          size='input-m'
+          name='price' 
+          id='price' 
+          defaultValue={price} 
+          onChange={handleEditProduct} 
+          />
+          <InputNumber 
+          label='Cantidad' 
+          size='input-m'
+          name='stock' 
+          id='stock' 
+          defaultValue={stock} 
+          onChange={handleEditProduct} 
+          />
         </div>
         <div className="w-full flex justify-center flex-wrap gap-4">
           <Button icon='trash' color='btn-red' size='btn-l' onClick={handleDeleteProduct} >

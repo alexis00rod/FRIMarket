@@ -50,19 +50,48 @@ export const Signup = () => {
             {!singupProfile
             ? <>
                 {signupError && <p className="px-2 py-2 text-sm text-red-500">{signupError}</p>}
-                <InputEmail label='Email' value={signupUser.email} onChange={handleSignup} />
-                <InputPassword label='Contraseña' id='password' value={signupUser.password} onChange={handleSignup} />
-                <InputPassword label='Repetir contraseña' id='confirmPassword' value={signupUser.confirmPassword} onChange={handleSignup} />
+                <InputEmail 
+                label='Email' 
+                size='input-l'
+                value={signupUser.email} 
+                onChange={handleSignup} 
+                />
+                <InputPassword 
+                label='Contraseña' 
+                size='input-l'
+                id='password' 
+                value={signupUser.password} 
+                onChange={handleSignup} 
+                />
+                <InputPassword 
+                label='Repetir contraseña' 
+                size='input-l'
+                id='confirmPassword' 
+                value={signupUser.confirmPassword} 
+                onChange={handleSignup}
+                />
               </>
             : <>
                 <div className="w-full flex gap-4">
                   <div className="w-full flex flex-col justify-between">
-                    <InputText label='Nombre y apellido' id='displayName' name='displayName' onChange={handleSignup} />
-                    <InputText label='Nombre de usuario' id='idUser' name='idUser' onChange={handleSignup} />
+                    <InputText 
+                    label='Nombre y apellido' 
+                    size='input-l'
+                    id='displayName' 
+                    name='displayName' 
+                    onChange={handleSignup} 
+                    />
+                    <InputText 
+                    label='Nombre de usuario' 
+                    size='input-l'
+                    id='idUser' 
+                    name='idUser' 
+                    onChange={handleSignup} 
+                    />
                   </div>
                   <InputPhoto id='photoURL' label='Foto' photo={signupUser.photoURL} onChange={handleUserPhoto} />
                 </div>
-                <div className="w-full flex flex-wrap gap-4">
+                <div className="w-full flex justify-between flex-wrap gap-4">
                   <SelectProvince label='Provincia' selected={signupUser.province} onChange={handleSignup} />
                   <SelectCity label='Ciudad' province={signupUser.province} selected={signupUser.city} onChange={handleSignup} />
                 </div>
