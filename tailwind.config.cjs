@@ -16,8 +16,7 @@ module.exports = {
         // Button
         'btn': '2rem',
         // Select
-        'select': '15.625rem'
-        // Input
+        'select': '15.625rem',
       },
       maxWidth: {
         // Button
@@ -29,8 +28,11 @@ module.exports = {
         'productCard-m': '43.438rem',
         'productCard-l': '100%',
         // Select
-        'select' : '17.5rem'
+        'select' : '17.5rem',
         // Input
+        'input-s':'11.25rem',
+        'input-m':'17.5rem',
+        'input-l':'100%',
       },
       minHeight: {
         'textarea': '7rem'
