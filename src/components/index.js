@@ -22,13 +22,13 @@ import { PostProductDetail, PostProductLocation, PostProductPrice, PostProductTh
 import { Logo } from "./Logo/Logo"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
 import { Accordion } from "./Accordion/Accordion"
-import { Slider, Hero } from "./Slider/slider"
-import { Loader } from "./Loader/Loader"
+import { Slider, Hero, ProductsCategory } from "./Slider/slider"
+
+import { Element, Loader, Main } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
 
 export {
-  // Main
-  App, Logo, Footer, Accordion, Loader, ProtectedRoutes,  
+  App, Logo, Accordion, Loader, ProtectedRoutes, Element, Main, Footer,
   // Navbar
   Navbar, NavbarMenu, CartMenu, UserMenu,
   // Buttons
@@ -50,7 +50,7 @@ export {
   // Modal
   Modal, EditProduct, ProductDetail, ShopFilter,
   // Slider
-  Slider, Hero, 
+  Slider, Hero, ProductsCategory,
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
   // Home

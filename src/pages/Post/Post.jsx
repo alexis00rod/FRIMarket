@@ -4,7 +4,7 @@ import { addProduct, updatePostsUser } from "../../services/firestore"
 import { uploadThumb } from "../../services/storage"
 import { useCategories } from "../../hooks/useCategories"
 import { useProfile } from "../../hooks/useProfile"
-import { Loader, Breadcrumb, Button, PostProductDetail, PostProductPrice, PostProductThumb, PostProductLocation, PostProductUser, PostProductCategory } from "../../components"
+import { Loader, Breadcrumb, Button, PostProductDetail, PostProductPrice, PostProductThumb, PostProductLocation, PostProductUser, PostProductCategory, Main, Element } from "../../components"
 
 export const Post = () => {
   const {categories} = useCategories()
@@ -58,9 +58,9 @@ export const Post = () => {
   return (
     <>
     <Breadcrumb />
-    <main>
-      <div className="box box-form flex flex-col">
-        <div className="box-header flex items-center gap-4">
+    <Main size='main-size-medium'>
+      <Element flex='flex-col'>
+        <div className="box-header box-header-underline flex items-center gap-4">
           {!productToPost.category
           ? <h2 className="text-lg font-medium">Elegir categoria</h2>
           : <>
@@ -86,8 +86,8 @@ export const Post = () => {
               </Button>
             </>}
         </form>
-      </div>
-    </main>
+      </Element>
+    </Main>
     </>
   )
 }

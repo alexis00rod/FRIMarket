@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
 import { addReview, getProductReviews } from "../../services/firestore"
-import { Button, InputRating, InputText, ReviewCard, ReviewRating, ReviewsSort, Textarea } from "../index.js"
+import { Button, Element, InputRating, InputText, ReviewCard, ReviewRating, ReviewsSort, Textarea } from "../index.js"
 
 export const Reviews = ({product}) => {
   const {userLogged} = useAuthContext()
@@ -36,20 +36,18 @@ export const Reviews = ({product}) => {
   }
 
   return (
-    <div className="box flex flex-col">
-      <div className="box-header flex items-center flex-wrap gap-4">
-        <h4 className='grow text-xl font-medium'>Reseñas</h4>
-        <div className="grow flex items-center justify-end gap-4">
-          <ReviewsSort selected={reviewsSort} onChange={({target:{id}}) => setReviewsSort(id)} />
-          <div className="w-36 flex justify-center flex-none">
-            {writeReview
+    <Element className='box flex flex-col'>
+      <div className="relative w-full flex flex-col md:flex-row md:items-center gap-2">
+        <h3 className="box-header text-lg font-semibold">Reseñas</h3>
+        <ReviewsSort selected={reviewsSort} onChange={({target:{id}}) => setReviewsSort(id)} />
+        <div className="absolute top-0 right-0 md:static flex flex-none px-2 py-1">
+          {writeReview
             ? <Button color='btn-black' size='btn-m' title='Ver reseñas' onClick={() => setWriteReview(false)}>
                 <span className="text-sm font-medium">Ver reseñas</span>
               </Button>
             : <Button icon='pen' color='btn-black' size='btn-m' title='Escribir reseña' onClick={handleWriteReview}>
                 <span className="text-sm font-medium">Escribir reseña</span>
               </Button>}
-          </div>
         </div>
       </div>
       {writeReview
@@ -77,6 +75,6 @@ export const Reviews = ({product}) => {
         : <div className='w-full px-2 pt-2'>
             <span>No hay reseñas</span>
           </div>}
-    </div>
+    </Element>
   )
 }

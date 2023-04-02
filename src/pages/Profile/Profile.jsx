@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Breadcrumb, BreadcrumbLink, Loader, ProductsLayout, ProfileInfo, SelectProductsSort } from '../../components/index.js'
-import { ProfilePosts } from "../../components/index.js"
+import { getUserById } from "../../services/firestore"
 import { useCardSize } from "../../hooks/useCardSize.jsx"
 import { useProductsSort } from "../../hooks/useProductsSort.jsx"
-import { getUserById } from "../../services/firestore"
+import { Breadcrumb, BreadcrumbLink, Element, Loader, ProductsLayout, ProfileInfo, ProfilePosts, SelectProductsSort, Main } from '../../components/index.js'
 
 export const Profile = () => {
   const {idUser} = useParams()
@@ -23,23 +22,24 @@ export const Profile = () => {
       <Breadcrumb>
         {userProfile && <BreadcrumbLink name={userProfile.displayName} to={`/profile/${idUser}`} />}
       </Breadcrumb>
-      <main>
-        <div className="w-full flex flex-col lg:flex-row gap-2 md:gap-4">
-          <aside className="box lg:max-w-xs h-max flex flex-col flex-none">
-            <ProfileInfo user={userProfile} />
-          </aside>
-          <section className="w-full flex flex-col gap-2 md:gap-4">
-            <div className="box flex items-center flex-wrap">
-              <h3 className="px-1 md:px-2 py-1 md:py-2 grow text-lg font-medium">Publicaciones</h3>
-              <div className="flex justify-end gap-2 md:gap-4 grow">
-                <SelectProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
-                <ProductsLayout size={cardSize} handle={setCardSize} />
-              </div>
+      <Main flex='flex-col lg:flex-row'>
+        <Element size='lg:max-w-xs h-max' flex='flex-col flex-none'>
+          <ProfileInfo user={userProfile} />
+        </Element>
+        <div className="flex flex-col gap-2">
+          <Element flex='flex-col md:flex-row md:items-center gap-2'>
+            <h3 className='box-header flex flex-col  text-lg font-semibold'>
+              Publicaciones
+              <span className="w-max text-sm text-gray-500 font-normal">{'product.length'} {'product.length' > 1 ? 'resultados' : 'resultado'}</span>
+            </h3>
+            <SelectProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
+            <div className="absolute top-2 right-2 md:static px-2 py-1">
+              <ProductsLayout size={cardSize} handle={setCardSize} />
             </div>
-            <ProfilePosts user={userProfile} sort={productsSort} layout={cardSize} />
-          </section>
+          </Element>
+          <ProfilePosts user={userProfile} sort={productsSort} layout={cardSize} />
         </div>
-      </main>
+      </Main>
     </>
   )
 }

@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { loginEmailPass } from "../../services/auth"
-import { Button, InputEmail, InputPassword } from "../../components/index.js"
+import { Button, Element, InputEmail, InputPassword, Main } from "../../components/index.js"
 
 export const Login = () => {
   const [loginUser, setLoginUser] = useState({})
@@ -27,8 +27,8 @@ export const Login = () => {
   }
 
   return (
-    <main>
-      <div className="box box-form">
+    <Main size='main-size-medium'>
+      <Element flex='flex-col'>
         <h2 className="box-header text-xl font-medium">Iniciar sesion</h2>
         <form className="box-body flex flex-col gap-4" onSubmit={submitLogin}>
           {loginError && <p className="px-2 py-2 text-sm text-red-500">{loginError}</p>}
@@ -53,7 +53,7 @@ export const Login = () => {
             <Button color='btn-blue' size='btn-l' ><span className="text-sm font-medium">Iniciar sesion</span></Button>
           </div>
         </form>
-      </div>
-    </main>
+      </Element>
+    </Main>
   )
 }

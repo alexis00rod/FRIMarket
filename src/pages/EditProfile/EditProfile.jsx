@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { Breadcrumb, Button, InputNumber, InputPhoto, InputText, Loader, SelectCity, SelectProvince, Textarea } from "../../components"
+import { Breadcrumb, Button, InputNumber, InputPhoto, InputText, Loader, SelectCity, SelectProvince, Textarea, Main, Element } from "../../components"
 import { useProfile } from "../../hooks/useProfile"
 import { updateProfileInfo } from "../../services/firestore"
 import { uploadUserPhoto } from "../../services/storage"
@@ -38,17 +38,15 @@ export const EditProfile = () => {
   if(!profile) return <Loader />
 
   return (
-    <>
-      <Breadcrumb />
-      <main>
-        <form className="box box-form flex flex-col">
-          <h2 className="box-header text-lg font-medium">Editar perfil</h2>
-          {profile
-          ? <div className="box-body flex flex-col items-center gap-4 divide-y divide-gray-300">
-              <div className="w-full px-2 pb-4 flex flex-col gap-4">
+    <Main size='main-size-medium'>
+      <Element flex='flex-col'>
+        <h2 className="box-header box-header-underline text-lg font-medium">Editar perfil</h2>
+        {profile
+          ? <form className="box-body flex flex-col items-center gap-2 divide-y divide-gray-300">
+              <div className="w-full pb-2 flex flex-col gap-2">
                 <h3 className="font-medium">Datos personales</h3>
-                <div className="w-full flex gap-4">
-                  <div className="flex flex-col justify-between grow gap-4">
+                <div className="w-full flex gap-2">
+                  <div className="flex flex-col justify-between grow gap-2">
                     <InputText 
                     label='Nombre y apellido' 
                     size='input-l'
@@ -91,7 +89,7 @@ export const EditProfile = () => {
                 onChange={handleEditProfile} 
                 />
               </div>
-              <div className="w-full px-2 py-4 flex flex-col gap-4">
+              <div className="w-full py-2 flex flex-col gap-2">
                 <h3 className="font-medium">Datos de envio</h3>
                 <div className="w-full flex flex-col md:flex-row items-center justify-between flex-wrap gap-4">
                   <SelectProvince 
@@ -128,74 +126,11 @@ export const EditProfile = () => {
               <Button icon='check' color='btn-green' size='btn-l'>
                 <span className="text-sm font-medium">Guardar cambios</span>
               </Button>
-            </div>
-          : <div className="w-full px-2 pt-4">
+            </form>
+          : <div className="w-full pt-2">
               <Loader />
             </div>}
-        </form>
-      </main>
-    </>
-  )
-
-  return (
-    <>
-    <Breadcrumb />
-    <main>
-      <form 
-      className="box max-w-xl mx-auto"
-      onSubmit={submitEditProfile}
-      >
-        <h3 className="box-header text-lg font-medium">Editar perfil</h3>
-        {profile
-        ? <>
-            {/* Personal info */}
-            <div className="w-full py-2 flex flex-col">
-              <h4 className="w-full px-2 py-1 font-medium">Datos personales</h4>
-              <div className="w-full flex flex-col">
-                <div className="w-full flex gap-2">
-                  <InputPhoto photo={profile.photoURL} newPhoto={editProfile.photoURL} name={profile.displayName} onChange={handlePhoto} />
-                  <div className="flex flex-col grow">
-                    <InputDisplayName defaultValue={profile.displayName} onChange={handleEditProfile} />
-                    <InputUserID defaultValue={profile.idUser} onChange={handleEditProfile} />
-                  </div>
-                </div>
-                <InputBio defaultValue={profile.bio} onChange={({target:{name,value}}) => setEditProfile({...editProfile,[name]:value})} />
-                <InputPhone defaultValue={profile.phone} onChange={({target:{name,value}}) => setEditProfile({...editProfile,[name]:value})}
-                />
-              </div>
-            </div> 
-            {/* Shipping info */}
-            <div className="w-full py-2 flex flex-col">
-              <h4 className="w-full px-2 py-1 font-medium">Datos de envio</h4>
-              <div className="w-full flex flex-col">
-                {/* <SelectProvince 
-                selected={editProfile.province ? editProfile.province : profile.province} 
-                onChange={handleEditProfile} 
-                /> */}
-                <SelectCity 
-                selected={editProfile.city ? editProfile.city : profile.city} 
-                province={editProfile.province ? editProfile.province : profile.province} 
-                onChange={handleEditProfile} 
-                />
-                <InputAddress defaultValue={profile.address} onChange={handleEditProfile} />
-                <InputCP defaultValue={profile.cp} onChange={handleEditProfile} />
-              </div>
-            </div>
-            <div className="w-full px-2 pt-4 flex items-center justify-center">
-              <Button type='submit' icon='check' size='btn-l' color='btn-green'>
-                <span className="text-sm">Guardar cambios</span>
-              </Button>
-            </div>
-            {/* <button type="submit" className="w-full max-w-btn h-8 px-2 ml-2 flex items-center justify-center gap-2 bg-green-500 text-white rounded-md">
-              <i className="fa-solid fa-check"></i>
-              <span className="text-sm">Guardar cambios</span>
-            </button> */}
-              </>
-        : <div className="w-full px-2 pt-4">
-            <Loader />
-          </div>}
-      </form>
-    </main>
-    </>
+      </Element>
+    </Main>
   )
 }

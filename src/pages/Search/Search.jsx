@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Breadcrumb, BreadcrumbLink, ProductsLayout, ProductsList, SelectProductsSort } from "../../components"
+import { Breadcrumb, BreadcrumbLink, Element, ProductsLayout, ProductsList, SelectProductsSort, Main } from "../../components"
 import { useCardSize } from "../../hooks/useCardSize"
 import { useProductsSort } from "../../hooks/useProductsSort"
 import { searchProducts } from "../../services/firestore"
@@ -15,24 +15,19 @@ export const Search = () => {
     searchProducts(toSearch)
     .then(resp => setProductsFound(resp))
   },[toSearch])
-
+  
   return (
-    <>
-      <Breadcrumb>
-        <BreadcrumbLink name={`Buscador: ${toSearch}`} />
-      </Breadcrumb>
-      <main>
-        <section className="w-full flex flex-col gap-2 md:gap-4">
-          <div className="box flex items-center flex-wrap">
-            <h2 className="px-1 md:px-2 py-1 md:py-2 grow text-lg font-medium">Resultados encontrados para "{toSearch}"</h2>
-            <div className="flex justify-end gap-2 md:gap-4 grow">
-              <SelectProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
-              <ProductsLayout size={cardSize} handle={setCardSize} />
-            </div>
-          </div>
-          <ProductsList products={productsFound} sort={productsSort} size={cardSize} maxCols={5} />
-        </section>
-      </main>
-    </>
+    <Main>
+      <Element flex='flex-col md:flex-row md:items-center'>
+        <h3 className='box-header flex flex-col text-lg font-semibold'>"{toSearch}"
+          <span className="w-max text-sm text-gray-500 font-normal">{productsFound.length} {productsFound.length > 1 ? 'resultados' : 'resultado'}</span>
+        </h3>
+        <SelectProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
+        <div className="absolute top-2 right-2 md:static px-2 py-1">
+          <ProductsLayout size={cardSize} handle={setCardSize} />
+        </div>
+      </Element>
+      <ProductsList products={productsFound} sort={productsSort} size={cardSize} maxCols={5} />
+    </Main>
   )
 }

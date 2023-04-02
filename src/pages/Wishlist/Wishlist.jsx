@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Breadcrumb, ProductsLayout, ProductsList, SelectProductsSort } from "../../components"
+import { Breadcrumb, Element, ProductsLayout, ProductsList, SelectProductsSort, Main } from "../../components"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
 import { useCardSize } from "../../hooks/useCardSize"
 import { useProductsSort } from "../../hooks/useProductsSort"
@@ -22,20 +22,16 @@ export const Wishlist = () => {
   return (
     <>
       <Breadcrumb />
-      <main>
-        <div className="w-full flex flex-col gap-4 grow">
-          <div className="box flex items-center flex-wrap">
-            <h2 className="px-1 md:px-2 py-1 md:py-2 grow text-lg font-medium">Lista de favoritos</h2>
-            <div className="flex justify-end gap-2 md:gap-4 grow">
-              <SelectProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
-              <ProductsLayout size={cardSize} handle={setCardSize} />
-            </div>
+      <Main>
+        <Element flex='flex-col md:flex-row md:items-center'>
+          <h3 className="box-header text-lg font-semibold">Lista de favoritos</h3>
+          <SelectProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
+          <div className="absolute top-2 right-2 md:static px-2 py-1">
+            <ProductsLayout size={cardSize} handle={setCardSize} />
           </div>
-          <section className="w-full">
-            <ProductsList products={wishlist} sort={productsSort} size={cardSize} maxCols={5} />
-          </section>
-        </div>
-      </main>
-    </>
+        </Element>
+        <ProductsList products={wishlist} sort={productsSort} size={cardSize} maxCols={5} />
+      </Main>
+    </>  
   )
 }
