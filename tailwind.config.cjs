@@ -13,16 +13,17 @@ module.exports = {
         'btn': '2rem',
       },
       minWidth: {
+        'xs': '20rem',
         // Button
         'btn': '2rem',
         // Select
-        'select': '15.625rem',
+        'select': '13.75rem',
       },
       maxWidth: {
         // Button
         'btn-s' : '2rem',
         'btn-m' : 'max-content',
-        'btn-l' : '15.625rem',
+        'btn-l' : '13.75rem',
         // Product card
         'productCard-s': '20rem',
         'productCard-m': '43.438rem',

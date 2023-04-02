@@ -11,9 +11,10 @@ export const App = () => {
   },[pathname])
 
   return (
-    <div className="bg-gray-50 font-poppins">
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
+    <div className="app">
+      <Navbar />
+      <div className="app-body">
+        <div className="app-page">
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/shop/:idCategory" element={<Shop />}></Route>
@@ -26,15 +27,16 @@ export const App = () => {
             <Route path="/wishlist" element={<ProtectedRoutes><Wishlist /></ProtectedRoutes>}></Route>
             <Route path="/search/:toSearch" element={<Search />}></Route>
             <Route path="/settings" element={<ProtectedRoutes><Settings /></ProtectedRoutes>}>
-              <Route path="privacity" element={<SettingsPrivacity />}></Route>
+            <Route path="privacity" element={<SettingsPrivacity />}></Route>
             </Route>
             <Route path="/editProfile" element={<ProtectedRoutes><EditProfile /></ProtectedRoutes>}></Route>
             <Route path="/sellers" element={<Sellers />}></Route>
             <Route path="checkout" element={<ProtectedRoutes><Checkout /></ProtectedRoutes>}></Route>
             <Route path="checkout/:idOrder" element={<ProtectedRoutes><Order /></ProtectedRoutes>}></Route>
           </Routes>
+        </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   )
 }
