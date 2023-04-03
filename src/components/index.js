@@ -1,4 +1,3 @@
-import { CartProduct } from "./CartProduct/CartProduct"
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
 import { ProductsDetailSimilar } from "./ProductDetailSimilar/ProductDetailSimilar"
@@ -15,7 +14,7 @@ import { Modal, EditProduct, ProductDetail, ShopFilter } from "./Modal/modal"
 import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA } from "./Detail/detail"
 import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews"
 import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch, InputProductQty } from "./Form/form"
-import { SellerCard, ProductCard, CategoryCard } from "./Card/card"
+import { SellerCard, ProductCard, CategoryCard, CartProductCard } from "./Card/card"
 import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProductsSort, SelectProvince, SelectSearch, SelectSellersSort } from "./Select/select"
 import { ProductsList, ProductsLayout } from "./Products/products"
 import { PostProductDetail, PostProductLocation, PostProductPrice, PostProductThumb, PostProductUser, PostProductCategory } from "./PostProduct/postProduct"
@@ -23,7 +22,6 @@ import { Logo } from "./Logo/Logo"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
 import { Accordion } from "./Accordion/Accordion"
 import { Slider, Hero, ProductsCategory } from "./Slider/slider"
-
 import { Element, Loader, Main } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
 
@@ -38,7 +36,7 @@ export {
   // Reviews
   Reviews, ReviewsSort, ReviewRating, ReviewCard,
   // Cards
-  ProductCard, SellerCard, CategoryCard,
+  ProductCard, SellerCard, CategoryCard, CartProductCard,
   // Select
   Select, SelectItem, SelectProvince, SelectSellersSort, SelectProductsSort, SelectCity, SelectSearch, SelectProductBrand, SelectAddItem, SelectProductType,
   // Products
@@ -55,8 +53,6 @@ export {
   Breadcrumb, BreadcrumbLink,
   // Home
   HomeHero, HomeTabs, HomeSpecialProducts,
-  // Cart
-  CartProduct, 
   // Product details
   ProductsDetailSimilar, ProductDetailReviews,
   // Profile
