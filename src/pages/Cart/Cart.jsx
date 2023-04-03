@@ -1,53 +1,42 @@
 import { Link } from "react-router-dom"
-import { Breadcrumb, CartProduct } from "../../components"
+import { Button, CartProductCard, Element, Main} from "../../components"
 import { useCartContext } from "../../context/CartContext/CartContext"
 
 export const Cart = () => {
   const {cartList, cartPriceTotal, cartQty, emptyCart} = useCartContext()
 
   return (
-    <>
-      <Breadcrumb />
-      <main className="w-full max-w-screen-2xl mx-auto px-2 py-4 flex flex-col grow">
-        {cartQty === 0 
-        ? <p className="px-2 py-2 flex justify-center">Tu carrito esta vacio</p>
-        : <section className="w-full flex gap-4">
-          <div className="h-max grow bg-white border border-gray-300 rounded-md overflow-hidden">
-            <table className="w-full divide-y divide-gray-300">
-              <thead>
-                <tr className="bg-gray-100 divide-x divide-gray-300">
-                  <th className="px-2 py-2">Producto</th>
-                  <th className="px-2 py-2">Precio</th>
-                  <th className="px-2 py-2">Cantidad</th>
-                  <th className="px-2 py-2">Total</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-300">
-                {cartList.map(e => <CartProduct key={e.id} product={e} />)}
-              </tbody>
-            </table>
-          </div>
-          <div className="w-1/4 h-max px-4 py-4 flex flex-col items-center flex-none gap-2 bg-white border border-gray-300 rounded-md">
-            <span className="font-medium">Total del carrito</span>
-            <h4 className="mb-2 text-2xl text-yellow-500 font-medium">${cartPriceTotal}</h4>
-            <button
-            className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-red-500 text-white rounded-md"
-            onClick={() => emptyCart()}
-            >
-              <i className="fa-solid fa-trash"></i>
-              <span className="text-sm">Vaciar carrito</span>
-            </button>
-            <Link to='/shop/all' className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-blue-500 text-white rounded-md" >
-              <i className="fa-solid fa-cart-shopping"></i>
-              <span className="text-sm">Volver a la tienda</span>
-            </Link>
-            <Link to='/checkout' className="w-full max-w-btn h-8 px-2 flex items-center gap-2 bg-green-500 text-white rounded-md">
-              <i className="fa-solid fa-check"></i>
-              <span className="text-sm">Ir a pagar</span>
-            </Link>
-          </div>
-        </section>}
-      </main>
-    </>
+    <Main flex='wrap'>
+      {cartQty < 1
+      ? <p className="box-header flex justify-center">Tu carrito esta vacio</p>
+      : <>
+          <Element flex='flex-col'>
+            <div className="box-header box-header-underline flex items-center">
+              <h2 className="grow text-lg font-medium">Carrito</h2>
+              <Link to='/shop/all' className="btn btn-m btn-text btn-text-yellow">
+                Volver a la tienda
+              </Link>
+            </div>
+            <div className="box-body flex flex-col">
+              {cartList.map(e => <CartProductCard key={e.id} product={e} />)}
+            </div>
+          </Element>
+          <Element position='fixed bottom-0 left-0 lg:static' size='lg:max-w-sm' flex='lg:flex-col items-center'>
+            <h3 className="box-header flex flex-col items-center text-lg font-medium">
+              Total carrito
+              <span className="text-2xl text-yellow-500">${cartPriceTotal}</span>
+            </h3>
+            <div className="box-body flex flex-col items-center gap-2">
+              <Link to='/checkout' className="btn btn-green btn-l">
+                <i className="fa-solid fa-check"></i>
+                <span className="text-sm">Ir a pagar</span>
+              </Link>
+              <Button icon='trash' color='btn-red' size='btn-l' onClick={() => emptyCart()}>
+                <span className="text-sm">Vaciar carrito</span>
+              </Button>
+            </div>
+          </Element>
+        </>}
+    </Main>
   )
 }

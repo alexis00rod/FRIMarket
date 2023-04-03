@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
-import { Loader } from "../../components"
+import { Loader, Main } from "../../components"
 import { useProfile } from "../../hooks/useProfile"
 import { getOrder } from "../../services/firestore"
 import { formatDate } from "../../services/formatDate"
@@ -19,6 +19,12 @@ export const Order = () => {
         ...resp.data()
       }))
   },[profile,idOrder])
+
+  return (
+    <Main size='main-size-medium'>
+
+    </Main>
+  )
 
   return (
     <main className="w-full max-w-screen-2xl mx-auto px-2 py-4 flex flex-col grow">
