@@ -36,10 +36,12 @@ module.exports = {
         'input-l':'100%',
       },
       minHeight: {
-        'textarea': '7rem'
+        'textarea': '7rem',
       },
       maxHeight: {
         'dropdown' : '12rem',
+        // Button
+        'btn': '2rem',
       }
   },
   },
