@@ -20,7 +20,8 @@ export const Navbar = () => {
   return (
     <header className='navbar'>
       <div className='navbar-top'>
-        <div className="w-full max-w-screen-2xl h-full px-2 py-2 mx-auto flex flex-wrap items-center md:gap-2">
+      {/* <div className={`navbar-top ${!scrollActive && 'h-full opacity-100'}`}> */}
+        <div className="navbar-container">
           <Logo />
           <div className="h-full flex justify-end grow">
             <InputSearch />
@@ -32,7 +33,7 @@ export const Navbar = () => {
         </div>
       </div>
       <div className='navbar-bot'>
-        <nav className="w-full max-w-screen-2xl h-full mx-auto px-2 py-2 flex items-center">
+        <nav className="navbar-container">
           <div className="hidden w-full md:flex gap-2">
             <NavbarLink to='/'>Inicio</NavbarLink>
             <NavbarLink to='/shop/all'>Tienda</NavbarLink>

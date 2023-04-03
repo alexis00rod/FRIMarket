@@ -16,7 +16,7 @@ export const ProfileInfo = ({user}) => {
               <h3 className="text-sm leading-4">@{idUser}</h3>
             </div>
             {userLogged && userLogged.email === email &&
-            <Link to='/settings/profile' className="w-8 h-8 flex items-center justify-center hover:text-yellow-500">
+            <Link to='/editProfile' className="w-8 h-8 flex items-center justify-center hover:text-yellow-500">
               <i className="fa-solid fa-pen"></i>
             </Link>}
           </div>

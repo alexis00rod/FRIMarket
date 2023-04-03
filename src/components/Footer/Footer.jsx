@@ -24,6 +24,7 @@ export const Footer = () => {
           <Accordion title='Categorias'>
             {categories && categories.map(e => (
               <Link 
+              key={e.id}
               to={`/shop/${e.idCategory}`} 
               className='w-max flex items-center text-sm hover:text-yellow-500'>
                 {e.name}

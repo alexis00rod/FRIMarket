@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getUser } from "../../services/firestore"
-import { Loader } from "../Loader/Loader"
+import { Loader } from "../index.js"
 
 export const DetailUser = ({user}) => {
   const [profile, setProfile] = useState({})

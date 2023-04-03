@@ -1,0 +1,24 @@
+/* NAVBAR */
+.navbar {
+  @apply fixed top-0 left-0 z-40 w-full
+}
+
+/* CONTAINER */
+.navbar-container {
+  @apply w-full max-w-screen-2xl h-full px-2 py-2 mx-auto flex flex-wrap items-center gap-2
+}
+
+/* TOP */
+.navbar-top {
+  @apply w-full  px-2 flex flex-col bg-white duration-700
+}
+
+/* BOT */
+.navbar-bot {
+  @apply w-full px-2 bg-blue-500 text-white
+}
+
+/* Navbar menu */
+.navbar-menu {
+  /* @apply debug */
+}

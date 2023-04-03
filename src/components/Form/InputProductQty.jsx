@@ -1,13 +1,13 @@
-import { useState } from "react"
 import { Button } from "../index.js"
 
-export const InputProductQty = () => {
-  
+export const InputProductQty = ({flex,product,left,right}) => {
+  const {qty,stock} = product
+
   return (
-    <div className="input-qty">
-      <Button icon='chevron-down' color='btn-gray' size='btn-s' />
-        <input type="number" name="" id="" />
-      <Button icon='chevron-up' color='btn-gray' size='btn-s' />
+    <div className={`input-qty ${flex}`}>
+      <Button icon='minus' color='btn-gray' size='btn-s' onClick={left} disabled={qty === 1} />
+      <input type="number" name="productQty" id="productQty" value={qty}  />
+      <Button icon='plus' color='btn-gray' size='btn-s' onClick={right} disabled={qty >= stock} />
     </div>
   )
 }

@@ -5,6 +5,7 @@
 @import url("./styles/select.css");
 @import url("./styles/accordion.css");
 @import url("./styles/slider.css");
+@import url("./styles/cartCard.css");
 
 @tailwind base;
 @tailwind components;
@@ -72,6 +73,7 @@ body {
   @apply grow max-w-btn-l px-2
 }
 
+
 /* Buttons colors */
 .btn-blue {
   @apply bg-blue-500 text-white hover:bg-blue-600/90 disabled:bg-blue-400 disabled:hover:bg-blue-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-blue-500/30
@@ -97,8 +99,17 @@ body {
 .btn-red {
   @apply bg-red-500 text-white hover:bg-red-600/90 disabled:bg-red-400 disabled:hover:bg-red-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-red-500/30
 }
+.btn-text-red {
+  @apply text-red-500 hover:text-red-600/90 hover:underline
+}
+.btn-text-yellow {
+  @apply text-yellow-500 hover:text-yellow-600/90
+}
 
 /* Btn styles */
+.btn-text {
+  @apply text-sm font-medium hover:underline
+}
 .btn-search {
   @apply border-l border-gray-300
 }
@@ -142,7 +153,7 @@ body {
 } 
 .btn-hero-right {
   @apply right-4
-} 
+}
 
 
 /* Link */
@@ -287,6 +298,23 @@ body {
 .categoryCard-post .categoryCard-title {}
 .categoryCard-slider .categoryCard-title {
   @apply items-end
+}
+
+/* Table */
+.table-container {
+  @apply h-max flex flex-none grow bg-white border border-gray-300 rounded-md overflow-hidden
+}
+.table {
+  @apply w-full divide-y divide-gray-300
+}
+.table-head {
+  @apply bg-gray-100 divide-x divide-gray-300
+}
+.table-body {
+  @apply divide-y divide-gray-300
+}
+.table-cell {
+  @apply px-2 py-2
 }
 
 /* Scroll */

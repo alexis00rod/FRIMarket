@@ -1,5 +1,5 @@
-export const Element = ({size, flex,children,...props}) => {
+export const Element = ({position, size, flex,children,...props}) => {
   return (
-    <div className={`relative box ${size} flex ${flex}`} {...props}>{children}</div>
+    <div className={`${position ? position : 'relative'} box ${size} h-max flex ${flex}`} {...props}>{children}</div>
   )
 }
