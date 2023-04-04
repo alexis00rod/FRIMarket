@@ -65,7 +65,7 @@ export const Post = () => {
           ? <h2 className="text-lg font-medium">Elegir categoria</h2>
           : <>
               <h2 className="text-lg font-medium">{category.name}</h2>
-              <Button size='btn-m' color='btn-black' onClick={() => setProductToPost({})}>
+              <Button size='btn-m' color='btn-text-yellow' style='btn-text' onClick={() => setProductToPost({})}>
                 <span className="text-sm font-medium">Cambiar categoria</span>
               </Button>
             </>}

@@ -1,4 +1,4 @@
-export const CategoryCard = ({category, post, ...props}) => {
+export const CategoryCard = ({variant, active, category, post, ...props}) => {
   const {idCategory, name, icon, products} = category
 
   return (
@@ -6,7 +6,7 @@ export const CategoryCard = ({category, post, ...props}) => {
       <input type="radio" name="category" id={idCategory} className="hidden" {...props} />
       <label 
       htmlFor={idCategory} 
-      className={`categoryCard-input ${post ? 'categoryCard-post' : 'categoryCard-slider' }`}
+      className={`categoryCard-input ${variant === 'slider' ? 'categoryCard-slider' : 'categoryCard-post'} ${active === idCategory && 'categoryCard-active'}`}
       >
         <div className="categoryCard-icon">
           <i className={`fa-solid fa-${icon}`}></i>
@@ -14,7 +14,7 @@ export const CategoryCard = ({category, post, ...props}) => {
         <h4 className="categoryCard-title">
           {name}
         </h4>
-        {!post && 
+        {variant === 'slider' && 
         <div className="categoryCard-products">
           <span>{products} productos</span>
         </div>}

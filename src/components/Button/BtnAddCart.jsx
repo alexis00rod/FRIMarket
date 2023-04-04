@@ -15,7 +15,7 @@ export const BtnAddCart = ({product, qty, size}) => {
     : navigate('/login')
   }
 
-  console.log(size)
+  // console.log(size)
 
   return (
     <Button 
