@@ -18,6 +18,8 @@ module.exports = {
         'btn': '2rem',
         // Select
         'select': '13.75rem',
+        // Card
+        'card': '13.75rem',
       },
       maxWidth: {
         // Button
