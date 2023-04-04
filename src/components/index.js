@@ -1,11 +1,7 @@
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
-import { ProductsDetailSimilar } from "./ProductDetailSimilar/ProductDetailSimilar"
 import { ProductDetailReviews } from "./ProductDetailReviews/ProductDetailReviews"
 import { ProfilePosts } from "./ProfilePosts/ProfilePosts"
-import { HomeTabs } from "./HomeTabs/HomeTabs"
-import { HomeHero } from "./HomeHero/HomeHero"
-import { HomeSpecialProducts } from "./HomeSpecialProducts/HomeSpecialProducts"
 
 import { App } from "./App/App"
 import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
@@ -21,7 +17,7 @@ import { PostProductDetail, PostProductLocation, PostProductPrice, PostProductTh
 import { Logo } from "./Logo/Logo"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
 import { Accordion } from "./Accordion/Accordion"
-import { Slider, Hero, ProductsCategory, CategorySlider, ProductsSlider, SpecialsSlider } from "./Slider/slider"
+import { Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider, SimilarSlider } from "./Slider/slider"
 import { Element, Loader, Main } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
 
@@ -48,13 +44,11 @@ export {
   // Modal
   Modal, EditProduct, ProductDetail, ShopFilter,
   // Slider
-  Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider, ProductsCategory,
+  Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider, SimilarSlider,
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
-  // Home
-  HomeHero, HomeTabs, HomeSpecialProducts,
   // Product details
-  ProductsDetailSimilar, ProductDetailReviews,
+  ProductDetailReviews,
   // Profile
   ProfileInfo, ProfilePosts,
 }

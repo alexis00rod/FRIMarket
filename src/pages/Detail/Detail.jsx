@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Breadcrumb, BreadcrumbLink, DetailCTA, DetailDescription, DetailImage, DetailTitle, DetailUser, Loader, ProductsDetailSimilar, Reviews, Main } from '../../components'
+import { Breadcrumb, BreadcrumbLink, DetailCTA, DetailDescription, DetailImage, DetailTitle, DetailUser, Loader, Reviews, Main, SimilarSlider } from '../../components'
 import { getProductDetail } from '../../services/firestore'
 
 export const Detail = () => {
@@ -15,6 +15,8 @@ export const Detail = () => {
   
   const {id, name, thumb, type, idUser, idProduct} = productDetail
 
+  if(!productDetail) return <Loader />
+
   return (
     <Main>
       <div className="flex flex-col items-center lg:flex-row lg:items-start gap-2">
@@ -24,15 +26,16 @@ export const Detail = () => {
           {/* Detail title */}
           <DetailTitle product={productDetail} />
           {/* Detail CTA */}
-          <DetailCTA product={productDetail} />
+          {/* <DetailCTA product={productDetail} /> */}
           {/* Detail description */}
           <DetailDescription product={productDetail} />
           {/* Detail user */}
           <DetailUser user={idUser} />
         </div>
       </div>
-      <Reviews product={id} />
-      <ProductsDetailSimilar product={idProduct} type={type} />
+      {/* <Reviews product={id} /> */}
+      <SimilarSlider product={productDetail} />
+      {/* <ProductsDetailSimilar product={idProduct} type={type} /> */}
     </Main>
   )
 }
