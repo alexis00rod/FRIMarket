@@ -5,7 +5,7 @@ import { Button } from "../index.js"
 
 export const BtnAddCart = ({product, qty, size}) => {
   const {userLogged} = useAuthContext()
-  const {cartList,addToCartList} = useCartContext()
+  const {cartList,addToCartList, removeProductToCartList} = useCartContext()
   const {id, stock} = product
   const navigate = useNavigate()
 
@@ -15,18 +15,32 @@ export const BtnAddCart = ({product, qty, size}) => {
     : navigate('/login')
   }
 
-  // console.log(size)
+  const productInCart = cartList.find(e => e.id === id)
 
-  return (
-    <Button 
-    icon='cart-shopping' 
-    color='btn-blue'
-    size={size} 
-    onClick={addProduct} 
-    disabled={stock < 1 || stock <= cartList.find(e => e.id === id)?.qty}
-    title='Añadir al carrito'
-    >
-      {size !== 'btn-s' && <span className="text-sm font-medium">Agregar al carrito</span>}
-    </Button>
-  )
+  if(productInCart) {
+    return (
+      <Button 
+      icon='trash' 
+      color='btn-red' 
+      size='btn-m' 
+      onClick={() => removeProductToCartList(id)} 
+      title='Borrar del carrito'
+      >
+        {size !== 'btn-s' && <span className="text-sm font-medium">Borrar del carrito</span>}
+      </Button>
+    ) 
+  } else {
+    return (
+      <Button 
+      icon='cart-shopping' 
+      color='btn-blue'
+      size={size} 
+      onClick={addProduct} 
+      disabled={stock < 1 || stock <= cartList.find(e => e.id === id)?.qty}
+      title='Añadir al carrito'
+      >
+        {size !== 'btn-s' && <span className="text-sm font-medium">Agregar al carrito</span>}
+      </Button>
+    )
+  }
 }
