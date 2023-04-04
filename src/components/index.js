@@ -1,13 +1,12 @@
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
-import { ProductDetailReviews } from "./ProductDetailReviews/ProductDetailReviews"
 import { ProfilePosts } from "./ProfilePosts/ProfilePosts"
 
 import { App } from "./App/App"
 import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
-import { Button, BtnShare, BtnAddCart, BtnAddWishlist } from './Button/button'
+import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow } from './Button/button'
 import { Modal, EditProduct, ProductDetail, ShopFilter } from "./Modal/modal"
-import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA } from "./Detail/detail"
+import { DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA, DetailCategory } from "./Detail/detail"
 import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews"
 import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch, InputProductQty } from "./Form/form"
 import { SellerCard, ProductCard, CategoryCard, CartProductCard } from "./Card/card"
@@ -26,9 +25,9 @@ export {
   // Navbar
   Navbar, NavbarMenu, CartMenu, UserMenu,
   // Buttons
-  Button, BtnShare, BtnAddCart, BtnAddWishlist,
+  Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow,
   // Detail
-  DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA,
+  DetailImage, DetailTitle, DetailLocation, DetailDate, DetailDescription, DetailUser, DetailCTA, DetailCategory,
   // Reviews
   Reviews, ReviewsSort, ReviewRating, ReviewCard,
   // Cards
@@ -47,8 +46,6 @@ export {
   Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider, SimilarSlider,
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
-  // Product details
-  ProductDetailReviews,
   // Profile
   ProfileInfo, ProfilePosts,
 }
