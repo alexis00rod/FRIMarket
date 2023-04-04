@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url("./styles/navbar.css");
 @import url("./styles/productCard.css");
+@import url("./styles/categoryCard.css");
+@import url("./styles/cartCard.css");
 @import url("./styles/form.css");
 @import url("./styles/select.css");
 @import url("./styles/accordion.css");
 @import url("./styles/slider.css");
-@import url("./styles/cartCard.css");
 
 @tailwind base;
 @tailwind components;
@@ -265,39 +266,6 @@ body {
 /* Seller card post & Seller card sales */
 .sellerCard-posts, .sellerCard-sales {
   @apply w-full flex items-center gap-2
-}
-
-/* Category card */
-.categoryCard {
-  @apply w-full h-36 flex
-}
-.categoryCard-input {
-  @apply w-full h-full px-2 py-2 flex flex-col items-center duration-200 cursor-pointer
-}
-.categoryCard-post {
-  @apply bg-yellow-500 text-white hover:bg-yellow-600/90 rounded-md
-}
-.categoryCard-slider {
-  @apply bg-white text-gray-700 hover:bg-yellow-500 hover:text-white
-}
-.categoryCard-icon {
-  @apply w-full px-2 py-2 flex justify-center
-}
-.categoryCard-title {
-  @apply w-full px-2 flex justify-center grow text-center font-medium
-}
-.categoryCard-products {
-  @apply text-sm
-}
-.categoryCard-post .categoryCard-icon {
-  @apply h-2/3 items-center text-4xl
-}
-.categoryCard-slider .categoryCard-icon {
-  @apply h-1/2 items-end text-5xl
-}
-.categoryCard-post .categoryCard-title {}
-.categoryCard-slider .categoryCard-title {
-  @apply items-end
 }
 
 /* Table */
