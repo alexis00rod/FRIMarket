@@ -1,11 +1,15 @@
-import { Hero, HomeSpecialProducts, ProductsCategory, Main } from "../../components"
+import { useState } from "react"
+import { Hero, Main, CategorySlider, ProductsSlider, SpecialsSlider } from "../../components"
 
 export const Home = () => {
+  const [tabs, setTabs] = useState('phones')
+
   return (
     <Main>
       <Hero />
-      <ProductsCategory />
-      <HomeSpecialProducts />
+      <CategorySlider active={tabs} onChange={({target: {id}}) => setTabs(id)} />
+      <ProductsSlider category={tabs} />
+      <SpecialsSlider />
     </Main>
   )
 }

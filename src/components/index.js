@@ -21,7 +21,7 @@ import { PostProductDetail, PostProductLocation, PostProductPrice, PostProductTh
 import { Logo } from "./Logo/Logo"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
 import { Accordion } from "./Accordion/Accordion"
-import { Slider, Hero, ProductsCategory } from "./Slider/slider"
+import { Slider, Hero, ProductsCategory, CategorySlider, ProductsSlider, SpecialsSlider } from "./Slider/slider"
 import { Element, Loader, Main } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
 
@@ -48,7 +48,7 @@ export {
   // Modal
   Modal, EditProduct, ProductDetail, ShopFilter,
   // Slider
-  Slider, Hero, ProductsCategory,
+  Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider, ProductsCategory,
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
   // Home

@@ -1,6 +1,6 @@
-export const Slider = ({children,slider,banner=false}) => {
+export const Slider = ({row, children,slider}) => {
   return (
-    <div className={`w-full flex ${!banner && 'gap-4'} overflow-x-auto scroll-smooth scrollbar-none`} ref={slider}>
+    <div className={`slider ${row && row}`} ref={slider}>
       {children}
     </div>
   )
