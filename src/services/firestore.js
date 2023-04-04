@@ -168,8 +168,9 @@ export const searchProducts = async (toSearch) => {
 export const updateProfileInfo = async (email,newProfile) => await updateDoc(userRef(email),newProfile)
 
 // Funcion para obtener productos similares
-export const getSimilarProducts = async (product,type) => {
-  const q = query(productsRef,where('type','==',type),where('idProduct','!=',product),limit(5))
+export const getSimilarProducts = async (product) => {
+  const {idProduct, type} = product
+  const q = query(productsRef,where('type','==',type),where('idProduct','!=',idProduct),limit(5))
   return await getDocs(q)
 }
 
