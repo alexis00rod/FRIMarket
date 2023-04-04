@@ -1,0 +1,96 @@
+/* Buttons */
+.btn {
+  @apply w-full min-w-btn h-btn flex items-center justify-center gap-2 flex-none rounded-md duration-200 cursor-pointer disabled:cursor-default
+}
+
+/* Button size */
+.btn-s {
+  @apply max-w-btn-s
+}
+.btn-m {
+  @apply max-w-btn-m px-2
+}
+.btn-l {
+  @apply grow max-w-btn-l px-2
+}
+
+/* Buttons colors */
+.btn-blue {
+  @apply bg-blue-500 text-white hover:bg-blue-600/90 disabled:bg-blue-400 disabled:hover:bg-blue-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-blue-500/30
+}
+.btn-blue-active {
+  @apply bg-blue-600/90
+}
+.btn-gray {
+  @apply bg-gray-200 text-gray-900 hover:bg-gray-300 disabled:bg-gray-100 disabled:hover:bg-gray-100 disabled:hover:shadow-none hover:shadow-lg hover:shadow-gray-500/30
+}
+.btn-green {
+  @apply bg-green-500 text-white hover:bg-green-600/90 disabled:bg-green-400 disabled:hover:bg-green-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-green-500/30
+}
+.btn-black {
+  @apply hover:text-yellow-500 
+}
+.btn-white {
+  @apply bg-white text-black hover:text-blue-500 
+}
+.btn-yellow {
+  @apply bg-yellow-500 text-white hover:bg-yellow-600/90 disabled:bg-yellow-400 disabled:hover:bg-yellow-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-yellow-500/30
+}
+.btn-red {
+  @apply bg-red-500 text-white hover:bg-red-600/90 disabled:bg-red-400 disabled:hover:bg-red-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-red-500/30
+}
+.btn-text-red {
+  @apply text-red-500 hover:text-red-600/90
+}
+.btn-text-yellow {
+  @apply text-yellow-500 hover:text-yellow-600/90
+}
+
+/* Btn styles */
+.btn-text {
+  @apply text-sm font-medium hover:underline
+}
+.btn-search {
+  @apply border-l border-gray-300
+}
+
+.btn-cart {
+  @apply relative
+}
+.btn-cart span {
+  @apply absolute -bottom-1 -left-1 bg-red-500 w-5 h-5 flex items-center justify-center text-sm font-medium rounded-full
+}
+
+.btn-menu {
+  @apply relative flex flex-col justify-around;
+}
+.btn-menu span {
+  @apply absolute w-3/5 h-1 block bg-white duration-200 rounded-full;
+}
+.btn-menu span:nth-child(1) {
+  @apply mb-4;
+}
+.btn-menu span:nth-child(3) {
+  @apply mt-4;
+}
+.btn-menu-active span:nth-child(1) {
+  @apply mb-0 rotate-45;
+}
+.btn-menu-active span:nth-child(2) {
+  @apply hidden;
+}
+.btn-menu-active span:nth-child(3) {
+  @apply mt-0 -rotate-45;
+}
+.btn-form {
+  @apply w-full 
+}
+.btn-hero {
+  @apply absolute top-1/2 -translate-y-1/2
+}
+.btn-hero-left {
+  @apply left-4
+} 
+.btn-hero-right {
+  @apply right-4
+}
