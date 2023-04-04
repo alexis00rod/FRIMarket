@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react"
-import { getLocation } from "../../services/locations"
+import { useGeo } from "../../hooks/useGeo"
 
 export const DetailLocation = ({location}) => {
-  const [productLocation, setProductLocation] = useState({})
-  useEffect(() => {
-    getLocation(location)
-    .then(resp => setProductLocation(resp))
-  },[location])
+  const {provinces} = useGeo()
+  const province = provinces.find(e => e.id === location)
 
   return (
-    <span className='text-sm text-gray-500'>{productLocation.nombre}, Argentina</span>
+    <p className='flex items-center gap-2 capitalize'>
+      <span className='font-medium'>Ubicacion: </span>
+      {province && province.nombre}
+    </p>
   )
 }
