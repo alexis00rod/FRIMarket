@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Breadcrumb, BreadcrumbLink, DetailCTA, DetailDescription, DetailImage, DetailTitle, DetailUser, Loader, Reviews, Main, SimilarSlider } from '../../components'
+import { Breadcrumb, BreadcrumbLink, DetailCTA, DetailDescription, DetailImage, DetailTitle, Loader, Reviews, Main, SimilarSlider, Element } from '../../components'
 import { getProductDetail } from '../../services/firestore'
 
 export const Detail = () => {
@@ -13,29 +13,25 @@ export const Detail = () => {
 
   if(!productDetail) return <Loader />
   
-  const {id, name, thumb, type, idUser, idProduct} = productDetail
-
-  if(!productDetail) return <Loader />
+  const {id, name, thumb} = productDetail
 
   return (
+    <>
+    <Breadcrumb>
+      <BreadcrumbLink name={name} to={`/product/${id}`} />
+    </Breadcrumb>
     <Main>
-      <div className="flex flex-col items-center lg:flex-row lg:items-start gap-2">
-        {/* Detail image */}
+      <div className="flex flex-col items-center lg:flex-row lg:items-start gap-4">
         <DetailImage thumb={thumb} name={name} />
-        <div className='w-full flex flex-col gap-2 grow'>
-          {/* Detail title */}
+        <Element flex='flex-col divide-y divide-gray-300'>
           <DetailTitle product={productDetail} />
-          {/* Detail CTA */}
-          {/* <DetailCTA product={productDetail} /> */}
-          {/* Detail description */}
           <DetailDescription product={productDetail} />
-          {/* Detail user */}
-          <DetailUser user={idUser} />
-        </div>
+          <DetailCTA product={productDetail} />
+        </Element>
       </div>
-      {/* <Reviews product={id} /> */}
+      <Reviews product={id} />
       <SimilarSlider product={productDetail} />
-      {/* <ProductsDetailSimilar product={idProduct} type={type} /> */}
     </Main>
+    </>
   )
 }

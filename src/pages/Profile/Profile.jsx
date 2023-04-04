@@ -22,11 +22,11 @@ export const Profile = () => {
       <Breadcrumb>
         {userProfile && <BreadcrumbLink name={userProfile.displayName} to={`/profile/${idUser}`} />}
       </Breadcrumb>
-      <Main flex='flex-col lg:flex-row'>
+      <Main flex='lg:flex-row'>
         <Element size='lg:max-w-xs h-max' flex='flex-col flex-none'>
           <ProfileInfo user={userProfile} />
         </Element>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4">
           <Element flex='flex-col md:flex-row md:items-center gap-2'>
             <h3 className='box-header flex flex-col  text-lg font-semibold'>
               Publicaciones
