@@ -19,6 +19,8 @@ import { Accordion } from "./Accordion/Accordion"
 import { Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider, SimilarSlider } from "./Slider/slider"
 import { Element, Loader, Main } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
+import { CheckoutInformation, CheckoutPayment, CheckoutShipping } from "./Checkout/checkout"
+import { EditProfileInfo, EditProfileShipping } from "./Profile/profile"
 
 export {
   App, Logo, Accordion, Loader, ProtectedRoutes, Element, Main, Footer,
@@ -47,5 +49,7 @@ export {
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
   // Profile
-  ProfileInfo, ProfilePosts,
+  EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts,
+  // Checkout
+  CheckoutInformation, CheckoutShipping, CheckoutPayment
 }
