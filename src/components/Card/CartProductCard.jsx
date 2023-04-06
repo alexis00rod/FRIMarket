@@ -2,7 +2,7 @@ import { useCartContext } from "../../context/CartContext/CartContext.jsx"
 import { InputProductQty, Button } from "../index.js"
 
 export const CartProductCard = ({product}) => {
-  const {id, thumb, name, price, qty} = product
+  const {id, thumb, name, price, qty, stock} = product
   const {removeProductToCartList, addProduct, removeProduct} = useCartContext()
 
   return (
@@ -18,7 +18,13 @@ export const CartProductCard = ({product}) => {
             <span className="text-sm font-medium">Borrar</span>
           </Button>
         </div>
-        <InputProductQty product={product}  flex='flex-col-reverse md:flex-row' left={() => removeProduct(product)} right={() => addProduct(product)} />
+        <InputProductQty 
+        qty={qty}
+        stock={stock}
+        flex='flex-col-reverse md:flex-row' 
+        left={() => removeProduct(product)} 
+        right={() => addProduct(product)} 
+        />
       </div>
     </div>
   )
