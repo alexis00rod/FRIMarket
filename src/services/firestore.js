@@ -265,12 +265,30 @@ export const addOrder = async (order) => {
 }
 
 // Funcion para actualizar producto
-export const updateProduct = (cartList) => {
-  cartList.forEach(element => {
-    const {id, qty, stock, sales} = element
-    return updateDoc(productRef(id),{
+export const updateProduct = (products) => {
+  products.forEach(async e => {
+    const {id, qty, stock, sales} = e
+    return await updateDoc(productRef(id),{
       sales: sales ? sales + qty : qty,
       stock: stock - qty
+    })
+  })
+}
+
+// Funcion para obtener ventas de un usuario
+export const getUserSales = async (id) => {
+  const user = await getDoc(userRef(id))
+  const data = await user.data()
+  return data.sales ? data.sales : 0
+}
+
+// Funcion para actualizar ventas del usuario
+export const updateUserSales = (products) => {
+  products.forEach(async e => {
+    const {idUser} = e
+    const sales = await getUserSales(idUser)
+    return await updateDoc(userRef(idUser),{
+      sales : sales ? sales + 1 : 1
     })
   })
 }
