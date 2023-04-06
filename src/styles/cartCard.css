@@ -6,9 +6,11 @@
 .cartCard-thumb {
   @apply w-16 h-16 px-1 py-1 flex items-center justify-center flex-none border border-gray-300 rounded-md
 }
+/* BODY */
 .cartCard-body {
   @apply flex items-center grow 
 }
+/* DETAIL */
 .cartCard-detail {
   @apply px-2 grow
 }
