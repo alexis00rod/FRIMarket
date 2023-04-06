@@ -1,44 +1,38 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getUserById } from "../../services/firestore"
-import { useCardSize } from "../../hooks/useCardSize.jsx"
-import { useProductsSort } from "../../hooks/useProductsSort.jsx"
-import { Breadcrumb, BreadcrumbLink, Element, Loader, ProductsLayout, ProfileInfo, ProfilePosts, SelectProductsSort, Main } from '../../components/index.js'
+import { getUserById, getUserProducts } from "../../services/firestore"
+import { Breadcrumb, BreadcrumbLink, Loader, ProfileInfo, ProfilePosts, Main } from '../../components/index.js'
 
 export const Profile = () => {
   const {idUser} = useParams()
-  const [userProfile, setUserProfile] = useState()
-  const {productsSort, setProductsSort} = useProductsSort()
-  const {cardSize, setCardSize} = useCardSize()
+  const [profile, setProfile] = useState()
+  const [posts, setPosts] = useState()
 
   useEffect(() => {
-    getUserById(idUser, setUserProfile)
+    getUserById(idUser, setProfile)
   },[idUser])
 
-  if(!userProfile) return <Loader />
+  useEffect(() => {
+    profile &&
+    getUserProducts(profile.id)
+      .then(resp => setPosts(resp.docs.map(e => ({
+        id: e.id,
+        ...e.data()
+      }))))
+  },[profile])
+
+  if(!profile) return <Loader />
 
   return (
     <>
       <Breadcrumb>
-        {userProfile && <BreadcrumbLink name={userProfile.displayName} to={`/profile/${idUser}`} />}
+        {profile && <BreadcrumbLink name={profile.displayName} to={`/profile/${idUser}`} />}
       </Breadcrumb>
-      <Main flex='lg:flex-row'>
-        <Element size='lg:max-w-xs h-max' flex='flex-col flex-none'>
-          <ProfileInfo user={userProfile} />
-        </Element>
-        <div className="flex flex-col gap-4">
-          <Element flex='flex-col md:flex-row md:items-center gap-2'>
-            <h3 className='box-header flex flex-col  text-lg font-semibold'>
-              Publicaciones
-              <span className="w-max text-sm text-gray-500 font-normal">{'product.length'} {'product.length' > 1 ? 'resultados' : 'resultado'}</span>
-            </h3>
-            <SelectProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
-            <div className="absolute top-2 right-2 md:static px-2 py-1">
-              <ProductsLayout size={cardSize} handle={setCardSize} />
-            </div>
-          </Element>
-          <ProfilePosts user={userProfile} sort={productsSort} layout={cardSize} />
-        </div>
+      <Main size='' flex='flex-col lg:flex-row'>
+        <ProfileInfo user={profile} posts={posts} />
+        {posts
+        ? <ProfilePosts posts={posts} />
+        : <Loader />}
       </Main>
     </>
   )
