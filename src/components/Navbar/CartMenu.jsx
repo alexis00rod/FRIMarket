@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext/CartContext"
 import { Button, Menu } from "../index.js"
 
-export const CartMenu = ({handle}) => {
+export const CartMenu = () => {
   const {cartList,cartPriceTotal,cartQty, removeProductToCartList} = useCartContext()
   const [menu, setMenu] = useState(false)
 
@@ -13,30 +13,32 @@ export const CartMenu = ({handle}) => {
         {cartQty !== 0 && <span>{cartQty}</span>}
       </Button>
       <Menu expand={menu} position='right' onClick={() => setMenu(false)}>
-        {cartList.length > 1
-        ? <div className="divide-y divide-gray-300">
+        {cartList.length == 0
+        
+        ? <p className="py-2 px-2 text-center">Tu carrito esta vacio</p>
+        : <div className="divide-y divide-gray-300">
             <ul className="h-full max-h-80 px-2 pb-2 flex flex-col overflow-y-scroll scroll">
-              {cartList.map(e => (
-                <li key={e.id} className='py-2 w-full flex gap-2'>
-                  <figure className="w-16 h-16 px-1 py-1 flex items-center justify-center flex-none border border-gray-300 rounded-md">
-                    <img src={e.thumb} alt={e.name} />
-                  </figure>
-                  <div className="flex flex-col grow">
-                    <h4 className="text-sm font-medium line-clamp-1">{e.name}</h4>
-                    <div className="flex gap-2">
-                      <span className="text-yellow-500">${e.price}</span>
-                      <span className="text-sm">x {e.qty}</span>
-                    </div>
+            {cartList.map(e => (
+              <li key={e.id} className='py-2 w-full flex gap-2'>
+                <figure className="w-16 h-16 px-1 py-1 flex items-center justify-center flex-none border border-gray-300 rounded-md">
+                  <img src={e.thumb} alt={e.name} />
+                </figure>
+                <div className="flex flex-col grow">
+                  <h4 className="text-sm font-medium line-clamp-1">{e.name}</h4>
+                  <div className="flex gap-2">
+                    <span className="text-yellow-500">${e.price}</span>
+                    <span className="text-sm">x {e.qty}</span>
                   </div>
-                  <button
-                  className="w-8 h-8 px-2 flex items-center justify-center text-sm text-red-500"
-                  onClick={() => removeProductToCartList(e.id)}
-                  title='Eliminar producto'
-                  >
-                    <i className="fa-solid fa-x"></i>
-                  </button>
-                </li>
-              ))}
+                </div>
+                <button
+                className="w-8 h-8 px-2 flex items-center justify-center text-sm text-red-500"
+                onClick={() => removeProductToCartList(e.id)}
+                title='Eliminar producto'
+                >
+                  <i className="fa-solid fa-x"></i>
+                </button>
+              </li>
+            ))}
             </ul>
             <div className="px-2 py-2 flex flex-col items-center">
               <p className="pb-2 flex items-center gap-2 font-medium">
@@ -61,8 +63,7 @@ export const CartMenu = ({handle}) => {
                 </Link>
               </div>
             </div>
-          </div>
-        : <p className="py-2 px-2 text-center">Tu carrito esta vacio</p>}
+          </div>}
       </Menu>
     </div>
   )
