@@ -2,6 +2,9 @@
 .btn {
   @apply w-full min-w-btn h-btn flex items-center justify-center gap-2 flex-none rounded-md duration-200 cursor-pointer disabled:cursor-default
 }
+.btn i {
+  @apply w-8 h-8 flex items-center justify-center
+}
 
 /* Button size */
 .btn-s {
@@ -38,6 +41,9 @@
 }
 .btn-red {
   @apply bg-red-500 text-white hover:bg-red-600/90 disabled:bg-red-400 disabled:hover:bg-red-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-red-500/30
+}
+.btn-text-blue {
+  @apply text-blue-500 hover:text-blue-600/90
 }
 .btn-text-red {
   @apply text-red-500 hover:text-red-600/90
