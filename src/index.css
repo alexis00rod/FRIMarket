@@ -9,6 +9,7 @@
 @import url("./styles/accordion.css");
 @import url("./styles/slider.css");
 @import url("./styles/menu.css");
+@import url("./styles/sellerCard.css");
 
 @tailwind base;
 @tailwind components;
@@ -78,7 +79,7 @@ body {
 
 /* Box */
 .box {
-  @apply w-full px-2 py-2 bg-white border border-gray-300 rounded-md
+  @apply w-full h-max px-2 py-2 bg-white border border-gray-300 rounded-md
 }
 .box-header {
   @apply w-full px-2 py-2 
@@ -121,35 +122,6 @@ body {
 }
 .modal-body {
   @apply box-body flex flex-col
-}
-
-/* Seller card */
-.sellerCard {
-  @apply box flex flex-col sm:flex-row duration-200 hover:shadow-lg
-}
-/* Seller card photo */
-.sellerCard-photo {
-  @apply px-1 py-1 w-full h-36 sm:h-full sm:w-36 flex flex-none object-cover rounded-md
-}
-/* Seller card profile */
-.sellerCard-profile {
-  @apply px-1 md:px-2 py-1 md:py-2 flex flex-col justify-between gap-2
-}
-/* Seller card name */
-.sellerCard-name {
-  @apply w-full font-medium line-clamp-1
-}
-/* Seller card id */
-.sellerCard-id {
-  @apply w-full mb-1 text-sm font-medium text-gray-500 line-clamp-1
-}
-/* Seller card bio */
-.sellerCard-bio {
-  @apply hidden lg:flex text-sm text-gray-500 lg:line-clamp-2
-}
-/* Seller card post & Seller card sales */
-.sellerCard-posts, .sellerCard-sales {
-  @apply w-full flex items-center gap-2
 }
 
 /* Table */
