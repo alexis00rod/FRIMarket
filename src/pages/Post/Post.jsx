@@ -1,6 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { addProduct, updatePostsUser } from "../../services/firestore"
+import { addProduct } from "../../services/firestore"
 import { uploadThumb } from "../../services/storage"
 import { useCategories } from "../../hooks/useCategories"
 import { useProfile } from "../../hooks/useProfile"
@@ -11,6 +11,19 @@ export const Post = () => {
   const {profile} = useProfile()
   const [productToPost, setProductToPost] = useState({})
   const navigate = useNavigate()
+
+  useEffect(() => {
+    profile &&
+    setProductToPost({
+      ...productToPost,
+      user:{
+        displayName: profile.displayName,
+        phone: profile.phone,
+        province: profile.province,
+        city: profile.city,
+      }
+    })
+  },[profile])
 
   const handlePost = ({target: {name,value,id}}) => {
     let key = name === 'category' 
@@ -38,22 +51,21 @@ export const Post = () => {
 
   const submitProductToPost = e => {
     e.preventDefault()
+    // addProduct(productToPost)
+    // navigate(`/profile/${profile.idUser}`)
     console.log(productToPost)
     // addProduct({
     //   ...productToPost,
     //   idProduct:productToPost.name.toLowerCase().replace(' ','-'),
     //   idUser: userLoggedProfile.email,
-    //   province: userLoggedProfile.province
+      // province: userLoggedProfile.province
     // })
     // updatePostsUser(userLoggedProfile,'add')
-    // navigate(`/profile/${userLoggedProfile.idUser}`)
   }
 
   const category = categories && categories.find(e => e.idCategory === productToPost.category)
 
   if(!categories && !profile) return <Loader />
-
-  // console.log(productToPost)
 
   return (
     <>
@@ -78,10 +90,14 @@ export const Post = () => {
                 <PostProductDetail category={category} product={productToPost} handle={handlePost} />
                 <PostProductPrice product={productToPost} handle={handlePost} />
                 <PostProductThumb product={productToPost} handle={handleThumb} />
-                <PostProductLocation profile={profile} product={productToPost} handle={handlePost} />
-                <PostProductUser profile={profile} product={productToPost} handle={handlePost} />
+                {productToPost.user 
+                ? <>
+                  <PostProductLocation user={productToPost.user} handle={handlePost} />
+                  <PostProductUser user={productToPost.user} handle={handlePost} />
+                  </>
+                : <Loader />}
               </div>
-              <Button type='submit' icon='check' size='btn-l' color='btn-green' >
+              <Button icon='check' size='btn-l' color='btn-green' >
                 <span className="text-sm font-medium">Publicar producto</span>
               </Button>
             </>}

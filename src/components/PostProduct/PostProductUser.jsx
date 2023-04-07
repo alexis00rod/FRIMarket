@@ -1,7 +1,7 @@
 import { InputText, InputNumber } from "../index.js"
 
-export const PostProductUser = ({profile, product, handle}) => {
-  const {displayName, phone} = product
+export const PostProductUser = ({user, handle}) => {
+  const {displayName, phone} = user
 
   return (
     <div className="w-full px-2 pt-4 flex flex-col gap-4">
@@ -12,7 +12,8 @@ export const PostProductUser = ({profile, product, handle}) => {
         size='input-m'
         id='displayName' 
         name='displayName' 
-        defaultValue={displayName ? displayName : profile.displayName}
+        defaultValue={displayName}
+        // defaultValue={displayName ? displayName : profile.displayName}
         onChange={handle} 
         />
         <InputNumber 
@@ -20,7 +21,8 @@ export const PostProductUser = ({profile, product, handle}) => {
         size='input-m'
         id='phone' 
         name='phone' 
-        defaultValue={phone ? phone : profile.phone}
+        defaultValue={phone}
+        // defaultValue={phone ? phone : profile.phone}
         onChange={handle} 
         />
       </div>
