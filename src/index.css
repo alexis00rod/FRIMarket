@@ -8,6 +8,7 @@
 @import url("./styles/select.css");
 @import url("./styles/accordion.css");
 @import url("./styles/slider.css");
+@import url("./styles/menu.css");
 
 @tailwind base;
 @tailwind components;
@@ -26,7 +27,7 @@ body {
   @apply font-poppins 
 }
 .app-body {
-  @apply  mt-24 flex flex-col bg-gray-50
+  @apply mt-28 flex flex-col bg-gray-50
 }
 .app-page {
   @apply  min-h-screen 
@@ -51,10 +52,16 @@ body {
   @apply w-max px-2 flex
 }
 .logo h1 {
-  @apply flex items-center text-3xl text-blue-500 font-black
+  @apply flex items-center text-3xl font-black
 }
 .logo h1 span {
   @apply text-yellow-500
+}
+.logo-blue h1 {
+  @apply text-blue-500
+}
+.logo-white h1 {
+  @apply text-white
 }
 
 /* Link */
@@ -67,29 +74,6 @@ body {
 }
 .link-yellow {
   @apply text-yellow-500 hover:text-yellow-600/90
-}
-
-/* Menu */
-.menu {
-  @apply absolute top-full w-max max-w-xs mt-2 px-2 py-2 flex flex-col bg-white text-black border border-gray-300 divide-y divide-gray-300 rounded-md
-}
-.menu-left {
-  @apply left-0
-}
-.menu-right {
-  @apply right-0
-}
-.menu-item {
-  @apply relative w-full flex items-center cursor-pointer
-}
-.menu-link {
-  @apply w-full px-2 py-2 flex items-center gap-2 text-gray-700 font-medium duration-200 hover:text-yellow-500
-}
-.menu-link i {
-  @apply w-6 h-6 text-lg flex items-center justify-center
-}
-.menu-link-active {
-  @apply text-yellow-500
 }
 
 /* Box */
