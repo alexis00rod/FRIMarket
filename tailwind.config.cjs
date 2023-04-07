@@ -14,6 +14,8 @@ module.exports = {
       },
       minWidth: {
         'xs': '20rem',
+        // Menu
+        'menu': '17.5rem',
         // Button
         'btn': '2rem',
         // Select
