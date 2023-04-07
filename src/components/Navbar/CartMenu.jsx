@@ -1,23 +1,21 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext/CartContext"
-import { Button } from "../index.js"
+import { Button, Menu } from "../index.js"
 
 export const CartMenu = ({handle}) => {
   const {cartList,cartPriceTotal,cartQty, removeProductToCartList} = useCartContext()
   const [menu, setMenu] = useState(false)
 
   return (
-    <div className="relative">
+    <div className="h-full flex items-center">
       <Button icon='cart-shopping' color='btn-blue' size='btn-s' style='btn-cart' onClick={() => setMenu(!menu)}>
         {cartQty !== 0 && <span>{cartQty}</span>}
       </Button>
-      {menu &&
-      <div className="menu menu-right">
-        {cartList.length === 0
-        ? <p className="">Tu carrito esta vacio</p>
-        : <div className="divide-y divide-gray-300">
-            <ul className="px-2 pb-2 flex flex-col">
+      <Menu expand={menu} position='right'>
+        {cartList.length > 1
+        ? <div className="divide-y divide-gray-300">
+            <ul className="h-full max-h-80 px-2 pb-2 flex flex-col overflow-y-scroll scroll">
               {cartList.map(e => (
                 <li key={e.id} className='py-2 w-full flex gap-2'>
                   <figure className="w-16 h-16 px-1 py-1 flex items-center justify-center flex-none border border-gray-300 rounded-md">
@@ -63,8 +61,9 @@ export const CartMenu = ({handle}) => {
                 </Link>
               </div>
             </div>
-          </div>}
-      </div>}
+          </div>
+        : <p className="py-2 px-2 text-center">Tu carrito esta vacio</p>}
+      </Menu>
     </div>
   )
 }

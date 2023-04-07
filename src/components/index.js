@@ -4,7 +4,7 @@ import { ProfilePosts } from "./ProfilePosts/ProfilePosts"
 
 import { App } from "./App/App"
 import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
-import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow } from './Button/button'
+import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink } from './Button/button'
 import { Modal, EditProduct, ProductDetail, ShopFilter } from "./Modal/modal"
 import { DetailImage, DetailTitle, DetailLocation, DetailDescription, DetailUser, DetailCTA, DetailCategory } from "./Detail/detail"
 import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews"
@@ -17,17 +17,17 @@ import { Logo } from "./Logo/Logo"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
 import { Accordion } from "./Accordion/Accordion"
 import { Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider, SimilarSlider } from "./Slider/slider"
-import { Element, Loader, Main } from './Layout/layout'
+import { Element, Loader, Main, Menu } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
 import { CheckoutInformation, CheckoutPayment, CheckoutShipping } from "./Checkout/checkout"
 import { EditProfileInfo, EditProfileShipping } from "./Profile/profile"
 
 export {
-  App, Logo, Accordion, Loader, ProtectedRoutes, Element, Main, Footer,
+  App, Logo, Accordion, Loader, ProtectedRoutes, Element, Main, Footer, Menu,
   // Navbar
   Navbar, NavbarMenu, CartMenu, UserMenu,
   // Buttons
-  Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow,
+  Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink,
   // Detail
   DetailImage, DetailTitle, DetailLocation, DetailDescription, DetailUser, DetailCTA, DetailCategory,
   // Reviews
