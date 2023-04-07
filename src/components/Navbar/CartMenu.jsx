@@ -12,7 +12,7 @@ export const CartMenu = ({handle}) => {
       <Button icon='cart-shopping' color='btn-blue' size='btn-s' style='btn-cart' onClick={() => setMenu(!menu)}>
         {cartQty !== 0 && <span>{cartQty}</span>}
       </Button>
-      <Menu expand={menu} position='right'>
+      <Menu expand={menu} position='right' onClick={() => setMenu(false)}>
         {cartList.length > 1
         ? <div className="divide-y divide-gray-300">
             <ul className="h-full max-h-80 px-2 pb-2 flex flex-col overflow-y-scroll scroll">

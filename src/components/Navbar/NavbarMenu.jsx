@@ -10,7 +10,7 @@ export const NavbarMenu = () => {
         <Button color='btn-blue' size='btn-s' style={`btn-menu ${menu && 'btn-menu-active'}`} onClick={() => setMenu(!menu)}>
           <span></span><span></span><span></span>
         </Button>
-        <Menu expand={menu} position='left'>
+        <Menu expand={menu} onClick={() => setMenu(false)} position='left'>
           <ButtonLink to='/' size='btn-m' color='btn-black' active='btn-text-yellow'>Inicio</ButtonLink>
           <ButtonLink to='/shop/all' size='btn-m' color='btn-black' active='btn-text-yellow'>Tienda</ButtonLink>
           <ButtonLink to='/sellers' size='btn-m' color='btn-black' active='btn-text-yellow'>Vendedores</ButtonLink>

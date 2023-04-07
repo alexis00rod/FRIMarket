@@ -13,7 +13,7 @@ export const UserMenu = () => {
   return (
     <div className="h-full relative flex items-center">
       <Button icon='user' color='btn-blue' size='btn-s' onClick={() => setMenu(!menu)} />
-      <Menu expand={menu} position='right'>
+      <Menu expand={menu} onClick={() => setMenu(false)} position='right'>
       {userLogged
         ? <>
             {profile
