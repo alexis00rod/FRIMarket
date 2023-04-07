@@ -10,7 +10,7 @@ export const Footer = () => {
       <div 
       className="w-full max-w-screen-2xl px-2 py-4 mx-auto flex flex-col lg:flex-row items-center lg:items-start">
       <div className="w-full max-w-md px-2 py-2 flex flex-col items-center lg:items-start">
-        <Logo />
+        <Logo color='blue' />
         <div className="mt-1 flex flex-col">
           <p className="px-2 py-2 text-sm text-gray-600 text-center lg:text-left">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officiis, consequuntur. Nihil, dolores?</p>
           <div className="px-2 py-2 flex justify-center lg:justify-start gap-4 text-gray-600 text-4xl">

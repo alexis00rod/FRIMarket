@@ -22,7 +22,7 @@ export const BtnAddCart = ({product, qty, size}) => {
       <Button 
       icon='trash' 
       color='btn-red' 
-      size='btn-m' 
+      size={size} 
       onClick={() => removeProductToCartList(id)} 
       title='Borrar del carrito'
       >
