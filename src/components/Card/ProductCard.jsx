@@ -25,7 +25,7 @@ export const ProductCard = ({content, size}) => {
         {size === 'm' && <span className='productCard-brand'>{brand}</span>}
         <h4 className='productCard-price'>${price}</h4>
         {size !== 's' && <p className='productCard-description'>{description}</p>}
-        <div className="w-full flex items-center justify-between">
+        <div className="w-full flex flex-col md:flex-row md:justify-between">
           <span className='productCard-location'>{location.nombre}</span>
           <span className='productCard-date'>{moment(timestamp.toDate()).fromNow()}</span>
         </div>

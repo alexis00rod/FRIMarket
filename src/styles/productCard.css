@@ -11,7 +11,7 @@
   @apply max-w-productCard-m flex-col sm:flex-row items-center sm:items-start
 }
 .productCard-l {
-  @apply max-w-productCard-l flex-col sm:flex-row
+  @apply max-w-productCard-l flex-col items-center sm:flex-row sm:items-start 
 }
 
 /* THUMB */
