@@ -24,7 +24,7 @@ export const ProfileInfo = ({user, posts}) => {
       </div>
       <div className="box-body flex flex-col">
         <p>Publicaciones: {posts && posts?.length}</p>
-        <p>Ventas: {sales}</p>
+        <p>Ventas: {sales ? sales : 0}</p>
       </div>
     </Element>
   )

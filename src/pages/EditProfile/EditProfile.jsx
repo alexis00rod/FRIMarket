@@ -18,7 +18,7 @@ export const EditProfile = () => {
   const submitEditProfile = e => {
     e.preventDefault()
     updateProfileInfo(profile.email,editProfile)
-    navigate(`/profile/${editProfile.idUser}`)
+    navigate(`/profile/${editProfile.idUser ? editProfile.idUser : profile.idUser}`)
   }
 
   const handleEditProfile = ({target:{name,value,id}}) => {
