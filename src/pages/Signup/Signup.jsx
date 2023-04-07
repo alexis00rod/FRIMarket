@@ -11,6 +11,30 @@ export const Signup = () => {
   const [signupError, setSignupError] = useState()
   const navigate = useNavigate()
 
+  const regexp = {
+    name: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
+    password: /^.{4,12}$/,
+    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+  }
+
+  const validateEmailPassword = async (user) => {
+    const {email,password,confirmPassword,conditions} = user
+
+    let emailTest = regexp.email.test(email)
+    !emailTest && setSignupError("Email error")
+
+    let passwordTest = regexp.password.test(password)
+    !passwordTest && setSignupError("Contraseña error")
+    
+    let confirmPasswordTest = password === confirmPassword
+    !confirmPasswordTest && setSignupError('Las contraseñas no coinciden')
+
+    let conditionsTest = conditions === 'on' ? true : false
+    !conditions && setSignupError('Acepta los terminos y condiciones')
+
+    return emailTest && passwordTest && confirmPasswordTest && conditionsTest
+  }
+
   const handleUserPhoto = ({target:{files}}) => {
     setSignupUser({...signupUser,photoURL:false})
     uploadUserPhoto(signupUser,files[0])
@@ -18,23 +42,29 @@ export const Signup = () => {
   }
 
   const handleSignup = ({target: {name,value,id}}) => {
+    const val = name === 'province' || name === 'city' ? id : value 
+    
     setSignupUser({
       ...signupUser,
-      [name]: name === 'province' || name === 'city' ? id : value
+      [name]: val
     })
   }
 
-  const nextStep = async e => {
+  const submitSignup = async e => {
     e.preventDefault()
-    try {
-      await signupEmailPass(signupUser)
-      setSingupProfile(true)
-    } catch (err) {
-      setSignupError(`${err.code.replace("auth/","")}`)
+    const validate = await validateEmailPassword(signupUser)
+
+    if(validate) {
+      try {
+        await signupEmailPass(signupUser)
+        setSingupProfile(true)
+      } catch (err) {
+        setSignupError(`${err.code.replace("auth/","")}`)
+      }
     }
   }
 
-  const submitSignup = async e => {
+  const submitProfile = async e => {
     e.preventDefault()
     setSignupError("")
     await addProfile(signupUser)
@@ -45,11 +75,11 @@ export const Signup = () => {
     <Main size='main-size-medium'>
       <Element flex='flex-col'>
         <h2 className="box-header text-xl font-medium">Crear usuario</h2>
-        <form className="box-body flex flex-col gap-4" onSubmit={submitSignup}>
+        <form className="box-body flex flex-col gap-4" onSubmit={submitProfile}>
           <div className="w-full flex flex-col items-center gap-4">
           {!singupProfile
           ? <>
-              {signupError && <p className="px-2 py-2 text-sm text-red-500">{signupError}</p>}
+              {signupError && <p className="w-full px-2 py-2 text-sm text-red-500">{signupError}</p>}
               <InputEmail 
               label='Email' 
               size='input-l'
@@ -70,6 +100,12 @@ export const Signup = () => {
               value={signupUser.confirmPassword} 
               onChange={handleSignup}
               />
+              <div className="w-full px-2">
+                <div className="w-max flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" name="conditions" id="conditions" onChange={handleSignup} />
+                  <label htmlFor="conditions" className="cursor-pointer">Aceptar terminos y condiciones</label>
+                </div>
+              </div>
             </>
           : <>
               <div className="w-full flex gap-4">
@@ -101,8 +137,8 @@ export const Signup = () => {
             <Link to='/shop/all' className="link link-black">Volver a la tienda</Link>
           </div>
           {!singupProfile
-          ? <Button color='btn-blue' size='btn-l' onClick={nextStep}><span className="text-sm font-medium">Siguiente</span></Button>
-          : <Button type='submit' color='btn-blue' size='btn-l' ><span className="text-sm font-medium">Crear usuario</span></Button>}
+          ? <Button color='btn-blue' size='btn-l' onClick={submitSignup}><span className="text-sm font-medium">Siguiente</span></Button>
+          : <Button color='btn-blue' size='btn-l' onClick={submitProfile} ><span className="text-sm font-medium">Crear usuario</span></Button>}
           </div>
         </form>
       </Element>
