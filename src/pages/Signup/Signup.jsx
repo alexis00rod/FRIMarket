@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { Button, InputEmail, InputPassword, InputPhoto, InputText, SelectCity, SelectProvince, Main, Element } from "../../components/index.js"
+import { Button, Main, Element, SignupUser, SignupProfile } from "../../components/index.js"
 import { signupEmailPass } from "../../services/auth.js"
 import { addProfile } from "../../services/firestore.js"
 import { uploadUserPhoto } from "../../services/storage.js"
@@ -42,7 +42,7 @@ export const Signup = () => {
   }
 
   const handleSignup = ({target: {name,value,id}}) => {
-    const val = name === 'province' || name === 'city' ? id : value 
+    const val = name === 'province' || name === 'city' ? id : name === 'phone' ? parseFloat(value) : value 
     
     setSignupUser({
       ...signupUser,
@@ -50,7 +50,7 @@ export const Signup = () => {
     })
   }
 
-  const submitSignup = async e => {
+  const submitUser = async e => {
     e.preventDefault()
     const validate = await validateEmailPassword(signupUser)
 
@@ -66,8 +66,9 @@ export const Signup = () => {
 
   const submitProfile = async e => {
     e.preventDefault()
+    const {idUser,email,displayName,city,province, photoURL,phone} = signupUser
     setSignupError("")
-    await addProfile(signupUser)
+    await addProfile({idUser,email,displayName,city,province, photoURL,phone})
     navigate('/login')
   }
 
@@ -79,66 +80,17 @@ export const Signup = () => {
           <div className="w-full flex flex-col items-center gap-4">
           {!singupProfile
           ? <>
-              {signupError && <p className="w-full px-2 py-2 text-sm text-red-500">{signupError}</p>}
-              <InputEmail 
-              label='Email' 
-              size='input-l'
-              value={signupUser.email} 
-              onChange={handleSignup} 
-              />
-              <InputPassword 
-              label='Contraseña' 
-              size='input-l'
-              id='password' 
-              value={signupUser.password} 
-              onChange={handleSignup} 
-              />
-              <InputPassword 
-              label='Repetir contraseña' 
-              size='input-l'
-              id='confirmPassword' 
-              value={signupUser.confirmPassword} 
-              onChange={handleSignup}
-              />
-              <div className="w-full px-2">
-                <div className="w-max flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" name="conditions" id="conditions" onChange={handleSignup} />
-                  <label htmlFor="conditions" className="cursor-pointer">Aceptar terminos y condiciones</label>
-                </div>
+              <SignupUser user={signupUser} err={signupError} onChange={handleSignup} />
+              <div className="w-full flex items-center justify-between flex-wrap">
+                <Link to='/login' className="link link-black">Iniciar sesion</Link>
+                <Link to='/shop/all' className="link link-black">Volver a la tienda</Link>
               </div>
+              <Button color='btn-blue' size='btn-l' onClick={submitUser}><span className="text-sm font-medium">Siguiente</span></Button>
             </>
           : <>
-              <div className="w-full flex gap-4">
-                <div className="w-full flex flex-col justify-between">
-                  <InputText 
-                  label='Nombre y apellido' 
-                  size='input-l'
-                  id='displayName' 
-                  name='displayName' 
-                  onChange={handleSignup} 
-                  />
-                  <InputText 
-                  label='Nombre de usuario' 
-                  size='input-l'
-                  id='idUser' 
-                  name='idUser' 
-                  onChange={handleSignup} 
-                  />
-                </div>
-                <InputPhoto id='photoURL' label='Foto' photo={signupUser.photoURL} onChange={handleUserPhoto} />
-              </div>
-              <div className="w-full flex justify-between flex-wrap gap-4">
-                <SelectProvince label='Provincia' selected={signupUser.province} onChange={handleSignup} />
-                <SelectCity label='Ciudad' province={signupUser.province} selected={signupUser.city} onChange={handleSignup} />
-              </div>
+              <SignupProfile user={signupUser} photo={handleUserPhoto} onChange={handleSignup}/>
+              <Button color='btn-blue' size='btn-l' onClick={submitProfile} ><span className="text-sm font-medium">Crear usuario</span></Button>
             </>}
-          <div className="w-full flex items-center justify-between flex-wrap">
-            <Link to='/login' className="link link-black">Iniciar sesion</Link>
-            <Link to='/shop/all' className="link link-black">Volver a la tienda</Link>
-          </div>
-          {!singupProfile
-          ? <Button color='btn-blue' size='btn-l' onClick={submitSignup}><span className="text-sm font-medium">Siguiente</span></Button>
-          : <Button color='btn-blue' size='btn-l' onClick={submitProfile} ><span className="text-sm font-medium">Crear usuario</span></Button>}
           </div>
         </form>
       </Element>

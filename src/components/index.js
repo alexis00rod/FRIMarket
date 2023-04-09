@@ -6,7 +6,7 @@ import { App } from "./App/App"
 import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
 import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink } from './Button/button'
 import { Modal, EditProduct, ProductDetail, ShopFilter } from "./Modal/modal"
-import { DetailImage, DetailTitle, DetailLocation, DetailDescription, DetailUser, DetailCTA, DetailCategory } from "./Detail/detail"
+import { DetailImage, DetailTitle, DetailLocation, DetailDescription, DetailCTA, DetailCategory } from "./Detail/detail"
 import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews"
 import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch, InputProductQty } from "./Form/form"
 import { SellerCard, ProductCard, CategoryCard, CartProductCard } from "./Card/card"
@@ -21,6 +21,7 @@ import { Element, Loader, Main, Menu } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
 import { CheckoutInformation, CheckoutPayment, CheckoutShipping } from "./Checkout/checkout"
 import { EditProfileInfo, EditProfileShipping } from "./Profile/profile"
+import { SignupUser, SignupProfile } from "./Signup/signup"
 
 export {
   App, Logo, Accordion, Loader, ProtectedRoutes, Element, Main, Footer, Menu,
@@ -29,7 +30,7 @@ export {
   // Buttons
   Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink,
   // Detail
-  DetailImage, DetailTitle, DetailLocation, DetailDescription, DetailUser, DetailCTA, DetailCategory,
+  DetailImage, DetailTitle, DetailLocation, DetailDescription, DetailCTA, DetailCategory,
   // Reviews
   Reviews, ReviewsSort, ReviewRating, ReviewCard,
   // Cards
@@ -51,5 +52,7 @@ export {
   // Profile
   EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts,
   // Checkout
-  CheckoutInformation, CheckoutShipping, CheckoutPayment
+  CheckoutInformation, CheckoutShipping, CheckoutPayment,
+  // Signup
+  SignupUser, SignupProfile,
 }
