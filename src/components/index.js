@@ -1,8 +1,5 @@
-import { ProfileInfo } from "./ProfileInfo/ProfileInfo"
-import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
-import { ProfilePosts } from "./ProfilePosts/ProfilePosts"
-
 import { App } from "./App/App"
+import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
 import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
 import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink } from './Button/button'
 import { Modal, EditProduct, ProductDetail, ShopFilter } from "./Modal/modal"
@@ -20,7 +17,7 @@ import { Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider, SimilarSl
 import { Element, Loader, Main, Menu } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
 import { CheckoutInformation, CheckoutPayment, CheckoutShipping } from "./Checkout/checkout"
-import { EditProfileInfo, EditProfileShipping } from "./Profile/profile"
+import { EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts } from "./Profile/profile"
 import { SignupUser, SignupProfile } from "./Signup/signup"
 
 export {

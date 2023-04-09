@@ -9,7 +9,7 @@ export const ProfilePosts = ({posts}) => {
   if(!posts) return <Loader />
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="w-full flex flex-col gap-4">
       <Element flex='flex-col md:flex-row md:items-center'>
         <h3 className='box-header flex flex-col  text-lg font-semibold'>
           Publicaciones
