@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { addProduct } from "../../services/firestore"
+import { addProduct, updateUserPosts } from "../../services/firestore"
 import { uploadThumb } from "../../services/storage"
 import { useCategories } from "../../hooks/useCategories"
 import { useProfile } from "../../hooks/useProfile"
@@ -17,8 +17,12 @@ export const Post = () => {
     setProductToPost({
       ...productToPost,
       user:{
+        email: profile. email,
+        idUser: profile.idUser,
         displayName: profile.displayName,
         phone: profile.phone,
+      },
+      location: {
         province: profile.province,
         city: profile.city,
       }
@@ -51,16 +55,9 @@ export const Post = () => {
 
   const submitProductToPost = e => {
     e.preventDefault()
-    // addProduct(productToPost)
-    // navigate(`/profile/${profile.idUser}`)
-    console.log(productToPost)
-    // addProduct({
-    //   ...productToPost,
-    //   idProduct:productToPost.name.toLowerCase().replace(' ','-'),
-    //   idUser: userLoggedProfile.email,
-      // province: userLoggedProfile.province
-    // })
-    // updatePostsUser(userLoggedProfile,'add')
+    addProduct(productToPost)
+    updateUserPosts(profile)
+    navigate(`/profile/${profile.idUser}`)
   }
 
   const category = categories && categories.find(e => e.idCategory === productToPost.category)
@@ -92,7 +89,7 @@ export const Post = () => {
                 <PostProductThumb product={productToPost} handle={handleThumb} />
                 {productToPost.user 
                 ? <>
-                  <PostProductLocation user={productToPost.user} handle={handlePost} />
+                  <PostProductLocation user={productToPost.location} handle={handlePost} />
                   <PostProductUser user={productToPost.user} handle={handlePost} />
                   </>
                 : <Loader />}

@@ -38,10 +38,12 @@ export const getProducts = async (category,filters) => {
     products = query(productsRef,where('category','==',category),where('price','>=',minPrice),where('price','<=',maxPrice))
   }
   if(category === 'all' && province !== 'allProvinces') {
-    products = query(productsRef,where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
+    products = query(productsRef,where('location','array-contains',province),where('price','>=',minPrice),where('price','<=',maxPrice))
+    // products = query(productsRef,where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
   }
   if(category !== 'all' && province !== 'allProvinces') {
-    products = query(productsRef,where('category','==',category),where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
+    products = query(productsRef,where('category','==',category),where('location','array-contains',province),where('price','>=',minPrice),where('price','<=',maxPrice))
+    // products = query(productsRef,where('category','==',category),where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
   }
   if(type !== 'allTypes') {
     products = query(productsRef,where('category','==',category),where('type','==',type),where('price','>=',minPrice),where('price','<=',maxPrice))
@@ -53,7 +55,8 @@ export const getProducts = async (category,filters) => {
     products = query(productsRef,where('type','==',type),where('brand','==',brand),where('price','>=',minPrice),where('price','<=',maxPrice))
   }
   if(type !== 'allTypes' && brand !== 'allBrands' && province !== 'allProvinces') {
-    products = query(productsRef,where('type','==',type),where('brand','==',brand),where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
+    products = query(productsRef,where('type','==',type),where('brand','==',brand),where('location','array-contains',province),where('price','>=',minPrice),where('price','<=',maxPrice))
+    // products = query(productsRef,where('type','==',type),where('brand','==',brand),where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
   }
 
   return await getDocs(products)
@@ -78,7 +81,12 @@ export const addBrand = async (category,brand) => {
 }
 
 // Funcion para agregar producto
-export const addProduct = async (product) => await addDoc(productsRef, product)
+export const addProduct = async (product) => {
+  return await addDoc(productsRef, {
+    ...product,
+    date: serverTimestamp()
+  })
+}
 
 // Funcion para agregar usuario
 export const addProfile = async (profile) => {
@@ -108,8 +116,9 @@ export const getUserById = (user,set) => {
 }
 
 // Funcion para obtener publicaciones de un usuario
-export const getUserProducts = (user) => {
-  const q = query(productsRef,where('idUser','==',user))
+export const getUserProducts = ({displayName,email,idUser,phone}) => {
+  const userDoc = {displayName,email,idUser,phone}
+  const q = query(productsRef,where('user','==',userDoc))
   return getDocs(q)
 }
 
@@ -295,3 +304,11 @@ export const updateUserSales = (products) => {
 
 // Funcion para obtener ordenes
 export const getOrder = async (user,order) => await getDoc(doc(db,"users",user,"orders",order))
+
+// Funcion para actualizar publiaciones de un usuario
+export const updateUserPosts = async (user) => {
+  const {email,posts} = user
+  return await updateDoc(userRef(email),{
+    posts: posts ? posts + 1 : 1
+  })
+}
