@@ -2,7 +2,7 @@ import { useCartContext } from "../../context/CartContext/CartContext.jsx"
 import { InputProductQty, Button } from "../index.js"
 
 export const CartProductCard = ({product}) => {
-  const {id, thumb, name, price, qty, stock} = product
+  const {id,name,price,stock,thumb,qty} = product
   const {removeProductToCartList, addProduct, removeProduct} = useCartContext()
 
   return (

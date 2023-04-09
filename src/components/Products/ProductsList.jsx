@@ -13,8 +13,8 @@ export const ProductsList = ({products, sort, size, maxCols}) => {
       return 0
     }
     if(sort === 'postDate') {
-      if(a.timestamp < b.timestamp) return 1
-      if(a.timestamp > b.timestamp) return -1
+      if(a.date < b.date) return 1
+      if(a.date > b.date) return -1
       return 0
     }
   }

@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom"
-import { Button, CartProductCard, Element, Main} from "../../components"
+import { Button, CartProductCard, Element, Loader, Main} from "../../components"
 import { useCartContext } from "../../context/CartContext/CartContext"
 
 export const Cart = () => {
   const {cartList, cartPriceTotal, cartQty, emptyCart} = useCartContext()
+
+  if(!cartList && !cartPriceTotal && !cartQty) return <Loader />
 
   return (
     <Main flex='wrap'>

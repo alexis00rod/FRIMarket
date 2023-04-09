@@ -6,7 +6,7 @@ import moment from 'moment'
 
 export const ProductCard = ({content, size}) => {
   const [cardDetail, setCardDetail] = useState(false)
-  const {id,name,thumb,price,description,province,timestamp,stock,brand} = content
+  const {id,name,description,price,stock,thumb,brand,date,location:{province}} = content
   const [location, setLocation] = useState({})
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export const ProductCard = ({content, size}) => {
         {size !== 's' && <p className='productCard-description'>{description}</p>}
         <div className="w-full flex flex-col md:flex-row md:justify-between">
           <span className='productCard-location'>{location.nombre}</span>
-          <span className='productCard-date'>{moment(timestamp.toDate()).fromNow()}</span>
+          <span className='productCard-date'>{date && moment(date.toDate()).fromNow()}</span>
         </div>
         {size === 'm' &&
         <p className='productCard-stock'>

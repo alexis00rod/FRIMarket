@@ -1,7 +1,7 @@
 import { BtnAddCart, BtnAddWishlist, Modal } from "../index.js"
 
 export const ProductDetail = ({product, handle}) => {
-  const {id,name,thumb,stock,description,price} = product
+  const {name,description,price,stock,thumb} = product
 
   return (
     <Modal  direction='modal-center' title={name} size='modal-l' handle={handle} >

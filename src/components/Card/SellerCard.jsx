@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 import { useUserPosts } from "../../hooks/useUserPosts"
 
 export const SellerCard = ({seller}) => {
-  const {email, idUser, photoURL, displayName, sales} = seller
-  const {userPosts} = useUserPosts(email)
+  const {idUser, photoURL, displayName, sales} = seller
+  const {userPosts} = useUserPosts(seller)
 
   return (
     <Link to={`/profile/${idUser}`} className="sellerCard">

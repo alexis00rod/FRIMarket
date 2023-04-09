@@ -13,7 +13,7 @@ export const Detail = () => {
 
   if(!productDetail) return <Loader />
   
-  const {id, name, thumb} = productDetail
+  const {id,name,thumb} = productDetail
 
   return (
     <>

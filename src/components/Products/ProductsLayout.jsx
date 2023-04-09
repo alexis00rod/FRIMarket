@@ -1,4 +1,4 @@
-import { Button } from "../Button/Button"
+import { Button } from "../index.js"
 
 export const ProductsLayout = ({size,handle}) => {
   return (

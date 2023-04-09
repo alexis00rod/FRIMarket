@@ -14,7 +14,7 @@ export const Profile = () => {
 
   useEffect(() => {
     profile &&
-    getUserProducts(profile.id)
+    getUserProducts(profile)
       .then(resp => setPosts(resp.docs.map(e => ({
         id: e.id,
         ...e.data()
