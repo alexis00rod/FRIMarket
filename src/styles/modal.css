@@ -1,0 +1,38 @@
+/* MODAL */
+.modal {
+  @apply fixed top-0 left-0 bottom-0 z-40 w-full flex bg-black/30
+}
+
+/* DIRECTION */
+.modal-left {
+  @apply justify-start
+}
+.modal-center {
+  @apply justify-center items-center
+}
+
+/* CONTAINER */
+.modal-container {
+  @apply box flex flex-col max-h-screen overflow-y-scroll scroll
+}
+
+/* SIZE */
+.modal-m {
+  @apply max-w-md
+}
+.modal-l {
+  @apply max-w-screen-lg
+}
+
+/* HEADER */
+.modal-header {
+  @apply box-header flex items-center
+}
+.modal-header h3 {
+  @apply grow text-lg font-medium
+}
+
+/* BODY */
+.modal-body {
+  @apply box-body flex flex-col
+}

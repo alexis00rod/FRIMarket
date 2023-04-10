@@ -10,6 +10,7 @@
 @import url("./styles/slider.css");
 @import url("./styles/menu.css");
 @import url("./styles/sellerCard.css");
+@import url("./styles/modal.css");
 
 @tailwind base;
 @tailwind components;
@@ -92,53 +93,6 @@ body {
 }
 .box-form {
   @apply max-w-screen-sm mx-auto
-}
-
-/* Modal */
-.modal {
-  @apply fixed top-0 left-0 bottom-0 z-40 w-full flex bg-black/30
-}
-.modal-left {
-  @apply justify-start
-}
-.modal-center {
-  @apply justify-center items-center
-}
-.modal-container {
-  @apply box flex flex-col max-h-screen overflow-y-scroll scroll
-}
-/* .modal-s {} */
-.modal-m {
-  @apply max-w-md
-}
-.modal-l {
-  @apply max-w-2xl
-}
-.modal-header {
-  @apply box-header flex items-center
-}
-.modal-header h3 {
-  @apply grow text-lg font-medium
-}
-.modal-body {
-  @apply box-body flex flex-col
-}
-
-/* Table */
-.table-container {
-  @apply h-max flex flex-none grow bg-white border border-gray-300 rounded-md overflow-hidden
-}
-.table {
-  @apply w-full divide-y divide-gray-300
-}
-.table-head {
-  @apply bg-gray-100 divide-x divide-gray-300
-}
-.table-body {
-  @apply divide-y divide-gray-300
-}
-.table-cell {
-  @apply px-2 py-2
 }
 
 /* Scroll */
