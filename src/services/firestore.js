@@ -294,9 +294,9 @@ export const getUserSales = async (id) => {
 // Funcion para actualizar ventas del usuario
 export const updateUserSales = (products) => {
   products.forEach(async e => {
-    const {idUser} = e
-    const sales = await getUserSales(idUser)
-    return await updateDoc(userRef(idUser),{
+    const {user:{email}} = e
+    const sales = await getUserSales(email)
+    return await updateDoc(userRef(email),{
       sales : sales ? sales + 1 : 1
     })
   })
