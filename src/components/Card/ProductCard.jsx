@@ -1,19 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link } from "react-router-dom"
-import { getLocation } from '../../services/locations.js'
-import { BtnAddCart, BtnAddWishlist, Button, ProductDetail } from '../index.js'
+import { BtnAddCart, BtnAddWishlist, Button, Loader, ProductDetail } from '../index.js'
+import { useGeo } from '../../hooks/useGeo.jsx'
 import moment from 'moment'
 
 export const ProductCard = ({content, size}) => {
   const [cardDetail, setCardDetail] = useState(false)
   const {id,name,description,price,stock,thumb,brand,date,location:{province}} = content
-  const [location, setLocation] = useState({})
+  const {provinces} = useGeo()
 
-  useEffect(() => {
-    getLocation(province)
-    .then(resp => setLocation(resp))
-    
-  },[province])
+  if(!provinces) return <Loader />
 
   return (
     <article className={`productCard productCard-${size}`}>
@@ -26,7 +22,7 @@ export const ProductCard = ({content, size}) => {
         <h4 className='productCard-price'>${price}</h4>
         {size !== 's' && <p className='productCard-description'>{description}</p>}
         <div className="w-full flex flex-col md:flex-row md:justify-between">
-          <span className='productCard-location'>{location.nombre}</span>
+          <span className='productCard-location'>{provinces && provinces.find(e => e.id === province)?.nombre}</span>
           <span className='productCard-date'>{date && moment(date.toDate()).fromNow()}</span>
         </div>
         {size === 'm' &&

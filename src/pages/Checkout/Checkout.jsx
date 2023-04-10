@@ -26,8 +26,9 @@ export const Checkout = () => {
       },
       cart:{
         products: cartList,
+        subtotal: cartPriceTotal,
         delivery: delivery,
-        priceTotal: cartPriceTotal + delivery
+        total: cartPriceTotal + delivery
       },
     })
   },[profile])
@@ -55,7 +56,6 @@ export const Checkout = () => {
     addOrder(order)
       .then(resp => navigate(`/checkout/${resp}`))
     emptyCart()
-
   }
 
   if(!order) return <Loader />
@@ -78,8 +78,12 @@ export const Checkout = () => {
               ${cartPriceTotal}
             </span>
           </p>
-          <p className='w-full flex items-center lg:justify-between gap-2 font-medium'>Envio: <span className='text-yellow-500'>${delivery}</span></p>
-          <p className='w-full flex items-center lg:justify-between gap-2 font-medium'>Total: <span className='text-lg text-yellow-500'>${cartPriceTotal + delivery}</span></p>  
+          <p className='w-full flex items-center lg:justify-between gap-2 font-medium'>
+            Envio: <span className='text-yellow-500'>${delivery}</span>
+          </p>
+          <p className='w-full flex items-center lg:justify-between gap-2 font-medium'>
+            Total: <span className='text-lg text-yellow-500'>${cartPriceTotal + delivery}</span>
+          </p>  
         </div>
         <div className='w-max lg:w-full px-2 py-2 flex flex-col lg:flex-row justify-between flex-none items-center gap-2 '>
           <Link to='/shop/all' className='btn btn-text-yellow btn-text btn-m text-sm font-medium'>Volver a la tienda</Link>

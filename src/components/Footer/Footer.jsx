@@ -34,15 +34,15 @@ export const Footer = () => {
           <Accordion title='Informacion'>
             <div className="flex items-center gap-2 text-gray-600">
               <i className="w-8 h-8 flex items-center justify-center text-xl fa-solid fa-location-dot"></i>
-              <p className="text-sm">Lorem ipsum dolor sit amet.</p>
+              <p className="text-sm">Av. Siempre viva 1234</p>
             </div>
             <div className="flex items-center gap-2 text-gray-600">
               <i className="w-8 h-8 flex items-center justify-center text-xl fa-solid fa-envelope"></i>
-              <p className="text-sm">Lorem ipsum dolor sit amet.</p>
+              <p className="text-sm">email@email.com</p>
             </div>
             <div className="flex items-center gap-2 text-red-500">
               <i className="w-8 h-8 flex items-center justify-center text-xl fa-solid fa-phone"></i>
-              <p className="text-lg">Lorem ipsum dolor sit amet.</p>
+              <p className="text-lg">+080012456</p>
             </div>
           </Accordion>
         </div>

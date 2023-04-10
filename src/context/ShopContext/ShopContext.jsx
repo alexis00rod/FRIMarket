@@ -1,14 +1,16 @@
 import { useState, useEffect, useContext, createContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getCategories } from '../../services/firestore'
-import { getLocations } from '../../services/locations'
+import { useCategories } from '../../hooks/useCategories'
+import { useGeo } from '../../hooks/useGeo'
 
 const ShopContext = createContext()
 export const useShopContext = () => useContext(ShopContext)
 
 export const ShopContextProvider = ({children}) => {
-  const [categories, setCategories] = useState([])
-  const [locations, setLocations] = useState([])
+  const {categories} = useCategories()
+  const {provinces} = useGeo()
+  // const [categories, setCategories] = useState([])
   const [filters, setFilters] = useState({
     type: 'allTypes',
     brand: 'allBrands',
@@ -19,9 +21,9 @@ export const ShopContextProvider = ({children}) => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    getCategories(setCategories)
-    getLocations()
-    .then(resp => setLocations(resp))
+    // getCategories(setCategories)
+    // getLocations()
+    // .then(resp => setLocations(resp))
   },[])
 
   const handleFilter = ({target: {name,value}}) => {
@@ -54,7 +56,7 @@ export const ShopContextProvider = ({children}) => {
 
   return (
     <ShopContext.Provider 
-    value={{categories,locations,filters,setFilters,handleFilter,handlePrice,cleanFilters}}>
+    value={{categories,filters,setFilters,handleFilter,handlePrice,cleanFilters}}>
       {children}
     </ShopContext.Provider>
   )

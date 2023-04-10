@@ -1,7 +1,6 @@
 import { InputNumber } from "../index.js"
 
-export const CheckoutPayment = ({order}) => {
-  // const {cardNumber, cardDate,}
+export const CheckoutPayment = ({...props}) => {
 
   return (
     <div className="box-body flex flex-col gap-2">
@@ -12,8 +11,7 @@ export const CheckoutPayment = ({order}) => {
         size='input-m'
         id="cardNumber" 
         name="cardNumber" 
-        // defaultValue={order.user.cardNumber}
-        // onChange={handleOrder}
+        {...props}
         />
         <InputNumber 
         label='Fecha de expiracion'
@@ -21,8 +19,7 @@ export const CheckoutPayment = ({order}) => {
         name="cardDate" 
         id="cardDate" 
         className="w-full h-8 px-2 border border-gray-300 rounded-md outline-none"
-        // defaultValue={order.user.cardDate}
-        // onChange={handleOrder}
+        {...props}
         />
         <InputNumber 
         label='Codigo de seguridad'
@@ -30,8 +27,7 @@ export const CheckoutPayment = ({order}) => {
         name="cardCVV" 
         id="cardCVV" 
         className="w-full h-8 px-2 border border-gray-300 rounded-md outline-none"
-        // defaultValue={order.user.cardCVV}
-        // onChange={handleOrder}
+        {...props}
         />
       </div>
     </div>

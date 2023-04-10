@@ -40,9 +40,11 @@ export const EditProfile = () => {
       <Element flex='flex-col'>
         <h2 className="box-header box-header-underline text-lg font-medium">Editar perfil</h2>
         {profile
-          ? <form className="w-full flex flex-col divide-y divide-gray-300 gap-2" onSubmit={submitEditProfile}>
-              <EditProfileInfo initial={profile} edit={editProfile} photo={handleUserPhoto} onChange={handleEditProfile} />
-              <EditProfileShipping initial={profile} edit={editProfile} onChange={handleEditProfile} />
+          ? <form className="w-full pb-2 flex flex-col items-center gap-2" onSubmit={submitEditProfile}>
+              <div className="w-full flex flex-col gap-2 divide-y divide-gray-300">
+                <EditProfileInfo initial={profile} edit={editProfile} photo={handleUserPhoto} onChange={handleEditProfile} />
+                <EditProfileShipping initial={profile} edit={editProfile} onChange={handleEditProfile} />
+              </div>
               <Button icon='check' color='btn-green' size='btn-l'>
                 <span className="text-sm font-medium">Guardar cambios</span>
               </Button>

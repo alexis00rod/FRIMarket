@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import { useProfile } from "../../hooks/useProfile"
 import { getOrder } from "../../services/firestore"
-import { formatDate } from "../../services/formatDate"
 import { Element, Loader, Main } from "../../components"
 import moment from "moment"
 
@@ -46,9 +45,9 @@ export const Order = () => {
             ))}
           </ul>
           <ul className="w-full px-2 pt-2 flex flex-col items-end">
-            <span>Sub total: ${order.cart.priceTotal}</span>
+            <span>Sub total: ${order.cart.subtotal}</span>
             <span>Envio: ${order.cart.delivery}</span>
-            <span>Total: ${order.cart.priceTotal + order.cart.delivery}</span>
+            <span>Total: ${order.cart.total}</span>
           </ul>
         </div>
         <Link to='/shop/all' className="w-max h-8 px-2 mx-auto flex items-center text-yellow-500 hover:underline">Volver a la tienda</Link>

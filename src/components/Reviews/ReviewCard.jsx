@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { getUser } from "../../services/firestore"
-import { formatDate } from "../../services/formatDate"
+import moment from "moment/moment"
 
 export const ReviewCard = ({review}) => {
   const [userReview, setUserReview] = useState([])
@@ -28,7 +28,7 @@ export const ReviewCard = ({review}) => {
         </div>
         <h4 className="mb-1 font-medium">{title}</h4>
         <p className="line-clamp-2">{body}</p>
-        <span className="pt-1 text-sm text-gray-600">{timestamp && formatDate(timestamp.toDate())}</span>
+        {/* <span className="pt-1 text-sm text-gray-600">{timestamp && moment()}</span> */}
       </div>
     </li>
   )
