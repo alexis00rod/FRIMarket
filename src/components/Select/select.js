@@ -5,6 +5,7 @@ import { SelectProductType } from "./SelectProductType.jsx"
 import { SelectProductsSort } from "./SelectProductsSort.jsx"
 import { SelectProvince } from "./SelectProvince.jsx"
 import { SelectSellersSort } from "./SelectSellersSort.jsx"
+import { SelectReviewsSort } from "./SelectReviewsSort.jsx"
 
 export { 
   Select,
@@ -16,5 +17,6 @@ export {
   SelectSearch,
   SelectProductBrand,
   SelectAddItem,
-  SelectProductType
+  SelectProductType,
+  SelectReviewsSort
 }
