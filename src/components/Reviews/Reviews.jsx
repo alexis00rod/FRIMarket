@@ -2,12 +2,12 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
 import { addReview, getProductReviews } from "../../services/firestore"
-import { Button, Element, InputRating, InputText, ReviewCard, ReviewRating, ReviewsSort, Textarea } from "../index.js"
+import { Button, Element, InputRating, Loader, ReviewCard, ReviewRating, SelectReviewsSort, Textarea } from "../index.js"
 
 export const Reviews = ({product}) => {
   const {userLogged} = useAuthContext()
   const navigate = useNavigate()
-  const [reviews, setReviews] = useState([])
+  const [reviews, setReviews] = useState()
   const [writeReview, setWriteReview] = useState(false)
   const [review, setReview] = useState({rating:0})
   const [reviewsSort, setReviewsSort] = useState('new')
@@ -36,11 +36,11 @@ export const Reviews = ({product}) => {
   }
 
   return (
-    <Element className='box flex flex-col'>
-      <div className="relative w-full flex flex-col md:flex-row md:items-center gap-2">
-        <h3 className="box-header text-lg font-semibold">Reseñas</h3>
-        <ReviewsSort selected={reviewsSort} onChange={({target:{id}}) => setReviewsSort(id)} />
-        <div className="absolute top-0 right-0 md:static flex flex-none px-2 py-1">
+    <Element flex='flex-col'>
+      <div className="box-header box-header-underline flex flex-col md:flex-row md:items-center gap-2 md:gap-4">
+        <h3 className="text-lg font-semibold grow">Reseñas</h3>
+        <SelectReviewsSort selected={reviewsSort} onChange={({target:{id}}) => setReviewsSort(id)} />
+        <div className="absolute top-2 right-2 md:static flex flex-none px-2 py-1">
           {writeReview
             ? <Button color='btn-black' size='btn-m' title='Ver reseñas' onClick={() => setWriteReview(false)}>
                 <span className="text-sm font-medium">Ver reseñas</span>
@@ -50,31 +50,24 @@ export const Reviews = ({product}) => {
               </Button>}
         </div>
       </div>
-      {writeReview
-      ? <form className='box-body flex flex-col gap-2' onSubmit={submitReview}>
-          <div className="w-full pb-1 flex flex-col xl:flex-row gap-4">
-            <div className="flex flex-col justify-between grow gap-4">
-              <InputRating initial={review} obs={setReview} />
-              <InputText label='Titulo de la reseña' id='title' name='title' onChange={handleReview} />
-            </div>
-            <div className="grow">
-              <Textarea label='Reseña' id='body' name='body' onChange={handleReview} />
-            </div>
-          </div>
-          <Button icon='check' color='btn-green' size='btn-l'>
-            <span className="text-sm font-medium">Enviar reseña</span>
-          </Button>
-        </form>
-      : reviews.length > 0
-        ? <div className='box-body flex flex-wrap gap-2'>
+      <div className="w-full flex flex-col items-center md:flex-row md:items-start">
+        {reviews
+        ? <>
             <ReviewRating reviews={reviews} />
-            <ul className="flex flex-col grow divide-y divide-gray-300">
-              {reviews.map(e => <ReviewCard key={e.id} review={e} /> )}
-            </ul>
-          </div>
-        : <div className='w-full px-2 pt-2'>
-            <span>No hay reseñas</span>
-          </div>}
+            {writeReview
+            ? <form className="box-body flex flex-col grow gap-4" onSubmit={submitReview}>
+                <InputRating initial={review} obs={setReview} />
+                <Textarea label='Reseña' id='body' name='body' onChange={handleReview} />
+                <Button icon='check' color='btn-green' size='btn-l'>
+                  <span className="text-sm font-medium">Enviar reseña</span>
+                </Button>
+              </form>
+            : <ul className="box-body flex flex-col divide-y divide-gray-300">
+                {reviews.map(e => <ReviewCard key={e.id} review={e} /> )}
+              </ul>}
+          </>
+        : <Loader />}
+      </div>
     </Element>
   )
 }

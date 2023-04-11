@@ -25,7 +25,7 @@ export const ReviewCard = ({review}) => {
       <div className="reviewCard-body">
         <div className="reviewCard-rating">
           <div className="flex">
-            {[1,2,3,4,5].map((e,i) => <i className={`${rating > i ? 'text-yellow-500' : 'text-gray-300'} fa-solid fa-star`}></i>)}
+            {[1,2,3,4,5].map((e,i) => <i key={i} className={`${rating > i ? 'text-yellow-500' : 'text-gray-300'} fa-solid fa-star`}></i>)}
           </div>
           <span className="reviewCard-date">{date && moment(date.toDate()).fromNow()}</span>
         </div>
