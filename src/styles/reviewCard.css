@@ -1,0 +1,30 @@
+.reviewCard {
+  @apply w-full px-2 py-2 flex flex-col lg:flex-row gap-2 lg:gap-4
+}
+.reviewCard-user {
+  @apply w-max flex gap-2
+}
+.reviewCard-user-thumb {
+  @apply w-12 h-12 flex flex-none rounded-md
+}
+.reviewCard-user-profile {
+  @apply h-full flex-col
+}
+.reviewCard-user-profile h4 {
+  @apply font-medium
+}
+.reviewCard-user-profile h5 {
+  @apply text-sm
+}
+.reviewCard-body {
+  @apply px-2 grow
+}
+.reviewCard-rating {
+  @apply flex gap-4
+}
+.reviewCard-date {
+  @apply text-sm text-gray-600
+}
+.reviewCard-review {
+  @apply w-full text-sm text-gray-700 line-clamp-2
+}
