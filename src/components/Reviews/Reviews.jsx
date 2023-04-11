@@ -50,24 +50,22 @@ export const Reviews = ({product}) => {
               </Button>}
         </div>
       </div>
-      <div className="w-full flex flex-col items-center md:flex-row md:items-start">
-        {reviews
-        ? <>
-            <ReviewRating reviews={reviews} />
-            {writeReview
-            ? <form className="box-body flex flex-col grow gap-4" onSubmit={submitReview}>
-                <InputRating initial={review} obs={setReview} />
-                <Textarea label='Reseña' id='body' name='body' onChange={handleReview} />
-                <Button icon='check' color='btn-green' size='btn-l'>
-                  <span className="text-sm font-medium">Enviar reseña</span>
-                </Button>
-              </form>
-            : <ul className="box-body flex flex-col divide-y divide-gray-300">
-                {reviews.map(e => <ReviewCard key={e.id} review={e} /> )}
-              </ul>}
-          </>
-        : <Loader />}
-      </div>
+      {reviews
+      ? <div className="w-full flex flex-col items-center md:flex-row md:items-start">
+          <ReviewRating reviews={reviews} />
+          {writeReview
+          ? <form className="box-body flex flex-col grow gap-4" onSubmit={submitReview}>
+              <InputRating initial={review} obs={setReview} />
+              <Textarea label='Reseña' id='body' name='body' onChange={handleReview} />
+              <Button icon='check' color='btn-green' size='btn-l'>
+                <span className="text-sm font-medium">Enviar reseña</span>
+              </Button>
+            </form>
+          : <ul className="box-body flex flex-col divide-y divide-gray-300">
+              {reviews.map(e => <ReviewCard key={e.id} review={e} /> )}
+            </ul>}
+        </div>
+      : <Loader />}
     </Element>
   )
 }
