@@ -186,9 +186,9 @@ export const getSimilarProducts = async (product) => {
 // Funcion para obtener reviews de un producto
 export const getProductReviews = async (product,sort,obs) => {
   const order = sort === 'new'
-  ? orderBy('timestamp','desc')
+  ? orderBy('date','desc')
   : sort === 'old'
-    ? orderBy('timestamp','asc')
+    ? orderBy('date','asc')
     : sort === 'highRating'
       ? orderBy('rating','desc')
       : orderBy('rating','asc')
@@ -207,7 +207,7 @@ export const getProductReviews = async (product,sort,obs) => {
 export const addReview = async (user,product,review) => {
   const {email} = user
   return await addDoc(collection(db,'products',product,'reviews'),{
-    timestamp: serverTimestamp(),
+    date: serverTimestamp(),
     email, 
     ...review
   })
