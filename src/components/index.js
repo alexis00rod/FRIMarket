@@ -4,9 +4,9 @@ import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
 import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink } from './Button/button'
 import { Modal, EditProduct, ProductDetail, ShopFilter } from "./Modal/modal"
 import { DetailImage, DetailTitle, DetailLocation, DetailDescription, DetailCTA, DetailCategory } from "./Detail/detail"
-import { Reviews, ReviewsSort, ReviewRating, ReviewCard } from "./Reviews/reviews"
+import { Reviews, ReviewsSort, ReviewRating } from "./Reviews/reviews"
 import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch, InputProductQty } from "./Form/form"
-import { SellerCard, ProductCard, CategoryCard, CartProductCard } from "./Card/card"
+import { SellerCard, ProductCard, CategoryCard, CartProductCard, ReviewCard } from "./Card/card"
 import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProductsSort, SelectProvince, SelectSearch, SelectSellersSort } from "./Select/select"
 import { ProductsList, ProductsLayout } from "./Products/products"
 import { PostProductDetail, PostProductLocation, PostProductPrice, PostProductThumb, PostProductUser, PostProductCategory } from "./PostProduct/postProduct"
@@ -29,9 +29,9 @@ export {
   // Detail
   DetailImage, DetailTitle, DetailLocation, DetailDescription, DetailCTA, DetailCategory,
   // Reviews
-  Reviews, ReviewsSort, ReviewRating, ReviewCard,
+  Reviews, ReviewsSort, ReviewRating,
   // Cards
-  ProductCard, SellerCard, CategoryCard, CartProductCard,
+  ProductCard, SellerCard, CategoryCard, CartProductCard, ReviewCard,
   // Select
   Select, SelectItem, SelectProvince, SelectSellersSort, SelectProductsSort, SelectCity, SelectSearch, SelectProductBrand, SelectAddItem, SelectProductType,
   // Products
