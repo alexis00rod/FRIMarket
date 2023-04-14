@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
+import { getOrder } from "../../services/order.js"
 import { useProfile } from "../../hooks/useProfile"
-import { getOrder } from "../../services/firestore"
 import { Element, Loader, Main } from "../../components"
 import moment from "moment"
 

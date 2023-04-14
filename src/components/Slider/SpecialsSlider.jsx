@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { getSpecialProducts } from "../../services/firestore"
+import { getSpecialProducts } from "../../services/shop.js"
 import { useSlider } from "../../hooks/useSlider"
 import { Slider, Element, Button, ProductCard, Loader } from "../index.js"
 

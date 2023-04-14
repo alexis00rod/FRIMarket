@@ -10,7 +10,7 @@
 
 /* BODY */
 .select-body {
-  @apply relative w-full h-8
+  @apply relative w-full h-8 
 }
 
 /* HANDLE */

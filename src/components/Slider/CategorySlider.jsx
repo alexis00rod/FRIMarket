@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
-import { getFeaturedCategories } from "../../services/firestore"
-import { Slider, CategoryCard, Loader } from "../index.js"
+import { getFeaturedCategories } from "../../services/categories.js"
 import { useSlider } from "../../hooks/useSlider"
+import { Slider, CategoryCard, Loader } from "../index.js"
 
 export const CategorySlider = ({active, ...props}) => {
   const [featuredCategories, setFeaturedCategories] = useState([])
-  const {slider, handleNextSlide, handlePrevSlide} = useSlider()
+  const {slider} = useSlider()
   
   useEffect(() => {
     getFeaturedCategories()

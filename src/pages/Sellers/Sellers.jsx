@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Breadcrumb, Element, Loader, SelectProvince, SelectSellersSort, SellerCard, Main } from '../../components/index.js'
-import { getUsers } from '../../services/firestore'
+import { getUsers } from '../../services/user.js'
 
 export const Sellers = () => {
   const [sellers, setSellers] = useState()

@@ -1,5 +1,4 @@
-import { InputEmail } from "../Form/InputEmail"
-import { InputPassword } from "../Form/InputPassword"
+import { InputEmail, InputPassword } from "../index.js"
 
 export const SignupUser = ({user,err, ...props}) => {
   const {email, password, confirmPassword, conditions} = user

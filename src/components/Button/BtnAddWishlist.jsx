@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useAuthContext } from '../../context/AuthContext/AuthContext'
-import { addProductWishlist, getProductInWishlist, removeProductWishlist } from '../../services/firestore'
+import { addProductWishlist, getProductInWishlist, removeProductWishlist } from '../../services/wishlist'
 import { Button } from '../index.js'
 
 export const BtnAddWishlist = ({product,size}) => {

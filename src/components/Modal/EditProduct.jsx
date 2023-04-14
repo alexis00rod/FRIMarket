@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { deleteProduct, editProduct, updatePostsUser } from "../../services/firestore"
+import { deleteProduct, editProduct } from "../../services/shop"
+import { updatePostsUser } from "../../services/user.js"
 import { useProfile } from "../../hooks/useProfile"
 import { Modal, InputNumber, Button } from "../index.js"
 
@@ -32,7 +33,7 @@ export const EditProduct = ({product, handle}) => {
 
   return (
     <Modal direction='modal-center' title='Editar producto' size='modal-l' handle={handle}>
-      <form className="w-full px-2 flex flex-col gap-4" onSubmit={submitChanges}>
+      <form className="w-full px-2 flex flex-col gap-4">
         <h4 className="font-medium">{name}</h4>
         <div className="w-full flex flex-wrap gap-4">
           <InputNumber 
@@ -56,7 +57,7 @@ export const EditProduct = ({product, handle}) => {
           <Button icon='trash' color='btn-red' size='btn-l' onClick={handleDeleteProduct} >
             <span className="text-sm font-medium">Eliminar producto</span>
           </Button>
-          <Button type='submit' icon='check' color='btn-green' size='btn-l' >
+          <Button icon='check' color='btn-green' size='btn-l' onClick={submitChanges} >
             <span className="text-sm font-medium">Guardar cambios</span>
           </Button>
         </div>

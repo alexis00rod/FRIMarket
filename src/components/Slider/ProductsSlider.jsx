@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
-import { getFeaturedProducts } from "../../services/firestore"
-import { Slider, ProductCard, Button, Loader } from "../index.js"
+import { getFeaturedProducts } from "../../services/shop.js"
 import { useSlider } from "../../hooks/useSlider"
+import { Slider, ProductCard, Button, Loader } from "../index.js"
+
 
 export const ProductsSlider = ({category}) => {
   const [featuredProducts, setFeaturedProducts] = useState()

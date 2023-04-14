@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
-import { useProfile } from "../../hooks/useProfile"
 import { logout } from "../../services/auth"
-import { Button, Loader, Menu } from "../index.js"
+import { useProfile } from "../../hooks/useProfile"
+import { Button, ButtonLink, Loader, Menu } from "../index.js"
 
 export const UserMenu = () => {
   const {userLogged} = useAuthContext()
@@ -17,13 +17,17 @@ export const UserMenu = () => {
       {userLogged
         ? <>
             {profile
-            ? <Link to={`/profile/${profile.idUser}`} className="w-full px-2 py-2 flex items-center gap-2 hover:text-yellow-500">
-                <img src={profile.photoURL} alt={profile.displayName} className='w-12 h-12 object-cover rounded-md' />
-                <div className="flex flex-col">
-                  <span className="font-medium line-clamp-1">{profile.displayName}</span>
-                  <Link to='/editProfile' className="btn btn-text-yellow btn-text btn-m">Editar perfil</Link>
+            ? <div className="w-full px-2 py-2 flex items-center gap-2">
+                <Link to={`/profile/${profile.idUser}`} className='w-12 h-12 rounded-md overflow-hidden'>
+                  <img src={profile.photoURL} alt={profile.displayName} className="w-full h-full object-cover" />
+                </Link>
+                <div className="flex flex-col grow">
+                  <Link to={`/profile/${profile.idUser}`} className='w-max px-2 hover:text-yellow-500'>
+                    <span className="font-medium line-clamp-1">{profile.displayName}</span>
+                  </Link>
+                  <ButtonLink to='editProfile' size='btn-m' color='btn-text-yellow' style='btn-text' >Editar perfil</ButtonLink>
                 </div>
-              </Link>
+              </div>
             : <div className="w-full px-2 py-2"><Loader /></div>}
             <Link to='/post' className="btn btn-black btn-m">
               <i className="fa-solid fa-shop"></i>

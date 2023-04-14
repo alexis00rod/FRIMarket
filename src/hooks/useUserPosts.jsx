@@ -1,5 +1,5 @@
-import {useState, useEffect} from 'react'
-import { getUserProducts } from '../services/firestore.js'
+import { useState, useEffect } from 'react'
+import { getUserProducts } from '../services/shop.js'
 
 export const useUserPosts = (user) => {
   const [userPosts, setUserPosts] = useState([])

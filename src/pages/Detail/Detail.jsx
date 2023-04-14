@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { getProductDetail } from '../../services/shop.js'
 import { Breadcrumb, BreadcrumbLink, DetailCTA, DetailDescription, DetailImage, DetailTitle, Loader, Reviews, Main, SimilarSlider, Element } from '../../components'
-import { getProductDetail } from '../../services/firestore'
 
 export const Detail = () => {
   const {idDetail} = useParams()

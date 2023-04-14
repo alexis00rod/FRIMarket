@@ -37,11 +37,11 @@ export const DetailCTA = ({product}) => {
         <BtnAddCart product={product} qty={qtyProducts} size='btn-m' />
         <BtnBuyNow />
       </div>
-      <div className="box-body flex gap-4">
+      <div className="box-body flex flex-wrap md:gap-4">
         <BtnAddWishlist product={product} size='btn-m' />
         <BtnShare />
       </div>
-      <Element position='debug fixed left-0 bottom-0 z-10 lg:hidden' flex='justify-center items-end gap-4'>
+      <Element position='fixed left-0 bottom-0 z-10 lg:hidden' flex='justify-center items-end gap-4'>
         <div className="flex flex-col">
           <span className='px-2 text-sm font-medium'>Cantidad</span>
           <InputProductQty 

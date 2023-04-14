@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { Button, Main, Element, SignupUser, SignupProfile } from "../../components/index.js"
 import { signupEmailPass } from "../../services/auth.js"
-import { addProfile } from "../../services/firestore.js"
+import { addProfile } from "../../services/user.js"
 import { uploadUserPhoto } from "../../services/storage.js"
+import { Button, Main, Element, SignupUser, SignupProfile } from "../../components/index.js"
 
 export const Signup = () => {
   const [signupUser, setSignupUser] = useState({})

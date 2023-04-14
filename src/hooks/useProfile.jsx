@@ -1,6 +1,6 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import { useAuthContext } from '../context/AuthContext/AuthContext'
-import { getUser } from '../services/firestore.js'
+import { getUser } from '../services/user.js'
 
 export const useProfile = () => {
   const [profile, setProfile] = useState()

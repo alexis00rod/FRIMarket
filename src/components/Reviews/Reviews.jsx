@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
-import { addReview, getProductReviews } from "../../services/firestore"
+import { addReview, getProductReviews } from "../../services/review.js"
 import { Button, Element, InputRating, Loader, ReviewCard, ReviewRating, SelectReviewsSort, Textarea } from "../index.js"
 
 export const Reviews = ({product}) => {

@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCartContext } from '../../context/CartContext/CartContext'
+import { addOrder } from '../../services/order.js'
+import { updateUserSales } from '../../services/user.js'
+import { updateProduct } from '../../services/shop.js'
 import { useProfile } from '../../hooks/useProfile'
 import { Button, Loader, Main, Element, CheckoutInformation, CheckoutShipping, CheckoutPayment} from '../../components'
-import { addOrder, updateProduct, updateUserSales } from '../../services/firestore'
 
 export const Checkout = () => {
   const {profile} = useProfile()

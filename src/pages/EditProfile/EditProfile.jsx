@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { Button, Loader, Main, Element, EditProfileInfo, EditProfileShipping } from "../../components"
 import { useProfile } from "../../hooks/useProfile"
-import { updateProfileInfo } from "../../services/firestore"
+import { updateProfileInfo } from "../../services/user.js"
 import { uploadUserPhoto } from "../../services/storage"
 
 export const EditProfile = () => {

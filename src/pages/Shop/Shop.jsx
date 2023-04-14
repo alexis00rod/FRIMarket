@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Breadcrumb, BreadcrumbLink, Button, Element, ProductsLayout, ProductsList, SelectProductsSort, ShopFilter, Main } from "../../components"
 import { useShopContext } from "../../context/ShopContext/ShopContext"
+import { getProducts } from "../../services/shop.js"
 import { useCardSize } from "../../hooks/useCardSize"
 import { useProductsSort } from "../../hooks/useProductsSort"
-import { getProducts } from "../../services/firestore"
+import { Breadcrumb, BreadcrumbLink, Button, Element, ProductsLayout, ProductsList, SelectProductsSort, ShopFilter, Main } from "../../components"
 
 export const Shop = () => {
   const { idCategory } = useParams()

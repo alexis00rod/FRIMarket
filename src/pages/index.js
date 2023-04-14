@@ -9,8 +9,6 @@ import { Detail } from "./Detail/Detail";
 import { Profile } from "./Profile/Profile";
 import { Search } from "./Search/Search";
 import { Sellers } from "./Sellers/Sellers";
-import { Settings } from "./Settings/Settings";
-import { SettingsPrivacity } from "./SettingsPrivacity/SettingsPrivacity";
 import { Shop } from "./Shop/Shop";
 import { Signup } from "./Signup/Signup";
 import { Wishlist } from "./Wishlist/Wishlist";
@@ -26,8 +24,6 @@ export {
   Profile,
   Wishlist,
   Search,
-  Settings,
-  SettingsPrivacity,
   Sellers,
   Checkout,
   EditProfile,

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getUserById, getUserProducts } from "../../services/firestore"
+import { getUserProducts } from "../../services/shop.js"
+import { getUserById } from "../../services/user.js"
 import { Breadcrumb, BreadcrumbLink, Loader, ProfileInfo, ProfilePosts, Main } from '../../components/index.js'
 
 export const Profile = () => {

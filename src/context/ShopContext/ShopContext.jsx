@@ -1,16 +1,11 @@
 import { useState, useEffect, useContext, createContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { getCategories } from '../../services/firestore'
 import { useCategories } from '../../hooks/useCategories'
-import { useGeo } from '../../hooks/useGeo'
 
 const ShopContext = createContext()
 export const useShopContext = () => useContext(ShopContext)
 
 export const ShopContextProvider = ({children}) => {
   const {categories} = useCategories()
-  const {provinces} = useGeo()
-  // const [categories, setCategories] = useState([])
   const [filters, setFilters] = useState({
     type: 'allTypes',
     brand: 'allBrands',
@@ -18,13 +13,6 @@ export const ShopContextProvider = ({children}) => {
     minPrice: 0,
     maxPrice: 9999999999,
   })
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    // getCategories(setCategories)
-    // getLocations()
-    // .then(resp => setLocations(resp))
-  },[])
 
   const handleFilter = ({target: {name,value}}) => {
     setFilters({

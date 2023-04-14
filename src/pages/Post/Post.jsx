@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { addProduct, updateUserPosts } from "../../services/firestore"
+import { addProduct } from "../../services/post"
 import { uploadThumb } from "../../services/storage"
 import { useCategories } from "../../hooks/useCategories"
 import { useProfile } from "../../hooks/useProfile"
@@ -56,7 +56,6 @@ export const Post = () => {
   const submitProductToPost = e => {
     e.preventDefault()
     addProduct(productToPost)
-    updateUserPosts(profile)
     navigate(`/profile/${profile.idUser}`)
   }
 

@@ -1,8 +1,4 @@
-import { InputNumber } from "../Form/InputNumber"
-import { InputPhoto } from "../Form/InputPhoto"
-import { InputText } from "../Form/InputText"
-import { SelectCity } from "../Select/SelectCity"
-import { SelectProvince } from "../Select/SelectProvince"
+import { InputNumber, InputPhoto,InputText, SelectCity, SelectProvince } from "../index.js"
 
 export const SignupProfile = ({user,photo, ...props}) => {
   const {province, city, photoURL} = user

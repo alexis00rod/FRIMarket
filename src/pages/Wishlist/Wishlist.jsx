@@ -3,7 +3,7 @@ import { Breadcrumb, Element, ProductsLayout, ProductsList, SelectProductsSort, 
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
 import { useCardSize } from "../../hooks/useCardSize"
 import { useProductsSort } from "../../hooks/useProductsSort"
-import { getWishlist } from "../../services/firestore"
+import { getWishlist } from "../../services/wishlist"
 
 export const Wishlist = () => {
   const {userLogged} = useAuthContext()

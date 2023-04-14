@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Select, SelectAddItem, SelectItem, SelectSearch } from "../index.js"
-import { addBrand } from "../../services/firestore.js"
+import { addBrand } from "../../services/post.js"
 
 export const SelectProductBrand = ({selected,category, ...props}) => {
   const [searchBrand, setSearchBrand] = useState('')

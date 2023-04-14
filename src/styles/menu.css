@@ -1,39 +1,17 @@
-/* Menu */
-/* .menu { */
-  /* @apply absolute top-full z-50 w-max max-w-xs mt-1 px-2 py-2 flex flex-col bg-white border border-gray-300 rounded-md */
-  /* @apply absolute top-full z-50 w-max max-w-xs mt-2 px-2 py-2 flex flex-col bg-white text-black border border-gray-300 divide-y divide-gray-300 rounded-md */
-/* } */
-/* .menu-left { */
-  /* @apply left-0 */
-/* } */
-/* .menu-right { */
-  /* @apply right-0 */
-/* } */
-/* .menu-item { */
-  /* @apply relative w-full flex items-center */
-  /* @apply relative w-full flex items-center cursor-pointer */
-/* } */
-/* .menu-link {
-  @apply w-full px-2 py-2 flex items-center gap-2 text-gray-700 font-medium duration-200 hover:text-yellow-500
-} */
-/* .menu-link i {
-  @apply w-6 h-6 text-lg flex items-center justify-center
-}
-.menu-link-active {
-  @apply text-yellow-500
-} */
-
+/* MENU */
 .menu {
   @apply absolute top-full -translate-y-full -z-10 min-w-menu px-2 py-2 flex flex-col flex-none bg-white border border-gray-300 rounded-md duration-200 opacity-0
 }
+
+/* EXPAND */
 .menu-expand {
   @apply translate-y-0 mt-1 opacity-100
 }
+
+/* DIRECTION */
 .menu-left {
   @apply left-0
 }
 .menu-right {
   @apply right-0
 }
-.menu {}
-.menu {}

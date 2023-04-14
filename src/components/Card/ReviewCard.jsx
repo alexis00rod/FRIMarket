@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { getUser } from "../../services/firestore"
+import { getUser } from "../../services/user.js"
 import moment from "moment/moment"
 
 export const ReviewCard = ({review}) => {

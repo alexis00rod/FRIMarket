@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { Breadcrumb, BreadcrumbLink, Element, ProductsLayout, ProductsList, SelectProductsSort, Main } from "../../components"
+import { searchProducts } from "../../services/shop.js"
 import { useCardSize } from "../../hooks/useCardSize"
 import { useProductsSort } from "../../hooks/useProductsSort"
-import { searchProducts } from "../../services/firestore"
+import { Element, ProductsLayout, ProductsList, SelectProductsSort, Main } from "../../components"
 
 export const Search = () => {
   const {toSearch} = useParams()

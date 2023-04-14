@@ -8,7 +8,7 @@ export const DetailLocation = ({province,city}) => {
   return (
     <p className='flex items-center gap-2 capitalize'>
       <span className='font-medium'>Ubicacion: </span>
-      {handleProvince && handleProvince.nombre}, {handleCity && handleCity.nombre}
+      {handleCity && handleCity.nombre}, {handleProvince && handleProvince.nombre}
     </p>
   )
 }
