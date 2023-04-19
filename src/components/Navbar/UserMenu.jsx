@@ -37,9 +37,9 @@ export const UserMenu = () => {
               <i className="fa-solid fa-heart"></i>
               <span>Mis favoritos</span>
             </Link>
-            <Link to='/settings' className="btn btn-black btn-m">
-              <i className="fa-solid fa-gear"></i>
-              <span>Configuraciones</span>
+            <Link to='/orders' className="btn btn-black btn-m">
+              <i className="fa-solid fa-calendar"></i>
+              <span>Mis compras</span>
             </Link>
             <Button icon='right-from-bracket' color='btn-black' size='btn-m' onClick={() => logout()} >
               Cerrar sesion  

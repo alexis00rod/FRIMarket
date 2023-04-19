@@ -12,6 +12,7 @@ import { Sellers } from "./Sellers/Sellers";
 import { Shop } from "./Shop/Shop";
 import { Signup } from "./Signup/Signup";
 import { Wishlist } from "./Wishlist/Wishlist";
+import { Orders } from "./Orders/Orders";
 
 export {
   Home,
@@ -27,5 +28,6 @@ export {
   Sellers,
   Checkout,
   EditProfile,
-  Order
+  Order,
+  Orders
 }
