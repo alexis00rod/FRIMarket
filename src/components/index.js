@@ -7,7 +7,7 @@ import { DetailImage, DetailTitle, DetailLocation, DetailDescription, DetailCTA,
 import { Reviews, ReviewRating } from "./Reviews/reviews"
 import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch, InputProductQty } from "./Form/form"
 import { SellerCard, ProductCard, CategoryCard, CartProductCard, ReviewCard } from "./Card/card"
-import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProductsSort, SelectProvince, SelectSearch, SelectSellersSort, SelectReviewsSort } from "./Select/select"
+import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProductsSort, SelectProvince, SelectSearch, SelectSellersSort, SelectReviewsSort, SelectOrderSort } from "./Select/select"
 import { ProductsList, ProductsLayout } from "./Products/products"
 import { PostProductDetail, PostProductLocation, PostProductPrice, PostProductThumb, PostProductUser, PostProductCategory } from "./PostProduct/postProduct"
 import { Logo } from "./Logo/Logo"
@@ -33,7 +33,7 @@ export {
   // Cards
   ProductCard, SellerCard, CategoryCard, CartProductCard, ReviewCard,
   // Select
-  Select, SelectItem, SelectProvince, SelectSellersSort, SelectProductsSort, SelectCity, SelectSearch, SelectProductBrand, SelectAddItem, SelectProductType, SelectReviewsSort,
+  Select, SelectItem, SelectProvince, SelectSellersSort, SelectProductsSort, SelectCity, SelectSearch, SelectProductBrand, SelectAddItem, SelectProductType, SelectReviewsSort, SelectOrderSort,
   // Products
   ProductsList, ProductsLayout,
   // Form
