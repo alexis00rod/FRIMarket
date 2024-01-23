@@ -1,6 +1,12 @@
 import { getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc, where } from "firebase/firestore"
 import { userRef, usersRef } from "./firestore"
 
+// Funcion para verificar si existe usuario
+export const existsUser = async (email) => {
+  const userSnap = await getDoc(userRef(email))
+  return userSnap.exists()
+}
+
 // Funcion para agregar usuario
 export const addProfile = async (profile) => {
   const {email} = profile
