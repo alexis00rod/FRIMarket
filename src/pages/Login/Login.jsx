@@ -11,8 +11,9 @@ export const Login = () => {
   const submitLogin = async e => {
     e.preventDefault()
     setLoginError("")
+    const {email, password} = loginUser
     try {
-      await loginEmailPass(loginUser)
+      await loginEmailPass(email, password)
       navigate('/')
     } catch (err) {
       setLoginError(`${err.code.replace("auth/","")}`)
