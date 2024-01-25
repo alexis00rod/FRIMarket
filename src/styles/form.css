@@ -19,7 +19,7 @@
 
 /* LABEL */
 .input-label {
-  @apply px-2 text-sm font-medium
+  @apply ml-1.5 text-[.8rem] 
 }
 /* INPUT */
 .input-box input[type = 'text'],
