@@ -50,7 +50,7 @@ export const UserMenu = () => {
               <i className="fa-solid fa-right-to-bracket"></i>
               <span>Iniciar sesion</span>
             </Link>
-            <Link to='/signup' className="btn btn-black btn-m">
+            <Link to='/registration' className="btn btn-black btn-m">
               <i className="fa-solid fa-plus"></i>
               <span>Crear cuenta</span>
             </Link>
