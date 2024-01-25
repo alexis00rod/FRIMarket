@@ -3,13 +3,12 @@ import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWith
 
 export const auth = getAuth(app)
 
-// Funcion para  crear usuario con email y contraseña
-export const signupEmailPass = ({email, password}) => {
+export const registerEmailPassword = (email, password) => {
   return createUserWithEmailAndPassword(auth, email, password)
 }
 
 // Funcion para iniciar sesio usando email y contraseña
-export const loginEmailPass = ({email,password}) => signInWithEmailAndPassword(auth,email,password)
+export const loginEmailPass = (email,password) => signInWithEmailAndPassword(auth,email,password)
 
 // Funcion para detectar el estado de la autenticacion
 export const stateAuth = (set) => {
