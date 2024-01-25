@@ -12,6 +12,7 @@ export const addProfile = async (profile) => {
   const {email} = profile
   return await setDoc(userRef(email),{
     ...profile,
+    photoURL: 'https://firebasestorage.googleapis.com/v0/b/frimarket-f4864.appspot.com/o/default-photo.jpg?alt=media&token=3e1260ff-94b2-4aac-ad45-777e4ce704c1',
     joined: serverTimestamp()
   })
 }
