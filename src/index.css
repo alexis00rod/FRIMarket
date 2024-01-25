@@ -33,14 +33,18 @@ body {
   @apply mt-28 flex flex-col bg-gray-50
 }
 .app-page {
-  @apply  min-h-screen 
+  min-height: calc(100vh - 7rem);
+  @apply flex flex-col
 }
 
 /* Main */
 .main {
   @apply w-full max-w-screen-2xl mx-auto px-2 py-2 flex flex-col grow
 }
-.main-size-full {
+.main-lg {
+  @apply w-full max-w-lg
+}
+.main-full {
   @apply w-full
 }
 .main-size-medium {
@@ -81,7 +85,7 @@ body {
 
 /* Box */
 .box {
-  @apply w-full h-max px-2 py-2 bg-white border border-gray-300 rounded-md
+  @apply w-full px-4 py-4 bg-white border border-gray-300 rounded-md
 }
 .box-header {
   @apply w-full px-2 py-2 
@@ -94,6 +98,16 @@ body {
 }
 .box-form {
   @apply max-w-screen-sm mx-auto
+}
+
+/* Header */
+.header {
+  @apply w-full px-4 py-2 pb-4 font-medium
+}
+
+/* Container */
+.container {
+  @apply w-full px-4 py-4
 }
 
 /* Scroll */
