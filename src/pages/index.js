@@ -10,9 +10,12 @@ import { Profile } from "./Profile/Profile";
 import { Search } from "./Search/Search";
 import { Sellers } from "./Sellers/Sellers";
 import { Shop } from "./Shop/Shop";
-import { Signup } from "./Signup/Signup";
 import { Wishlist } from "./Wishlist/Wishlist";
 import { Orders } from "./Orders/Orders";
+import { Registration } from "./Registration/Registration";
+import { EmailValidation } from "./Registration/EmailValidation";
+import { NameValidation } from "./Registration/NameValidation";
+import { PasswordValidation } from "./Registration/PasswordValidation";
 
 export {
   Home,
@@ -21,7 +24,6 @@ export {
   Cart,
   Post,
   Login,
-  Signup,
   Profile,
   Wishlist,
   Search,
@@ -29,5 +31,10 @@ export {
   Checkout,
   EditProfile,
   Order,
-  Orders
+  Orders,
+  // Registration
+  Registration,
+  EmailValidation,
+  NameValidation,
+  PasswordValidation
 }
