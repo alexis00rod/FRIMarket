@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
 import { Footer, Navbar, ProtectedRoutes } from "../index.js"
 import { Cart, Checkout, Detail, EditProfile, Home, Login, Order, Orders, Post, Profile, Search, Sellers, Shop, Signup, Wishlist } from "../../pages/index.js"
+import { RegistrationRoute } from "../../routes/index.js"
 
 export const App = () => {
   const {pathname} = useLocation()
@@ -28,9 +29,10 @@ export const App = () => {
             <Route path="/search/:toSearch" element={<Search />}></Route>
             <Route path="/editProfile" element={<ProtectedRoutes><EditProfile /></ProtectedRoutes>}></Route>
             <Route path="/sellers" element={<Sellers />}></Route>
-            <Route path="checkout" element={<ProtectedRoutes><Checkout /></ProtectedRoutes>}></Route>
-            <Route path="checkout/:idOrder" element={<ProtectedRoutes><Order /></ProtectedRoutes>}></Route>
-            <Route path="orders" element={<ProtectedRoutes><Orders /></ProtectedRoutes>} ></Route>
+            <Route path="/checkout" element={<ProtectedRoutes><Checkout /></ProtectedRoutes>}></Route>
+            <Route path="/checkout/:idOrder" element={<ProtectedRoutes><Order /></ProtectedRoutes>}></Route>
+            <Route path="/orders" element={<ProtectedRoutes><Orders /></ProtectedRoutes>} ></Route>
+            <Route path="/registration/*" element={<RegistrationRoute />} />
           </Routes>
         </div>
         <Footer />
