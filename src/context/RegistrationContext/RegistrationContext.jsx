@@ -1,5 +1,4 @@
 import { useState, createContext, useContext } from 'react'
-import { registerEmailPassword } from '../../services/auth'
 
 const RegistrationContext = createContext()
 export const useRegistrationContext = () => useContext(RegistrationContext)
