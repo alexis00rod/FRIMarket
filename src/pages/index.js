@@ -16,6 +16,7 @@ import { Registration } from "./Registration/Registration";
 import { EmailValidation } from "./Registration/EmailValidation";
 import { NameValidation } from "./Registration/NameValidation";
 import { PasswordValidation } from "./Registration/PasswordValidation";
+import { EnterPass } from "./Login/EnterPass";
 
 export {
   Home,
@@ -23,7 +24,6 @@ export {
   Detail,
   Cart,
   Post,
-  Login,
   Profile,
   Wishlist,
   Search,
@@ -36,5 +36,8 @@ export {
   Registration,
   EmailValidation,
   NameValidation,
-  PasswordValidation
+  PasswordValidation,
+  // Login
+  Login,
+  EnterPass
 }
