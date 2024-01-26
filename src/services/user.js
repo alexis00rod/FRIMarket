@@ -17,9 +17,17 @@ export const addProfile = async (profile) => {
   })
 }
 
+// Funcion para obtener usuario instantaneo
+export const getSnapUser = async (user) => getDoc(userRef(user))
+
+// Funcion para obtener usuario instantaneo por id
+export const getSnapUserById = async (user) => {
+  const userDoc = await getDocs(query(usersRef,where('idUser','==',user)))
+  return userDoc.docs[0]
+}
+
 // Funcion para obtener usuario
 export const getUser = async (user,set) => {
-  // const {email} = user
   onSnapshot(userRef(user),(snap => {
     set({id: snap.id,...snap.data()})
   }))
