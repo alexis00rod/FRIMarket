@@ -1,60 +1,93 @@
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { loginEmailPass } from "../../services/auth"
-import { Button, Element, InputEmail, InputPassword, Main } from "../../components/index.js"
+import { useLoginContext } from "../../context/LoginContext/LoginContext.jsx"
+import { getSnapUser, getSnapUserById } from "../../services/user.js"
+import { InputText } from "../../components/index.js"
 
 export const Login = () => {
-  const [loginUser, setLoginUser] = useState({})
-  const [loginError, setLoginError] = useState()
+  const { setUserToLogin } = useLoginContext()
+  const [userToFind, setUserToFind] = useState('')
+  const [loader, setLoader] = useState()
+  const [userToFindError, setUserToFindError] = useState()
   const navigate = useNavigate()
 
-  const submitLogin = async e => {
+  const findUser = async e => {
     e.preventDefault()
-    setLoginError("")
-    const {email, password} = loginUser
-    try {
-      await loginEmailPass(email, password)
-      navigate('/')
-    } catch (err) {
-      setLoginError(`${err.code.replace("auth/","")}`)
+    setLoader(true)
+    if(userToFind.includes('@')) {
+      try {
+        const user = await getSnapUser(userToFind)
+        if(user.exists()) {
+          setUserToLogin({
+            id: user.id,
+            ...user.data()
+          })
+          navigate('/login/enter-pass')
+        } else {
+          setLoader()
+          setUserToFindError('Revisa el e-mail.')
+        }
+      } catch (err) {
+        setLoader()
+        setUserToFindError('Ocurrió un error, inténtalo más tarde.')
+      }
+    } else {
+      try {
+        const user = await getSnapUserById(userToFind)
+        if(!user) {
+          setLoader()
+          setUserToFindError('Revisa el nombre de usuario.')
+        } else {
+          setUserToLogin({
+            id: user.id,
+            ...user.data()
+          })
+          navigate('/login/enter-pass')
+        }
+      } catch (err) {
+        setLoader()
+        setUserToFindError('Ocurrió un error, inténtalo más tarde.')
+      }
     }
   }
 
-  const handleLogin = ({target:{name,value}}) => {
-    setLoginUser({
-      ...loginUser,
-      [name]: value
-    })
-  }
-
   return (
-    <Main size='main-size-medium'>
-      <Element flex='flex-col'>
-        <h2 className="box-header text-xl font-medium">Iniciar sesion</h2>
-        <form className="box-body flex flex-col gap-4" onSubmit={submitLogin}>
-          {loginError && <p className="px-2 py-2 text-sm text-red-500">{loginError}</p>}
-          <InputEmail 
-          label='Email' 
-          size='input-l'
-          value={loginUser.email} 
-          onChange={handleLogin} 
-          />
-          <InputPassword 
-          label='Contraseña' 
-          size='input-l'
-          id='password' 
-          value={loginUser.password} 
-          onChange={handleLogin} 
-          />
-          <div className="w-full flex flex-col items-center gap-4">
-            <div className="w-full flex items-center justify-between flex-wrap">
-              <Link to='/' className="link link-black">¿Olvidaste tu contraseña?</Link>
-              <Link to='/signup' className="link link-black">Crear usuario</Link>
-            </div>
-            <Button color='btn-blue' size='btn-l' ><span className="text-sm font-medium">Iniciar sesion</span></Button>
+    <main className="grow flex flex-col">
+      {loader
+      ? <div className="grow flex items-center justify-center">
+          <div
+            className="inline-block h-14 w-14 animate-spin rounded-full text-blue-500 border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            role="status">
           </div>
-        </form>
-      </Element>
-    </Main>
+        </div>
+      : <section className="w-full md:max-w-[33rem] mx-auto md:mt-12 px-6 md:px-12 md:py-12 grow md:grow-0 bg-white md:border md:border-slate-300 md:rounded-md">
+          <h2 className="mt-6 md:mt-0 text-2xl font-medium">Ingresá tu e‑mail o usuario de FRIMarket</h2>
+          <div className="relative mt-6">
+            <InputText 
+            size='input-l'
+            label='E‑mail o usuario'
+            id='user'
+            name='user'
+            value={userToFind} 
+            onChange={e => setUserToFind(e.target.value)}
+            required
+            />
+            {userToFindError &&
+              <p className="top-full left-2 absolute w-max pt-0.5 flex items-center text-[0.8rem] text-red-500">
+                <i className="fa-solid fa-circle-exclamation"></i>
+                <span className="pl-2 font-medium">{userToFindError}</span>
+              </p>
+            }
+          </div>
+          <div className="mt-6 flex">
+            <button onClick={findUser} className="mr-4 btn btn-m btn-blue">
+              <span className="text-sm font-medium">Continuar</span>
+            </button>
+            <Link to='/registration' className="btn btn-text-blue btn-m">
+              <span className="text-sm font-medium">Crear cuenta</span>
+            </Link>
+          </div>
+        </section>}
+    </main>
   )
 }
