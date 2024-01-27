@@ -26,7 +26,7 @@
 .input-box input[type = 'email'],
 .input-box input[type = 'password'],
 .input-box input[type = 'number']{
-  @apply w-full h-8 px-2 border border-gray-300 rounded-md outline-none
+  @apply w-full h-8 px-2 text-sm border border-gray-300 rounded-md outline-none placeholder:text-gray-400
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
