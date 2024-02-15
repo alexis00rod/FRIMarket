@@ -4,7 +4,6 @@ import { EditProfile } from "./EditProfile/EditProfile";
 import { Home } from "./Home/Home";
 import { Login } from "./Login/Login";
 import { Order } from "./Order/Order";
-import { Post } from "./Post/Post";
 import { Detail } from "./Detail/Detail";
 import { Profile } from "./Profile/Profile";
 import { Search } from "./Search/Search";
@@ -17,13 +16,13 @@ import { EmailValidation } from "./Registration/EmailValidation";
 import { NameValidation } from "./Registration/NameValidation";
 import { PasswordValidation } from "./Registration/PasswordValidation";
 import { EnterPass } from "./Login/EnterPass";
+import { PostProduct, PostCategoryForm, PostDetailsForm, PostSaleForm, PostContactForm, } from "./PostPage/post";
 
 export {
   Home,
   Shop,
   Detail,
   Cart,
-  Post,
   Profile,
   Wishlist,
   Search,
@@ -32,6 +31,12 @@ export {
   EditProfile,
   Order,
   Orders,
+  // Post
+  PostProduct,
+  PostCategoryForm,
+  PostDetailsForm,
+  PostSaleForm,
+  PostContactForm,
   // Registration
   Registration,
   EmailValidation,
