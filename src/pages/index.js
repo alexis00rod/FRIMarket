@@ -8,19 +8,21 @@ import { Detail } from "./Detail/Detail";
 import { Profile } from "./Profile/Profile";
 import { Search } from "./Search/Search";
 import { Sellers } from "./Sellers/Sellers";
-import { Shop } from "./Shop/Shop";
 import { Wishlist } from "./Wishlist/Wishlist";
 import { Orders } from "./Orders/Orders";
+import { EnterPass } from "./Login/EnterPass";
+// Registration
 import { Registration } from "./Registration/Registration";
 import { EmailValidation } from "./Registration/EmailValidation";
 import { NameValidation } from "./Registration/NameValidation";
 import { PasswordValidation } from "./Registration/PasswordValidation";
-import { EnterPass } from "./Login/EnterPass";
+// Post
 import { PostProduct, PostCategoryForm, PostDetailsForm, PostSaleForm, PostContactForm, } from "./PostPage/post";
+// Shop
+import { Shop } from "./ShopPage/Shop";
 
 export {
   Home,
-  Shop,
   Detail,
   Cart,
   Profile,
@@ -31,6 +33,9 @@ export {
   EditProfile,
   Order,
   Orders,
+
+  // Shop
+  Shop,
   // Post
   PostProduct,
   PostCategoryForm,
