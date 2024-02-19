@@ -1,8 +1,8 @@
 import { useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
 import { Footer, Navbar, ProtectedRoutes } from "../index.js"
-import { Cart, Checkout, Detail, EditProfile, Home, Order, Orders, Profile, Search, Sellers, Shop, Wishlist } from "../../pages/index.js"
-import { LoginRoute, PostRoute, RegistrationRoute } from "../../routes/index.js"
+import { Cart, Checkout, Detail, EditProfile, Home, Order, Orders, Profile, Search, Sellers, Wishlist } from "../../pages/index.js"
+import { LoginRoute, PostRoute, RegistrationRoute, ShopRoute } from "../../routes/routes.js"
 
 export const App = () => {
   const {pathname} = useLocation()
@@ -18,7 +18,6 @@ export const App = () => {
         <div className="app-page">
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/shop/:idCategory" element={<Shop />}></Route>
             <Route path="/product/:idDetail" element={<Detail />}></Route>
             <Route path="/cart" element={<ProtectedRoutes><Cart /></ProtectedRoutes>}></Route>
             <Route path="/wishlist" element={<ProtectedRoutes><Wishlist /></ProtectedRoutes>}></Route>
@@ -29,6 +28,8 @@ export const App = () => {
             <Route path="/checkout/:idOrder" element={<ProtectedRoutes><Order /></ProtectedRoutes>}></Route>
             <Route path="/orders" element={<ProtectedRoutes><Orders /></ProtectedRoutes>} ></Route>
             <Route path="/profile/:idUser" element={<Profile />}></Route>
+
+            <Route path="/shop/*" element={<ShopRoute />}  />
             <Route path="/post/*" element={<ProtectedRoutes><PostRoute /></ProtectedRoutes>} />
             <Route path="/login/*" element={<LoginRoute />} />
             <Route path="/registration/*" element={<RegistrationRoute />} />
