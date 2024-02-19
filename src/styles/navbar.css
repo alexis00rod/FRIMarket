@@ -16,5 +16,6 @@
 }
 /* CONTAINER */
 .navbar-container {
-  @apply relative w-full max-w-screen-2xl h-full px-2 mx-auto flex justify-between items-center
+  @apply relative w-full max-w-[1200px] h-full px-2 mx-auto flex justify-between items-center
+  /* @apply relative w-full max-w-screen-2xl h-full px-2 mx-auto flex justify-between items-center */
 }
