@@ -1,42 +1,19 @@
 import { deleteDoc, getDocs, limit, onSnapshot, orderBy, query, updateDoc, where } from "firebase/firestore";
 import { productRef, productsRef } from "./firestore";
 
-// Funcion para obtener productos
-// Corregir filtro provincia
-export const getProducts = async (category,filters) => {
-  const {type, brand, minPrice, maxPrice, province} = filters
+export const getProducts = async (filters) => {
+  const {category,type,brand,location,minPrice,maxPrice} = filters
+  let productsQuery = productsRef
 
-  let products
+  if (category) {productsQuery = query(productsQuery, where('category', '==', category))}
 
-  if(category === 'all') {
-    products = query(productsRef,where('price','>=',minPrice),where('price','<=',maxPrice))
-  }
-  if(category !== 'all') {
-    products = query(productsRef,where('category','==',category),where('price','>=',minPrice),where('price','<=',maxPrice))
-  }
-  if(category === 'all' && province !== 'allProvinces') {
-    products = query(productsRef,where('location','array-contains',province),where('price','>=',minPrice),where('price','<=',maxPrice))
-    // products = query(productsRef,where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
-  }
-  if(category !== 'all' && province !== 'allProvinces') {
-    products = query(productsRef,where('category','==',category),where('location','array-contains',province),where('price','>=',minPrice),where('price','<=',maxPrice))
-    // products = query(productsRef,where('category','==',category),where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
-  }
-  if(type !== 'allTypes') {
-    products = query(productsRef,where('category','==',category),where('type','==',type),where('price','>=',minPrice),where('price','<=',maxPrice))
-  }
-  if(brand !== 'allBrands') {
-    products = query(productsRef,where('category','==',category),where('brand','==',brand),where('price','>=',minPrice),where('price','<=',maxPrice))
-  }
-  if(type !== 'allTypes' && brand !== 'allBrands') {
-    products = query(productsRef,where('type','==',type),where('brand','==',brand),where('price','>=',minPrice),where('price','<=',maxPrice))
-  }
-  if(type !== 'allTypes' && brand !== 'allBrands' && province !== 'allProvinces') {
-    products = query(productsRef,where('type','==',type),where('brand','==',brand),where('location','array-contains',province),where('price','>=',minPrice),where('price','<=',maxPrice))
-    // products = query(productsRef,where('type','==',type),where('brand','==',brand),where('province','==',province),where('price','>=',minPrice),where('price','<=',maxPrice))
-  }
+  if (type) {productsQuery = query(productsQuery, where('type', '==', type))}
 
-  return await getDocs(products)
+  if (brand) {productsQuery = query(productsQuery, where('brand', '==', brand))}
+
+  if (location) {productsQuery = query(productsQuery, where('user.province.id', '==', location))}
+
+  return await getDocs(productsQuery)
 }
 
 // Funcion para actualizar producto
