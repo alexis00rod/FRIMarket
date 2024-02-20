@@ -68,9 +68,16 @@ export const getFeaturedProducts = async (category) => {
 }
 
 export const getSimilarProducts = async (product) => {
-  const {idProduct, type} = product
-  const q = query(productsRef,where('type','==',type),where('idProduct','!=',idProduct),limit(5))
-  return await getDocs(q)
+  const { id, type } = product
+
+  const products = await getDocs(query(productsRef, where('type', '==', type), limit(8)))
+
+  return products.docs
+    .filter(doc => doc.id !== id)
+    .map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }))
 }
 
 export const getSpecialProducts = async () => {
