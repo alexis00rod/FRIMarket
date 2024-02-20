@@ -2,9 +2,7 @@ import { App } from "./App/App"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
 import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
 import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink } from './Button/button'
-import { Modal, EditProduct, ProductDetail } from "./Modal/modal"
-import { DetailImage, DetailTitle, DetailLocation, DetailDescription, DetailCTA, DetailCategory } from "./Detail/detail"
-import { Reviews, ReviewRating } from "./Reviews/reviews"
+import { Modal, ProductDetail } from "./Modal/modal"
 import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch, InputProductQty } from "./Form/form"
 import { SellerCard, ProductCard, CategoryCard, CartProductCard, ReviewCard } from "./Card/card"
 import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProductsSort, SelectProvince, SelectSearch, SelectSellersSort, SelectReviewsSort, SelectOrderSort } from "./Select/select"
@@ -12,12 +10,15 @@ import { PostProductDetail, PostProductLocation, PostProductPrice, PostProductTh
 import { Logo } from "./Logo/Logo"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
 import { Accordion } from "./Accordion/Accordion"
-import { Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider, SimilarSlider } from "./Slider/slider"
+import { Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider } from "./Slider/slider"
 import { Element, Loader, Main, Menu } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
 import { CheckoutInformation, CheckoutPayment, CheckoutShipping } from "./Checkout/checkout"
 import { EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts } from "./Profile/profile"
 import { SignupUser, SignupProfile } from "./Signup/signup"
+
+// Detail
+import { DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailCTA, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts } from '../pages/Detail/components/detailComponents'
 // Products
 import { ProductsList, ProductsLayout, ProductsSort } from "./Products/productsComponents"
 // Post
@@ -31,10 +32,6 @@ export {
   Navbar, NavbarMenu, CartMenu, UserMenu,
   // Buttons
   Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink,
-  // Detail
-  DetailImage, DetailTitle, DetailLocation, DetailDescription, DetailCTA, DetailCategory,
-  // Reviews
-  Reviews, ReviewRating,
   // Cards
   ProductCard, SellerCard, CategoryCard, CartProductCard, ReviewCard,
   // Select
@@ -44,9 +41,9 @@ export {
   // Post
   PostProductDetail, PostProductLocation, PostProductPrice, PostProductThumb, PostProductUser, PostProductCategory, 
   // Modal
-  Modal, EditProduct, ProductDetail,
+  Modal, ProductDetail,
   // Slider
-  Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider, SimilarSlider,
+  Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider,
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
   // Profile
@@ -56,6 +53,8 @@ export {
   // Signup
   SignupUser, SignupProfile,
 
+  // Detail
+  DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo,  DetailCTA, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts,
   // Products
   ProductsList, ProductsLayout, ProductsSort,
   // Post
