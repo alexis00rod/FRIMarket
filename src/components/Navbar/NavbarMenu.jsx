@@ -12,13 +12,13 @@ export const NavbarMenu = () => {
         </Button>
         <Menu expand={menu} onClick={() => setMenu(false)} position='left'>
           <ButtonLink to='/' size='btn-m' color='btn-black' active='btn-text-yellow'>Inicio</ButtonLink>
-          <ButtonLink to='/shop/all' size='btn-m' color='btn-black' active='btn-text-yellow'>Tienda</ButtonLink>
+          <ButtonLink to='/shop' size='btn-m' color='btn-black' active='btn-text-yellow'>Tienda</ButtonLink>
           <ButtonLink to='/sellers' size='btn-m' color='btn-black' active='btn-text-yellow'>Vendedores</ButtonLink>
         </Menu>
       </div>
       <div className="hidden w-full md:flex gap-4">
         <ButtonLink to='/' size='btn-m' color='btn-blue' active='btn-blue-active'>Inicio</ButtonLink>
-        <ButtonLink to='/shop/all' size='btn-m' color='btn-blue' active='btn-blue-active'>Tienda</ButtonLink>
+        <ButtonLink to='/shop' size='btn-m' color='btn-blue' active='btn-blue-active'>Tienda</ButtonLink>
         <ButtonLink to='/sellers' size='btn-m' color='btn-blue' active='btn-blue-active'>Vendedores</ButtonLink>
       </div>
     </div>

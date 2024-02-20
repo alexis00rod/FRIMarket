@@ -18,7 +18,6 @@ export const App = () => {
         <div className="app-page">
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/product/:idDetail" element={<Detail />}></Route>
             <Route path="/cart" element={<ProtectedRoutes><Cart /></ProtectedRoutes>}></Route>
             <Route path="/wishlist" element={<ProtectedRoutes><Wishlist /></ProtectedRoutes>}></Route>
             <Route path="/search/:toSearch" element={<Search />}></Route>
@@ -28,6 +27,8 @@ export const App = () => {
             <Route path="/checkout/:idOrder" element={<ProtectedRoutes><Order /></ProtectedRoutes>}></Route>
             <Route path="/orders" element={<ProtectedRoutes><Orders /></ProtectedRoutes>} ></Route>
             <Route path="/profile/:idUser" element={<Profile />}></Route>
+            
+            <Route path="/product/:idDetail" element={<Detail />} />
 
             <Route path="/shop/*" element={<ShopRoute />}  />
             <Route path="/post/*" element={<ProtectedRoutes><PostRoute /></ProtectedRoutes>} />
