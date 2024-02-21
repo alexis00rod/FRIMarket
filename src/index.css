@@ -115,3 +115,7 @@ body {
   @apply scrollbar scrollbar-w-2.5 scrollbar-thumb-gray-500 scrollbar-thumb-rounded-lg
 }
 
+/* Swiper */
+.swiper-pagination-bullet-active{
+  @apply bg-blue-500
+}
