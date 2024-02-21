@@ -23,9 +23,9 @@ export const Detail = () => {
       </Breadcrumb>
       <section className='w-full max-w-[1200px] px-2 py-4 mx-auto flex flex-col gap-4'>
         <div className='w-full flex flex-col lg:flex-row lg:items-start gap-4'>
-          {/* Images */}
+          {/* Imagenes */}
           <DetailImages images={images} />
-          <div className="w-full lg:max-w-[400px] p-4 flex flex-col gap-2 bg-white border border-slate-300 rounded-md">
+          <div className="w-full lg:w-[400px] p-4 flex flex-col flex-none gap-2 bg-white border border-slate-300 rounded-md">
             {/* Titulo */}
             <DetailTitle product={productDetail} />
             {/* Categoria */}

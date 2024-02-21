@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react"
 import { getSimilarProducts } from "../../../services/shop.js"
 import { ProductCard } from "../../../components/index.js"
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
 
 export const DetailSimiliarProducts = ({product}) => {
   const [similarProducts, setSimilarProducts] = useState([])
