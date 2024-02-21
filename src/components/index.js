@@ -17,6 +17,8 @@ import { CheckoutInformation, CheckoutPayment, CheckoutShipping } from "./Checko
 import { EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts } from "./Profile/profile"
 import { SignupUser, SignupProfile } from "./Signup/signup"
 
+// Image Magnifier
+import { ImageMagnifier } from "./ImageMagnifier/ImageMagnifier"
 // Detail
 import { DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailCTA, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts } from '../pages/Detail/components/detailComponents'
 // Products
@@ -53,6 +55,8 @@ export {
   // Signup
   SignupUser, SignupProfile,
 
+  // Image Magnifier
+  ImageMagnifier,
   // Detail
   DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo,  DetailCTA, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts,
   // Products
