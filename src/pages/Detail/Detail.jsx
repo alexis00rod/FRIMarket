@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductDetail } from '../../services/shop.js'
-import { Breadcrumb, BreadcrumbLink, DetailCTA, DetailDescription, DetailImages, DetailTitle, Loader, DetailReviews, DetailSimiliarProducts, DetailAdditionalInfo, DetailPrice, DetailSeller, DetailCategory } from '../../components'
+import { Breadcrumb, BreadcrumbLink, DetailCTA, DetailDescription, DetailImages, DetailTitle, Loader, DetailReviews, DetailSimiliarProducts, DetailAdditionalInfo, DetailPrice, DetailSeller, DetailCategory, DetailAddToCart, BtnAddWishlist } from '../../components'
 import moment from "moment"
 
 export const Detail = () => {
@@ -34,6 +34,11 @@ export const Detail = () => {
             <DetailSeller user={email} />
             {/* Precio */}
             <DetailPrice price={price} />
+            {/* Agregar al carrito */}
+            <DetailAddToCart product={productDetail}/>
+            {/* Comprar ahora */}
+            {/* <BtnAddWishlist product={productDetail} size='btn-m'/> */}
+            {/* Agregar a favorito */}
             {/* <DetailCTA product={productDetail} /> */}
           </div>
         </div>
