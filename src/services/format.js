@@ -14,6 +14,10 @@ export const generateIdUser = (user) => {
 }
 
 export const formatPrice = (price) => {
+  if (typeof price === 'number') {
+    price = price.toString()
+  }
+  
   price = price.replace(/[^\d,]/g, "")
   let parts = price.split(",")
   if (parts[0] === "" && parts[1] !== undefined && parts[1] !== "") {
@@ -24,6 +28,18 @@ export const formatPrice = (price) => {
     parts[1] = parts[1].slice(0, 2)
   }
   return parts.join(",")
+}
+
+export const formatNumber = (number) => {
+  const numericString = number.replace(/[^\d,]/g, '').replace(/,/g, '.')
+  const decimalIndex = numericString.indexOf('.')
+
+  if (decimalIndex !== -1) {
+    const formattedString = numericString.slice(0, decimalIndex + 3)
+    return parseFloat(formattedString)
+  }
+  
+  return parseFloat(numericString)
 }
 
 export const formatPhone = (phone) => phone.replace(/[^\d]/g, "")

@@ -1,9 +1,20 @@
 import { usePostContext } from "../context/PostContext"
-import { formatPrice } from "../../../services/format"
+import { formatNumber, formatPrice } from "../../../services/format"
+import { useState } from "react"
 
 export const PostPrice = () => {
   const {productToPost, setProductToPost, productToPostError} = usePostContext()
   const {price} = productToPost
+
+  const [formattedPrice, setFormattedPrice] = useState(formatPrice(price) || '')
+
+  const handlePrice = ({target: {value}}) => {
+    setFormattedPrice(formatPrice(value))
+    setProductToPost({
+      ...productToPost,
+      price: formatNumber(value)
+    })
+  }
 
   return (
     <div className="mt-6 mb-1.5">
@@ -17,8 +28,8 @@ export const PostPrice = () => {
             type="text"
             name="price"
             id="price"
-            value={price || ""}
-            onChange={({target:{value}}) => setProductToPost({ ...productToPost, price: formatPrice(value) })}
+            value={formattedPrice}
+            onChange={handlePrice}
             className="h-full grow outline-none text-sm line-clamp-1"
           />
         </div>
