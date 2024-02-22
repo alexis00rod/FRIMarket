@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductDetail } from '../../services/shop.js'
-import { Breadcrumb, BreadcrumbLink, DetailCTA, DetailDescription, DetailImages, DetailTitle, Loader, DetailReviews, DetailSimiliarProducts, DetailAdditionalInfo, DetailPrice, DetailSeller, DetailCategory, DetailAddToCart, BtnAddWishlist } from '../../components'
+import { Breadcrumb, BreadcrumbLink, DetailCTA, DetailDescription, DetailImages, DetailTitle, Loader, DetailReviews, DetailSimiliarProducts, DetailAdditionalInfo, DetailPrice, DetailSeller, DetailCategory, DetailAddToCart, BtnAddWishlist, DetailAddToWishlist } from '../../components'
 import moment from "moment"
 
 export const Detail = () => {
@@ -36,10 +36,10 @@ export const Detail = () => {
             <DetailPrice price={price} />
             {/* Agregar al carrito */}
             <DetailAddToCart product={productDetail}/>
-            {/* Comprar ahora */}
-            {/* <BtnAddWishlist product={productDetail} size='btn-m'/> */}
             {/* Agregar a favorito */}
-            {/* <DetailCTA product={productDetail} /> */}
+            <DetailAddToWishlist product={productDetail} />
+            {/* Compartir */}
+            
           </div>
         </div>
         <div className="w-full p-4 flex flex-col bg-white border border-slate-300 rounded-md">

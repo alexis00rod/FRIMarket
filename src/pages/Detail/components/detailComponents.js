@@ -1,3 +1,5 @@
+import { DetailAddToCart } from "./DetailAddToCart";
+import { DetailAddToWishlist } from "./DetailAddToWishlist";
 import { DetailAdditionalInfo } from "./DetailAdditionalInfo";
 import { DetailCTA } from "./DetailCTA";
 import { DetailCategory } from "./DetailCategory";
@@ -21,5 +23,7 @@ export {
   DetailSeller,
   DetailCategory,
   DetailReviews,
-  DetailSimiliarProducts
+  DetailSimiliarProducts,
+  DetailAddToCart,
+  DetailAddToWishlist
 }
