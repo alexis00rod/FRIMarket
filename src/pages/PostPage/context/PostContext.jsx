@@ -11,7 +11,7 @@ export const PostContextProvider = ({children}) => {
     type: '',
     brand: '',
     condition: '',
-    stock: 1,
+    stock: '',
     price: '',
     shipping: '',
     user: {
@@ -47,6 +47,7 @@ export const PostContextProvider = ({children}) => {
     !productToPost.description && err.push('description')
     !productToPost.condition && err.push('condition')
     !productToPost.brand && err.push('brand')
+    !productToPost.stock && err.push('stock')
 
     setProductToPostError(err)
     return !err.length

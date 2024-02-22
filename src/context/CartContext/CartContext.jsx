@@ -24,9 +24,9 @@ export const CartContextProvider = ({children}) => {
   }
 
   const removeProductToCartList = (product) => {
-    const productToRemove = cartList.find(e => e.id === product)
+    const productToRemove = cartList.find(e => e.id === product.id)
 
-    setCartList(cartList.filter(e => e.id !== product))
+    setCartList(cartList.filter(e => e.id !== productToRemove.id))
     setCartPriceTotal(cartPriceTotal - (productToRemove.price * productToRemove.qty))
     setCartQty(cartQty - productToRemove.qty)
   }
@@ -44,7 +44,7 @@ export const CartContextProvider = ({children}) => {
 
     cartList.find(e => e.id === id).qty -= 1
     setCartPriceTotal(cartPriceTotal - price)
-    setCartQty(cartQty - 1)
+    setCartQty(cartQty - 1)   
   }
 
   const emptyCart = () => {
