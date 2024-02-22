@@ -20,7 +20,7 @@ import { SignupUser, SignupProfile } from "./Signup/signup"
 // Image Magnifier
 import { ImageMagnifier } from "./ImageMagnifier/ImageMagnifier"
 // Detail
-import { DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailCTA, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart, DetailAddToWishlist } from '../pages/Detail/components/detailComponents'
+import { DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailCTA, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart, DetailAddToWishlist, DetailShare } from '../pages/Detail/components/detailComponents'
 // Products
 import { ProductsList, ProductsLayout, ProductsSort } from "./Products/productsComponents"
 // Post
@@ -58,7 +58,7 @@ export {
   // Image Magnifier
   ImageMagnifier,
   // Detail
-  DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo,  DetailCTA, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart, DetailAddToWishlist,
+  DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo,  DetailCTA, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart, DetailAddToWishlist, DetailShare,
   // Products
   ProductsList, ProductsLayout, ProductsSort,
   // Post
