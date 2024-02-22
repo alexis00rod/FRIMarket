@@ -7,15 +7,12 @@ import { Order } from "./Order/Order";
 import { Detail } from "./Detail/Detail";
 import { Profile } from "./Profile/Profile";
 import { Search } from "./Search/Search";
-import { Sellers } from "./Sellers/Sellers";
 import { Wishlist } from "./Wishlist/Wishlist";
 import { Orders } from "./Orders/Orders";
 import { EnterPass } from "./Login/EnterPass";
+
 // Registration
-import { Registration } from "./Registration/Registration";
-import { EmailValidation } from "./Registration/EmailValidation";
-import { NameValidation } from "./Registration/NameValidation";
-import { PasswordValidation } from "./Registration/PasswordValidation";
+import { RegistrationSteps, RegistrationEmail, RegistrationName, RegistrationPassword } from "./RegistrationPage/registration";
 // Post
 import { PostProduct, PostCategoryForm, PostDetailsForm, PostSaleForm, PostContactForm, } from "./PostPage/post";
 // Shop
@@ -28,7 +25,6 @@ export {
   Profile,
   Wishlist,
   Search,
-  Sellers,
   Checkout,
   EditProfile,
   Order,
@@ -37,16 +33,9 @@ export {
   // Shop
   Shop,
   // Post
-  PostProduct,
-  PostCategoryForm,
-  PostDetailsForm,
-  PostSaleForm,
-  PostContactForm,
+  PostProduct, PostCategoryForm, PostDetailsForm, PostSaleForm, PostContactForm,
   // Registration
-  Registration,
-  EmailValidation,
-  NameValidation,
-  PasswordValidation,
+  RegistrationSteps, RegistrationEmail, RegistrationName, RegistrationPassword,
   // Login
   Login,
   EnterPass
