@@ -3,6 +3,7 @@ import { userRef, usersRef } from "./firestore"
 
 // Funcion para verificar si existe usuario
 export const existsUser = async (email) => {
+  if(!email) return false
   const userSnap = await getDoc(userRef(email))
   return userSnap.exists()
 }
@@ -57,19 +58,19 @@ export const updateProfileInfo = async (email,newProfile) => await updateDoc(use
 
 // Funcion para obtener usuarios
 export const getUsers = async (province,sort) => {
-  const order = sort === 'sales'
-    ? orderBy('sales','desc')
-    : sort === 'posts'
-      ? orderBy('posts','desc')
-      : sort === 'new'
-        ? orderBy('joined','desc')
-        : orderBy('joined','asc')
+  // const order = sort === 'sales'
+  //   ? orderBy('sales','desc')
+  //   : sort === 'posts'
+  //     ? orderBy('posts','desc')
+  //     : sort === 'new'
+  //       ? orderBy('joined','desc')
+  //       : orderBy('joined','asc')
 
-  const users = province === 'all'
-    ? query(usersRef,order)
-    : query(usersRef,where('province','==',province),order)
+  // const users = province === 'all'
+  //   ? query(usersRef,order)
+  //   : query(usersRef,where('province','==',province),order)
 
-  return await getDocs(users)
+  return await getDocs(usersRef)
 }
 
 // Funcion para obtener ventas de un usuario
