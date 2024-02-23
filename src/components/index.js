@@ -9,12 +9,14 @@ import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, Sele
 import { Logo } from "./Logo/Logo"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
 import { Accordion } from "./Accordion/Accordion"
-import { Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider } from "./Slider/slider"
+import { Slider } from "./Slider/slider"
 import { Element, Loader, Main, Menu } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
 import { CheckoutInformation, CheckoutPayment, CheckoutShipping } from "./Checkout/checkout"
 import { EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts } from "./Profile/profile"
 
+// Home
+import { Hero, HomeCategories, HomeOffers } from '../pages/HomePage/components/homeComponents'
 // Image Magnifier
 import { ImageMagnifier } from "./ImageMagnifier/ImageMagnifier"
 // Detail
@@ -43,7 +45,7 @@ export {
   // Modal
   Modal, ProductDetail,
   // Slider
-  Slider, Hero, CategorySlider, ProductsSlider, SpecialsSlider,
+  Slider,
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
   // Profile
@@ -51,6 +53,8 @@ export {
   // Checkout
   CheckoutInformation, CheckoutShipping, CheckoutPayment,
 
+  // Home
+  Hero, HomeCategories, HomeOffers,
   // Image Magnifier
   ImageMagnifier,
   // Detail
