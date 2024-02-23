@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { Hero, HomeCategories, HomeOffers } from "../../components"
 
 export const Home = () => {

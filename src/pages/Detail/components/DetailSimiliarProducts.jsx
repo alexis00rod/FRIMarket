@@ -19,7 +19,7 @@ export const DetailSimiliarProducts = ({product}) => {
       <div className="w-full p-4 mb-4 flex items-center gap-2 bg-white border border-slate-300 rounded-md">
         <h3 className="grow text-lg font-medium">Productos similares</h3>
         <div className="flex gap-2">
-        <button className="btn btn-s btn-blue" onClick={() => swiperRef.current.swiper.slidePrev()}>
+          <button className="btn btn-s btn-blue" onClick={() => swiperRef.current.swiper.slidePrev()}>
             <i className="fa-solid fa-chevron-left"></i>
           </button>
           <button className="btn btn-s btn-blue" onClick={() => swiperRef.current.swiper.slideNext()}>

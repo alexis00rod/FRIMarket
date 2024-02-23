@@ -1,7 +1,6 @@
 import { Cart } from "./Cart/Cart";
 import { Checkout } from "./Checkout/Checkout";
 import { EditProfile } from "./EditProfile/EditProfile";
-import { Home } from "./Home/Home";
 import { Login } from "./Login/Login";
 import { Order } from "./Order/Order";
 import { Detail } from "./Detail/Detail";
@@ -11,6 +10,8 @@ import { Wishlist } from "./Wishlist/Wishlist";
 import { Orders } from "./Orders/Orders";
 import { EnterPass } from "./Login/EnterPass";
 
+// Home
+import { Home } from "./HomePage/Home";
 // Registration
 import { RegistrationSteps, RegistrationEmail, RegistrationName, RegistrationPassword } from "./RegistrationPage/registration";
 // Post

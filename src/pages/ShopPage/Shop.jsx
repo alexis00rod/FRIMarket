@@ -53,6 +53,6 @@ export const Shop = () => {
           <h3 className="px-2 text-lg font-medium">Mostrando {products.length} productos</h3>
         </div>
       </section>
-s    </main>
+    </main>
   )
 }
