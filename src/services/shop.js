@@ -61,12 +61,17 @@ export const editProduct = async (product, changes) => {
   await updateDoc(productRef(id),changes)
 }
 
-// Funcion para obtener productos destacados
-export const getFeaturedProducts = async (category) => {
-  const q = query(productsRef,where('category','==',category),orderBy('price','desc'),limit(7))
-  return await getDocs(q)
+// Funcion para obtener productos por categoria
+export const getProductsPerCategory = async (category,max) => {
+  return await getDocs(query(productsRef,where('category','==', category),limit(max)))
 }
 
+// Funcion para obtener productos en oferta
+export const getProductsOffer = async (max) => {
+  return getDocs(query(productsRef,limit(max)))
+}
+
+// Funcion para obtener productos similares de un producto
 export const getSimilarProducts = async (product) => {
   const { id, type } = product
 
@@ -78,9 +83,4 @@ export const getSimilarProducts = async (product) => {
       id: doc.id,
       ...doc.data()
     }))
-}
-
-export const getSpecialProducts = async () => {
-  const q = query(productsRef,orderBy('price','asc'),limit(4))
-  return await getDocs(q)
 }
