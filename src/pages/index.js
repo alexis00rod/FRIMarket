@@ -5,11 +5,12 @@ import { Login } from "./Login/Login";
 import { Order } from "./Order/Order";
 import { Detail } from "./Detail/Detail";
 import { Profile } from "./Profile/Profile";
-import { Search } from "./Search/Search";
 import { Wishlist } from "./Wishlist/Wishlist";
 import { Orders } from "./Orders/Orders";
 import { EnterPass } from "./Login/EnterPass";
 
+// Search
+import { Search } from "./SearchPage/Search";
 // Home
 import { Home } from "./HomePage/Home";
 // Registration
@@ -25,12 +26,13 @@ export {
   Cart,
   Profile,
   Wishlist,
-  Search,
   Checkout,
   EditProfile,
   Order,
   Orders,
-
+  
+  // Search
+  Search,
   // Shop
   Shop,
   // Post

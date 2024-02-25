@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductDetail } from '../../services/shop.js'
-import { Breadcrumb, BreadcrumbLink, DetailDescription, DetailImages, DetailTitle, Loader, DetailReviews, DetailSimiliarProducts, DetailAdditionalInfo, DetailPrice, DetailSeller, DetailCategory, DetailAddToCart, BtnAddWishlist, DetailAddToWishlist, DetailShare } from '../../components'
+import { Breadcrumb, BreadcrumbLink, DetailDescription, DetailImages, DetailTitle, Loader, DetailReviews, DetailSimiliarProducts, DetailAdditionalInfo, DetailPrice, DetailSeller, DetailCategory, DetailAddToCart, DetailAddToWishlist, DetailShare } from '../../components'
 import moment from "moment"
 
 export const Detail = () => {

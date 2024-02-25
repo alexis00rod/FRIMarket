@@ -29,10 +29,10 @@ body {
   @apply font-poppins 
 }
 .app-body {
-  @apply mt-28 flex flex-col bg-gray-100
+  /* @apply mt-28 flex flex-col bg-gray-100 */
 }
 .app-page {
-  min-height: calc(100vh - 7rem);
+  /* min-height: calc(100vh - 7rem); */
   @apply flex flex-col
 }
 
