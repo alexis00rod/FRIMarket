@@ -20,7 +20,7 @@ export const HomeCategories = () => {
   },[tab])
 
   useEffect(() => {
-    getFeaturedCategories()
+    getFeaturedCategories(6)
       .then(resp => setFeaturedCategories(resp.docs.map(e => ({
         id: e.id,
         ...e.data()

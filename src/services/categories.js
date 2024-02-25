@@ -12,7 +12,7 @@ export const getCategories = (obs) => {
 }
 
 // Funcion para obtener categorias destacadas
-export const getFeaturedCategories = async () => {
-  const q = query(categoriesRef,orderBy('products','desc'),limit(6))
+export const getFeaturedCategories = async (max) => {
+  const q = query(categoriesRef,orderBy('products','desc'),limit(max))
   return await getDocs(q)
 }
