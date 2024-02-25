@@ -42,15 +42,7 @@ export const getUserProducts = ({displayName,email,idUser,phone}) => {
 }
 
 // Funcion para buscar productos
-export const searchProducts = async (toSearch) => {
-  const resp = await getDocs(productsRef)
-  const products = await resp.docs.map(e => ({id: e.id,...e.data()}))
-  return await products.filter(e =>
-    e.name.toLowerCase().includes(toSearch.toLowerCase())
-    ||
-    e.brand.toLowerCase().includes(toSearch.toLowerCase())
-  )
-}
+export const searchProducts = async (toSearch) => await getDocs(query(productsRef, where('title','array-contains-any',toSearch.split(' '))))
 
 // Funcion para borrar producto
 export const deleteProduct = async (product) => await deleteDoc(productRef(product))
