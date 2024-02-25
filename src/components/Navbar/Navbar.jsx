@@ -1,34 +1,27 @@
 import { useScrollActive } from "../../hooks/useScrollActive.jsx"
-import { CartMenu, Logo, NavbarMenu, UserMenu, InputSearch } from "../index.js"
+import { Logo, NavbarCart, NavbarMenu, NavbarSearch } from "../index.js"
 
 export const Navbar = () => {
   const {scrollActive} = useScrollActive()
 
   return (
-    <header className={`navbar ${scrollActive && 'navbar-contract'}`}>
+    <header className={`navbar ${scrollActive && 'navbar-scroll'}`}>
       <div className="navbar-top">
         <div className="navbar-container">
-          <div className="relative w-full h-full flex items-center gap-4">
-            <div className="hidden md:flex">
-              <Logo color='blue' />
-            </div>
-            <div className="grow flex justify-end">
-              <InputSearch />
-            </div>
+          <div className="px-2 hidden lg:flex">
+            <Logo color='blue' />
           </div>
+          <NavbarSearch />
         </div>
       </div>
       <div className="navbar-bottom">
         <div className="navbar-container">
           <NavbarMenu />
-          <div className="flex grow md:hidden">
-            <Logo color='white' />
-          </div>    
-          <div className="h-full flex gap-4">
-            <CartMenu />
-            <UserMenu />
+          <div className="flex grow lg:hidden">
+            <Logo />
           </div>
-        </div>
+          <NavbarCart />
+        </div>      
       </div>
     </header>
   )

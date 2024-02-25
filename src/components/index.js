@@ -1,6 +1,5 @@
 import { App } from "./App/App"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
-import { Navbar, NavbarMenu, CartMenu, UserMenu } from './Navbar/navbar'
 import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink } from './Button/button'
 import { Modal, ProductDetail } from "./Modal/modal"
 import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch, InputProductQty } from "./Form/form"
@@ -15,12 +14,14 @@ import { Footer } from "./Footer/Footer"
 import { CheckoutInformation, CheckoutPayment, CheckoutShipping } from "./Checkout/checkout"
 import { EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts } from "./Profile/profile"
 
+// Navbar
+import { Navbar, NavbarCart, NavbarMenu, NavbarSearch } from './Navbar/navbarComponents'
 // Home
 import { Hero, HomeCategories, HomeOffers } from '../pages/HomePage/components/homeComponents'
 // Image Magnifier
 import { ImageMagnifier } from "./ImageMagnifier/ImageMagnifier"
 // Detail
-import { DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailCTA, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart, DetailAddToWishlist, DetailShare } from '../pages/Detail/components/detailComponents'
+import { DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart, DetailAddToWishlist, DetailShare } from '../pages/Detail/components/detailComponents'
 // Products
 import { ProductsList, ProductsLayout, ProductsSort } from "./Products/productsComponents"
 // Post
@@ -32,8 +33,6 @@ import { RegistrationStepItem } from "../pages/RegistrationPage/components/Regis
 
 export {
   App, Logo, Accordion, Loader, ProtectedRoutes, Element, Main, Footer, Menu,
-  // Navbar
-  Navbar, NavbarMenu, CartMenu, UserMenu,
   // Buttons
   Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink,
   // Cards
@@ -53,12 +52,14 @@ export {
   // Checkout
   CheckoutInformation, CheckoutShipping, CheckoutPayment,
 
+  // Navbar
+  Navbar, NavbarMenu, NavbarCart, NavbarSearch,
   // Home
   Hero, HomeCategories, HomeOffers,
   // Image Magnifier
   ImageMagnifier,
   // Detail
-  DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo,  DetailCTA, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart, DetailAddToWishlist, DetailShare,
+  DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart, DetailAddToWishlist, DetailShare,
   // Products
   ProductsList, ProductsLayout, ProductsSort,
   // Post
