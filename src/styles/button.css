@@ -1,20 +1,22 @@
 /* Buttons */
 .btn {
-  @apply w-full min-w-btn h-btn flex items-center justify-center flex-none rounded-md duration-200 cursor-pointer disabled:cursor-default
+  @apply w-full min-w-btn h-[40px] flex items-center justify-center flex-none rounded-md duration-200 cursor-pointer disabled:cursor-default
+  /* @apply w-full min-w-btn h-btn flex items-center justify-center flex-none rounded-md duration-200 cursor-pointer disabled:cursor-default */
 }
 .btn i {
-  @apply w-8 h-8 flex items-center justify-center
+  @apply w-[40px] h-[40px] flex items-center justify-center
+  /* @apply w-8 h-8 flex items-center justify-center */
 }
 
 /* Button size */
 .btn-s {
-  @apply max-w-btn-s
+  @apply max-w-[40px]
 }
 .btn-m {
-  @apply max-w-btn-m px-2
+  @apply max-w-btn-m px-4
 }
 .btn-l {
-  @apply grow max-w-btn-l px-2
+  @apply grow max-w-btn-l px-4
 }
 
 /* Buttons colors */
@@ -70,25 +72,26 @@
   @apply absolute -bottom-1 -left-1 bg-red-500 w-5 h-5 flex items-center justify-center text-sm font-medium rounded-full
 }
 
-.btn-menu {
-  @apply relative flex flex-col justify-around;
+/* Button Burger */
+.btn-burger {
+  @apply relative flex flex-col justify-around
 }
-.btn-menu span {
-  @apply absolute w-3/5 h-1 block bg-white duration-200 rounded-full;
+.btn-burger span {
+  @apply absolute w-3/5 h-1 block bg-white duration-200 rounded-full
 }
-.btn-menu span:nth-child(1) {
+.btn-burger span:nth-child(1) {
   @apply mb-4;
 }
-.btn-menu span:nth-child(3) {
+.btn-burger span:nth-child(3) {
   @apply mt-4;
 }
-.btn-menu-active span:nth-child(1) {
+.btn-burger-active span:nth-child(1) {
   @apply mb-0 rotate-45;
 }
-.btn-menu-active span:nth-child(2) {
+.btn-burger-active span:nth-child(2) {
   @apply hidden;
 }
-.btn-menu-active span:nth-child(3) {
+.btn-burger-active span:nth-child(3) {
   @apply mt-0 -rotate-45;
 }
 .btn-form {

@@ -1,21 +1,51 @@
-/* NAVBAR */
 .navbar {
-  @apply fixed top-0 left-0 z-40 w-full flex flex-col duration-200
+  @apply sticky top-0 z-30 duration-200
 }
-/* TOP */
+.navbar-scroll {
+  @apply -translate-y-[61px]
+}
 .navbar-top {
-  @apply w-full h-14 bg-white 
+  @apply bg-white text-black
 }
-/* BOTTOM */
 .navbar-bottom {
-  @apply w-full h-14 bg-blue-500
+  @apply bg-blue-500 text-white
 }
-/* CONTRACT */
-.navbar-contract {
-  @apply -translate-y-14
-}
-/* CONTAINER */
 .navbar-container {
-  @apply relative w-full max-w-[1200px] h-full px-2 mx-auto flex justify-between items-center
-  /* @apply relative w-full max-w-screen-2xl h-full px-2 mx-auto flex justify-between items-center */
+  @apply relative w-full max-w-[1200px] h-[60px] pr-2 mx-auto flex items-center gap-2
+}
+
+.navbar-menu{
+  @apply relative h-full flex items-center grow
+}
+
+.navbar-menu-item {
+  @apply px-2 py-1 flex items-center font-medium duration-200 hover:text-yellow-500 md:h-[40px] md:px-3 md:hover:text-white md:hover:bg-blue-600 md:rounded-md
+}
+.navbar-menu-item i {
+  @apply w-[20px] h-[20px] mr-2 flex items-center justify-center flex-none
+}
+
+.navbar-menu-expand {
+  @apply relative h-full flex items-center
+}
+.navbar-menu-expand-button {
+  @apply relative w-[40px] h-[40px] flex items-center justify-center flex-none rounded-md duration-200 hover:bg-blue-600
+}
+.navbar-menu-expand-open {
+  @apply absolute top-full -translate-y-full -z-10 w-[300px] p-2 flex flex-col gap-2 bg-white text-black shadow-md border-x border-b border-gray-300 rounded-b-md duration-200 opacity-0
+}
+.navbar-menu-expand-open.open-left {
+  @apply left-0
+}
+.navbar-menu-expand-open.open-right {
+  @apply right-0
+}
+.navbar-menu-expand:hover .navbar-menu-expand-open {
+  @apply translate-y-0 opacity-100
+}
+.navbar-expand-item {
+  @apply w-max px-2 flex items-center text-sm font-medium hover:text-yellow-500
+}
+.navbar-expand-item i {
+  @apply w-[25px] h-[25px] mr-1 flex items-center justify-center
 }
