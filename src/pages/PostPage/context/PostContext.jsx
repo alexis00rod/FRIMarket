@@ -5,7 +5,7 @@ export const usePostContext = () => useContext(PostContext)
 
 export const PostContextProvider = ({children}) => {
   const [productToPost, setProductToPost] = useState({
-    title: '',
+    title: [],
     images: [],
     category: '',
     type: '',
@@ -33,7 +33,9 @@ export const PostContextProvider = ({children}) => {
   const validateProduct = () => {
     const err = []
 
-    !productToPost.title && err.push('title')
+    if (productToPost.title.length === 0 || (productToPost.title.length === 1 && productToPost.title[0] === '')) {
+      err.push('title')
+    }
 
     setProductToPostError(err)
     return !err.length
@@ -42,7 +44,9 @@ export const PostContextProvider = ({children}) => {
   const validateDetail = () => {
     const err = []
 
-    !productToPost.title && err.push('title')
+    if (productToPost.title.length === 0 || (productToPost.title.length === 1 && productToPost.title[0] === '')) {
+      err.push('title')
+    }
     !productToPost.type && err.push('type')
     !productToPost.description && err.push('description')
     !productToPost.condition && err.push('condition')

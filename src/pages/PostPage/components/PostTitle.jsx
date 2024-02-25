@@ -14,8 +14,8 @@ export const PostTitle = ({label, err}) => {
       id='title'
       name='title'
       size='input-l'
-      value={title}
-      onChange={({target:{value}}) => setProductToPost({...productToPost,title:value})}
+      value={title.join(' ') || ''}
+      onChange={({target:{value}}) => setProductToPost({...productToPost,title:value.split(' ')})}
       />
       {productToPostError.includes('title') &&
         <p className="top-full left-0 absolute w-full pl-2 pt-0.5 flex items-center text-[0.8rem] text-red-500">
