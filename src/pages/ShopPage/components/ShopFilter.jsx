@@ -17,7 +17,7 @@ export const ShopFilter = () => {
 
   return (
     <>
-    <button className="btn btn-m btn-white" onClick={() => setFilterMenu(!filterMenu)}>
+    <button className="w-max h-[40px] px-2 flex items-center gap-2 hover:text-blue-500" onClick={() => setFilterMenu(!filterMenu)}>
       <i className="fa-solid fa-sliders"></i>
       <span className="text-sm font-medium">Filtros</span>
     </button>

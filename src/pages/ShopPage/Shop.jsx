@@ -35,7 +35,7 @@ export const Shop = () => {
     <main className="flex flex-col grow">
       <section className="w-full max-w-[1200px] px-2 py-4 mx-auto flex flex-col gap-4">
         {/* Productos controlador */}
-        <div className="relative w-full px-2 py-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-4 bg-white border border-slate-300 rounded-md">
+        <div className="relative w-full p-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-4 bg-white border border-gray-300 rounded-md">
           {/* Productos filtro */}
           <div className="grow">
             <ShopFilter />
@@ -43,7 +43,7 @@ export const Shop = () => {
           {/* Productos orden */}
           <ProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
           {/* Productos layout */}
-          <div className="absolute top-4 right-2 md:static ">
+          <div className="absolute top-4 right-4 md:static">
             <ProductsLayout size={cardSize} handle={setCardSize} />
           </div>
         </div>
