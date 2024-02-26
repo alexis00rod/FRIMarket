@@ -55,3 +55,12 @@ export const formatCardNumber = (number) => {
 
   return groups.join('-')
 }
+
+export const formatExpirationDate = (expiration) => {
+  const digits = expiration.replace(/\D/g, '').slice(0, 4)
+
+  const month = digits.slice(0, 2)
+  const year = digits.slice(2, 4)
+
+  return `${month}/${year}`
+}
