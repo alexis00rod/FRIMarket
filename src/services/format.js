@@ -64,3 +64,5 @@ export const formatExpirationDate = (expiration) => {
 
   return `${month}/${year}`
 }
+
+export const formatCvv = (code) => code.replace(/\D/g, '').slice(0, 3)
