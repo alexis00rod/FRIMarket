@@ -1,4 +1,3 @@
-import { Cart } from "./Cart/Cart";
 import { Checkout } from "./Checkout/Checkout";
 import { EditProfile } from "./EditProfile/EditProfile";
 import { Login } from "./Login/Login";
@@ -9,6 +8,8 @@ import { Wishlist } from "./Wishlist/Wishlist";
 import { Orders } from "./Orders/Orders";
 import { EnterPass } from "./Login/EnterPass";
 
+// Cart
+import { Cart } from "./CartPage/Cart";
 // Search
 import { Search } from "./SearchPage/Search";
 // Home
@@ -30,7 +31,9 @@ export {
   EditProfile,
   Order,
   Orders,
-  
+
+  // Cart
+
   // Search
   Search,
   // Shop
@@ -40,6 +43,5 @@ export {
   // Registration
   RegistrationSteps, RegistrationEmail, RegistrationName, RegistrationPassword,
   // Login
-  Login,
-  EnterPass
+  Login, EnterPass
 }
