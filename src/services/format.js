@@ -43,3 +43,15 @@ export const formatNumber = (number) => {
 }
 
 export const formatPhone = (phone) => phone.replace(/[^\d]/g, "")
+
+export const formatCardNumber = (number) => {
+  const digits = number.replace(/\D/g, '').slice(0, 16)
+
+  const groups = digits.match(/(\d{1,4})/g)
+
+  if (!groups || groups.length < 2) {
+    return digits
+  }
+
+  return groups.join('-')
+}
