@@ -2,8 +2,8 @@ import { App } from "./App/App"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
 import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink } from './Button/button'
 import { Modal, ProductDetail } from "./Modal/modal"
-import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch, InputProductQty } from "./Form/form"
-import { ProductCard, CategoryCard, CartProductCard, ReviewCard } from "./Card/card"
+import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch } from "./Form/form"
+import { ProductCard, ReviewCard } from "./Card/card"
 import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProductsSort, SelectProvince, SelectSearch, SelectReviewsSort, SelectOrderSort } from "./Select/select"
 import { Logo } from "./Logo/Logo"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
@@ -14,6 +14,8 @@ import { Footer } from "./Footer/Footer"
 import { CheckoutInformation, CheckoutPayment, CheckoutShipping } from "./Checkout/checkout"
 import { EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts } from "./Profile/profile"
 
+// Cart
+import { CartItem } from "../pages/CartPage/components/cartComponents"
 // Navbar
 import { Navbar, NavbarCart, NavbarMenu, NavbarSearch } from './Navbar/navbarComponents'
 // Home
@@ -36,11 +38,11 @@ export {
   // Buttons
   Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink,
   // Cards
-  ProductCard, CategoryCard, CartProductCard, ReviewCard,
+  ProductCard, ReviewCard,
   // Select
   Select, SelectItem, SelectProvince, SelectProductsSort, SelectCity, SelectSearch, SelectProductBrand, SelectAddItem, SelectProductType, SelectReviewsSort, SelectOrderSort,
   // Form
-  InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch, InputProductQty,
+  InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch,
   // Modal
   Modal, ProductDetail,
   // Slider
@@ -52,6 +54,8 @@ export {
   // Checkout
   CheckoutInformation, CheckoutShipping, CheckoutPayment,
 
+  // Cart
+  CartItem,
   // Navbar
   Navbar, NavbarMenu, NavbarCart, NavbarSearch,
   // Home
