@@ -2,13 +2,12 @@ import { addDoc, getDoc, getDocs, orderBy, query, serverTimestamp } from "fireba
 import { orderRef, ordersRef } from "./firestore"
 
 // Funcion para realizar compra
-export const addOrder = async (order) => {
-  const {user:{email}} = order
-  const orderID = await addDoc(ordersRef(email),{
+export const addOrder = async (user,order) => {
+  const orderDoc = await addDoc(ordersRef(user),{
     ...order,
     date: serverTimestamp()
-  })
-  return orderID.id
+  }) 
+  return orderDoc.id 
 }
 
 // Funcion para obtener orden
