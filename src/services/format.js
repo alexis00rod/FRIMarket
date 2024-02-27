@@ -66,3 +66,5 @@ export const formatExpirationDate = (expiration) => {
 }
 
 export const formatCvv = (code) => code.replace(/\D/g, '').slice(0, 3)
+
+export const formatHideCardNumber = (number) => `****-****-****-${number.slice(-4)}`
