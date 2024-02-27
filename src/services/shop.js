@@ -17,14 +17,13 @@ export const getProducts = async (filters) => {
 }
 
 // Funcion para actualizar producto
-export const updateProduct = (products) => {
-  products.forEach(async e => {
-    const {id, qty, stock, sales} = e
-    return await updateDoc(productRef(id),{
-      sales: sales ? sales + qty : qty,
-      stock: stock - qty
-    })
-  })
+export const updateProduct = async (products) => {
+  for (const product of products) {
+    await updateDoc(productRef(product.id), {
+      sales: product.sales ? parseInt(product.sales) + 1 : 1,
+      stock: parseInt(product.stock) - product.qty
+    });
+  }
 }
 
 // Funcion para obtener detalles del producto
