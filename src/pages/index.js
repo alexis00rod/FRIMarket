@@ -1,4 +1,3 @@
-import { Checkout } from "./Checkout/Checkout";
 import { EditProfile } from "./EditProfile/EditProfile";
 import { Login } from "./Login/Login";
 import { Order } from "./Order/Order";
@@ -8,6 +7,8 @@ import { Wishlist } from "./Wishlist/Wishlist";
 import { Orders } from "./Orders/Orders";
 import { EnterPass } from "./Login/EnterPass";
 
+// Checkout
+import { Checkout, CheckoutConfirm, CheckoutOrder, CheckoutPayment, CheckoutShipping, CheckoutUser } from "./CheckoutPage/checkout";
 // Cart
 import { Cart } from "./CartPage/Cart";
 // Search
@@ -22,20 +23,21 @@ import { PostProduct, PostCategoryForm, PostDetailsForm, PostSaleForm, PostConta
 import { Shop } from "./ShopPage/Shop";
 
 export {
-  Home,
   Detail,
-  Cart,
   Profile,
   Wishlist,
-  Checkout,
   EditProfile,
   Order,
   Orders,
-
+  
+  // Checkout
+  Checkout, CheckoutShipping, CheckoutUser, CheckoutPayment, CheckoutConfirm, CheckoutOrder,
   // Cart
-
+  Cart,
   // Search
   Search,
+  // Home
+  Home,
   // Shop
   Shop,
   // Post
