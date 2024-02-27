@@ -11,9 +11,10 @@ import { Accordion } from "./Accordion/Accordion"
 import { Slider } from "./Slider/slider"
 import { Element, Loader, Main, Menu } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
-import { CheckoutInformation, CheckoutPayment, CheckoutShipping } from "./Checkout/checkout"
 import { EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts } from "./Profile/profile"
 
+// Checkout
+import { CheckoutAddress, CheckoutCard, CheckoutEmail, CheckoutLocation, CheckoutName, CheckoutPhone } from "../pages/CheckoutPage/components/checkoutComponents"
 // Cart
 import { CartItem } from "../pages/CartPage/components/cartComponents"
 // Navbar
@@ -51,9 +52,9 @@ export {
   Breadcrumb, BreadcrumbLink,
   // Profile
   EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts,
-  // Checkout
-  CheckoutInformation, CheckoutShipping, CheckoutPayment,
 
+  // Checkout
+  CheckoutEmail, CheckoutName, CheckoutPhone, CheckoutLocation, CheckoutAddress, CheckoutCard,
   // Cart
   CartItem,
   // Navbar
