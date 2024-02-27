@@ -8,7 +8,7 @@ export const PostShipping = () => {
     <div className="mt-6 mb-1.5">
       <h3 className="py-3 text-lg font-medium">Método de envío:</h3>
       <div className="relative">
-        {[{id:'free',label:'Envío gratis',cost:0},{id:'standar',label:'Envío standar',cost:1500}].map(e => (
+        {[{id:'free',label:'Envío gratis'},{id:'standard',label:'Envío standar'}].map(e => (
             <div key={e.id} className="relative flex items-center">
               <input 
               type="radio" 

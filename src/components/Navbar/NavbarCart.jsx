@@ -20,7 +20,7 @@ export const NavbarCart = () => {
                 <img src={e.images[0].url} alt={e.images[0].name} className="w-[50px] h-[50px] flex flex-none object-cover border border-gray-300 rounded-md" />
                 <div className="ml-2 flex flex-col grow">
                   <h4 className="w-full text-sm font-medium line-clamp-1">{e.title.join(' ')}</h4>
-                  <p className="text-sm text-gray-700"><span className="text-yellow-500">${formatPrice(e.price)}</span> x <span>${e.qty}</span></p>
+                  <p className="text-sm text-gray-700"><span className="text-yellow-500">${formatPrice(e.price)}</span> x <span>{e.qty}</span></p>
                 </div>
                 <button 
                 className="ml-2 w-[20px] h-[20px] flex items-center justify-center flex-none text-red-500 duration-200 hover:text-red-600" 
@@ -32,7 +32,7 @@ export const NavbarCart = () => {
             ))}
             <div className="w-full p-2 flex flex-col items-center gap-2 border-t border-gray-300">
               <p className="flex items-center gap-2 font-medium">
-                Subtotal: <span className="text-yellow-500">${cartPriceTotal}</span>
+                Subtotal: <span className="text-yellow-500">${formatPrice(cartPriceTotal)}</span>
               </p>
               <Link 
               to='/cart' 

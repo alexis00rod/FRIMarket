@@ -15,7 +15,7 @@ export const Cart = () => {
         ? <p className="w-full p-4 flex justify-center text-center">Tu carrito esta vacio</p>
         : <div className="flex flex-col lg:flex-row gap-4">
             {/* Lista de productos */}
-            <div className="p-4 flex flex-col grow border border-gray-300 divide-y divide-gray-300 rounded-md">
+            <div className="p-4 flex flex-col grow border bg-white border-gray-300 divide-y divide-gray-300 rounded-md">
               {cartList.map(e => <CartItem key={e.id} product={e} />)}
             </div>
             {/* Carrito orden */}

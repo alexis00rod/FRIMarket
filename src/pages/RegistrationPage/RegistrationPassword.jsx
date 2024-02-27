@@ -52,7 +52,7 @@ export const RegistrationPassword = () => {
               role="status">
             </div>
           </div>
-        : <section className={`w-full md:max-w-[26rem] mx-auto md:mt-12 px-6 md:px-12 md:py-12 flex flex-col grow md:grow-0 bg-white md:border md:border-slate-300 md:rounded-md ${validateLoader && 'md:h-[26rem] items-center justify-center '}`}>
+        : <section className={`w-full md:max-w-[26rem] mx-auto md:mt-12 px-6 md:px-12 md:py-12 flex flex-col grow md:grow-0 bg-white md:border md:border-slate-300 md:rounded-md ${validateLoader && 'md:h-[26rem] items-center justify-center'}`}>
             {!validateLoader &&
             <>
               <h2 className="mt-6 md:mt-0 text-2xl font-medium">Creá tu contraseña</h2>
