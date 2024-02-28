@@ -1,4 +1,4 @@
-import { Hero, HomeCategories, HomeOffers } from "../../components"
+import { Hero, HomeCategories, HomeFeaturedProducts, HomeOffers } from "../../components"
 
 export const Home = () => {
   return (
@@ -7,6 +7,7 @@ export const Home = () => {
         <Hero />
         <HomeCategories />
         <HomeOffers />
+        <HomeFeaturedProducts />
       </section>
     </main>
   )
