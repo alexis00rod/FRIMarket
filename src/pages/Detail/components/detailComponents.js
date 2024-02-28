@@ -6,7 +6,6 @@ import { DetailImages } from "./DetailImages";
 import { DetailPrice } from "./DetailPrice";
 import { DetailReviews } from "./DetailReviews";
 import { DetailSeller } from "./DetailSeller";
-import { DetailShare } from "./DetailShare";
 import { DetailSimiliarProducts } from "./DetailSimiliarProducts";
 import { DetailTitle } from "./DetailTitle";
 import { EditProduct } from "./EditProduct";
@@ -23,5 +22,4 @@ export {
   DetailReviews,
   DetailSimiliarProducts,
   DetailAddToCart,
-  DetailShare
 }

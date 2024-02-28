@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductDetail } from '../../services/shop.js'
-import { Breadcrumb, BreadcrumbLink, DetailDescription, DetailImages, DetailTitle, Loader, DetailReviews, DetailSimiliarProducts, DetailAdditionalInfo, DetailPrice, DetailSeller, DetailCategory, DetailAddToCart, DetailShare, BtnAddWishlist } from '../../components'
+import { Breadcrumb, BreadcrumbLink, DetailDescription, DetailImages, DetailTitle, Loader, DetailReviews, DetailSimiliarProducts, DetailAdditionalInfo, DetailPrice, DetailSeller, DetailCategory, DetailAddToCart, BtnAddWishlist, BtnShare } from '../../components'
 import moment from "moment"
 
 export const Detail = () => {
@@ -19,7 +19,7 @@ export const Detail = () => {
   return (
     <main className="flex flex-col grow">
       <Breadcrumb>
-        <BreadcrumbLink name={title} to={`/product/${id}`} />
+        <BreadcrumbLink name={title.join(' ')} to={`/product/${id}`} />
       </Breadcrumb>
       <section className='w-full max-w-[1200px] px-2 py-4 mx-auto flex flex-col gap-4'>
         <div className='w-full flex flex-col lg:flex-row lg:items-start gap-4'>
@@ -39,7 +39,7 @@ export const Detail = () => {
             {/* Agregar a favorito */}
             <BtnAddWishlist product={productDetail} />
             {/* Compartir */}
-            <DetailShare />
+            <BtnShare />
           </div>
         </div>
         <div className="w-full p-4 flex flex-col bg-white border border-slate-300 rounded-md">

@@ -1,10 +1,11 @@
 import { EditProfile } from "./EditProfile/EditProfile";
 import { Login } from "./Login/Login";
 import { Detail } from "./Detail/Detail";
-import { Profile } from "./Profile/Profile";
 import { Orders } from "./Orders/Orders";
 import { EnterPass } from "./Login/EnterPass";
 
+// Profile
+import { Profile } from "./ProfilePage/Profile";
 // Wishlist
 import { Wishlist } from "./WishlistPage/Wishlist";
 // Checkout
@@ -24,10 +25,11 @@ import { Shop } from "./ShopPage/Shop";
 
 export {
   Detail,
-  Profile,
   EditProfile,
   Orders,
   
+  // Profile
+  Profile,
   // Wishlist
   Wishlist,
   // Checkout
