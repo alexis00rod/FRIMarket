@@ -1,35 +1,34 @@
 import { useEffect, useState } from 'react'
 import { useAuthContext } from '../../context/AuthContext/AuthContext'
 import { addProductWishlist, getProductInWishlist, removeProductWishlist } from '../../services/wishlist'
-import { Button } from '../index.js'
+import { useNavigate } from 'react-router-dom'
 
-export const BtnAddWishlist = ({product,size}) => {
+export const BtnAddWishlist = ({product,small}) => {
   const {userLogged} = useAuthContext()
   const [productInWishlist, setProductInWishlist] = useState(false)
+  const navigate = useNavigate()
 
   useEffect(() => {
-    userLogged &&
-      getProductInWishlist(userLogged,product,setProductInWishlist)
-  },[userLogged,product])
+    userLogged && getProductInWishlist(userLogged,product,setProductInWishlist)
+  },[userLogged, product])
 
-  const handleAddWishlist = e => {
-    e.preventDefault()
-    productInWishlist
-    ? removeProductWishlist(userLogged, product)
-    : addProductWishlist(userLogged, product)
+  const submitAddToWishlist = () => {
+    if(!userLogged) {
+      navigate('/login')
+    } else {
+      productInWishlist
+      ? removeProductWishlist(userLogged, product)
+      : addProductWishlist(userLogged, product)
+    }
   }
 
-  if(!userLogged) return
-
+  const buttonText = productInWishlist ? 'Eliminar de favoritos' : 'Agregar a favoritos'
+  const buttonIcon = productInWishlist ? 'heart-crack' : 'heart'
+  
   return (
-    <Button
-    icon={productInWishlist ? 'heart-crack' : 'heart'}
-    color={size !== 'btn-s' ? 'btn-text-red' : 'btn-red'}
-    size={size}
-    title={productInWishlist ? 'Borrar de favoritos' : 'Agregar a favoritos'}
-    onClick={handleAddWishlist}
-    >
-      {size !== 'btn-s' && <span className='text-sm font-medium'>{productInWishlist ? 'Borrar de favoritos' : 'Agregar a favoritos'}</span>}
-    </Button>
+    <button className={small ? 'btn-wishlist-small' : 'btn-wishlist'} title={buttonText} onClick={submitAddToWishlist}>
+      <i className={`fa-solid fa-${buttonIcon}`}></i>
+      {!small && <span>{buttonText}</span>}
+    </button>
   )
 }

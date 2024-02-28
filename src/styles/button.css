@@ -1,16 +1,18 @@
 /* Buttons */
 .btn {
-  @apply w-full min-w-btn h-[40px] flex items-center justify-center flex-none rounded-md duration-200 cursor-pointer disabled:cursor-default
-  /* @apply w-full min-w-btn h-btn flex items-center justify-center flex-none rounded-md duration-200 cursor-pointer disabled:cursor-default */
+  @apply w-full min-w-btn h-[35px] flex items-center justify-center flex-none rounded-md duration-200 cursor-pointer disabled:cursor-default
 }
 .btn i {
   @apply w-[40px] h-[40px] flex items-center justify-center
   /* @apply w-8 h-8 flex items-center justify-center */
 }
+.btn span {
+  @apply text-sm font-medium
+}
 
 /* Button size */
 .btn-s {
-  @apply max-w-[40px]
+  @apply max-w-[35px]
 }
 .btn-m {
   @apply max-w-btn-m px-4
@@ -48,7 +50,7 @@
   @apply text-blue-500 hover:text-blue-600/90 hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/10
 }
 .btn-text-red {
-  @apply text-red-500 hover:text-red-600/90
+  @apply text-red-500 hover:text-red-700
 }
 .btn-text-yellow {
   @apply text-yellow-500 hover:text-yellow-600/90
@@ -105,4 +107,23 @@
 } 
 .btn-hero-right {
   @apply right-4
+}
+
+/* Boton para agregar producto a favorito */
+.btn-wishlist-small {
+  @apply absolute top-2 left-2 btn btn-s btn-text-red
+}
+.btn-wishlist-small i {
+  @apply text-xl
+}
+@media (min-width: 1025px) {
+  .btn-wishlist-small {
+    @apply hidden
+  }
+  .productCard:hover .btn-wishlist-small {
+    @apply btn
+  }
+}
+.btn-wishlist {
+  @apply btn btn-m btn-red
 }
