@@ -7,7 +7,8 @@ import 'swiper/css/pagination'
 
 export const DetailImages = ({images}) => {
   const [imageSelected, setImageSelected] = useState(images[0])
-  const [currentSlide, setCurrentSlide] = useState(1);
+  const [currentSlide, setCurrentSlide] = useState(1)
+  
   return (
     <div className="w-full p-2 flex bg-white border border-slate-300 rounded-md">
       {/* Lista images mobile */}
@@ -47,12 +48,12 @@ export const DetailImages = ({images}) => {
             >
               {i === 4
               ? <>
-                  <img src={img.url} alt="" className="w-full h-full object-cover"/>
+                  <img src={img.url} alt={img.name} className="w-full h-full object-cover"/>
                   <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-white/80">
                     <span className="font-medium text-3xl text-blue-500">+ {images.length - 4}</span>
                   </div>
                 </>
-              : <img src={img.url} alt="" className="w-full h-full object-cover"/>}
+              : <img src={img.url} alt={img.name} className="w-full h-full object-cover"/>}
             </figure>
           ))}
         </div>
