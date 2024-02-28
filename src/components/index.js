@@ -21,7 +21,7 @@ import { CartItem } from "../pages/CartPage/components/cartComponents"
 // Navbar
 import { Navbar, NavbarCart, NavbarMenu, NavbarSearch } from './Navbar/navbarComponents'
 // Home
-import { Hero, HomeCategories, HomeFeaturedProducts, HomeOffers } from '../pages/HomePage/components/homeComponents'
+import { Hero, HomeCategories, HomeFeaturedProducts, HomeOffers, HomeWishlist } from '../pages/HomePage/components/homeComponents'
 // Image Magnifier
 import { ImageMagnifier } from "./ImageMagnifier/ImageMagnifier"
 // Detail
@@ -65,7 +65,7 @@ export {
   // Navbar
   Navbar, NavbarMenu, NavbarCart, NavbarSearch,
   // Home
-  Hero, HomeCategories, HomeOffers, HomeFeaturedProducts,
+  Hero, HomeCategories, HomeOffers, HomeFeaturedProducts, HomeWishlist,
   // Image Magnifier
   ImageMagnifier,
   // Detail
