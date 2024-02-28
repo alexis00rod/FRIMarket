@@ -62,6 +62,10 @@ export const getProductsOffer = async (max) => {
   return getDocs(query(productsRef,limit(max)))
 }
 
+export const getFeaturedProducts = async (max) => {
+  return getDocs(query(productsRef,limit(max)))
+}
+
 // Funcion para obtener productos similares de un producto
 export const getSimilarProducts = async (product) => {
   const { id, type } = product
