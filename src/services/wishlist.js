@@ -2,9 +2,17 @@ import { deleteDoc, getDocs, onSnapshot, setDoc } from 'firebase/firestore'
 import { wishlistDocRef, wishlistRef } from "./firestore";
 
 // Funcion para obtener lista de favoritos
-// Agregar onSnapshot para detectar actualizacion en tiempo real
-export const getWishlist = async ({email}) => await getDocs(wishlistRef(email))
-
+export const getWishlist = async (user,obs) => {
+  const {email} = user
+  onSnapshot(wishlistRef(email), (
+    snap => {
+      obs(snap.docs.map(e => ({
+        id: e.id,
+        ...e.data()
+      })))
+    }
+  ))
+}
 
 // Funcion para agregar producto a favoritos
 export const addProductWishlist = async (user,product) => {
