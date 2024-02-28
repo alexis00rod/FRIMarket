@@ -3,7 +3,7 @@ import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
 import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink } from './Button/button'
 import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch } from "./Form/form"
 import { ReviewCard } from "./Card/card"
-import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProductsSort, SelectProvince, SelectSearch, SelectReviewsSort, SelectOrderSort } from "./Select/select"
+import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProvince, SelectSearch, SelectReviewsSort } from "./Select/select"
 import { Logo } from "./Logo/Logo"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
 import { Element, Loader, Main, Menu } from './Layout/layout'
@@ -34,6 +34,8 @@ import { PostBrand, PostCategory, PostChangeCategory, PostCondition, PostDescrip
 import { ShopFilter } from '../pages/ShopPage/components/shopComponents'
 // Registration
 import { RegistrationStepItem } from "../pages/RegistrationPage/components/RegistrationStepItem"
+// Orders
+import { OrderItem, OrdersSort } from "../pages/Orders/components/ordersComponents"
 
 export {
   App, Logo, Loader, ProtectedRoutes, Element, Main, Footer, Menu,
@@ -42,7 +44,7 @@ export {
   // Cards
   ReviewCard,
   // Select
-  Select, SelectItem, SelectProvince, SelectProductsSort, SelectCity, SelectSearch, SelectProductBrand, SelectAddItem, SelectProductType, SelectReviewsSort, SelectOrderSort,
+  Select, SelectItem, SelectProvince, SelectCity, SelectSearch, SelectProductBrand, SelectAddItem, SelectProductType, SelectReviewsSort,
   // Form
   InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch,
   // Breadcrumb
@@ -50,6 +52,8 @@ export {
   // Profile
   EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts,
 
+  // Orders
+  OrderItem, OrdersSort,
   // Accordion
   Accordion,
   // Modal
