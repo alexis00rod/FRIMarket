@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useShopContext } from "../context/ShopContext.jsx"
-import { Accordion, Loader, Modal } from "../../../components/index.js"
+import { Accordion, Loader, Modal, ShopPriceRange } from "../../../components/index.js"
 import { useCategories } from "../../../hooks/useCategories.jsx"
 import { useLocations } from "../../../hooks/useLocations.jsx"
 
@@ -74,8 +74,8 @@ export const ShopFilter = () => {
                     defaultValue={location.idProvince}
                     checked={filters.location === location.idProvince}
                     onChange={({target:{id}}) => setFilters({...filters, location:id})}
-                    className="hidden"
                     onClick={({target:{checked}}) => checked && setFilters({...filters, location: ''})}
+                    className="hidden"
                     />
                     <label htmlFor={location.idProvince} className={`px-1 capitalize hover:text-yellow-500 cursor-pointer ${location.idProvince === filters.location && ' text-yellow-500 font-medium'}`}>
                       {location.nameProvince}
@@ -84,28 +84,9 @@ export const ShopFilter = () => {
                 )}
               </Accordion>}
             {/* Precio */}
-            {/* <Accordion title='Precio' open={false}>
-              <div className="flex flex-col gap-2">
-                <span className="text-sm">Escoge un rango</span>
-                <div className="flex items-center ">
-                  <input 
-                  type="text"
-                  name="minPrice"
-                  onChange={handleFilter}
-                  // onChange={handlePrice}
-                  className="w-2/5 h-8 px-2 flex flex-none border border-gray-300 outline-none rounded-md"
-                  placeholder="min." />
-                  <span className="w-1/5 flex justify-center">a</span>
-                  <input 
-                  type="text"
-                  name="maxPrice"
-                  onChange={handleFilter}
-                  // onChange={handlePrice}
-                  className="w-2/5 h-8 px-2 flex flex-none border border-gray-300 outline-none rounded-md"
-                  placeholder="max." />
-                </div>
-              </div>
-            </Accordion> */}
+            <Accordion title='Precio' open={false}>
+              <ShopPriceRange />
+            </Accordion>
           </div>
           {/* Limpiar filtro */}
           <button onClick={cleanFilters} className="btn btn-blue btn-l">
