@@ -29,7 +29,7 @@
   @apply box-header flex items-center
 }
 .modal-header h3 {
-  @apply grow text-lg font-medium
+  @apply grow text-lg font-medium capitalize line-clamp-1
 }
 
 /* BODY */
