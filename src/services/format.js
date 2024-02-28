@@ -1,3 +1,10 @@
+import dayjs from 'dayjs'
+import 'dayjs/locale/es'
+import relativeTime from 'dayjs/plugin/relativeTime'
+
+dayjs.extend(relativeTime)
+dayjs.locale("es")
+
 export const generateDisplayName = (user) => {
   const {name, lastName} = user
 
@@ -68,3 +75,5 @@ export const formatExpirationDate = (expiration) => {
 export const formatCvv = (code) => code.replace(/\D/g, '').slice(0, 3)
 
 export const formatHideCardNumber = (number) => `****-****-****-${number.slice(-4)}`
+
+export const formatDateFromNow = (date) => dayjs(date.toDate()).fromNow()

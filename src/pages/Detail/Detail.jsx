@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getProductDetail } from '../../services/shop.js'
+import { formatDateFromNow } from '../../services/format.js'
 import { Breadcrumb, BreadcrumbLink, DetailDescription, DetailImages, DetailTitle, Loader, DetailReviews, DetailSimiliarProducts, DetailAdditionalInfo, DetailPrice, DetailSeller, DetailCategory, DetailAddToCart, BtnAddWishlist, BtnShare } from '../../components'
-import moment from "moment"
 
 export const Detail = () => {
   const {idDetail} = useParams()
@@ -47,16 +47,16 @@ export const Detail = () => {
           <div className="px-2 flex flex-col">
             {/* Descripcion */}
             <DetailDescription description={description} />
+            {/* Stock */}
+            <DetailAdditionalInfo title='Disponibilidad' info={stock} />
             {/* Marca */}
             <DetailAdditionalInfo title='Marca' info={brand} />
-            {/* Stock */}
-            <DetailAdditionalInfo title='Stock' info={stock} />
             {/* Condicion */}
             <DetailAdditionalInfo title='Condición' info={condition} />
             {/* Ubicacion */}
             <DetailAdditionalInfo title='Ubicación' info={`${province.name}, ${city.name}`} />
-            {/* Precio */}
-            <DetailAdditionalInfo title='Precio' info={moment(date.toDate()).fromNow()} />
+            {/* Fecha de publicacion */}
+            <DetailAdditionalInfo title='Fecha de publicacíon' info={date && formatDateFromNow(date)} />
             {/* Usuario */}
             <DetailAdditionalInfo title='Publicado por' info={name} />
           </div>

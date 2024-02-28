@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import { formatPrice } from '../../services/format.js'
+import { formatDateFromNow, formatPrice } from '../../services/format.js'
 import { BtnAddWishlist } from '../index.js'
-import moment from 'moment'
 
 export const ProductCard = ({content, size}) => {
   const {id,title,images,brand,price,description,user,date,stock} = content
@@ -46,7 +45,7 @@ export const ProductCard = ({content, size}) => {
         {/* Ubicacion y fecha de publicacion */}
         <div className="w-full flex flex-col md:flex-row md:justify-between">
           <span className='productCard-location'>{user.province.name}</span>
-          <span className='productCard-date'>{date && moment(date.toDate()).fromNow()}</span>
+          <span className='productCard-date'>{date && formatDateFromNow(date)}</span>
         </div>
         {/* Stock */}
         {size === 'm' &&
