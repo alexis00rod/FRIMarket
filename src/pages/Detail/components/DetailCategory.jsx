@@ -8,10 +8,10 @@ export const DetailCategory = ({category,type}) => {
 
   if(productCategory) {
     return (
-      <div className="flex items-center px-2">
-        <Link to={`/shop/${productCategory.idCategory}`} className='text-sm hover:text-yellow-500'>{productCategory.name}</Link>
+      <div className="flex flex-wrap px-2">
+        <Link to={`/shop/${productCategory.idCategory}`} className='w-max text-sm hover:text-yellow-500'>{productCategory.name}</Link>
         <span className='ml-[2px] mr-[5px]'>,</span>
-        <Link to={`/shop/${productCategory.idCategory}/${type}`} className='text-sm hover:text-yellow-500'>{type}</Link>
+        <Link to={`/shop/${productCategory.idCategory}/${type}`} className='w-max text-sm hover:text-yellow-500'>{type}</Link>
       </div> 
     )
   }
