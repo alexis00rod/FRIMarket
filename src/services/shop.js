@@ -34,11 +34,7 @@ export const getProductDetail = (id,obs) => {
 }
 
 // Funcion para obtener publicaciones de un usuario
-export const getUserProducts = ({displayName,email,idUser,phone}) => {
-  const userDoc = {displayName,email,idUser,phone}
-  const q = query(productsRef,where('user','==',userDoc))
-  return getDocs(q)
-}
+export const getUserProducts = async (user) => await getDocs(query(productsRef,where('user.email','==',user)))
 
 // Funcion para buscar productos
 export const searchProducts = async (toSearch) => await getDocs(query(productsRef, where('title','array-contains-any',toSearch.split(' '))))
