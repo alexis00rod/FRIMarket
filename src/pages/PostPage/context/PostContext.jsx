@@ -1,39 +1,23 @@
-import {useState, createContext, useContext} from 'react'
+import {useState, createContext, useContext, useEffect} from 'react'
 
 const PostContext = createContext()
 export const usePostContext = () => useContext(PostContext)
 
 export const PostContextProvider = ({children}) => {
-  const [productToPost, setProductToPost] = useState({
-    title: [],
-    images: [],
-    category: '',
-    type: '',
-    brand: '',
-    condition: '',
-    stock: '',
-    price: '',
-    shipping: '',
-    user: {
-      name: '',
-      email: '',
-      province: {
-        id: '',
-        name: ''
-      },
-      city: {
-        id: '',
-        name: ''
-      },
-      phone: ''
-    }
-  })
+  const [productToPost, setProductToPost] = useState(() => {
+    const storedProductToPost = localStorage.getItem('productToPost')
+    return storedProductToPost ? JSON.parse(storedProductToPost) : {}})
+
+  useEffect(() => {
+    localStorage.setItem('productToPost', JSON.stringify(productToPost))
+  },[productToPost])
+
   const [productToPostError, setProductToPostError] = useState([])
 
   const validateProduct = () => {
     const err = []
 
-    if (productToPost.title.length === 0 || (productToPost.title.length === 1 && productToPost.title[0] === '')) {
+    if (!productToPost || !productToPost.title || productToPost.title.length === 0 || (productToPost.title.length === 1 && productToPost.title[0] === '')) {
       err.push('title')
     }
 

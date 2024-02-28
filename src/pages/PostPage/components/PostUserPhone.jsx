@@ -4,7 +4,7 @@ import { formatPhone } from "../../../services/format"
 
 export const PostUserPhone = () => {
   const {productToPost, setProductToPost, productToPostError} = usePostContext()
-  const {user:{phone}} = productToPost
+
   return (
     <div className="mt-6 mb-1.5">
       <h3 className="py-3 text-lg font-medium">Número de contacto</h3>
@@ -12,7 +12,7 @@ export const PostUserPhone = () => {
         <InputText 
         name='phone'
         id='phone'
-        value={phone || ''}
+        value={productToPost.user?.phone || ''}
         onChange={({target:{value}}) => setProductToPost({...productToPost,user:{...productToPost.user,phone:formatPhone(value)}})}
         />
         {productToPostError.includes('phone')  &&

@@ -8,17 +8,17 @@ export const PostCondition = () => {
     <div className="mt-6 mb-1.5">
       <h3 className="py-3 text-lg font-medium">Estado del Producto:</h3>
       <div className="relative">
-        {[{id:'new',label:'Nuevo'},{id:'used',label:'Usado'},{id:'reconditioned',label:'Reacondicionado'}].map(e => (
-          <div key={e.id} className="relative flex items-center">
+        {['Nuevo','Usado','Reacondicionado'].map((option,i ) => (
+          <div key={i} className="relative flex items-center">
             <input 
             type="radio" 
             name="condition" 
-            id={e.id}
-            checked={condition === e.id}
+            id={option}
+            checked={condition === option}
             onChange={({target:{id}}) => setProductToPost({...productToPost,condition:id})}
             className="absolute top-1/2 left-2 -translate-y-1/2 cursor-pointer"
             />
-            <label htmlFor={e.id} className="pl-6 cursor-pointer">{e.label}</label>
+            <label htmlFor={option} className="pl-6 cursor-pointer">{option}</label>
           </div>
         ))}
         {productToPostError.includes('condition')  &&

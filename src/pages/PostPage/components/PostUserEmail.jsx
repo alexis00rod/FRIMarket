@@ -3,7 +3,6 @@ import { InputText } from "../../../components"
 
 export const PostUserEmail = () => {
   const {productToPost, setProductToPost, productToPostError} = usePostContext()
-  const {user:{email}} = productToPost
 
   return (
     <div className="mt-6 mb-1.5">
@@ -12,7 +11,7 @@ export const PostUserEmail = () => {
         <InputText 
         name='email'
         id='email'
-        value={email || ''}
+        value={productToPost.user?.email || ''}
         onChange={({target:{value}}) => setProductToPost({...productToPost,user:{...productToPost.user,email:value}})}
         />
         {productToPostError.includes('email')  &&

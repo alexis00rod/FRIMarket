@@ -6,7 +6,7 @@ export const PostPrice = () => {
   const {productToPost, setProductToPost, productToPostError} = usePostContext()
   const {price} = productToPost
 
-  const [formattedPrice, setFormattedPrice] = useState(formatPrice(price) || '')
+  const [formattedPrice, setFormattedPrice] = useState(price ? formatPrice(price) : '')
 
   const handlePrice = ({target: {value}}) => {
     setFormattedPrice(formatPrice(value))

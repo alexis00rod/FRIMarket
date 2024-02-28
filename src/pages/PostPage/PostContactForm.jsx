@@ -18,9 +18,10 @@ export const PostContactForm = () => {
     if(validate) {
       try {
         await addProduct(productToPost)
+        setProductToPost({})
         navigate('/')
       } catch(err) {
-        console.log(err)
+        alert(err)
       }
     }
   }

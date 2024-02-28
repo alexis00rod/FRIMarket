@@ -3,7 +3,6 @@ import { InputText } from '../../../components/'
 
 export const PostTitle = ({label, err}) => {
   const {productToPost, setProductToPost,productToPostError} = usePostContext()
-  const {title} = productToPost
 
   return (
     <div className="relative mt-6 mb-1.5">
@@ -14,7 +13,7 @@ export const PostTitle = ({label, err}) => {
       id='title'
       name='title'
       size='input-l'
-      value={title.join(' ') || ''}
+      value={productToPost.title ? productToPost.title.join(' ') : ''}
       onChange={({target:{value}}) => setProductToPost({...productToPost,title:value.split(' ')})}
       />
       {productToPostError.includes('title') &&

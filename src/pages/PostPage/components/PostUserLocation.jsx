@@ -3,7 +3,6 @@ import { Select, SelectItem } from "../../../components"
 
 export const PostUserLocation = ({locations}) => {
   const {productToPost, setProductToPost, productToPostError} = usePostContext()
-  const {user:{province,city}} = productToPost
 
   return (
     <div className="mt-6 mb-1.5">
@@ -13,23 +12,23 @@ export const PostUserLocation = ({locations}) => {
           {locations && 
             <>
               <Select
-              selected={province.name || ''}
+              selected={productToPost?.user?.province?.name || ''}
               >
                 {locations.map(province => 
-                <SelectItem
-                key={province.idProvince}
-                name='province'
-                id={province.nameProvince}
-                onChange={() => setProductToPost({...productToPost,user:{...productToPost.user, province:{id: province.idProvince, name: province.nameProvince}, city: {}}})}
-                >
-                  {province.nameProvince}
-                </SelectItem>)}
+                  <SelectItem
+                  key={province.idProvince}
+                  name='province'
+                  id={province.nameProvince}
+                  onChange={() => setProductToPost({...productToPost,user:{...productToPost.user, province:{id: province.idProvince, name: province.nameProvince}, city: {}}})}
+                  >
+                    {province.nameProvince}
+                  </SelectItem>)} 
               </Select>
-              {province.id &&
+              {productToPost?.user?.province?.id &&
                 <Select
-                selected={city.name || ''}
+                selected={productToPost?.user?.city?.name || ''}
                 >
-                  {locations.find(e => e.idProvince === province.id).cities.map(city =>
+                  {locations.find(e => e.idProvince === productToPost.user.province.id).cities.map(city =>
                     <SelectItem
                     key={city.idCity}
                     name='city'
