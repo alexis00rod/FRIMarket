@@ -8,8 +8,9 @@ import { Logo } from "./Logo/Logo"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
 import { Element, Loader, Main, Menu } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
-import { EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts } from "./Profile/profile"
+import { EditProfileInfo, EditProfileShipping, ProfileInfo } from "./Profile/profile"
 
+import { ProfilePosts } from '../pages/ProfilePage/components/profileComponents'
 // Accordion
 import { Accordion } from "./Accordion/Accordion"
 // Modal
@@ -25,7 +26,7 @@ import { Hero, HomeCategories, HomeFeaturedProducts, HomeOffers, HomeWishlist } 
 // Image Magnifier
 import { ImageMagnifier } from "./ImageMagnifier/ImageMagnifier"
 // Detail
-import { DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart, DetailShare } from '../pages/Detail/components/detailComponents'
+import { DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart } from '../pages/Detail/components/detailComponents'
 // Products
 import { ProductsList, ProductsLayout, ProductsSort, ProductCard } from "./Products/productsComponents"
 // Post
@@ -50,8 +51,10 @@ export {
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
   // Profile
-  EditProfileInfo, EditProfileShipping, ProfileInfo, ProfilePosts,
+  EditProfileInfo, EditProfileShipping, ProfileInfo,
 
+  // Profile
+  ProfilePosts,
   // Orders
   OrderItem, OrdersSort,
   // Accordion
@@ -69,7 +72,7 @@ export {
   // Image Magnifier
   ImageMagnifier,
   // Detail
-  DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart, DetailShare,
+  DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart,
   // Products
   ProductsList, ProductsLayout, ProductsSort, ProductCard,
   // Post
