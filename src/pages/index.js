@@ -1,12 +1,12 @@
 import { EditProfile } from "./EditProfile/EditProfile";
 import { Login } from "./Login/Login";
-import { Order } from "./Order/Order";
 import { Detail } from "./Detail/Detail";
 import { Profile } from "./Profile/Profile";
-import { Wishlist } from "./Wishlist/Wishlist";
 import { Orders } from "./Orders/Orders";
 import { EnterPass } from "./Login/EnterPass";
 
+// Wishlist
+import { Wishlist } from "./WishlistPage/Wishlist";
 // Checkout
 import { Checkout, CheckoutConfirm, CheckoutOrder, CheckoutPayment, CheckoutShipping, CheckoutUser } from "./CheckoutPage/checkout";
 // Cart
@@ -25,11 +25,11 @@ import { Shop } from "./ShopPage/Shop";
 export {
   Detail,
   Profile,
-  Wishlist,
   EditProfile,
-  Order,
   Orders,
   
+  // Wishlist
+  Wishlist,
   // Checkout
   Checkout, CheckoutShipping, CheckoutUser, CheckoutPayment, CheckoutConfirm, CheckoutOrder,
   // Cart

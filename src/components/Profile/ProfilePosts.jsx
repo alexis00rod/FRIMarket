@@ -1,6 +1,6 @@
 import { useCardSize } from "../../hooks/useCardSize"
 import { useProductsSort } from "../../hooks/useProductsSort"
-import { Element, Loader, ProductsLayout, ProductsList, SelectProductsSort } from "../index.js"
+import { Element, Loader, ProductsLayout, ProductsList } from "../index.js"
 
 export const ProfilePosts = ({posts}) => {
   const {cardSize, setCardSize} = useCardSize()
