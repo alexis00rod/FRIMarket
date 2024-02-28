@@ -1,14 +1,15 @@
-import { Button } from "../index.js"
-
 export const BtnShare = () => {
 
-  const shareProduct = () => {
-    console.log("share")
+  const shareURL = () => {
+    navigator.clipboard.writeText(`${window.location.href}`)
+    .then(() => alert('Enlace copiado en el portapapeles'))
+    .catch(() => alert('Error al copiar el enlace al portapapeles'))
   }
 
   return (
-    <Button icon='share' color='btn-text-yellow' size='btn-m' title='Compartir' onClick={shareProduct}>
+    <button className="btn btn-m btn-yellow" onClick={shareURL}>
+      <i className="fa-solid fa-share"></i>
       <span className="text-sm font-medium">Compartir</span>
-    </Button>
+    </button>
   )
 }
