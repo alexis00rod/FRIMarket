@@ -16,15 +16,6 @@ export const uploadThumb = async (user,file) => {
   return url
 }
 
-export const uploadUserPhoto = async (user,file) => {
-  const {email} = user
-  const {name} = file
-
-  await uploadBytes(userPhotoRef(email,name),file)
-  const url = await getDownloadURL(userPhotoRef(email,name))
-  return url
-}
-
 export const uploadProductToPostImage = async (user,file) => {
   await uploadBytes(productToPostImageRef(user, file.name),file)
   const url = await getDownloadURL(productToPostImageRef(user, file.name))
@@ -34,4 +25,11 @@ export const uploadProductToPostImage = async (user,file) => {
 export const deleteProductToPostImage = async (user, name) => {
   await deleteObject(productToPostImageRef(user, name))
   return name
+}
+
+// Funcion para subir foto de perfil
+export const uploadPhotoProfile = async (user, file) => {
+  await uploadBytes(userPhotoRef(user,file.name),file)
+  const url = await getDownloadURL(userPhotoRef(user,file.name))
+  return url
 }
