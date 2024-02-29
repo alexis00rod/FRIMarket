@@ -90,3 +90,7 @@ export const updateUserSales = (products) => {
     })
   })
 }
+
+// Funcion para actualizar foto de perfil
+export const updatePhotoURL = async (user, photo) => await updateDoc(userRef(user),{photoURL:photo})
+
