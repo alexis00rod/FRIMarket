@@ -3,6 +3,6 @@ import { BtnShare } from "./BtnShare.jsx";
 import { BtnAddCart } from "./BtnAddCart.jsx";
 import { BtnAddWishlist } from "./BtnAddWishlist.jsx";
 import { BtnBuyNow } from "./BtnBuyNow.jsx";
-import { ButtonLink } from "./ButtonLink.jsx";
+import { ButtonLoader } from "./ButtonLoader.jsx";
 
-export {Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink}
+export {Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLoader}
