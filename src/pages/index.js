@@ -1,9 +1,10 @@
-import { EditProfile } from "./EditProfile/EditProfile";
 import { Login } from "./Login/Login";
 import { Detail } from "./Detail/Detail";
 import { Orders } from "./Orders/Orders";
 import { EnterPass } from "./Login/EnterPass";
 
+// Edit profile
+import { EditProfileLayout, EditProfileData, EditProfile, EditProfileAccount, EditProfileCards, EditProfileLocation } from "./EditProfilePage/editProfile";
 // Profile
 import { Profile } from "./ProfilePage/Profile";
 // Wishlist
@@ -25,9 +26,10 @@ import { Shop } from "./ShopPage/Shop";
 
 export {
   Detail,
-  EditProfile,
   Orders,
   
+  // Edit Profile
+  EditProfileLayout, EditProfileData, EditProfile, EditProfileAccount, EditProfileCards, EditProfileLocation,
   // Profile
   Profile,
   // Wishlist
