@@ -18,3 +18,11 @@ export const stateAuth = (set) => {
 
 // Funcion para cerrar sesion
 export const logout = () => signOut(auth)
+
+// Funcion para actualizar displayName
+export const updateDisplayName = async ({name, lastName}) => {
+  const user = auth.currentUser
+  await updateProfile(user,{
+    displayName: `${name} ${lastName}`
+  })
+}
