@@ -1,4 +1,4 @@
-import { getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc, where } from "firebase/firestore"
+import { deleteDoc, getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc, where } from "firebase/firestore"
 import { userRef, usersRef } from "./firestore"
 
 // Funcion para verificar si existe usuario
@@ -113,3 +113,21 @@ export const deleteCardToUser = async (user, card) => {
 
 export const updateDataUser = async (user,data) => await updateDoc(userRef(user),data)
 
+export const existsIdUser = async (user) => {
+  const idUser = await getDocs(query(usersRef,where('idUser','==',user)))
+  return idUser.docs.length === 0 ? false : true
+}
+
+export const updateUser = async (oldUser,newUser) => {
+  try {
+    const user = await getDoc(userRef(oldUser.email))
+    if(user.exists()) {
+      const userData = user.data()
+      await setDoc(userRef(newUser.email),userData)
+      await updateDoc(userRef(newUser.email),newUser)
+      await deleteDoc(userRef(oldUser.email))
+    }
+  } catch (err) {
+    alert('Error al actualizar documento: ',err)
+  }
+}
