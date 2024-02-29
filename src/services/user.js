@@ -94,3 +94,20 @@ export const updateUserSales = (products) => {
 // Funcion para actualizar foto de perfil
 export const updatePhotoURL = async (user, photo) => await updateDoc(userRef(user),{photoURL:photo})
 
+// Funcion para agregar tarjeta
+export const addCardToUser = async (user, card) => {
+  const {cards, id} = user
+  const cardsNew = cards ? [...cards,card] : [card]
+  await updateDoc(userRef(id), {
+    cards:cardsNew
+  })
+}
+
+// Funcion para eliminar tarjeta
+export const deleteCardToUser = async (user, card) => {
+  const {cards, id} = user
+  await updateDoc(userRef(id), {
+    cards: cards.filter(e => e.cardNumber !== card.cardNumber)
+  })
+}
+
