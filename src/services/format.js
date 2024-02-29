@@ -77,3 +77,5 @@ export const formatCvv = (code) => code.replace(/\D/g, '').slice(0, 3)
 export const formatHideCardNumber = (number) => `****-****-****-${number.slice(-4)}`
 
 export const formatDateFromNow = (date) => dayjs(date.toDate()).fromNow()
+
+export const formatCapitalize = (txt) => txt.charAt(0).toUpperCase() + txt.slice(1) 
