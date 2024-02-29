@@ -20,6 +20,12 @@ export const generateIdUser = (user) => {
   return (nameUser+id).toLowerCase()
 }
 
+let counter = 0
+export const generateUniqueId = () => {
+  counter++
+  return `${Date.now().toString(16)}-${counter}`
+}
+
 export const formatPrice = (price) => {
   if (typeof price === 'number') {
     price = price.toString()
