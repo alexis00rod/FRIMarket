@@ -111,3 +111,5 @@ export const deleteCardToUser = async (user, card) => {
   })
 }
 
+export const updateDataUser = async (user,data) => await updateDoc(userRef(user),data)
+
