@@ -42,7 +42,7 @@ export const NavbarMenu = () => {
                   </Link>
                   <div className="ml-4 flex flex-col">
                     <Link to={`/profile/${profile.idUser}`}>
-                      <h4 className="font-medium line-clamp-1">{profile.displayName}</h4>
+                      <h4 className="font-medium line-clamp-1">{`${profile.name} ${profile.lastName}`}</h4>
                     </Link>
                     <Link to='/editProfile' className="text-sm text-yellow-500 hover:underline">Editar perfil</Link>
                   </div>
@@ -106,7 +106,7 @@ export const NavbarMenu = () => {
             {userLogged
             ? <>
                 {profile &&
-                  <div className="w-full px-2 pb-4 flex border-b border-gray-300">
+                  <div className="w-full px-2 pt-2 pb-4 flex border-b border-gray-300">
                     <Link to={`/profile/${profile.idUser}`}>
                       <img 
                       src={profile.photoURL} 
@@ -116,7 +116,7 @@ export const NavbarMenu = () => {
                     </Link>
                     <div className="ml-4 flex flex-col">
                       <Link to={`/profile/${profile.idUser}`}>
-                        <h4 className="font-medium line-clamp-1">{profile.displayName}</h4>
+                        <h4 className="font-medium line-clamp-1">{`${profile.name} ${profile.lastName}`}</h4>
                       </Link>
                       <Link to='/editProfile' className="text-sm text-yellow-500 hover:underline">Editar perfil</Link>
                     </div>
