@@ -1,5 +1,6 @@
 import { deleteDoc, getDoc, getDocs, onSnapshot, orderBy, query, serverTimestamp, setDoc, updateDoc, where } from "firebase/firestore"
 import { userRef, usersRef } from "./firestore"
+import { generateUniqueId } from "./format"
 
 // Funcion para verificar si existe usuario
 export const existsUser = async (email) => {
@@ -97,7 +98,8 @@ export const updatePhotoURL = async (user, photo) => await updateDoc(userRef(use
 // Funcion para agregar tarjeta
 export const addCardToUser = async (user, card) => {
   const {cards, id} = user
-  const cardsNew = cards ? [...cards,card] : [card]
+  const cardDoc = {...card, idCard: generateUniqueId()}
+  const cardsNew = cards ? [...cards,cardDoc] : [cardDoc]
   await updateDoc(userRef(id), {
     cards:cardsNew
   })
@@ -107,7 +109,24 @@ export const addCardToUser = async (user, card) => {
 export const deleteCardToUser = async (user, card) => {
   const {cards, id} = user
   await updateDoc(userRef(id), {
-    cards: cards.filter(e => e.cardNumber !== card.cardNumber)
+    cards: cards.filter(e => e.idCard !== card.idCard)
+  })
+}
+
+// Funcion para agregar ubicacion
+export const addLocationToUser = async (user, location) => {
+  const {locations, id} = user
+  const locationDoc = {...location, idLocation: generateUniqueId()}
+  const locationsNew = locations ? [...locations,locationDoc] : [locationDoc]
+  await updateDoc(userRef(id), {
+    locations:locationsNew
+  })
+}
+
+export const deleteLocationToUser = async (user, location) => {
+  const {locations, id} = user
+  await updateDoc(userRef(id), {
+    locations: locations.filter(e => e.idLocation !== location.idLocation)
   })
 }
 
