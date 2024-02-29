@@ -1,3 +1,4 @@
+import { EditProfileRoute } from "./EditProfileRoute";
 import { CheckoutRoute } from "./CheckoutRoute";
 import { LoginRoute } from "./LoginRoute";
 import { PostRoute } from "./PostRoute";
@@ -9,5 +10,6 @@ export {
   LoginRoute,
   PostRoute,
   ShopRoute,
-  CheckoutRoute
+  CheckoutRoute,
+  EditProfileRoute
 }
