@@ -5,7 +5,7 @@
 
 /* LABEL */
 .select-label {
-  @apply px-2 text-sm font-medium
+  @apply px-2 text-sm
 }
 
 /* BODY */

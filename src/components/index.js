@@ -1,15 +1,19 @@
 import { App } from "./App/App"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
-import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink } from './Button/button'
-import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch } from "./Form/form"
+import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber } from "./Form/form"
 import { ReviewCard } from "./Card/card"
-import { Select, SelectAddItem, SelectCity, SelectItem, SelectProductBrand, SelectProductType, SelectProvince, SelectSearch, SelectReviewsSort } from "./Select/select"
+import { Select, SelectAddItem, SelectItem, SelectSearch, SelectReviewsSort } from "./Select/select"
 import { Logo } from "./Logo/Logo"
 import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
-import { Element, Loader, Main, Menu } from './Layout/layout'
 import { Footer } from "./Footer/Footer"
-import { EditProfileInfo, EditProfileShipping, ProfileInfo } from "./Profile/profile"
 
+// Button
+import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLoader } from './Button/button'
+// Edit profile
+import { EditProfilePhotoURL } from "../pages/EditProfilePage/components/EditProfilePhotoURL"
+// Loader
+import { Loader } from "./Loader/Loader"
+// Profile
 import { ProfilePosts } from '../pages/ProfilePage/components/profileComponents'
 // Accordion
 import { Accordion } from "./Accordion/Accordion"
@@ -39,20 +43,20 @@ import { RegistrationStepItem } from "../pages/RegistrationPage/components/Regis
 import { OrderItem, OrdersSort } from "../pages/Orders/components/ordersComponents"
 
 export {
-  App, Logo, Loader, ProtectedRoutes, Element, Main, Footer, Menu,
-  // Buttons
-  Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLink,
+  App, Logo, Loader, ProtectedRoutes, Footer,
   // Cards
   ReviewCard,
   // Select
-  Select, SelectItem, SelectProvince, SelectCity, SelectSearch, SelectProductBrand, SelectAddItem, SelectProductType, SelectReviewsSort,
+  Select, SelectItem, SelectSearch, SelectAddItem, SelectReviewsSort,
   // Form
-  InputText, Textarea, InputRating, InputEmail, InputPassword, InputPhoto, InputNumber, InputSearch,
+  InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber,
   // Breadcrumb
   Breadcrumb, BreadcrumbLink,
-  // Profile
-  EditProfileInfo, EditProfileShipping, ProfileInfo,
-
+  
+  // Buttons
+  Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLoader,
+  // Edit profile
+  EditProfilePhotoURL,
   // Profile
   ProfilePosts,
   // Orders

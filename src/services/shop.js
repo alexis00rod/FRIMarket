@@ -15,7 +15,7 @@ export const getProducts = async (filters) => {
   if (location) {productsQuery = query(productsQuery, where('user.province.id', '==', location))}
 
   if (min !== undefined && min !== null) {
-    productsQuery = query(productsQuery, where('price', '>=', min));
+    productsQuery = query(productsQuery, where('price', '>=', min))
   }
 
   if (max !== undefined && max !== null) {

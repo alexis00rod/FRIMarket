@@ -6,16 +6,16 @@
   @apply w-[40px] h-[40px] flex items-center justify-center
   /* @apply w-8 h-8 flex items-center justify-center */
 }
-.btn span {
+/* .btn span {
   @apply text-sm font-medium
-}
+} */
 
 /* Button size */
 .btn-s {
   @apply max-w-[35px]
 }
 .btn-m {
-  @apply max-w-btn-m px-4
+  @apply min-w-[100px] max-w-max px-4
 }
 .btn-l {
   @apply grow max-w-btn-l px-4
@@ -61,7 +61,7 @@
 
 /* Btn styles */
 .btn-text {
-  @apply text-sm font-medium hover:underline
+  @apply text-[14px] font-medium
 }
 .btn-search {
   @apply border-l border-gray-300

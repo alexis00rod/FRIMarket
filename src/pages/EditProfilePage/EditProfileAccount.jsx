@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { existsIdUser, updateDataUser, updateUser } from "../../services/user"
-import { reauthenticateUser, updateUserEmail } from "../../services/auth"
+import { updateUserEmail } from "../../services/auth"
 import { formatIdUser } from "../../services/format"
 import { useProfile } from "../../hooks/useProfile"
 import { ButtonLoader, InputNumber, InputPassword, InputText, Loader, Modal } from "../../components"
