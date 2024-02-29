@@ -79,3 +79,5 @@ export const formatHideCardNumber = (number) => `****-****-****-${number.slice(-
 export const formatDateFromNow = (date) => dayjs(date.toDate()).fromNow()
 
 export const formatCapitalize = (txt) => txt.charAt(0).toUpperCase() + txt.slice(1) 
+
+export const formatIdUser = (txt) => txt.toLowerCase().replace(/\s+/g, '').replace(/[^a-zA-Z0-9-_]/g, '')
