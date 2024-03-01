@@ -46,6 +46,9 @@ module.exports = {
         'dropdown' : '12rem',
         // Button
         'btn': '2rem',
+      },
+      borderWidth: {
+        '3': '3px',
       }
   },
   },
