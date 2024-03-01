@@ -34,7 +34,7 @@ export const Navbar = () => {
       </div>
       <div className="hidden lg:flex bg-blue-500">
         <div className="navbar-container">
-          <div className="h-full flex grow gap-2">
+          <div className="h-full flex items-center grow gap-2">
             <div className="h-full flex grow items-center gap-2">
               <Link to='/' className="navbar-link">Inicio</Link>
               <Link to='/shop' className="navbar-link">Tienda</Link>

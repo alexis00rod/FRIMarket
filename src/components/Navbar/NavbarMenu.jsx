@@ -26,7 +26,7 @@ export const NavbarMenu = () => {
 
   const NavbarMenuLink = ({children,...props}) => {
     return (
-      <Link {...props} onClick={() => setMenu(false)}>
+      <Link {...props} onClick={() => handleMenu()}>
         {children}
       </Link>
     )

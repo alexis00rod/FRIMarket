@@ -61,7 +61,7 @@ body {
   @apply relative w-full p-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-4
 }
 .products-controls-layout {
-  @apply absolute top-2 right-2 md:static px-2 py-1
+  @apply absolute top-4 right-4 md:static py-0.5
 }
 
 /* Form */
