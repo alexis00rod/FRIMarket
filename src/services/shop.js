@@ -2,7 +2,7 @@ import { deleteDoc, getDocs, limit, onSnapshot, orderBy, query, updateDoc, where
 import { productRef, productsRef } from "./firestore";
 
 export const getProducts = async (filters) => {
-  const {category,type,brand,location,min,max} = filters
+  const {category,type,brands,locations,min,max} = filters
 
   let productsQuery = productsRef
 
@@ -10,9 +10,13 @@ export const getProducts = async (filters) => {
 
   if (type) {productsQuery = query(productsQuery, where('type', '==', type))}
 
-  if (brand) {productsQuery = query(productsQuery, where('brand', '==', brand))}
+  if (brands && brands.length > 0) {
+    productsQuery = query(productsQuery, where('brand', 'in', brands));
+  }
 
-  if (location) {productsQuery = query(productsQuery, where('user.province.id', '==', location))}
+  if (locations && locations.length > 0) {
+    productsQuery = query(productsQuery, where('user.province.id', 'in', locations));
+  }
 
   if (min !== undefined && min !== null) {
     productsQuery = query(productsQuery, where('price', '>=', min))
