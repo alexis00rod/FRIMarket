@@ -37,7 +37,7 @@ import { ProductsList, ProductsLayout, ProductsSort, ProductCard } from "./Produ
 // Post
 import { PostBrand, PostCategory, PostChangeCategory, PostCondition, PostDescription, PostImages, PostPrice, PostShipping, PostStock, PostTitle, PostType, PostUserEmail, PostUserLocation, PostUserName, PostUserPhone } from "../pages/PostPage/components/postComponents"
 // Shop
-import { ShopFilter, ShopPriceRange } from '../pages/ShopPage/components/shopComponents'
+import { ShopFilter, ShopItemQty, ShopPriceRange } from '../pages/ShopPage/components/shopComponents'
 // Registration
 import { RegistrationStepItem } from "../pages/RegistrationPage/components/RegistrationStepItem"
 // Orders
@@ -84,7 +84,7 @@ export {
   // Post
   PostTitle, PostCategory, PostType, PostImages, PostDescription, PostCondition, PostStock, PostChangeCategory, PostBrand, PostPrice, PostShipping, PostUserName, PostUserEmail, PostUserPhone, PostUserLocation,
   // Shop
-  ShopFilter, ShopPriceRange,
+  ShopFilter, ShopPriceRange, ShopItemQty,
   // Registration
   RegistrationStepItem
 }
