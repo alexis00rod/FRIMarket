@@ -49,13 +49,38 @@ input[type = 'file'] {
   @apply w-full h-full object-cover
 }
 
-/* SEARCH */
-/* .input-search {
-  @apply w-full max-w-2xl flex items-center border border-gray-300 rounded-md overflow-hidden
+
+.input-checkbox {
+  @apply relative w-max pb-2 pl-[30px] block text-sm cursor-pointer select-none
 }
-.input-search input {
-  @apply h-full px-2 grow outline-none
-} */
+.input-checkbox input {
+  @apply hidden
+}
+.input-checkbox:hover .input-checkbox-name{
+  @apply text-black
+}
+.input-checkbox-name {
+  @apply max-w-[320px] text-gray-500 line-clamp-1 duration-200
+}
+.input-checkbox-checkmark {
+  @apply absolute -top-0.5 left-0 w-[22px] h-[22px] rounded-md duration-200 border-2 border-gray-200
+}
+.input-checkbox:hover input ~ .input-checkbox-checkmark {
+  @apply border-yellow-500
+}
+.input-checkbox input:checked ~ .input-checkbox-checkmark {
+  @apply border-yellow-500 bg-yellow-500
+}
+.input-checkbox-checkmark:after {
+  content: "";
+  @apply absolute hidden
+}
+.input-checkbox input:checked ~ .input-checkbox-checkmark:after {
+  @apply block
+}
+.input-checkbox .input-checkbox-checkmark:after {
+  @apply top-[2px] left-[6px] w-[7px] h-[12px] rotate-45 border-white border-r-3 border-b-3
+}
 
 /* QUANTITY */
 .input-qty {
