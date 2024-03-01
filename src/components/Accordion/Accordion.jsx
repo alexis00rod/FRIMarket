@@ -9,7 +9,7 @@ export const Accordion = ({title,open = true,children}) => {
         <span className='accordion-title'>{title}</span>
         <i className={`accordion-arrow ${accordion && '-rotate-180'} fa-solid fa-chevron-down`}></i>
       </button>
-      <div className={`accordion-expand ${accordion && 'h-full py-2 opacity-100'}`}>
+      <div className={`accordion-expand ${accordion && 'accordion-expand-show'}`}>
         {children}
       </div>
     </div>
