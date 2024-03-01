@@ -3,12 +3,8 @@
   @apply w-full min-w-btn h-[35px] flex items-center justify-center flex-none rounded-md duration-200 cursor-pointer disabled:cursor-default
 }
 .btn i {
-  @apply w-[40px] h-[40px] flex items-center justify-center
-  /* @apply w-8 h-8 flex items-center justify-center */
+  @apply w-[35px] h-[35px] flex items-center justify-center text-base
 }
-/* .btn span {
-  @apply text-sm font-medium
-} */
 
 /* Button size */
 .btn-s {
@@ -24,9 +20,6 @@
 /* Buttons colors */
 .btn-blue {
   @apply bg-blue-500 text-white hover:bg-blue-600/90 disabled:bg-blue-400 disabled:hover:bg-blue-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-blue-500/30
-}
-.btn-blue-active {
-  @apply bg-blue-600/90
 }
 .btn-gray {
   @apply bg-gray-200 text-gray-900 hover:bg-gray-300 disabled:bg-gray-100 disabled:hover:bg-gray-100 disabled:hover:shadow-none hover:shadow-lg hover:shadow-gray-500/30
@@ -67,7 +60,7 @@
   @apply border-l border-gray-300
 }
 
-/* Btn Cart */
+/* Boton para ir al carrito de compras */
 .btn-cart {
   @apply relative btn btn-s btn-blue
 }
@@ -76,7 +69,12 @@
   /* @apply absolute -bottom-1 -left-1 bg-red-500 w-5 h-5 flex items-center justify-center text-sm font-medium rounded-full */
 }
 
-/* Button Burger */
+/* Boton  */
+.btn-shopFilter {
+  @apply btn max-w-max pr-2 btn-white btn-text
+}
+
+/* Boton hamburguesa para menu */
 .btn-burger {
   @apply relative btn btn-s btn-blue
   /* @apply relative flex flex-col justify-around */
@@ -98,18 +96,6 @@
 }
 .btn-burger-active span:nth-child(3) {
   @apply mt-0 -rotate-45;
-}
-.btn-form {
-  @apply w-full 
-}
-.btn-hero {
-  @apply absolute top-1/2 -translate-y-1/2
-}
-.btn-hero-left {
-  @apply left-4
-} 
-.btn-hero-right {
-  @apply right-4
 }
 
 /* Boton para agregar producto a carrito de compras */
