@@ -1,3 +1,4 @@
+import { InputCheckbox } from "./InputCheckbox.jsx";
 import { InputEmail } from "./InputEmail.jsx";
 import { InputNumber } from "./InputNumber.jsx";
 import { InputPassword } from "./InputPassword.jsx";
@@ -12,4 +13,5 @@ export {
   InputEmail,
   InputPassword,
   InputNumber,
+  InputCheckbox
 }

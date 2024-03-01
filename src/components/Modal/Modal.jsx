@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Button } from '../index.js'
+// import { Button } from '../index.js'
 
 export const Modal = ({title, handle, direction, size, children}) => {
   const modalRef = useRef(null)
@@ -35,7 +35,8 @@ export const Modal = ({title, handle, direction, size, children}) => {
       <div className={`modal-container ${size}`} onClick={e => e.stopPropagation()} ref={modalRef}>
         <div className="modal-header">
           <h3>{title}</h3>
-          <Button icon='x' color='btn-gray' size='btn-s' onClick={() => handle(false)} />
+          {/* <Button icon='x' color='btn-gray' size='btn-s' onClick={() => handle(false)} /> */}
+          <button className='btn btn-gray btn-s' onClick={() => handle(false)}><i className="fa-solid fa-x"></i></button>
         </div>
         <div className="modal-body">
           {children}

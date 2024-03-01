@@ -32,27 +32,25 @@ export const Shop = () => {
   if(!products) return <Loader />
 
   return (
-    <main className="flex flex-col grow">
-      <section className="w-full max-w-[1200px] px-2 py-4 mx-auto flex flex-col gap-4">
-        {/* Productos controlador */}
-        <div className="relative w-full p-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-4 bg-white border border-gray-300 rounded-md">
-          {/* Productos filtro */}
-          <div className="grow">
-            <ShopFilter />
-          </div>
-          {/* Productos orden */}
-          <ProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
-          {/* Productos layout */}
-          <div className="absolute top-4 right-4 md:static">
-            <ProductsLayout size={cardSize} handle={setCardSize} />
-          </div>
+    <section className="section section-xl">
+      {/* Productos controlador */}
+      <div className="products-controls wrapper">
+        {/* Productos filtro */}
+        <div className="grow">
+          <ShopFilter />
         </div>
-        {/* Lista de Productos */}
-        <ProductsList products={products} sort={productsSort} size={cardSize} maxCols={5}  />
-        <div className="w-full px-2 py-4 bg-white border border-slate-300 rounded-md">
-          <h3 className="px-2 text-lg font-medium">Mostrando {products.length} productos</h3>
+        {/* Productos orden */}
+        <ProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
+        {/* Productos layout */}
+        <div className="products-controls-layout">
+          <ProductsLayout size={cardSize} handle={setCardSize} />
         </div>
-      </section>
-    </main>
+      </div>
+      {/* Lista de Productos */}
+      <ProductsList products={products} sort={productsSort} size={cardSize} maxCols={5}  />
+      <div className="w-full px-2 py-4 bg-white border border-slate-300 rounded-md">
+        <h3 className="px-2 text-lg font-medium">Mostrando {products.length} productos</h3>
+      </div>
+    </section>
   )
 }

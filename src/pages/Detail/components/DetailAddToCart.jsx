@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { useCartContext } from "../../../context/CartContext/CartContext"
 import { useAuthContext } from "../../../context/AuthContext/AuthContext"
+import { InputNumber, Notification } from "../../../components"
 
 export const DetailAddToCart = ({product}) => {
   const [qtyProducts, setQtyProducts] = useState(1)
@@ -39,35 +40,30 @@ export const DetailAddToCart = ({product}) => {
 
   if(productInCart) {
     return (
-      <button className="btn btn-red btn-m" onClick={() => removeProductToCartList(product)}>
+      <button className="btn btn-red btn-m btn-text" onClick={() => removeProductToCartList(product)}>
         <i className="fa-solid fa-trash"></i>
-        <span className="text-sm font-medium">Borrar del carrito</span>
+        Borrar del carrito
       </button>
     )
   } else {
     return (
-      <div className="flex flex-col gap-2">
-        <div className="relative flex items-center">
-          <span className="text-sm font-medium">Cantidad:</span>
-          <input 
-          type="number" 
+      <div className="detail-cart">
+        <div className="detail-cart-qty">
+          <span className="detail-cart-qty-title">Cantidad:</span>
+          <InputNumber 
           name="qtyProducts" 
           id="qtyProducts"
           value={qtyProducts}
           max={stock}
-          className={`ml-2 h-8 text-sm border border-slate-300 rounded-md outline-none text-center`} 
           style={{width: `${Math.max(30, (qtyProducts.toString().length || 1) * 10)}px`}}
           onChange={({target:{value}}) => setQtyProducts(value)}
           />
-          {qtyProductsError && 
-            <p className="ml-2 w-max pt-0.5 flex items-center text-[0.8rem] text-red-500">
-              <i className="fa-solid fa-circle-exclamation"></i>
-              <span className="pl-2 font-medium">{qtyProductsError}</span>
-            </p>}
+          {qtyProductsError &&
+            <Notification position='bottom-full left-0' message={qtyProductsError}/>}
         </div>
-        <button className="btn btn-blue btn-m" onClick={submitAddToCart} >
+        <button className="btn btn-blue btn-m btn-text" onClick={submitAddToCart} >
           <i className="fa-solid fa-cart-shopping"></i>
-          <span className="text-sm font-medium">Agregar al carrito</span>
+          Agregar al carrito
         </button>
       </div>
     )

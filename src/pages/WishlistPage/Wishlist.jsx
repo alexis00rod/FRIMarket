@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
-import { Breadcrumb, ProductsLayout, ProductsList, ProductsSort, Loader } from "../../components"
 import { useAuthContext } from "../../context/AuthContext/AuthContext"
+import { getWishlist } from "../../services/wishlist"
 import { useCardSize } from "../../hooks/useCardSize"
 import { useProductsSort } from "../../hooks/useProductsSort"
-import { getWishlist } from "../../services/wishlist"
+import { ProductsLayout, ProductsList, ProductsSort, Loader } from "../../components"
 
 export const Wishlist = () => {
   const {userLogged} = useAuthContext()
@@ -18,17 +18,18 @@ export const Wishlist = () => {
   if(!wishlist) return <Loader />
 
   return (
-   <main className="flex flex-col grow">
-    <section className="w-full max-w-[1200px] mx-auto px-2 py-4 flex flex-col gap-4">
-      <div className="relative w-full p-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-4 bg-white border border-gray-300 rounded md">
+    <section className="section section-xl">
+      <div className="products-controls wrapper">
         <h3 className="grow text-lg font-semibold">Lista de favoritos</h3>
+        {/* Productos ordern */}
         <ProductsSort selected={productsSort} onChange={({target:{id}}) => setProductsSort(id)} />
-        <div className="absolute top-2 right-2 md:static px-2 py-1">
+        <div className="products-controls-layout">
+          {/* Productos layout */}
           <ProductsLayout size={cardSize} handle={setCardSize} />
         </div>
       </div>
+      {/* Lista de productos */}
       <ProductsList products={wishlist} sort={productsSort} size={cardSize} />
     </section>
-   </main> 
   )
 }

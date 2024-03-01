@@ -1,14 +1,15 @@
 import { App } from "./App/App"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
-import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber } from "./Form/form"
+import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox } from "./Form/form"
 import { ReviewCard } from "./Card/card"
 import { Select, SelectAddItem, SelectItem, SelectSearch, SelectReviewsSort } from "./Select/select"
 import { Logo } from "./Logo/Logo"
-import { Breadcrumb, BreadcrumbLink } from "./Breadcrumb/Breadcrumb"
 import { Footer } from "./Footer/Footer"
 
+// Notification
+import { Notification } from "./Notification/Notification"
 // Button
-import { Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLoader } from './Button/button'
+import { BtnShare, BtnAddCart, BtnAddWishlist, ButtonLoader, BtnCart } from './Button/button'
 // Edit profile
 import { EditProfilePhotoURL } from "../pages/EditProfilePage/components/EditProfilePhotoURL"
 // Loader
@@ -24,13 +25,13 @@ import { CheckoutAddress, CheckoutCard, CheckoutEmail, CheckoutLocation, Checkou
 // Cart
 import { CartItem } from "../pages/CartPage/components/cartComponents"
 // Navbar
-import { Navbar, NavbarCart, NavbarMenu, NavbarSearch } from './Navbar/navbarComponents'
+import { Navbar, NavbarCart, NavbarMenu, NavbarSearch, NavbarUser } from './Navbar/navbarComponents'
 // Home
 import { Hero, HomeCategories, HomeFeaturedProducts, HomeOffers, HomeWishlist } from '../pages/HomePage/components/homeComponents'
 // Image Magnifier
 import { ImageMagnifier } from "./ImageMagnifier/ImageMagnifier"
 // Detail
-import { DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart } from '../pages/Detail/components/detailComponents'
+import { DetailTitle, EditProduct, DetailAdditionalInfo, DetailImages, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts } from '../pages/Detail/components/detailComponents'
 // Products
 import { ProductsList, ProductsLayout, ProductsSort, ProductCard } from "./Products/productsComponents"
 // Post
@@ -42,6 +43,7 @@ import { RegistrationStepItem } from "../pages/RegistrationPage/components/Regis
 // Orders
 import { OrderItem, OrdersSort } from "../pages/Orders/components/ordersComponents"
 
+
 export {
   App, Logo, Loader, ProtectedRoutes, Footer,
   // Cards
@@ -49,12 +51,12 @@ export {
   // Select
   Select, SelectItem, SelectSearch, SelectAddItem, SelectReviewsSort,
   // Form
-  InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber,
-  // Breadcrumb
-  Breadcrumb, BreadcrumbLink,
+  InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox,
   
+  // Notification
+  Notification,
   // Buttons
-  Button, BtnShare, BtnAddCart, BtnAddWishlist, BtnBuyNow, ButtonLoader,
+  BtnShare, BtnAddCart, BtnAddWishlist, ButtonLoader, BtnCart,
   // Edit profile
   EditProfilePhotoURL,
   // Profile
@@ -70,13 +72,13 @@ export {
   // Cart
   CartItem,
   // Navbar
-  Navbar, NavbarMenu, NavbarCart, NavbarSearch,
+  Navbar, NavbarMenu, NavbarCart, NavbarSearch, NavbarUser,
   // Home
   Hero, HomeCategories, HomeOffers, HomeFeaturedProducts, HomeWishlist,
   // Image Magnifier
   ImageMagnifier,
   // Detail
-  DetailTitle, EditProduct, DetailDescription, DetailAdditionalInfo, DetailImages, DetailPrice, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts, DetailAddToCart,
+  DetailTitle, EditProduct, DetailAdditionalInfo, DetailImages, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts,
   // Products
   ProductsList, ProductsLayout, ProductsSort, ProductCard,
   // Post

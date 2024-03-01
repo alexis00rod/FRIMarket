@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../context/AuthContext/AuthContext'
 import { addProductWishlist, getProductInWishlist, removeProductWishlist } from '../../services/wishlist'
-import { useNavigate } from 'react-router-dom'
 
 export const BtnAddWishlist = ({product,small}) => {
   const {userLogged} = useAuthContext()
@@ -28,7 +28,7 @@ export const BtnAddWishlist = ({product,small}) => {
   return (
     <button className={small ? 'btn-wishlist-small' : 'btn-wishlist'} title={buttonText} onClick={submitAddToWishlist}>
       <i className={`fa-solid fa-${buttonIcon}`}></i>
-      {!small && <span>{buttonText}</span>}
+      {!small && buttonText}
     </button>
   )
 }

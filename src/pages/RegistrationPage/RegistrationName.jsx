@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { InputText } from "../../components"
+import { InputText, Notification } from "../../components"
 import { useRegistrationContext } from "./context/RegistrationContext"
 import { useNavigate } from "react-router-dom"
 
@@ -29,56 +29,50 @@ export const RegistrationName = () => {
   }
 
   return (
-    <main className="grow flex flex-col">
-      {!validateLoader && 
-        <section className="w-full md:max-w-[26rem] mx-auto md:mt-12 px-6 md:px-12 md:py-12 flex flex-col grow md:grow-0 bg-white md:border md:border-slate-300 md:rounded-md">
-          <h2 className="mt-6 md:mt-0 text-2xl font-medium">Elegí cómo querés que te llamemos</h2>
-            {/* Input - Nombre */}
-            <div className="relative mt-6">
-              <InputText 
-              size='input-l' 
-              label='Nombre' 
-              id='name' 
-              name='name'
-              value={userToRegister.name || ''}
-              onChange={({target: {value}}) => setUserToRegister({...userToRegister, name: value})} 
-              onKeyPress={handleKeyPress}
-              />
-              {userToRegisterError.includes('name') &&
-                <p className="top-full left-2 absolute w-max pt-0.5 flex items-center text-[0.8rem] text-red-500">
-                  <i className="fa-solid fa-circle-exclamation"></i>
-                  <span className="pl-2 font-medium">Escribe tu nombre.</span>
-                </p>}
-            </div>
-            {/* Input - Apellido */}
-            <div className="relative mt-6 mb-1.5">
-              <InputText 
-              size='input-l' 
-              label='Apellido' 
-              id='lastName' 
-              name='lastName' 
-              value={userToRegister.lastName || ''}
-              onChange={({target: {value}}) => setUserToRegister({...userToRegister, lastName: value})}
-              onKeyPress={handleKeyPress}
-              />
-              {userToRegisterError.includes('lastName') &&
-                <p className="top-full left-2 absolute w-max pt-0.5 flex items-center text-[0.8rem] text-red-500">
-                  <i className="fa-solid fa-circle-exclamation"></i>
-                  <span className="pl-2 font-medium">Escribe tu apellido.</span>
-                </p>}
-            </div>
-            {/* Boton elegir nombre */}
-            <div className="mt-6">
-              <button onClick={submitValidateName} className="btn btn- btn-blue"><span className="text-sm font-medium">Continuar</span></button>
-            </div>
-        </section>}
-      {validateLoader && 
-        <section className="w-full md:max-w-[26rem] md:h-[26rem] mx-auto md:mt-12 px-6 md:px-12 md:py-12 flex flex-col items-center justify-center grow md:grow-0 bg-white md:border md:border-slate-300 md:rounded-md">
-          <div className="w-14 h-14 flex items-center justify-center flex-none text-2xl text-white bg-green-500 rounded-full">
+    <section className="section section-xs">
+      {!validateLoader
+      ? <div className="form">
+          <h2 className="form-title">Elegí cómo querés que te llamemos</h2>
+          {/* Nombre */}
+          <div className="form-item">
+            <InputText 
+            size='input-l' 
+            label='Nombre' 
+            id='name' 
+            name='name'
+            value={userToRegister.name || ''}
+            onChange={({target: {value}}) => setUserToRegister({...userToRegister, name: value})} 
+            onKeyPress={handleKeyPress}
+            />
+            {/* Error nombre */}
+            {userToRegisterError.includes('name') &&
+              <Notification message='Escribe tu nombre.'/>}
+          </div>
+          {/* Apellido */}
+          <div className="form-item form-item-last">
+            <InputText 
+            size='input-l' 
+            label='Apellido' 
+            id='lastName' 
+            name='lastName' 
+            value={userToRegister.lastName || ''}
+            onChange={({target: {value}}) => setUserToRegister({...userToRegister, lastName: value})}
+            onKeyPress={handleKeyPress}
+            />
+            {userToRegisterError.includes('lastName') &&
+              <Notification message='Escribe tu apellido.' />}
+          </div>
+          {/* Boton elegir nombre */}
+          <div className="form-handle">
+            <button onClick={submitValidateName} className="btn btn-text btn-blue">Continuar</button>
+          </div>
+        </div>
+      : <div className="form form-result">
+          <div className="form-result-icon text-white bg-green-500">
             <i className="fa-solid fa-check"></i>
           </div>
-          <p className="mt-6 text-center text-2xl font-medium">Nombre elegido</p>
-        </section>}
-    </main>
+          <p className="form-result-message">Nombre elegido</p>
+        </div>}
+    </section>
   )
 }

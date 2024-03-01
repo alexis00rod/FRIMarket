@@ -1,6 +1,6 @@
 export const DetailAdditionalInfo = ({title, info}) => {
   return (
-    <p className='flex items-center gap-2 font-medium capitalize'>
+    <p className='detail-info-additional'>
       {title}: 
       {title !== 'Disponibilidad'
       ? <span className="font-normal">{info}</span>

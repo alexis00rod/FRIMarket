@@ -50,12 +50,12 @@ input[type = 'file'] {
 }
 
 /* SEARCH */
-.input-search {
+/* .input-search {
   @apply w-full max-w-2xl flex items-center border border-gray-300 rounded-md overflow-hidden
 }
 .input-search input {
   @apply h-full px-2 grow outline-none
-}
+} */
 
 /* QUANTITY */
 .input-qty {

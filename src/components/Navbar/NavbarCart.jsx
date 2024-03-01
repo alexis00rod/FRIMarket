@@ -1,18 +1,16 @@
 import { Link } from "react-router-dom"
 import { useCartContext } from "../../context/CartContext/CartContext"
 import { formatPrice } from "../../services/format"
+import { BtnCart } from "../Button/BtnCart"
 
 export const NavbarCart = () => {
   const {cartList,cartPriceTotal,cartQty, removeProductToCartList} = useCartContext()
 
   return (
-    <div className="navbar-menu-expand">
-      <button className="navbar-menu-expand-button">
-        <i className="fa-solid fa-cart-shopping"></i>
-        {cartQty !== 0 && <span className="absolute -right-1 -bottom-1 w-[20px] h-[20px] flex items-center justify-center flex-none text-sm font-medium bg-red-500 rounded-full">{cartQty}</span>}
-      </button>
-      <div className="navbar-menu-expand-open open-right">
-        {cartList.length === 0
+    <div className="navbar-expand">
+      <BtnCart qty={cartQty}/>
+      <div className="navbar-expand-open open-right">
+      {cartList.length === 0
         ? <p className="p-2 text-center">Tu carrito esta vacio</p>
         : <div className="p-2 flex flex-col">
             {cartList.map(e => (

@@ -20,8 +20,8 @@ export const ProfilePosts = ({user}) => {
   if(!posts) return <Loader />
 
   return (
-    <div className="w-full flex flex-col gap-4">
-      <div className="w-full p-4 flex flex-wrap justify-between gap-4 bg-white border border-gray-300 rounded-md">
+    <div className="profile-posts">
+      <div className="profile-posts-controls">
         <ProductsSort selected={productsSort} onChange={({target:{id}}) => setProductsSort(id)} />
         <ProductsLayout size={cardSize} handle={setCardSize} />
       </div>

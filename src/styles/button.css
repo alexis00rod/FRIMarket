@@ -67,16 +67,19 @@
   @apply border-l border-gray-300
 }
 
+/* Btn Cart */
 .btn-cart {
-  @apply relative
+  @apply relative btn btn-s btn-blue
 }
-.btn-cart span {
-  @apply absolute -bottom-1 -left-1 bg-red-500 w-5 h-5 flex items-center justify-center text-sm font-medium rounded-full
+.btn-cart-counter {
+  @apply absolute -right-1 -bottom-1 w-[20px] h-[20px] flex items-center justify-center flex-none text-sm font-medium bg-red-500 rounded-full
+  /* @apply absolute -bottom-1 -left-1 bg-red-500 w-5 h-5 flex items-center justify-center text-sm font-medium rounded-full */
 }
 
 /* Button Burger */
 .btn-burger {
-  @apply relative flex flex-col justify-around
+  @apply relative btn btn-s btn-blue
+  /* @apply relative flex flex-col justify-around */
 }
 .btn-burger span {
   @apply absolute w-3/5 h-1 block bg-white duration-200 rounded-full
@@ -109,6 +112,17 @@
   @apply right-4
 }
 
+/* Boton para agregar producto a carrito de compras */
+.btn-addCart {
+  @apply flex flex-col gap-2
+}
+.btn-addCart-qty {
+  @apply relative flex items-center
+}
+.btn-addCart-title {
+  @apply mr-2 text-sm font-medium
+}
+
 /* Boton para agregar producto a favorito */
 .btn-wishlist-small {
   @apply absolute top-2 left-2 btn btn-s btn-text-red
@@ -117,13 +131,13 @@
   @apply text-xl
 }
 @media (min-width: 1025px) {
-  .btn-wishlist-small {
+.btn-wishlist-small {
     @apply hidden
   }
-  .productCard:hover .btn-wishlist-small {
+.productCard:hover .btn-wishlist-small {
     @apply btn
   }
 }
 .btn-wishlist {
-  @apply btn btn-m btn-red
+  @apply btn btn-m btn-red btn-text
 }

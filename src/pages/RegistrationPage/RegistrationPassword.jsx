@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom"
 import { useRegistrationContext } from "./context/RegistrationContext"
 import { loginEmailPass, registerEmailPassword } from "../../services/auth"
 import { addProfile } from "../../services/user"
-import { generateDisplayName, generateIdUser } from "../../services/format"
-import { InputPassword } from "../../components"
+import { formatCapitalize, generateDisplayName, generateIdUser } from "../../services/format"
+import { ButtonLoader, InputPassword, Notification } from "../../components"
 
 export const RegistrationPassword = () => {
   const {userToRegister, setUserToRegister, validatePassword, userToRegisterError} = useRegistrationContext()
@@ -24,7 +24,8 @@ export const RegistrationPassword = () => {
           await registerEmailPassword(userToRegister.email, userToRegister.password)
           await addProfile({
             email: userToRegister.email,
-            displayName: generateDisplayName(userToRegister),
+            name: formatCapitalize(userToRegister.name),
+            lastName: formatCapitalize(userToRegister.lastName),
             idUser: generateIdUser(userToRegister)
           })
           await loginEmailPass(userToRegister.email, userToRegister.password)
@@ -44,76 +45,65 @@ export const RegistrationPassword = () => {
   }
 
   return (
-    <main className="grow flex flex-col">
-      {validateLoader === 'loading' 
-        ? <div className="grow flex items-center justify-center">
-            <div
-              className="inline-block h-14 w-14 animate-spin rounded-full text-blue-500 border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
-              role="status">
-            </div>
+    <section className="section section-xs">
+      {!validateLoader 
+      ? <div className="form">
+          <h2 className="form-title">Creá tu contraseña</h2>
+          {/* Contrase;a */}
+          <div className="form-item">
+            <InputPassword 
+            label='Ingresá tu contraseña' 
+            id='password' 
+            name='password'
+            value={userToRegister.password || ''}
+            onChange={({target:{value}}) => setUserToRegister({...userToRegister, password: value})} 
+            required
+            />
+            {/* Error contrase;a */}
+            {userToRegisterError.includes('password') &&
+              <Notification message='Escribe la contraseña.' />}
+            {/* Error contrase;a formato */}
+            {!userToRegisterError.includes('password') && userToRegisterError.includes('password-format') &&
+              <Notification message='Mínimo 8 caracteres con letras y números.' />}
           </div>
-        : <section className={`w-full md:max-w-[26rem] mx-auto md:mt-12 px-6 md:px-12 md:py-12 flex flex-col grow md:grow-0 bg-white md:border md:border-slate-300 md:rounded-md ${validateLoader && 'md:h-[26rem] items-center justify-center'}`}>
-            {!validateLoader &&
+          {/* Confirmar contrase;a */}
+          <div className="form-item form-item-last">
+            <InputPassword 
+            label='Confirmá tu contraseña' 
+            id='confirmPassword' 
+            name='confirmPassword' 
+            value={userToRegister.confirmPassword || ''}
+            onChange={({target:{value}}) => setUserToRegister({...userToRegister, confirmPassword: value})}  
+            required
+            />
+            {userToRegisterError.includes('password-confirm') &&
+              <Notification message='Las contraseñas no coinciden.' />}
+          </div>
+          {/* Boton crear contraseña */}
+          <div className="form-handle">
+            {validateLoader === 'loading' && validateLoader !== 'add' && validateLoader !== 'finish'
+            ? <ButtonLoader />
+            : <button onClick={submitPasswordToValidate} className="btn btn-text btn-blue">Continuar</button>}
+          </div>
+        </div>
+      : <div className="form form-result">
+          {validateLoader === 'add' &&
             <>
-              <h2 className="mt-6 md:mt-0 text-2xl font-medium">Creá tu contraseña</h2>
-              {/* Contraseña */}
-              <div className="relative mt-6">
-                <InputPassword 
-                label='Ingresá tu contraseña' 
-                id='password' 
-                name='password'
-                value={userToRegister.password || ''}
-                onChange={({target:{value}}) => setUserToRegister({...userToRegister, password: value})} 
-                required
-                />
-                {userToRegisterError.includes('password') &&
-                  <p className="top-full left-2 absolute w-max pt-0.5 flex items-center text-[0.8rem] text-red-500">
-                    <i className="fa-solid fa-circle-exclamation"></i>
-                    <span className="pl-2 font-medium">Escribe la contraseña.</span>
-                  </p>}
-                {!userToRegisterError.includes('password') && userToRegisterError.includes('password-format') &&
-                  <p className="top-full left-2 absolute w-max pt-0.5 flex items-center text-[0.8rem] text-red-500">
-                    <i className="fa-solid fa-circle-exclamation"></i>
-                    <span className="pl-2 font-medium">Mínimo 8 caracteres con letras y números.</span>
-                  </p>}
-              </div>
-              {/* Confirmar contraseña */}
-              <div className="relative mt-6 mb-1.5">
-                <InputPassword 
-                label='Confirmá tu contraseña' 
-                id='confirmPassword' 
-                name='confirmPassword' 
-                value={userToRegister.confirmPassword || ''}
-                onChange={({target:{value}}) => setUserToRegister({...userToRegister, confirmPassword: value})}  
-                required
-                />
-                {userToRegisterError.includes('password-confirm') &&
-                  <p className="top-full left-2 absolute w-max pt-0.5 flex items-center text-[0.8rem] text-red-500">
-                    <i className="fa-solid fa-circle-exclamation"></i>
-                    <span className="pl-2 font-medium">Las contraseñas no coinciden.</span>
-                  </p>}
-              </div>
-              {/* Boton crear contraseña */}
-              <div className="mt-6">
-                <button onClick={submitPasswordToValidate} className="btn btn- btn-blue"><span className="text-sm font-medium">Continuar</span></button>
-              </div>
-            </>}
-            {validateLoader === 'add' &&
-            <>
-              <div className="w-14 h-14 flex items-center justify-center flex-none text-2xl text-white bg-green-500 rounded-full">
+              <div className="form-result-icon text-white bg-green-500">
                 <i className="fa-solid fa-check"></i>
               </div>
-              <p className="mt-6 text-center text-2xl font-medium">Contraseña creada</p>
+              <p className="form-result-message">Contraseña creada</p>
             </>}
-            {validateLoader === 'processing' && <p className="mt-6 text-center text-2xl font-medium">Procesando datos...</p>}
-            {validateLoader === 'finish' &&
+          {validateLoader === 'processing' &&
+            <p className="form-result-message">Procesando datos...</p>}
+          {validateLoader === 'finish' &&
             <>
-              <div className="w-14 h-14 flex items-center justify-center flex-none text-2xl text-yellow-500">
+              <div className="form-result-icon text-yellow-500">
                 <i className="fa-solid fa-hands-clapping"></i>
               </div>
-              <p className="mt-6 text-center text-2xl font-medium">Datos completados! Creaste tu cuenta!</p>
+              <p className="form-result-message">Datos completados! Creaste tu cuenta!</p>
             </>}
-          </section>}
-    </main>
+        </div>}
+    </section>
   )
 }

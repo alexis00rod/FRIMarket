@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useShopContext } from "../context/ShopContext.jsx"
-import { Accordion, Loader, Modal, ShopPriceRange } from "../../../components/index.js"
 import { useCategories } from "../../../hooks/useCategories.jsx"
 import { useLocations } from "../../../hooks/useLocations.jsx"
+import { Accordion, Loader, Modal, ShopPriceRange } from "../../../components/index.js"
 
 export const ShopFilter = () => {
   const {filters, cleanFilters, setFilters} = useShopContext()

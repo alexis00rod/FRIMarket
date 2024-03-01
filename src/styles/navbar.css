@@ -2,50 +2,85 @@
   @apply sticky top-0 z-30 duration-200
 }
 .navbar-scroll {
-  @apply -translate-y-[61px]
-}
-.navbar-top {
-  @apply bg-white text-black
-}
-.navbar-bottom {
-  @apply bg-blue-500 text-white
+  @apply lg:-translate-y-[61px]
 }
 .navbar-container {
-  @apply relative w-full max-w-[1200px] h-[60px] pr-2 mx-auto flex items-center gap-2
+  @apply w-full max-w-[1200px] h-[60px] px-4 lg:px-2 mx-auto flex items-center gap-2
 }
 
-.navbar-menu{
-  @apply relative h-full flex items-center grow
+.navbar-link {
+  @apply w-max h-[35px] px-4 flex items-center justify-center font-medium text-white duration-200 hover:bg-blue-600 rounded-md
 }
-
-.navbar-menu-item {
-  @apply px-2 py-1 flex items-center font-medium duration-200 hover:text-yellow-500 md:h-[40px] md:px-3 md:hover:text-white md:hover:bg-blue-600 md:rounded-md
-}
-.navbar-menu-item i {
-  @apply w-[20px] h-[20px] mr-2 flex items-center justify-center flex-none
-}
-
-.navbar-menu-expand {
+.navbar-expand {
   @apply relative h-full flex items-center
 }
-.navbar-menu-expand-button {
-  @apply relative w-[40px] h-[40px] flex items-center justify-center flex-none rounded-md duration-200 hover:bg-blue-600
+.navbar-expand-open {
+  @apply absolute top-full -translate-y-full -z-10 w-[300px] p-2 flex flex-col bg-white shadow-md border-x border-b border-gray-300 rounded-b-md duration-200 opacity-0
 }
-.navbar-menu-expand-open {
-  @apply absolute top-full -translate-y-full -z-10 w-[300px] p-2 flex flex-col gap-2 bg-white text-black shadow-md border-x border-b border-gray-300 rounded-b-md duration-200 opacity-0
-}
-.navbar-menu-expand-open.open-left {
-  @apply left-0
-}
-.navbar-menu-expand-open.open-right {
-  @apply right-0
-}
-.navbar-menu-expand:hover .navbar-menu-expand-open {
+.navbar-expand:hover .navbar-expand-open {
   @apply translate-y-0 opacity-100
 }
 .navbar-expand-item {
-  @apply w-max px-2 flex items-center text-sm font-medium hover:text-yellow-500
+  @apply w-full
 }
-.navbar-expand-item i {
-  @apply w-[25px] h-[25px] mr-1 flex items-center justify-center
+.navbar-expand-item a,
+.navbar-expand-item button {
+  @apply w-max p-2 flex items-center gap-2 text-sm font-medium duration-200 hover:text-yellow-500
+}
+.navbar-expand-open.open-left {
+  @apply left-0
+}
+.navbar-expand-open.open-right {
+  @apply right-0
+}
+
+.navbar-menu {
+  @apply fixed top-[60px] left-0 -z-10 h-screen w-full flex flex-col bg-white text-black duration-200
+}
+.navbar-menu-user {
+  @apply w-full h-max p-4 flex bg-blue-500
+}
+.navbar-menu-user-photo {
+  @apply w-[50px] h-[50px] flex flex-none object-cover wrapper
+}
+.navbar-menu-user-info {
+  @apply ml-4 flex flex-col text-white
+}
+.navbar-menu-user-info h4 {
+  @apply text-lg font-medium
+}
+.navbar-menu-user-info p {
+  @apply text-sm
+}
+.navbar-menu-links {
+  @apply w-full flex flex-col divide-list
+}
+.navbar-menu-link {
+  @apply p-4 flex items-center gap-2 text-sm font-medium
+}
+.navbar-menu-link i {
+  @apply w-[25px] h-[25px] flex justify-center items-center flex-none text-base
+}
+
+.navbar-user-login {
+  @apply px-2 flex
+}
+.navbar-user-login img {
+  @apply w-[50px] h-[50px] flex flex-none object-cover wrapper
+}
+.navbar-user-login h4 {
+  @apply text-lg font-medium
+}
+.navbar-user-login p {
+  @apply text-sm
+}
+.navbar-user-links {
+  @apply w-full flex flex-col divide-list
+}
+
+.navbar-search {
+  @apply h-max flex items-center grow wrapper overflow-hidden
+}
+.navbar-search-input {
+  @apply px-2 grow text-sm placeholder:text-gray-700
 }
