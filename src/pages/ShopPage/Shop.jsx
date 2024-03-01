@@ -49,7 +49,7 @@ export const Shop = () => {
       {/* Lista de Productos */}
       <ProductsList products={products} sort={productsSort} size={cardSize} maxCols={5}  />
       <div className="w-full px-2 py-4 bg-white border border-slate-300 rounded-md">
-        <h3 className="px-2 text-lg font-medium">Mostrando {products.length} productos</h3>
+        <h3 className="px-2 text-lg font-medium">Mostrando {products && products.length} productos</h3>
       </div>
     </section>
   )

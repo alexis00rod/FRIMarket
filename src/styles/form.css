@@ -60,7 +60,7 @@ input[type = 'file'] {
   @apply text-black
 }
 .input-checkbox-name {
-  @apply max-w-[320px] text-gray-500 line-clamp-1 duration-200
+  @apply max-w-[320px] text-gray-500 line-clamp-1 duration-200 capitalize
 }
 .input-checkbox-checkmark {
   @apply absolute -top-0.5 left-0 w-[22px] h-[22px] rounded-md duration-200 border-2 border-gray-200
