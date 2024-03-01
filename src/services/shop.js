@@ -62,6 +62,24 @@ export const getProductsPerCategory = async (category,max) => {
   return await getDocs(query(productsRef,where('category','==', category),limit(max)))
 }
 
+export const getProductsQty = async (item) => {
+  let products = 0
+
+  if(!item) {
+    const snap = await getDocs(productsRef)
+    products = snap.size
+  } else {
+    const q1 = query(productsRef,where('category','==',item))
+    const q2 = query(productsRef,where('type','==',item))
+
+    const [resp1, resp2] = await Promise.all([getDocs(q1),getDocs(q2)])
+ 
+    products = resp1.size + resp2.size
+  }
+
+  return products
+}
+
 // Funcion para obtener productos en oferta
 export const getProductsOffer = async (max) => {
   return getDocs(query(productsRef,limit(max)))
