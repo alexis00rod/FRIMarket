@@ -49,7 +49,7 @@ input[type = 'file'] {
   @apply w-full h-full object-cover
 }
 
-
+/* Input checkbox */
 .input-checkbox {
   @apply relative w-max pb-2 pl-[30px] block text-sm cursor-pointer select-none
 }
@@ -81,6 +81,51 @@ input[type = 'file'] {
 .input-checkbox .input-checkbox-checkmark:after {
   @apply top-[2px] left-[6px] w-[7px] h-[12px] rotate-45 border-white border-r-3 border-b-3
 }
+
+/* Input radio */
+.input-radio {
+  @apply relative w-max pb-2 pl-[30px] block text-sm cursor-pointer select-none
+}
+.input-radio input {
+  @apply hidden
+}
+.input-radio:hover .input-radio-name{
+  @apply text-black
+}
+.input-radio-name {
+  @apply max-w-[320px] text-gray-500 line-clamp-1 duration-200 capitalize
+}
+.input-radio-checkmark {
+  @apply absolute -top-0.5 left-0 w-[22px] h-[22px] rounded-full duration-200 border-2 border-gray-200
+}
+.input-radio:hover input ~ .input-radio-checkmark {
+  @apply border-yellow-500
+}
+.input-radio input:checked ~ .input-radio-checkmark {
+  @apply border-yellow-500 bg-yellow-500
+}
+.input-radio-checkmark:after {
+  content: "";
+  @apply absolute hidden
+}
+.input-radio input:checked ~ .input-radio-checkmark:after {
+  @apply block
+}
+.input-radio .input-radio-checkmark:after {
+  @apply top-[2px] left-[6px] w-[7px] h-[12px] rotate-45 border-white border-r-3 border-b-3
+}
+
+/* Input price */
+.input-price {
+  @apply w-[11.25rem] h-8 flex items-center border border-gray-300 rounded-md overflow-hidden
+}
+.input-price span {
+  @apply w-[1.5rem] flex justify-center flex-none text-gray-300
+}
+.input-price input {
+  @apply h-full grow outline-none text-sm
+}
+
 
 /* QUANTITY */
 .input-qty {
