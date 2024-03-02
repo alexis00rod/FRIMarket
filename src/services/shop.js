@@ -56,7 +56,7 @@ export const searchProducts = async (toSearch) => await getDocs(query(productsRe
 export const deleteProduct = async (product) => await deleteDoc(productRef(product))
 
 // Funcion para editar producto
-export const editProduct = async (product, changes) => {
+export const editProductDoc = async (product, changes) => {
   const {id} = product
   await updateDoc(productRef(id),changes)
 }
