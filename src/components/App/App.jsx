@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { Route, Routes, useLocation } from "react-router-dom"
 import { Footer, Navbar, ProtectedRoutes } from "../index.js"
-import { Cart, Detail, Home, Orders, Profile, Search, Wishlist } from "../../pages/index.js"
+import { Cart, Detail, EditProduct, Home, Orders, Profile, Search, Wishlist } from "../../pages/index.js"
 import { CheckoutRoute, LoginRoute, PostRoute, RegistrationRoute, ShopRoute, EditProfileRoute } from "../../routes/routes.js"
 
 export const App = () => {
@@ -19,6 +19,7 @@ export const App = () => {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/product/:idDetail" element={<Detail />} />
+            <Route path="/editProduct/:idProduct" element={<EditProduct />} />
             <Route path="/search/:toSearch" element={<Search />}></Route>
             <Route path="/shop/*" element={<ShopRoute />}  />
             <Route path="/cart" element={<ProtectedRoutes><Cart /></ProtectedRoutes>}></Route>

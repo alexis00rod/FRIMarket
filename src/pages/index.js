@@ -3,6 +3,8 @@ import { Detail } from "./Detail/Detail";
 import { Orders } from "./Orders/Orders";
 import { EnterPass } from "./Login/EnterPass";
 
+// Edit product
+import { EditProduct } from "./EditProductPage/EditProduct";
 // Edit profile
 import { EditProfileLayout, EditProfileData, EditProfile, EditProfileAccount, EditProfileCards, EditProfileLocation } from "./EditProfilePage/editProfile";
 // Profile
@@ -27,7 +29,8 @@ import { Shop } from "./ShopPage/Shop";
 export {
   Detail,
   Orders,
-  
+
+  EditProduct,
   // Edit Profile
   EditProfileLayout, EditProfileData, EditProfile, EditProfileAccount, EditProfileCards, EditProfileLocation,
   // Profile
