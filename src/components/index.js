@@ -1,6 +1,6 @@
 import { App } from "./App/App"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
-import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox } from "./Form/form"
+import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox, InputPrice } from "./Form/form"
 import { ReviewCard } from "./Card/card"
 import { Select, SelectAddItem, SelectItem, SelectSearch, SelectReviewsSort } from "./Select/select"
 import { Logo } from "./Logo/Logo"
@@ -31,7 +31,7 @@ import { Hero, HomeCategories, HomeFeaturedProducts, HomeOffers, HomeWishlist } 
 // Image Magnifier
 import { ImageMagnifier } from "./ImageMagnifier/ImageMagnifier"
 // Detail
-import { DetailTitle, EditProduct, DetailAdditionalInfo, DetailImages, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts } from '../pages/Detail/components/detailComponents'
+import { DetailTitle, DetailAdditionalInfo, DetailImages, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts } from '../pages/Detail/components/detailComponents'
 // Products
 import { ProductsList, ProductsLayout, ProductsSort, ProductCard } from "./Products/productsComponents"
 // Post
@@ -42,7 +42,8 @@ import { ShopFilter, ShopItemQty, ShopPriceRange } from '../pages/ShopPage/compo
 import { RegistrationStepItem } from "../pages/RegistrationPage/components/RegistrationStepItem"
 // Orders
 import { OrderItem, OrdersSort } from "../pages/Orders/components/ordersComponents"
-
+// Edit product
+import { EditProductTitle, EditProductImages, EditProductPrice } from "../pages/EditProductPage/components/editProductComponents"
 
 export {
   App, Logo, Loader, ProtectedRoutes, Footer,
@@ -51,8 +52,10 @@ export {
   // Select
   Select, SelectItem, SelectSearch, SelectAddItem, SelectReviewsSort,
   // Form
-  InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox,
+  InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox, InputPrice,
   
+  // Edit product
+  EditProductTitle, EditProductImages, EditProductPrice,
   // Notification
   Notification,
   // Buttons
@@ -78,7 +81,7 @@ export {
   // Image Magnifier
   ImageMagnifier,
   // Detail
-  DetailTitle, EditProduct, DetailAdditionalInfo, DetailImages, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts,
+  DetailTitle, DetailAdditionalInfo, DetailImages, DetailSeller, DetailCategory, DetailReviews, DetailSimiliarProducts,
   // Products
   ProductsList, ProductsLayout, ProductsSort, ProductCard,
   // Post
