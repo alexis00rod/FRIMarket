@@ -1,6 +1,6 @@
 import { App } from "./App/App"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
-import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox, InputPrice } from "./Form/form"
+import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox, InputPrice, InputRadio } from "./Form/form"
 import { ReviewCard } from "./Card/card"
 import { Select, SelectAddItem, SelectItem, SelectSearch, SelectReviewsSort } from "./Select/select"
 import { Logo } from "./Logo/Logo"
@@ -43,7 +43,7 @@ import { RegistrationStepItem } from "../pages/RegistrationPage/components/Regis
 // Orders
 import { OrderItem, OrdersSort } from "../pages/Orders/components/ordersComponents"
 // Edit product
-import { EditProductTitle, EditProductImages, EditProductPrice } from "../pages/EditProductPage/components/editProductComponents"
+import { EditProductTitle, EditProductImages, EditProductPrice, EditProductDescription, EditProductCondition } from "../pages/EditProductPage/components/editProductComponents"
 
 export {
   App, Logo, Loader, ProtectedRoutes, Footer,
@@ -52,10 +52,10 @@ export {
   // Select
   Select, SelectItem, SelectSearch, SelectAddItem, SelectReviewsSort,
   // Form
-  InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox, InputPrice,
+  InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox, InputPrice, InputRadio,
   
   // Edit product
-  EditProductTitle, EditProductImages, EditProductPrice,
+  EditProductTitle, EditProductImages, EditProductPrice, EditProductDescription, EditProductCondition,
   // Notification
   Notification,
   // Buttons
