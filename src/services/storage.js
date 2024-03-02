@@ -7,6 +7,14 @@ const productThumbRef = (user,name) => ref(storage, `${user}/products/${name}`)
 const productToPostImageRef = (user,name) => ref(storage, `${user}/products/${name}`)
 const userPhotoRef = (user,name) => ref(storage, `${user}/photo/${name}`)
 
+const productImageRef = (user,product,name) => ref(storage, `${user}/products/${product}/$${name}`)
+
+export const uploadProductImage = async (user,product, file) => {
+  await uploadBytes(productImageRef(user,product,file.name),file)
+  const url = await getDownloadURL(productImageRef(user,product,file.name))
+  return {name: file.name,url}
+}
+
 export const uploadThumb = async (user,file) => {
   const {email} = user
   const {name} = file
