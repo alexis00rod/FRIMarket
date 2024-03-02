@@ -37,10 +37,10 @@
   @apply bg-yellow-500 text-white hover:bg-yellow-600/90 disabled:bg-yellow-400 disabled:hover:bg-yellow-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-yellow-500/30
 }
 .btn-red {
-  @apply bg-red-500 text-white hover:bg-red-600/90 disabled:bg-red-400 disabled:hover:bg-red-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-red-500/30
+  @apply bg-red-500 text-white hover:bg-red-600 disabled:bg-red-400 disabled:hover:bg-red-400 disabled:hover:shadow-none hover:shadow-lg hover:shadow-red-500/30
 }
 .btn-text-blue {
-  @apply text-blue-500 hover:text-blue-600/90 hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/10
+  @apply text-blue-500 hover:text-blue-600/90 hover:bg-blue-500/10 hover:shadow-lg hover:shadow-blue-500/10 disabled:hover:bg-white disabled:text-gray-500 disabled:hover:text-gray-500 disabled:hover:shadow-none disabled:cursor-default
 }
 .btn-text-red {
   @apply text-red-500 hover:text-red-700
