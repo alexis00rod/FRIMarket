@@ -247,6 +247,54 @@ body {
   @apply mr-1 text-black hover:underline
 }
 
+/* Edit product */
+.editProduct-header {
+  @apply w-full p-4 flex wrapper gap-4
+}
+.editProduct-header-product {
+  @apply h-full flex flex-col grow
+}
+.editProduct-header-product-title {
+  @apply mb-2 text-lg font-medium leading-5
+}
+.editProduct-header-product-title a {
+  @apply capitalize
+}
+.editProduct-header-product-id {
+  @apply text-xs font-light
+}
+.editProduct-header-img {
+  @apply w-[80px] h-[80px] flex flex-none object-cover wrapper 
+}
+.editProduct-accordion {
+  @apply w-full flex flex-col wrapper divide-list
+}
+.editProduct-accordion-handle {
+  @apply w-full p-4 flex items-center gap-4 cursor-pointer select-none
+}
+.editProduct-accordion-handle i {
+  @apply w-[25px] h-[25px] flex items-center justify-center flex-none
+}
+.editProduct-accordion-title {
+  @apply flex flex-col grow
+}
+.editProduct-accordion-title-section {
+  @apply mb-1 font-medium
+}
+.editProduct-accordion-title h4 {
+  @apply text-sm line-clamp-1
+}
+
+.editProduct-accordion-expand {
+  @apply w-full divide-list
+}
+.editProduct-item {
+  @apply relative w-full px-4 py-8
+}
+.editProduct-buttons {
+  @apply w-full p-4 flex justify-end gap-4
+}
+
 
 /* Logo */
 .logo {
