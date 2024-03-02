@@ -43,7 +43,7 @@ import { RegistrationStepItem } from "../pages/RegistrationPage/components/Regis
 // Orders
 import { OrderItem, OrdersSort } from "../pages/Orders/components/ordersComponents"
 // Edit product
-import { EditProductTitle, EditProductImages, EditProductPrice, EditProductDescription, EditProductCondition } from "../pages/EditProductPage/components/editProductComponents"
+import { EditProductTitle, EditProductImages, EditProductPrice, EditProductDescription, EditProductCondition, EditProductShipping } from "../pages/EditProductPage/components/editProductComponents"
 
 export {
   App, Logo, Loader, ProtectedRoutes, Footer,
@@ -55,7 +55,7 @@ export {
   InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox, InputPrice, InputRadio,
   
   // Edit product
-  EditProductTitle, EditProductImages, EditProductPrice, EditProductDescription, EditProductCondition,
+  EditProductTitle, EditProductImages, EditProductPrice, EditProductDescription, EditProductCondition, EditProductShipping,
   // Notification
   Notification,
   // Buttons
