@@ -1,20 +1,18 @@
 import { useState } from "react"
 import { useAuthContext } from "../../../context/AuthContext/AuthContext.jsx"
-import { EditProduct } from "../../../components/"
+import { Link } from "react-router-dom"
 
 export const DetailTitle = ({product}) => {
-  const {title, user:{email}} = product
+  const {id,title, user:{email}} = product
   const {userLogged} = useAuthContext()
-  const [editProduct, setEditProduct] = useState(false)
 
   return (
     <div className="detail-title">
       <h2>{title.join(' ')}</h2>
       {userLogged && userLogged.email === email &&
-      <button className="btn btn-s btn-black" title="Editar producto" onClick={() => setEditProduct(true)}>
-        <i className="fa-solid fa-pen"></i>
-      </button>}
-      {editProduct && <EditProduct product={product} handle={setEditProduct} />}
+        <Link to={`/editProduct/${id}`} className="btn btn-s btn-black" title="Editar producto" >
+          <i className="fa-solid fa-pen"></i>
+        </Link>}
     </div>
   )
 }
