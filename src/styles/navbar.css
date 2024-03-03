@@ -79,8 +79,8 @@
 }
 
 .navbar-search {
-  @apply h-max flex items-center grow wrapper overflow-hidden
+  @apply max-w-[600px] h-[35px] flex wrapper grow overflow-hidden 
 }
 .navbar-search-input {
-  @apply px-2 grow text-sm placeholder:text-gray-700
+  @apply h-full px-2 grow text-sm text-black placeholder:text-gray-500 outline-none
 }
