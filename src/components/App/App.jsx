@@ -3,6 +3,7 @@ import { Route, Routes, useLocation } from "react-router-dom"
 import { Footer, Navbar, ProtectedRoutes } from "../index.js"
 import { Cart, Detail, EditProduct, Home, Orders, Profile, Search, Wishlist } from "../../pages/index.js"
 import { CheckoutRoute, LoginRoute, PostRoute, RegistrationRoute, ShopRoute, EditProfileRoute } from "../../routes/routes.js"
+import { NavbarProvider } from "../../context/NavbarContext/NavbarContext.jsx"
 
 export const App = () => {
   const {pathname} = useLocation()
@@ -14,7 +15,9 @@ export const App = () => {
   return (
     <div className="app">
       <div className="app-body">
-        <Navbar />
+        <NavbarProvider>
+          <Navbar />
+        </NavbarProvider>
         <div className="app-page">
           <Routes>
             <Route path="/" element={<Home />}></Route>
