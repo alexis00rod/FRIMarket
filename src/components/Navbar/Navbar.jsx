@@ -19,7 +19,8 @@ export const Navbar = () => {
 
   return (
     <header className={`navbar ${scrollActive && 'navbar-scroll'}`}>
-      <div className="lg:hidden bg-blue-500 text-white">
+      {/* Pantallas chicas */}
+      <div className="lg:hidden bg-blue-500">
         <div className="navbar-container">
           <NavbarSearch />
           <NavbarMenu />
@@ -28,10 +29,13 @@ export const Navbar = () => {
       </div>
       <div className="hidden lg:flex bg-white">
         <div className="navbar-container">
-          <Logo />
+          <div className="grow">
+            <Logo color='blue'/>
+          </div>
           <NavbarSearch />
         </div>
       </div>
+    {/* Pantallas grandes */}
       <div className="hidden lg:flex bg-blue-500">
         <div className="navbar-container">
           <div className="h-full flex items-center grow gap-2">
