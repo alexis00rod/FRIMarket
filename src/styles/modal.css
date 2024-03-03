@@ -13,12 +13,12 @@
 
 /* CONTAINER */
 .modal-container {
-  @apply box flex flex-col max-h-screen overflow-y-scroll scroll
+  @apply w-full p-2 max-h-screen overflow-y-auto wrapper
 }
 
 /* SIZE */
 .modal-m {
-  @apply max-w-md
+  @apply sm:max-w-[420px]
 }
 .modal-l {
   @apply max-w-screen-lg
@@ -26,13 +26,13 @@
 
 /* HEADER */
 .modal-header {
-  @apply box-header flex items-center
+  @apply w-full p-2 flex items-center
 }
 .modal-header h3 {
-  @apply grow text-lg font-medium capitalize line-clamp-1
+  @apply pl-1 grow text-lg font-medium capitalize line-clamp-1
 }
 
 /* BODY */
 .modal-body {
-  @apply box-body flex flex-col
+  @apply w-full p-2 flex flex-col
 }
