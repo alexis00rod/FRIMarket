@@ -313,34 +313,6 @@ body {
   @apply text-white
 }
 
-/* Link */
-.link {
-  @apply w-max px-2 py-2 text-sm font-medium duration-200 hover:underline
-}
-/* Link colors */
-.link-black {
-  @apply text-black hover:text-yellow-500
-}
-.link-yellow {
-  @apply text-yellow-500 hover:text-yellow-600/90
-}
-
-/* Box */
-.box {
-  @apply w-full px-4 py-4 bg-white border border-gray-300 rounded-md
-}
-.box-header {
-  @apply w-full px-2 py-2 
-}
-.box-header-underline {
-  @apply border-b border-gray-300
-}
-.box-body {
-  @apply w-full px-2 py-2
-}
-.box-form {
-  @apply max-w-screen-sm mx-auto
-}
 
 /* Scroll */
 .scroll {
