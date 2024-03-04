@@ -84,7 +84,7 @@ input[type = 'file'] {
 
 /* Input radio */
 .input-radio {
-  @apply relative w-max pb-2 pl-[30px] block text-sm cursor-pointer select-none
+  @apply relative w-max pl-[30px] mb-2 last:mb-0 block text-sm cursor-pointer select-none
 }
 .input-radio input {
   @apply hidden
@@ -93,10 +93,10 @@ input[type = 'file'] {
   @apply text-black
 }
 .input-radio-name {
-  @apply max-w-[320px] text-gray-500 line-clamp-1 duration-200 capitalize
+  @apply text-gray-500 line-clamp-1 duration-200 capitalize
 }
 .input-radio-checkmark {
-  @apply absolute -top-0.5 left-0 w-[22px] h-[22px] rounded-full duration-200 border-2 border-gray-200
+  @apply absolute left-0 top-1/2 -translate-y-1/2 w-[22px] h-[22px] rounded-full duration-200 border-2 border-gray-200
 }
 .input-radio:hover input ~ .input-radio-checkmark {
   @apply border-yellow-500

@@ -121,6 +121,7 @@ export const addLocationToUser = async (user, location) => {
   await updateDoc(userRef(id), {
     locations:locationsNew
   })
+  return locationDoc
 }
 
 export const deleteLocationToUser = async (user, location) => {

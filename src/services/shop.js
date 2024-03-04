@@ -35,7 +35,7 @@ export const updateProduct = async (products) => {
     await updateDoc(productRef(product.id), {
       sales: product.sales ? parseInt(product.sales) + 1 : 1,
       stock: parseInt(product.stock) - product.qty
-    });
+    })
   }
 }
 

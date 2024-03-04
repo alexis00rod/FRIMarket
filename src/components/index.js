@@ -20,8 +20,6 @@ import { ProfilePosts } from '../pages/ProfilePage/components/profileComponents'
 import { Accordion } from "./Accordion/Accordion"
 // Modal
 import { Modal } from "./Modal/Modal"
-// Checkout
-import { CheckoutAddress, CheckoutCard, CheckoutEmail, CheckoutLocation, CheckoutName, CheckoutPhone } from "../pages/CheckoutPage/components/checkoutComponents"
 // Cart
 import { CartItem } from "../pages/CartPage/components/cartComponents"
 // Navbar
@@ -70,8 +68,6 @@ export {
   Accordion,
   // Modal
   Modal,
-  // Checkout
-  CheckoutEmail, CheckoutName, CheckoutPhone, CheckoutLocation, CheckoutAddress, CheckoutCard,
   // Cart
   CartItem,
   // Navbar
