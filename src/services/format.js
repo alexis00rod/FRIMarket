@@ -1,8 +1,10 @@
 import dayjs from 'dayjs'
 import 'dayjs/locale/es'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import localizedFormat from 'dayjs/plugin/localizedFormat'
 
 dayjs.extend(relativeTime)
+dayjs.extend(localizedFormat)
 dayjs.locale("es")
 
 export const generateDisplayName = (user) => {
@@ -87,3 +89,5 @@ export const formatDateFromNow = (date) => dayjs(date.toDate()).fromNow()
 export const formatCapitalize = (txt) => txt.charAt(0).toUpperCase() + txt.slice(1) 
 
 export const formatIdUser = (txt) => txt.toLowerCase().replace(/\s+/g, '').replace(/[^a-zA-Z0-9-_]/g, '')
+
+export const formartDateLocalized = (date) => dayjs(date.toDate()).format('LL')
