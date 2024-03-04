@@ -18,19 +18,29 @@ export const CartContextProvider = ({children}) => {
     return storedCartPriceTotal ? parseFloat(storedCartPriceTotal) : 0
   })
 
+  useEffect(() => {
+    localStorage.setItem('cartPriceTotal', cartPriceTotal.toString())
+  }, [cartPriceTotal])
+
   const [cartQty, setCartQty] = useState(() => {
     const storedCartQty = localStorage.getItem('cartQty')
     return storedCartQty ? parseInt(storedCartQty) : 0
   })
 
   useEffect(() => {
-    localStorage.setItem('cartPriceTotal', cartPriceTotal.toString())
-  }, [cartPriceTotal])
-
-  useEffect(() => {
     localStorage.setItem('cartQty', cartQty.toString())
   }, [cartQty])
 
+  const [delivery, setDelivery] = useState({})
+
+  useEffect(() => {
+    const withStandardShipping = cartList.filter(e => e.shipping === 'Envío standard')
+    setDelivery({
+      qty: withStandardShipping.length,
+      price: withStandardShipping.length * 500
+    })
+    // setDelivery(withStandardShipping.length * 500)
+  },[cartList])
 
   const addToCartList = (product,qty) => {
     const {id,price} = product
@@ -78,7 +88,7 @@ export const CartContextProvider = ({children}) => {
   }
 
   return (
-    <CartContext.Provider value={{cartList, cartPriceTotal, cartQty, addToCartList, removeProductToCartList, addProduct, removeProduct, emptyCart}}>
+    <CartContext.Provider value={{cartList, cartPriceTotal, cartQty, delivery, addToCartList, removeProductToCartList, addProduct, removeProduct, emptyCart}}>
       {children}
     </CartContext.Provider>
   )
