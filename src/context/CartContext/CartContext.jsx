@@ -39,7 +39,6 @@ export const CartContextProvider = ({children}) => {
       qty: withStandardShipping.length,
       price: withStandardShipping.length * 500
     })
-    // setDelivery(withStandardShipping.length * 500)
   },[cartList])
 
   const addToCartList = (product,qty) => {
