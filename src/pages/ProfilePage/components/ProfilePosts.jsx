@@ -20,12 +20,12 @@ export const ProfilePosts = ({user}) => {
   if(!posts) return <Loader />
 
   return (
-    <div className="profile-posts">
-      <div className="profile-posts-controls">
+    <>
+      <div className="profile-controls">
         <ProductsSort selected={productsSort} onChange={({target:{id}}) => setProductsSort(id)} />
         <ProductsLayout size={cardSize} handle={setCardSize} />
       </div>
       <ProductsList products={posts} sort={productsSort} size={cardSize} />
-    </div>
+    </>
   )
 }

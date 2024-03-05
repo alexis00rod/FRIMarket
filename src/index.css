@@ -19,6 +19,7 @@
 @import url('./pages/Detail/detail.css');
 @import url('./pages/EditProductPage/editProducts.css');
 @import url('./pages/EditProfilePage/editProfile.css');
+@import url('./pages/ProfilePage/profile.css');
 
 @tailwind base;
 @tailwind components;
@@ -110,26 +111,6 @@ body {
 }
 .form-result-message {
   @apply mt-6 text-center text-2xl font-medium
-}
-
-/* Profile */
-.profile {
-  @apply p-4 flex flex-wrap justify-between items-center gap-4 wrapper
-}
-.profile-link {
-  @apply w-full sm:w-max p-2 flex items-center wrapper
-}
-.profile-link-photo {
-  @apply w-10 h-10 object-cover object-center rounded-full
-}
-.profile-link-name {
-  @apply px-2 text-lg font-medium
-}
-.profile-posts {
-  @apply w-full flex flex-col gap-4
-}
-.profile-posts-controls {
-  @apply w-full p-4 flex flex-wrap justify-between gap-4 wrapper
 }
 
 /* Slider */

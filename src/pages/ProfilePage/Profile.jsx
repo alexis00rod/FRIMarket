@@ -14,11 +14,11 @@ export const Profile = () => {
   if(!profile) return <Loader />
 
   return (
-    <section className="section section-xl">
-      <div className="profile">
-        <Link to={`/profile/${profile.idUser}`} className="profile-link">
-          <img src={profile.photoURL} alt={profile.idUser} className="profile-link-photo" />
-          <h2 className="profile-link-name">{`${profile.name} ${profile.lastName}`}</h2>
+    <section className="profile">
+      <div className="profile-header">
+        <Link to={`/profile/${profile.idUser}`} className="profile-user">
+          <img src={profile.photoURL} alt={profile.idUser} />
+          <h2>{`${profile.name} ${profile.lastName}`}</h2>
         </Link>
         <BtnShare />
       </div>
