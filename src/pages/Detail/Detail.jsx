@@ -14,11 +14,11 @@ export const Detail = () => {
 
   if(!productDetail) return <Loader />
 
-  const {id, title, images, price, category, type, description, brand, date, stock, condition, user:{email, name, province, city}} = productDetail
+  const {id, images, price, category, type, description, brand, date, stock, condition, user:{email, name, province, city}} = productDetail
 
   return (
-    <section className='section section-xl'>
-      <div className='detail'>
+    <section className='detail'>
+      <div className='detail-main'>
         <div className='detail-title-mobile'>
           {/* Titulo */}
           <DetailTitle product={productDetail} />
@@ -27,7 +27,7 @@ export const Detail = () => {
         </div>
         {/* Imagenes */}
         <DetailImages images={images} />
-        <div className="w-full lg:w-[400px] p-4 flex flex-col flex-none gap-2 bg-white border border-slate-300 rounded-md">
+        <div className="detail-main-controls">
           <div className='detail-title-desktop'>
           {/* Titulo */}
             <DetailTitle product={productDetail} />

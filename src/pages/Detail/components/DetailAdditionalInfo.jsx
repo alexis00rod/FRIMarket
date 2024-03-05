@@ -3,10 +3,10 @@ export const DetailAdditionalInfo = ({title, info}) => {
     <p className='detail-info-additional'>
       {title}: 
       {title !== 'Disponibilidad'
-      ? <span className="font-normal">{info}</span>
-      : <span className={`flex items-center gap-2 ${info > 0 ? 'text-green-500' : 'text-red-500'}`}>
+      ? <span>{info}</span>
+      : <span className={`${info > 0 ? 'text-green-500' : 'text-red-500'}`}>
           {info}
-          <i className={`fa-solid fa-${info > 0 ? 'check' : 'circle-xmark'}`}></i>
+          <i className={`ml-1 fa-solid fa-${info > 0 ? 'check' : 'circle-xmark'}`}></i>
         </span>}
     </p>
   )

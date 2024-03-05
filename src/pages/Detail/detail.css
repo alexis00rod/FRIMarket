@@ -1,0 +1,75 @@
+.detail {
+  @apply w-full max-w-[1200px] p-4 mx-auto flex flex-col gap-4 grow
+}
+.detail-main {
+  @apply w-full flex flex-col lg:flex-row lg:items-start gap-4
+}
+.detail-main-controls {
+  @apply w-full lg:w-[400px] p-4 flex flex-col flex-none gap-2 bg-white border border-slate-300 rounded-md
+}
+.detail-title {
+  @apply flex items-center pb-2
+}
+.detail-title h2 {
+  @apply grow text-lg lg:text-xl font-medium line-clamp-1 capitalize
+}
+.detail-title-mobile {
+  @apply p-4 lg:hidden wrapper
+}
+.detail-title-desktop {
+  @apply hidden lg:flex flex-col
+}
+.detail-category {
+  @apply flex flex-wrap text-sm
+}
+.detail-category-link {
+  @apply w-max hover:text-yellow-500
+}
+.detail-category span {
+  @apply ml-[2px] mr-[5px]
+}
+.detail-seller {
+  @apply w-full mb-2 flex items-center p-2 wrapper
+}
+.detail-seller-photo {
+  @apply w-10 h-10 overflow-hidden rounded-full
+}
+.detail-seller-photo img {
+  @apply w-full h-full object-cover
+}
+.detail-seller-name {
+  @apply ml-2 w-max text-sm font-medium hover:underline
+}
+.detail-price {
+  @apply px-2 mb-2 text-3xl text-yellow-500 font-medium
+}
+.detail-info {
+  @apply w-full p-4 flex flex-col wrapper
+}
+.detail-info h3 {
+  @apply grow text-lg font-medium
+}
+.detail-info-description {
+  @apply w-full mb-2 text-sm line-clamp-4
+}
+.detail-info-additional {
+  @apply flex items-center gap-2 font-medium capitalize
+}
+.detail-info-additional span {
+  @apply font-normal
+}
+.detail-reviews {
+  @apply w-full p-4 flex flex-col wrapper
+}
+.detail-reviews h3 {
+  @apply grow text-lg font-medium
+}
+.detail-cart {
+  @apply flex flex-col gap-2
+}
+.detail-cart-qty {
+  @apply relative flex items-center
+}
+.detail-cart-qty-title {
+  @apply mr-2 text-sm font-medium
+}

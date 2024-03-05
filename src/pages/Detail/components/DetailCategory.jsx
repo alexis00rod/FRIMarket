@@ -10,7 +10,7 @@ export const DetailCategory = ({category,type}) => {
     return (
       <div className="detail-category">
         <Link to={`/shop/${productCategory.idCategory}`} className='detail-category-link'>{productCategory.name}</Link>
-        <span className='detail-category-divide'>,</span>
+        <span>,</span>
         <Link to={`/shop/${productCategory.idCategory}/${type}`} className='detail-category-link'>{type}</Link>
       </div> 
     )
