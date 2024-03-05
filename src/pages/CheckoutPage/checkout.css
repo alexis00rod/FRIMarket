@@ -1,0 +1,100 @@
+/* Checkout */
+.checkout {
+  @apply w-full lg:max-w-[900px] mx-auto lg:mt-12 flex flex-col lg:flex-row gap-4 grow
+}
+/* CheckoutForm */
+.checkout-form {
+  @apply px-2 pt-2 grow lg:h-max bg-white divide-list
+}
+.checkout-form h3 {
+  @apply p-4 text-2xl font-medium
+}
+/* CheckoutInputs */
+.checkout-inputs {
+  @apply px-4 pt-4 flex flex-col
+}
+.checkout-input {
+  @apply relative mb-6
+}
+.checkout-buttons {
+  @apply px-4 py-6 flex gap-4
+}
+/* CheckoutItems */
+.checkout-item {
+  @apply w-full px-4 pb-4 flex 
+}
+.checkout-icon {
+  @apply w-[50px] h-[50px] flex items-center justify-center flex-none rounded-full bg-white text-blue-500 text-xl border border-gray-300
+}
+.checkout-detail {
+  @apply ml-4 flex flex-col grow
+}
+.checkout-detail p {
+  @apply first:mb-1 first:text-lg text-sm leading-4 capitalize
+}
+.checkout-products {
+  @apply ml-2 flex flex-col gap-2
+}
+.checkout-product {
+  @apply flex
+}
+.checkout-product img {
+  @apply w-[40px] h-[40px] flex flex-none object-cover wrapper
+}
+.checkout-product p {
+  @apply m-0 text-sm leading-4 line-clamp-1 !important
+}
+/* CheckoutSummary */
+.checkout-summary {
+  @apply absolute lg:static bottom-0 left-0 w-full lg:max-w-[300px] lg:h-max p-4 flex flex-col flex-none items-center bg-white border-t border-gray-300
+}
+.checkout-summary h4 {
+  @apply mb-2 text-lg font-medium
+}
+.checkout-summary-detail {
+  @apply w-full flex flex-col
+}
+.checkout-summary-detail p {
+  @apply w-full flex justify-between leading-6
+}
+.checkout-summary-detail p:last-child span {
+  @apply text-yellow-500 font-medium
+}
+/* CheckoutOrder */
+.checkoutOrder {
+  @apply w-full lg:max-w-[600px] lg:mt-12 p-4 mx-auto flex flex-col grow lg:grow-0 bg-white divide-list
+}
+.checkoutOrder h2 {
+  @apply w-full mb-4 px-2 py-1 text-2xl font-medium text-center
+}
+.checkoutOrder-summary {
+  @apply w-full pt-4 px-2 mb-4 last:mb-0
+}
+.checkoutOrder-summary p {
+  @apply flex items-center justify-between leading-5
+}
+.checkoutOrder-product {
+  @apply px-2 mb-2 last:mb-0 text-sm
+}
+.checkoutOrder-product p {
+  @apply capitalize line-clamp-1 leading-4
+}
+/* CheckoutLoading */
+.checkout-loading {
+  @apply w-full lg:max-w-[400px] lg:h-[400px] mx-auto flex flex-col items-center justify-center flex-none grow lg:grow-0 bg-white
+}
+/* Checkout media queries */
+@media (min-width: 1024px) {
+  .checkout-form {
+    @apply wrapper
+  }
+  .checkout-summary {
+    @apply wrapper
+  }
+  .checkout-loading {
+    @apply wrapper
+  }
+  .checkoutOrder {
+    @apply wrapper
+  }
+}
