@@ -1,0 +1,12 @@
+.search {
+  @apply w-full max-w-[1200px] p-4 mx-auto flex flex-col gap-4 grow
+}
+.search-controls {
+  @apply relative w-full p-4 flex flex-col md:flex-row md:items-center gap-2 md:gap-4 wrapper
+}
+.search-controls h2 {
+  @apply h-[35px] flex items-center grow text-lg font-semibold
+}
+.search-controls-layout {
+  @apply absolute top-4 right-4 md:static py-0.5
+}

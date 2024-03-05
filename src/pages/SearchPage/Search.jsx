@@ -20,17 +20,17 @@ export const Search = () => {
   },[toSearch])
 
   return (
-    <section className="section section-xl">
-      <div className="products-controls wrapper">
+    <section className="search">
+      <div className="search-controls">
         {/* Terminos de busqueda */}
         <div className="flex flex-col grow">
-          <h3 className="text-lg font-semibold">"{toSearch}"</h3>
-          <span className="w-max px-1 text-sm text-gray-500 font-normal">{productsFound.length} {productsFound.length > 1 ? 'resultados' : 'resultado'}</span>
+          <h2>"{toSearch}"</h2>
+          <span className="text-sm">{productsFound.length} {productsFound.length > 1 ? 'resultados' : 'resultado'}</span>
         </div>
         {/* Productos orden */}
         <ProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
         {/* Productos layout */}
-        <div className="products-controls-layout">
+        <div className="search-controls-layout">
           <ProductsLayout size={cardSize} handle={setCardSize} />
         </div>
       </div>

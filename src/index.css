@@ -13,6 +13,7 @@
 @import url('./pages/CheckoutPage/checkout.css');
 @import url('./pages/Orders/orders.css');
 @import url('./pages/WishlistPage/wishlist.css');
+@import url('./pages/SearchPage/search.css');
 
 @tailwind base;
 @tailwind components;
