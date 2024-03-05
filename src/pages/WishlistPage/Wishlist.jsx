@@ -18,12 +18,12 @@ export const Wishlist = () => {
   if(!wishlist) return <Loader />
 
   return (
-    <section className="section section-xl">
-      <div className="products-controls wrapper">
-        <h3 className="grow text-lg font-semibold">Lista de favoritos</h3>
+    <section className="wishlist">
+      <div className="wishlist-controls">
+        <h2>Lista de favoritos</h2>
         {/* Productos ordern */}
         <ProductsSort selected={productsSort} onChange={({target:{id}}) => setProductsSort(id)} />
-        <div className="products-controls-layout">
+        <div className="wishlist-controls-layout">
           {/* Productos layout */}
           <ProductsLayout size={cardSize} handle={setCardSize} />
         </div>

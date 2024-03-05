@@ -12,6 +12,7 @@
 /* Pages */
 @import url('./pages/CheckoutPage/checkout.css');
 @import url('./pages/Orders/orders.css');
+@import url('./pages/WishlistPage/wishlist.css');
 
 @tailwind base;
 @tailwind components;
