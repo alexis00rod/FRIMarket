@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
 import { getProductsQty } from "../../../services/shop"
 
 export const ShopItemQty = ({item}) => {
@@ -11,6 +10,4 @@ export const ShopItemQty = ({item}) => {
   },[item])
 
   return <>({qty !== undefined ? qty : 0})</>
-
-  // return qty !== undefined ? qty : 0
 }
