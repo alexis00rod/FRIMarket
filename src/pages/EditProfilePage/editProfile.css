@@ -1,0 +1,59 @@
+.editProfile {
+  @apply w-full max-w-[640px] p-4 mx-auto flex flex-col grow gap-4
+}
+.editProfile-header {
+  @apply w-full p-4 flex items-center wrapper
+}
+.editProfile-header-profile {
+  @apply ml-4 flex flex-col grow
+}
+.editProfile-header-profile h3 {
+  @apply text-lg font-semibold
+}
+.editProfile-links {
+  @apply w-full p-4 flex flex-col gap-2 wrapper
+}
+.editProfile-link {
+  @apply w-full p-2 flex items-center duration-200 hover:text-yellow-500 select-none
+}
+
+/* Edit profile form */
+.editProfile-form {
+  @apply w-full px-2 pt-2 flex flex-col wrapper divide-list
+}
+.editProfile-form-header {
+  @apply p-4 w-full flex items-center
+}
+.editProfile-form-header h3 {
+  @apply grow text-lg font-medium
+}
+.editProfile-form-inputs {
+  @apply w-full px-4 pt-4 flex flex-col
+}
+.editProfile-form-input {
+  @apply relative mb-6
+}
+.editProfile-form-buttons {
+  @apply px-4 py-6 flex gap-4
+}
+.editProfile-form-list {
+  @apply w-full px-4 pt-4 flex flex-col
+}
+.editProfile-form-item {
+  @apply w-full pb-4 flex items-center
+}
+.editProfile-form-item-summary {
+  @apply ml-4 flex flex-col grow
+}
+.editProfile-form-item-summary p {
+  @apply first:text-lg first:leading-6 text-[.8rem] leading-4
+}
+
+.editProfile-icon {
+  @apply w-[50px] h-[50px] flex items-center justify-center flex-none text-blue-500 text-xl rounded-full border border-gray-300
+}
+
+/* Edit profile photo */
+.editProfile-photo {
+  @apply w-[80px] h-[80px] flex flex-none
+}

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import { formatCapitalize } from "../../services/format"
 import { updateUserDisplayName } from "../../services/auth"
-import { useProfile } from "../../hooks/useProfile"
-import { ButtonLoader, InputText, Loader } from "../../components"
 import { updateDataUser } from "../../services/user"
+import { formatCapitalize } from "../../services/format"
+import { useProfile } from "../../hooks/useProfile"
+import { ButtonLoader, InputText, Loader, Notification } from "../../components"
 
 export const EditProfileData = () => {
   const {profile} = useProfile()
@@ -54,46 +54,42 @@ export const EditProfileData = () => {
   if(!profile) return <Loader />
 
   return (
-    <div className="w-full p-12 flex flex-col bg-white border border-gray-300 rounded-md">
-      <div className="w-full flex items-center">
-        <h3 className="grow text-lg font-medium">Datos personales</h3>
-        <Link to='/editProfile' className="btn btn-m btn-blue btn-text">Volver</Link>
-      </div>
-      <div className="w-full flex flex-col">
-        <div className="relative mt-6 mb-1.5">
-          <InputText 
-          label='Nombre'
-          name='name'
-          id={data?.name || ''}
-          value={data?.name || ''}
-          onChange={({target:{value}}) => setData({...data,name:value})}
-          />
-          {dataError && dataError.includes('name') && 
-            <p className="top-full left-0 absolute w-full pl-2 pt-0.5 flex items-center text-[0.8rem] text-red-500">
-              <i className="fa-solid fa-circle-exclamation"></i>
-              <span className="pl-2 font-medium">Completa este campo.</span>
-            </p>}
+    <section className="editProfile">
+      <div className="editProfile-form">
+        <div className="editProfile-form-header">
+          <h3>Datos personales</h3>
+          <Link to='/editProfile' className="btn btn-m btn-blue btn-text">Volver</Link>
         </div>
-        <div className="relative mt-6 mb-1.5">
-          <InputText 
-          label='Apellido'
-          name='lastName'
-          id={data?.lastName || ''}
-          value={data?.lastName || ''}
-          onChange={({target:{value}}) => setData({...data,lastName:value})}
-          />
-          {dataError && dataError.includes('lastName') && 
-            <p className="top-full left-0 absolute w-full pl-2 pt-0.5 flex items-center text-[0.8rem] text-red-500">
-              <i className="fa-solid fa-circle-exclamation"></i>
-              <span className="pl-2 font-medium">Completa este campo.</span>
-            </p>}
+        <div className="editProfile-form-inputs">
+          <div className="editProfile-form-input">
+            <InputText 
+            label='Nombre'
+            name='name'
+            id={data?.name || ''}
+            value={data?.name || ''}
+            onChange={({target:{value}}) => setData({...data,name:value})}
+            />
+            {dataError && dataError.includes('name') && 
+              <Notification message='Completa este campo.'/>}
+          </div>
+          <div className="editProfile-form-input">
+            <InputText 
+            label='Apellido'
+            name='lastName'
+            id={data?.lastName || ''}
+            value={data?.lastName || ''}
+            onChange={({target:{value}}) => setData({...data,lastName:value})}
+            />
+            {dataError && dataError.includes('lastName') && 
+              <Notification message='Completa este campo.'/>}
+          </div>
         </div>
-        <div className="mt-6" >
+        <div className="editProfile-form-buttons">
           {dataLoading
           ? <ButtonLoader />
           : <button className="btn btn-m btn-blue btn-text" onClick={submitData}>Continuar</button>}
         </div>
       </div>
-    </div>
+    </section>
   )
 }

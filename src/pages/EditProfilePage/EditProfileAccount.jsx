@@ -4,7 +4,7 @@ import { existsIdUser, updateDataUser, updateUser } from "../../services/user"
 import { updateUserEmail } from "../../services/auth"
 import { formatIdUser } from "../../services/format"
 import { useProfile } from "../../hooks/useProfile"
-import { ButtonLoader, InputNumber, InputPassword, InputText, Loader, Modal } from "../../components"
+import { ButtonLoader, InputNumber, InputPassword, InputText, Loader, Modal, Notification } from "../../components"
 
 export const EditProfileAccount = () => {
   const {profile} = useProfile()
@@ -73,65 +73,55 @@ export const EditProfileAccount = () => {
   if(!profile) return <Loader />
 
   return (
-    <div className="w-full p-12 flex flex-col bg-white border border-gray-300 rounded-md">
-      <div className="w-full flex items-center">
-        <h3 className="grow text-lg font-medium">Datos de tu cuenta</h3>
-        <Link to='/editProfile' className="btn btn-m btn-blue btn-text">Volver</Link>
-      </div>
-      <div className="w-full flex flex-col">
-        <div className="relative mt-6 mb-1.5">
-          <InputText 
-          label='Email'
-          name='email'
-          id={account?.email || ''}
-          value={account?.email || ''}
-          onChange={({target:{value}}) => setAccount({...account,email:value})}
-          />
-          {accountError && accountError.includes('email') &&  
-            <p className="top-full left-0 absolute w-full pl-2 pt-0.5 flex items-center text-[0.8rem] text-red-500">
-              <i className="fa-solid fa-circle-exclamation"></i>
-              <span className="pl-2 font-medium">Completa este campo.</span>
-            </p>}
-          {accountError && accountError.includes('email-format') && !accountError.includes('email') && 
-            <p className="top-full left-0 absolute w-full pl-2 pt-0.5 flex items-center text-[0.8rem] text-red-500">
-              <i className="fa-solid fa-circle-exclamation"></i>
-              <span className="pl-2 font-medium">Usá el formato nombre@ejemplo.com.</span>
-            </p>}
+    <section className="editProfile">
+      <div className="editProfile-form">
+        <div className="editProfile-form-header">
+          <h3>Datos de tu cuenta</h3>
+          <Link to='/editProfile' className="btn btn-m btn-blue btn-text">Volver</Link>
         </div>
-        <div className="relative mt-6 mb-1.5">
-          <InputNumber 
-          label='Teléfono de contacto'
-          name='phone'
-          id={account.phone || ''}
-          value={account.phone || ''}
-          onChange={({target:{value}}) => setAccount({...account,phone:value})}
-          />
+        <div className="editProfile-form-inputs">
+          <div className="editProfile-form-input">
+            <InputText 
+            label='Email'
+            name='email'
+            id={account?.email || ''}
+            value={account?.email || ''}
+            onChange={({target:{value}}) => setAccount({...account,email:value})}
+            />
+            {accountError && accountError.includes('email') &&  
+              <Notification message='Completa este campo.'/>}
+            {accountError && accountError.includes('email-format') && !accountError.includes('email') && 
+              <Notification message='Usá el formato nombre@ejemplo.com.'/>}
+          </div>
+          <div className="editProfile-form-input">
+            <InputNumber 
+            label='Teléfono de contacto'
+            name='phone'
+            id={account.phone || ''}
+            value={account.phone || ''}
+            onChange={({target:{value}}) => setAccount({...account,phone:value})}
+            />
+          </div>
+          <div className="editProfile-form-input">
+            <InputText 
+            label='Nombre de usuario'
+            name='idUser'
+            id={account.idUser || ''}
+            value={account.idUser || ''}
+            onChange={({target:{value}}) => setAccount({...account,idUser: formatIdUser(value)})}
+            />
+            {accountError && accountError.includes('id') &&  
+              <Notification message='Completa este campo.'/>}
+            {accountError && accountError.includes('id-exists') &&  
+              <Notification message='El usuario ya existe.'/>}
+          </div>
         </div>
-        <div className="relative mt-6 mb-1.5">
-          <InputText 
-          label='Nombre de usuario'
-          name='idUser'
-          id={account.idUser || ''}
-          value={account.idUser || ''}
-          onChange={({target:{value}}) => setAccount({...account,idUser: formatIdUser(value)})}
-          />
-          {accountError && accountError.includes('id') &&  
-            <p className="top-full left-0 absolute w-full pl-2 pt-0.5 flex items-center text-[0.8rem] text-red-500">
-              <i className="fa-solid fa-circle-exclamation"></i>
-              <span className="pl-2 font-medium">Completa este campo.</span>
-            </p>}
-          {accountError && accountError.includes('id-exists') &&  
-            <p className="top-full left-0 absolute w-full pl-2 pt-0.5 flex items-center text-[0.8rem] text-red-500">
-              <i className="fa-solid fa-circle-exclamation"></i>
-              <span className="pl-2 font-medium">El usuario ya existe.</span>
-            </p>}
-        </div>
-        <div className="mt-6">
+        <div className="editProfile-form-buttons">
           {accountLoading
           ? <ButtonLoader />
           : <button className="btn btn-m btn-blue btn-text" onClick={submitAccount}>Continuar</button>}
         </div>
       </div>
-    </div>
+    </section>
   )
 }

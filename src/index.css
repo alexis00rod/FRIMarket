@@ -18,6 +18,7 @@
 @import url('./pages/ShopPage/shop.css');
 @import url('./pages/Detail/detail.css');
 @import url('./pages/EditProductPage/editProducts.css');
+@import url('./pages/EditProfilePage/editProfile.css');
 
 @tailwind base;
 @tailwind components;

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Loader } from "../../../components"
+import { Loader, Notification } from "../../../components"
 import { uploadPhotoProfile } from "../../../services/storage"
 import { updatePhotoURL } from "../../../services/user"
 
@@ -37,7 +37,7 @@ export const EditProfilePhotoURL = ({profile}) => {
   }
 
   return (
-    <div className="w-[80px] h-[80px] flex flex-none">
+    <div className="editProfile-photo">
       {photo
       ? <>
           <input 
@@ -54,10 +54,7 @@ export const EditProfilePhotoURL = ({profile}) => {
               <i className="fa-solid fa-camera text-gray-500"></i>
             </div>
             {photoError && 
-              <p className="absolute -bottom-1 left-full w-max pl-2 pt-0.5 flex items-center text-[0.8rem] text-red-500">
-                <i className="fa-solid fa-circle-exclamation"></i>
-                <span className="pl-2 font-medium">{photoError}</span>
-              </p>}
+              <Notification position='-bottom-1 left-full' message={photoError}/>}
           </label>
         </>
       : <Loader />}
