@@ -32,9 +32,9 @@ export const Shop = () => {
   if(!products) return <Loader />
 
   return (
-    <section className="section section-xl">
+    <section className="shop">
       {/* Productos controlador */}
-      <div className="products-controls wrapper">
+      <div className="shop-controls">
         {/* Productos filtro */}
         <div className="grow">
           <ShopFilter />
@@ -42,15 +42,15 @@ export const Shop = () => {
         {/* Productos orden */}
         <ProductsSort selected={productsSort} onChange={({target: {id}}) => setProductsSort(id)} />
         {/* Productos layout */}
-        <div className="products-controls-layout">
+        <div className="shop-controls-layout">
           <ProductsLayout size={cardSize} handle={setCardSize} />
         </div>
       </div>
       {/* Lista de Productos */}
       <ProductsList products={products} sort={productsSort} size={cardSize} maxCols={5}  />
-      <div className="w-full px-2 py-4 bg-white border border-slate-300 rounded-md">
+      {/* <div className="w-full px-2 py-4 bg-white border border-slate-300 rounded-md">
         <h3 className="px-2 text-lg font-medium">Mostrando {products && products.length} productos</h3>
-      </div>
+      </div> */}
     </section>
   )
 }

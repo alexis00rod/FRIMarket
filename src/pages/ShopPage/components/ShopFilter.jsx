@@ -25,8 +25,8 @@ export const ShopFilter = () => {
       <Modal title='Filtros' size='modal-m' position='left' handle={setFilterMenu} >
         {!categories.length || !locations 
           ? <Loader />
-          : <div className="w-full h-full flex flex-col gap-4 items-center">
-              <div className="w-full flex flex-col gap-4">
+          : <div className="shopFilter">
+              <div className="shopFilter-inputs">
                 <Accordion title='Categorías'>
                 {categorySelected 
                   ? <>

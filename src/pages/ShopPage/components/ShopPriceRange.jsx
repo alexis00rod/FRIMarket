@@ -15,24 +15,22 @@ export const ShopPriceRange = () => {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="shopFilter-price">
       <span className="text-sm">Escoge un rango</span>
-      <div className="flex items-center ">
+      <div className="shopFilter-price-inputs">
         <input 
         type="number"
         name="minPrice"
         value={price?.min || ''}
         onChange={({target:{value}}) => setPrice({...price,min:value})}
-        className="w-[100px] h-[35px] px-2 flex flex-none border border-gray-300 outline-none rounded-md"
         placeholder="min." 
         />
-        <span className="w-[35px] h-[35px] flex items-center justify-center">a</span>
+        <span>a</span>
         <input 
         type="number"
         name="maxPrice"
         value={price?.max || ''}
         onChange={({target:{value}}) => setPrice({...price,max:value})}
-        className="w-[100px] h-[35px] px-2 flex flex-none border border-gray-300 outline-none rounded-md"
         placeholder="max." 
         />
         <button className="ml-4 btn btn-s btn-blue" onClick={filterPrice}>
