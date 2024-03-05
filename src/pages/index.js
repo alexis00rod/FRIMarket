@@ -6,7 +6,7 @@ import { EnterPass } from "./Login/EnterPass";
 // Edit product
 import { EditProduct } from "./EditProductPage/EditProduct";
 // Edit profile
-import { EditProfileLayout, EditProfileData, EditProfile, EditProfileAccount, EditProfileCards, EditProfileLocation } from "./EditProfilePage/editProfile";
+import { EditProfileData, EditProfile, EditProfileAccount, EditProfileCards, EditProfileLocation } from "./EditProfilePage/editProfile";
 // Profile
 import { Profile } from "./ProfilePage/Profile";
 // Wishlist
@@ -32,7 +32,7 @@ export {
 
   EditProduct,
   // Edit Profile
-  EditProfileLayout, EditProfileData, EditProfile, EditProfileAccount, EditProfileCards, EditProfileLocation,
+  EditProfileData, EditProfile, EditProfileAccount, EditProfileCards, EditProfileLocation,
   // Profile
   Profile,
   // Wishlist
