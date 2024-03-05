@@ -14,6 +14,7 @@
 @import url('./pages/Orders/orders.css');
 @import url('./pages/WishlistPage/wishlist.css');
 @import url('./pages/SearchPage/search.css');
+@import url('./pages/HomePage/home.css');
 
 @tailwind base;
 @tailwind components;

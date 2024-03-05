@@ -2,7 +2,7 @@ import { Hero, HomeCategories, HomeFeaturedProducts, HomeOffers, HomeWishlist } 
 
 export const Home = () => {
   return (
-    <section className="section section-xl">
+    <section className="home">
       <Hero />
       <HomeCategories />
       <HomeWishlist />
