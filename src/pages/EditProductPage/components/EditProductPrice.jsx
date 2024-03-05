@@ -1,8 +1,7 @@
 import { useState } from "react"
 import { formatNumber, formatPrice } from "../../../services/format"
 import { editProductDoc } from "../../../services/shop"
-import { ButtonLoader, Notification } from "../../../components"
-import { InputPrice } from "../../../components/Form/InputPrice"
+import { InputPrice, ButtonLoader, Notification } from "../../../components"
 
 export const EditProductPrice = ({product}) => {
   const [editProduct, setEditProduct] = useState(false)
@@ -42,7 +41,7 @@ export const EditProductPrice = ({product}) => {
         onClick={() => setEditProduct(!editProduct)}
       >
         <div className="editProduct-accordion-title">
-          <span className="editProduct-accordion-title-section">Precio</span>
+          <span>Precio</span>
           <h4>
             {editProduct
               ? "Indicá a cuánto querés vender el producto"

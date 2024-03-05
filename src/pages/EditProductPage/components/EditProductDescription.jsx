@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { ButtonLoader, Textarea } from "../../../components"
 import { editProductDoc } from "../../../services/shop"
+import { ButtonLoader, Textarea } from "../../../components"
 
 export const EditProductDescription = ({product}) => {
   const {description} = product
@@ -28,9 +28,7 @@ export const EditProductDescription = ({product}) => {
         onClick={() => setEditProduct(!editProduct)}
       >
         <div className="editProduct-accordion-title">
-          <span className="editProduct-accordion-title-section">
-            Descripción <span className="font-light">| Opcional</span>
-          </span>
+          <span>Descripción <span>| Opcional</span></span>
           <h4>
             {editProduct
               ? "Detallá las principales características de tu producto."

@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { ButtonLoader, InputRadio } from "../../../components"
 import { editProductDoc } from "../../../services/shop"
+import { ButtonLoader, InputRadio } from "../../../components"
 
 export const EditProductCondition = ({product}) => {
   const {condition} = product
@@ -28,7 +28,7 @@ export const EditProductCondition = ({product}) => {
         onClick={() => setEditProduct(!editProduct)}
       >
         <div className="editProduct-accordion-title">
-          <span className="editProduct-accordion-title-section">Condición</span>
+          <span>Condición</span>
           <h4>
             {editProduct
               ? "Indicá el estado en que se encuentra tu producto."

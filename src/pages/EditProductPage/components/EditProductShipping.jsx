@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { ButtonLoader, InputRadio } from "../../../components"
 import { editProductDoc } from "../../../services/shop"
+import { ButtonLoader, InputRadio } from "../../../components"
 
 export const EditProductShipping = ({product}) => {
   const {shipping} = product
@@ -28,7 +28,7 @@ export const EditProductShipping = ({product}) => {
         onClick={() => setEditProduct(!editProduct)}
       >
         <div className="editProduct-accordion-title">
-          <span className="editProduct-accordion-title-section">Envío</span>
+          <span>Envío</span>
           <h4>
             {editProduct
             ? 'Cómo entregás el producto'

@@ -39,7 +39,7 @@ export const EditProductTitle = ({product}) => {
     <div className="editProduct-accordion">
       <div className="editProduct-accordion-handle" onClick={() => setEditProduct(!editProduct)}>
         <div className="editProduct-accordion-title">
-          <span className="editProduct-accordion-title-section">Título</span>
+          <span>Título</span>
           <h4>
             {editProduct
             ? 'Incluí producto, marca, modelo y destacá sus características principales'
@@ -50,7 +50,7 @@ export const EditProductTitle = ({product}) => {
       </div>
       {editProduct &&
         <div className="editProduct-accordion-expand">
-          <div className="editProduct-item ">
+          <div className="editProduct-item">
             <InputText 
             name='title'
             value={titleProduct.join(' ') || ''}

@@ -65,7 +65,7 @@ export const EditProductImages = ({user,product}) => {
     <div className="editProduct-accordion">
       <div className="editProduct-accordion-handle" onClick={() => setEditProduct(!editProduct)}>
         <div className="editProduct-accordion-title">
-          <span className="editProduct-accordion-title-section">Fotos</span>
+          <span>Fotos</span>
           <h4>
             {editProduct
             ? 'Suma fotos de tu producto'
