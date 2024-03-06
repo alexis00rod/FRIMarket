@@ -5,7 +5,7 @@ export const BtnCart = ({qty}) => {
   const {closeMenu} = useNavbarContext()
 
   return (
-    <Link to='/cart' className="btn-cart" onClick={() => closeMenu()}>
+    <Link to='/cart' className="btn-cart" onClick={() => window.innerWidth < 1024 && closeMenu()}>
       <i className="fa-solid fa-cart-shopping"></i>
       {qty !== 0 && <span className="btn-cart-counter">{qty}</span>}
     </Link>
