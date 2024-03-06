@@ -1,44 +1,37 @@
 import { Link } from "react-router-dom"
-import { CartItem, Loader} from "../../components"
 import { useCartContext } from "../../context/CartContext/CartContext"
 import { formatPrice } from "../../services/format"
+import { CartItem} from "../../components"
 
 export const Cart = () => {
-  const {cartList, cartPriceTotal, cartQty, emptyCart} = useCartContext()
-
-  if(!cartList && !cartPriceTotal && !cartQty) return <Loader />
+  const {cartList, cartPriceTotal, cartQty, delivery, emptyCart} = useCartContext()
 
   return (
-    <section className="section section-xl">
+    <section className="cart">
       {cartQty < 1
-      ? <p className="cart-empty">Tu carrito esta vacio</p>
-      : <div className="cart">
-          {/* Lista de productos */}
-          <div className="cart-list">
-            {cartList.map(e => <CartItem key={e.id} product={e} />)}
+      ? <p className="cart-empty">Tu carrito esta vacío</p>
+      : <>
+          <div className="grow">
+            <ul className="cart-list">
+              {cartList.map(e => <CartItem key={e.id} product={e} />)}
+            </ul>
           </div>
-          {/* Carrito orden */}
-          <div className="cart-order">
-            <h3 className="cart-order-title">Tu carrito</h3>
-            {/* Precio */}
-            <span className="cart-price">${formatPrice(cartPriceTotal)}</span>
-            {/* Volver a la tienda */}
-            <Link to='/shop' className="btn btn-l btn-text btn-blue">
-              <i className="fa-solid fa-shop"></i>
-              Seguir comprando
-            </Link>
-            {/* Ir a checkout */}
-            <Link to='/checkout' className="btn btn-l btn-text btn-green">
-              <i className="fa-solid fa-check"></i>
-              Ir a pagar
-            </Link>
-            {/* Vaciar carrito */}
-            <button className="btn btn-l btn-text btn-red" onClick={() => emptyCart()}>
-              <i className="fa-solid fa-trash"></i>
-              Vaciar carrito
-            </button>
+          <div className="cart-summary">
+            <p>Productos ({cartQty})<span>${formatPrice(cartPriceTotal)}</span></p>
+            <p>Envio ({delivery.qty})<span>${formatPrice(delivery.price)}</span></p>
+            <p className="font-medium">Total<span>${formatPrice(cartPriceTotal + delivery.price)}</span></p>
+            <div className="mt-2 w-full flex flex-wrap justify-end gap-y-2 gap-x-4">
+              <button className="btn btn-m btn-text btn-red" onClick={() => emptyCart()}>
+                <i className="fa-solid fa-trash"></i>
+                Vaciar carrito
+              </button>
+              <Link to='/checkout' className="btn btn-m btn-text btn-green">
+                <i className="fa-solid fa-check"></i>
+                Ir a pagar
+              </Link>
+            </div>
           </div>
-        </div>}
+        </>}
     </section>
   )
 }

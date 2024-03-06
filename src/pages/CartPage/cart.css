@@ -1,0 +1,38 @@
+.cart {
+  @apply relative w-full lg:max-w-[1200px] mx-auto flex flex-col lg:flex-row grow
+}
+.cart-empty {
+  @apply w-full mt-4 flex justify-center
+}
+.cart-list {
+  @apply mx-4 my-4 flex flex-col grow wrapper divide-list
+}
+.cart-item {
+  @apply w-full p-4 flex
+}
+.cart-item img {
+  @apply w-[50px] h-[50px] flex flex-none object-cover wrapper
+}
+.cart-item h4 {
+  @apply capitalize line-clamp-1
+}
+.cart-item h5 {
+  @apply w-[100px] flex justify-end text-lg
+}
+.cart-item-controls {
+  @apply w-max h-max flex items-center wrapper overflow-hidden
+}
+.cart-item-controls span {
+  @apply w-[35px] h-full flex items-center justify-center flex-none
+}
+.cart-summary {
+  @apply sticky lg:static bottom-0 left-0 p-4 w-full lg:max-w-[300px] h-max lg:mt-4 lg:mr-4 flex flex-col items-center bg-white border-t border-gray-300
+}
+.cart-summary p {
+  @apply w-full flex justify-between text-sm
+}
+@media (min-width: 1024px) {
+  .cart-summary {
+    @apply wrapper
+  }
+}

@@ -20,6 +20,7 @@
 @import url('./pages/EditProductPage/editProducts.css');
 @import url('./pages/EditProfilePage/editProfile.css');
 @import url('./pages/ProfilePage/profile.css');
+@import url('./pages/CartPage/cart.css');
 
 @tailwind base;
 @tailwind components;
@@ -125,47 +126,6 @@ body {
 }
 .slider-controls-buttons {
   @apply flex gap-2
-}
-
-/* Cart */
-.cart {
-  @apply flex flex-col lg:flex-row gap-4
-}
-.cart-empty {
-  @apply w-full p-4 flex justify-center text-center
-}
-.cart-list {
-  @apply p-4 flex flex-col grow wrapper divide-list
-}
-.cart-order {
-  @apply w-full lg:w-[300px] h-max p-4 flex flex-col items-center flex-none gap-2 wrapper
-}
-.cart-item-title {
-  @apply text-lg font-medium
-}
-.cart-price {
-  @apply mb-2 text-2xl text-yellow-500 font-medium
-}
-.cart-item {
-  @apply w-full px-2 first:pt-2 py-4 flex
-}
-.cart-item-img {
-  @apply w-[50px] h-[50px] flex flex-none object-cover wrapper
-}
-.cart-item-detail {
-  @apply ml-2 flex flex-col grow
-}
-.cart-item-detail-name {
-  @apply px-2 font-medium capitalize line-clamp-1
-}
-.cart-item-detail-price {
-  @apply px-2 text-yellow-500 text-lg font-medium
-}
-.cart-item-controls {
-  @apply w-max h-max flex flex-col lg:flex-row flex-none border border-gray-300 rounded-md overflow-hidden
-}
-.cart-item-controls-qty {
-  @apply w-[35px] h-[35px] flex items-center justify-center flex-none
 }
 
 /* Logo */
