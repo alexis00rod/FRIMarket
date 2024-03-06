@@ -13,8 +13,10 @@ export const NavbarProvider = ({children}) => {
   }
 
   const closeMenu = () => {
-    setMenu(false)
-    document.body.style.overflow = menu ? 'auto' : 'hidden'
+    if(menu) {
+      setMenu(false)
+      document.body.style.overflow = menu ? 'auto' : 'hidden'
+    }
   }
   
   return (
