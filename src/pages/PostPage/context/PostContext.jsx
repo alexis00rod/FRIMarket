@@ -57,7 +57,7 @@ export const PostContextProvider = ({children}) => {
     !productToPost.user.name && err.push('name')
     !productToPost.user.email && err.push('email')
     !productToPost.user.phone && err.push('phone')
-    !productToPost.user.city.id && err.push('city')
+    !productToPost.user.city?.id && err.push('city')
 
     setProductToPostError(err)
     return !err.length
