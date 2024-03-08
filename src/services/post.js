@@ -7,11 +7,12 @@ export const addProduct = async (product) => {
   const images = product.images.length 
     ? product.images 
     : [{name: 'default-noimage.jpg',url:defaultPhoto}]
-  return await addDoc(productsRef, {
+  const productDoc = await addDoc(productsRef, {
     ...product,
     images: images,
     date: serverTimestamp()
-  })
+  }) 
+  return productDoc.id
 }
 
 // Funcion para actualizar publiaciones de un usuario
@@ -30,4 +31,6 @@ export const addBrand = async (category,brand) => {
   await updateDoc(categoryRef(id), {
     brands: [...brands,newBrand]
   })
+
+  return newBrand
 }
