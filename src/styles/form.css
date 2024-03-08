@@ -117,13 +117,24 @@ input[type = 'file'] {
 
 /* Input price */
 .input-price {
-  @apply w-[11.25rem] h-8 flex items-center border border-gray-300 rounded-md overflow-hidden
+  @apply w-[17.5rem] h-8 flex items-center rounded-md overflow-hidden wrapper
 }
 .input-price span {
   @apply w-[1.5rem] flex justify-center flex-none text-gray-300
 }
 .input-price input {
   @apply h-full grow outline-none text-sm
+}
+
+/* Input stock */
+.input-stock {
+  @apply w-[17.5rem] h-8 px-2 flex items-center flex-none wrapper
+}
+.input-stock input {
+  @apply h-full grow outline-none
+}
+.input-stock span {
+  @apply text-sm
 }
 
 
