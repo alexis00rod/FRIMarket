@@ -1,0 +1,93 @@
+.post {
+  @apply w-full mx-auto flex flex-col grow 
+  /* @apply relative w-full md:max-w-[33rem] mx-auto md:mt-12 px-6 md:px-12 md:py-12 flex flex-col grow md:grow-0 bg-white md:border md:border-slate-300 md:rounded-md */
+}
+.post-form {
+  @apply w-full lg:max-w-[640px] lg:my-4 mx-auto px-2 pt-2 bg-white flex flex-col grow lg:grow-0 divide-list
+}
+.post-header {
+  @apply w-full p-4
+}
+.post-header p {
+  @apply h-[35px] flex items-center text-xs font-light
+}
+.post-header h2 {
+  @apply mt-2 text-2xl font-medium
+}
+
+.post-inputs {
+  @apply px-4 pt-4 flex flex-col
+}
+.post-input {
+  @apply relative mb-6
+}
+.post-input h3 {
+  @apply mb-1 text-lg font-medium grow
+}
+.post-buttons {
+  @apply w-full px-4 py-6
+}
+
+/* Post category */
+.post-category {
+  @apply w-full pb-6 flex flex-col
+}
+.post-category-search {
+  @apply mb-2 navbar-search
+}
+.post-category-list {
+  @apply w-full lg:h-[320px] flex flex-col flex-none divide-list overflow-y-auto
+}
+.post-category-item {
+  @apply w-full px-2 h-[40px] flex items-center flex-none cursor-pointer duration-200 hover:bg-yellow-500 hover:text-white
+}
+.post-category h4 {
+  @apply w-full px-2 h-[40px] flex items-center flex-none cursor-pointer text-blue-500 duration-200 hover:text-blue-700 border-b border-gray-300
+}
+.post-category-confirm {
+  @apply w-full mb-4 p-4 flex items-center wrapper text-sm
+}
+.post-category-confirm i:first-child {
+  @apply w-[50px] h-[50px] mr-4 flex justify-center items-center flex-none bg-yellow-500 text-white text-xl rounded-full
+}
+.post-category-confirm span {
+  @apply text-blue-500 duration-150 cursor-pointer hover:text-blue-700 
+}
+
+/* Post confirm */
+.post-confirm {
+  @apply w-full lg:max-w-[640px] lg:my-4 mx-auto px-2 pt-2 bg-white flex flex-col grow lg:grow-0 divide-list
+}
+.post-confirm-header {
+  @apply w-full p-4 flex items-center
+}
+.post-confirm-header span {
+  @apply text-sm
+}
+.post-confirm-header p {
+  @apply text-lg font-medium
+}
+.post-confirm-header i {
+  @apply w-[50px] h-[50px] flex items-center justify-center flex-none bg-green-500 text-white text-lg rounded-full
+}
+.post-confirm-detail {
+  @apply w-full p-4 flex items-center flex-wrap gap-y-2
+}
+.post-confirm-detail img {
+  @apply w-[50px] h-[50px] mr-4 flex flex-none object-cover wrapper
+}
+.post-confirm-detail h3 {
+  @apply grow capitalize line-clamp-1
+}
+.post-confirm-buttons {
+  @apply w-full px-4 py-6 flex justify-end
+}
+
+@media (min-width: 1024px) {
+  .post-form {
+    @apply wrapper
+  }
+  .post-confirm {
+    @apply wrapper
+  }
+}

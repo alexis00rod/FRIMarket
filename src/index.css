@@ -21,6 +21,7 @@
 @import url('./pages/EditProfilePage/editProfile.css');
 @import url('./pages/ProfilePage/profile.css');
 @import url('./pages/CartPage/cart.css');
+@import url('./pages/PostPage/post.css');
 
 @tailwind base;
 @tailwind components;

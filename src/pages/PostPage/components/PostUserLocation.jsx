@@ -1,51 +1,114 @@
+import { useState } from "react"
 import { usePostContext } from "../context/PostContext"
-import { Select, SelectItem } from "../../../components"
+import { InputRadio, Notification, Select, SelectItem } from "../../../components"
 
-export const PostUserLocation = ({locations}) => {
+export const PostUserLocation = ({profileLocations,locations}) => {
   const {productToPost, setProductToPost, productToPostError} = usePostContext()
+  const [addLocation, setAddLocation] = useState(false)
+  const [locationToAdd,setLocationToAdd] = useState()
+  const [newLocation, setNewLocation] = useState()
+
+  const handleCancelAddLocation = () => {
+    setAddLocation(false)
+    setLocationToAdd()
+  }
+
+  const handleAddLocation = () => {
+    setNewLocation({
+      province: locationToAdd.province,
+      city: locationToAdd.city
+    })
+    setProductToPost({
+      ...productToPost,
+      user: {
+        ...productToPost.user,
+        province: locationToAdd.province,
+        city: locationToAdd.city
+      }
+    })
+    setAddLocation(false)
+    setLocationToAdd()
+  }
 
   return (
-    <div className="mt-6 mb-1.5">
-      <h3 className="py-3 text-lg font-medium">Localizacion</h3>
-      <div className="relative">
-        <div className="flex flex-wrap gap-4">
-          {locations && 
-            <>
+    <div className="post-input">
+      <h3>Ubicación</h3>
+      {addLocation
+        ? <>
+            <div className="flex flex-col gap-2">
               <Select
-              selected={productToPost?.user?.province?.name || ''}
+              label='Provincia'
+              selected={locationToAdd?.province?.name || ''}
               >
-                {locations.map(province => 
+                {locations.map(e => 
                   <SelectItem
-                  key={province.idProvince}
-                  name='province'
-                  id={province.nameProvince}
-                  onChange={() => setProductToPost({...productToPost,user:{...productToPost.user, province:{id: province.idProvince, name: province.nameProvince}, city: {}}})}
+                  key={e.idProvince}
+                  id={e.nameProvince}
+                  onChange={() => setLocationToAdd({...locationToAdd,province:{id:e.idProvince,name:e.nameProvince},city:{}})}
                   >
-                    {province.nameProvince}
-                  </SelectItem>)} 
+                    {e.nameProvince}
+                  </SelectItem>)}
               </Select>
-              {productToPost?.user?.province?.id &&
+              {locationToAdd?.province?.id &&
                 <Select
-                selected={productToPost?.user?.city?.name || ''}
+                label='Ciudad'
+                selected={locationToAdd?.city?.name || ''}
                 >
-                  {locations.find(e => e.idProvince === productToPost.user.province.id).cities.map(city =>
+                  {locations.find(e => e.idProvince === locationToAdd.province.id).cities.map(city => 
                     <SelectItem
                     key={city.idCity}
                     name='city'
                     id={city.nameCity}
-                    onChange={() => setProductToPost({...productToPost,user:{...productToPost.user, city:{id: city.idCity, name: city.nameCity}}})}
+                    onChange={() => setLocationToAdd({...locationToAdd,city:{id:city.idCity,name:city.nameCity}})}
                     >
                       {city.nameCity}
                     </SelectItem>)}
                 </Select>}
-            </>}
-        </div>
-        {productToPostError.includes('city')  &&
-          <p className="top-full left-2 absolute w-max pt-0.5 flex items-center text-[0.8rem] text-red-500">
-            <i className="fa-solid fa-circle-exclamation"></i>
-            <span className="pl-2 font-medium">Agrega tu localización</span>
-          </p>}
-      </div>
+            </div>
+            <div className="mt-2 flex gap-4">
+              <button className="btn btn-s btn-red" onClick={handleCancelAddLocation} title="Cancelar">
+                <i className="fa-solid fa-x"></i>
+              </button>
+              {locationToAdd?.city?.id &&
+                <button 
+                className="btn btn-green btn-s" 
+                title="Agregar ubicación" 
+                onClick={handleAddLocation}
+                >
+                  <i className="fa-solid fa-check"></i>
+                </button>}
+            </div>
+          </>
+        : <>
+            {profileLocations.map(e => 
+            <InputRadio
+            key={e.idLocation}
+            name='location'
+            id={e.idLocation}
+            checked={productToPost.user.province.id === e.province.id}
+            onChange={() => setProductToPost({...productToPost, user: {...productToPost.user,province: e.province,city: e.city}})}
+            >
+              {e.province.name}, {e.city.name}
+            </InputRadio>)}
+            {newLocation && 
+              <InputRadio
+              id={newLocation.idLocation}
+              name='location'
+              checked={productToPost.user.province.id === newLocation.province.id}
+              onChange={() => setProductToPost({...productToPost, user: {...productToPost.user,province: newLocation.province,city: newLocation.city}})}
+              >
+                {newLocation.province.name}, {newLocation.city.name}
+              </InputRadio>}
+            <button 
+            className="w-max flex items-center text-sm text-yellow-500 duration-200 hover:text-yellow-700"
+            onClick={() => setAddLocation(true)}
+            >
+              <i className="w-[22px] h-[22px] mr-2 flex items-center justify-center flex-none fa-solid fa-plus"></i>
+              Agregar ubicación
+            </button>
+          </>}
+      {productToPostError.includes('city')  &&
+        <Notification message='Agrega tu ubicación'/>}
     </div>
   )
 }

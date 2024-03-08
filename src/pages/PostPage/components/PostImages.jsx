@@ -37,8 +37,8 @@ export const PostImages = ({profile}) => {
   }
 
   return (
-    <div className="mt-6 mb-1.5">
-      <h3 className="py-3 text-lg font-medium">Sube Fotos</h3>
+    <div className="post-input">
+      <h3>Sube Fotos</h3>
       <div className="flex gap-4 flex-wrap">
         {images?.map((img,i) => 
           <picture 

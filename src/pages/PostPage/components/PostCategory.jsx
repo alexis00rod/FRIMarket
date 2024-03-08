@@ -1,21 +1,47 @@
+import { useState } from "react"
 import { usePostContext } from "../context/PostContext"
 
 export const PostCategory = ({categories}) => {
   const {productToPost, setProductToPost} = usePostContext()
+  const [searchCategory, setSearchCategory] = useState()
 
   return (
-    <ul className="flex flex-col border-y border-slate-300 divide-y divide-slate-300">
-      {categories.map(category => (
-        <li 
-        key={category.id} 
-        onClick={() => setProductToPost({...productToPost,category:category.idCategory})}
-        className="py-2 flex items-center cursor-pointer duration-150 hover:bg-yellow-500 hover:text-white"
-        >
-          <i className={`w-10 flex items-center justify-center flex-none fa-solid fa-${category.icon}`}></i>
-          <h4 className="grow line-clamp-1">{category.name}</h4>
-          <i className="w-10 flex items-center justify-center fa-solid fa-chevron-right"></i>
-        </li>
-      ))}
-    </ul>
+    <div className="post-category">
+      <div className="post-category-search">
+        <input 
+        type="text" 
+        name="search" 
+        id="search" 
+        value={searchCategory || ''}
+        onChange={({target: {value}}) => setSearchCategory(value)}
+        className="navbar-search-input"
+        placeholder='Buscar categoría'
+        />
+        <button className="btn btn-gray btn-s" >
+          <i className="fa-solid fa-magnifying-glass"></i>
+        </button>
+      </div>
+      <ul className="post-category-list">
+        {searchCategory
+        ? categories.filter(e => e.name.toLowerCase().includes(searchCategory.toLowerCase())).map(category => (
+          <li
+            key={category.id}
+            className="post-category-item"
+            onClick={() => setProductToPost({...productToPost,category:category.idCategory})}
+            >
+              {category.name}
+            </li>
+        ))
+        : categories.map(category => (
+            <li
+            key={category.id}
+            className="post-category-item"
+            onClick={() => setProductToPost({...productToPost,category:category.idCategory})}
+            >
+              {category.name}
+            </li>
+          ))}
+      </ul>
+    </div>
   )
 }
