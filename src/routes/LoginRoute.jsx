@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom"
-import { LoginContextProvider } from "../context/LoginContext/LoginContext"
+import { LoginContextProvider } from "../pages/Login/context/LoginContext"
 import { EnterPass, Login } from "../pages"
 
 export const LoginRoute = () => {
