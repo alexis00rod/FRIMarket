@@ -3,6 +3,7 @@ import { PostCategoryForm } from "./PostCategoryForm"
 import { PostDetailsForm } from "./PostDetailsForm"
 import { PostSaleForm } from "./PostSaleForm"
 import { PostContactForm } from "./PostContactForm"
+import { PostConfirm } from "./PostConfirm"
 
 export {
   PostProduct,
@@ -10,4 +11,5 @@ export {
   PostDetailsForm,
   PostSaleForm,
   PostContactForm,
+  PostConfirm
 }

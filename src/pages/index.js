@@ -22,7 +22,7 @@ import { Home } from "./HomePage/Home";
 // Registration
 import { RegistrationSteps, RegistrationEmail, RegistrationName, RegistrationPassword } from "./RegistrationPage/registration";
 // Post
-import { PostProduct, PostCategoryForm, PostDetailsForm, PostSaleForm, PostContactForm, } from "./PostPage/post";
+import { PostProduct, PostCategoryForm, PostDetailsForm, PostSaleForm, PostContactForm, PostConfirm } from "./PostPage/post";
 // Shop
 import { Shop } from "./ShopPage/Shop";
 
@@ -48,7 +48,7 @@ export {
   // Shop
   Shop,
   // Post
-  PostProduct, PostCategoryForm, PostDetailsForm, PostSaleForm, PostContactForm,
+  PostProduct, PostCategoryForm, PostDetailsForm, PostSaleForm, PostContactForm, PostConfirm,
   // Registration
   RegistrationSteps, RegistrationEmail, RegistrationName, RegistrationPassword,
   // Login

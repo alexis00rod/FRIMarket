@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import { PostContextProvider } from "../pages/PostPage/context/PostContext"
-import { PostProduct, PostCategoryForm, PostDetailsForm, PostSaleForm, PostContactForm } from "../pages"
+import { PostProduct, PostCategoryForm, PostDetailsForm, PostSaleForm, PostContactForm, PostConfirm } from "../pages"
 
 export const PostRoute = () => {
   return (
@@ -11,6 +11,7 @@ export const PostRoute = () => {
         <Route path="/details-form" element={<PostDetailsForm />} />
         <Route path="/sale-form" element={<PostSaleForm />} />
         <Route path="/contact-form" element={<PostContactForm />} />
+        <Route path="/confirm/:idPost" element={<PostConfirm />} />
       </Routes>
     </PostContextProvider>
   )
