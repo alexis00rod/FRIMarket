@@ -23,6 +23,7 @@
 @import url('./pages/CartPage/cart.css');
 @import url('./pages/PostPage/post.css');
 @import url('./pages/Login/login.css');
+@import url('./pages/RegistrationPage/registration.css');
 
 @tailwind base;
 @tailwind components;

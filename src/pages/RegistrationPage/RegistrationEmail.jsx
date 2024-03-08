@@ -25,13 +25,12 @@ export const RegistrationEmail = () => {
   }
 
   return (
-    <section className="section section-xs">
+    <section className="registration">
       {validateLoader !== 'add'
-      ? <>
-          <div className="form">
-            <h2 className="form-title">Ingresá tu e-mail</h2>
-            {/* Email */}
-            <div className="form-item">
+      ? <div className="registration-form">
+          <h2>Ingresá tu e-mail</h2>
+          <div className="registration-inputs">
+            <div className="registration-input">
               <InputEmail
                 size="input-l"
                 value={userToRegister.email || ""}
@@ -45,8 +44,7 @@ export const RegistrationEmail = () => {
               {userToRegisterError.includes("email-exists") && 
                 <Notification message='El email elegido ya esta en uso.' />}
             </div>
-            {/* Condiciones y terminos */}
-            <div className="form-item">
+            <div className="registration-input">
               <InputCheckbox 
               name='conditions'
               id='conditions'
@@ -58,23 +56,25 @@ export const RegistrationEmail = () => {
                 Términos y condiciones
                 </span>
               </InputCheckbox>
-              {/* Error terminos y condiciones */}
               {userToRegisterError.includes("conditions") && 
                 <Notification message='Acepta los terminos y condiciones.' />}
             </div>
-            {/* Boton agregar email */}
-            <div className="form-handle">
-              {validateLoader === 'loading' && validateLoader !== 'add' 
-                ? <ButtonLoader />
-                : <button onClick={submitEmailToValidate} className="btn btn-l btn-blue btn-text">Continuar</button>}
-            </div>
           </div>
-        </>
-      : <div className="form form-result">
-          <div className="form-result-icon text-white bg-green-500">
-            <i className="fa-solid fa-check"></i>
+          <div className="registration-buttons">
+            {validateLoader === 'loading' && validateLoader !== 'add' 
+              ? <ButtonLoader />
+              : <button 
+                onClick={submitEmailToValidate} 
+                className="btn btn-l btn-blue btn-text"
+                disabled={!userToRegister.email || !userToRegister.conditions}
+                >
+                  Continuar
+                </button>}
           </div>
-          <p className="form-result-message">Email agregado</p>
+        </div>
+      : <div className="registration-loading">
+          <i className="bg-green-500 text-white fa-solid fa-check"></i>
+          <p>Email agregado</p>
         </div>}
     </section>
   )
