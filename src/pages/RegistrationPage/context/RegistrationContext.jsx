@@ -1,4 +1,4 @@
-import { useState, createContext, useContext } from 'react'
+import { useState, createContext, useContext, useEffect } from 'react'
 import { existsUser } from '../../../services/user'
 
 const RegistrationContext = createContext()
@@ -6,8 +6,15 @@ export const useRegistrationContext = () => useContext(RegistrationContext)
 
 export const RegistrationContextProvider = ({children}) => {
   const [step, setStep] = useState(0)
-  const [userToRegister, setUserToRegister] = useState({})
+  // const [userToRegister, setUserToRegister] = useState({})
   const [userToRegisterError, setUserToRegisterError] = useState([])
+  const [userToRegister, setUserToRegister] = useState(() => {
+    const storedUserToRegister = localStorage.getItem('userToRegister')
+    return storedUserToRegister ? JSON.parse(storedUserToRegister) : {}})
+
+  useEffect(() => {
+    localStorage.setItem('userToRegister', JSON.stringify(userToRegister))
+  },[userToRegister])
 
   const nextStep = () => setStep(step + 1)
 
