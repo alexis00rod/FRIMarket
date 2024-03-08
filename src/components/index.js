@@ -1,11 +1,12 @@
 import { App } from "./App/App"
 import { ProtectedRoutes } from "./ProtectedRoutes/ProtectedRoutes"
-import { InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox, InputPrice, InputRadio } from "./Form/form"
 import { ReviewCard } from "./Card/card"
 import { Select, SelectAddItem, SelectItem, SelectSearch, SelectReviewsSort } from "./Select/select"
 import { Logo } from "./Logo/Logo"
 import { Footer } from "./Footer/Footer"
 
+// Inputs
+import { InputStock, InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox, InputPrice, InputRadio } from "./Form/form"
 // Notification
 import { Notification } from "./Notification/Notification"
 // Button
@@ -50,8 +51,7 @@ export {
   // Select
   Select, SelectItem, SelectSearch, SelectAddItem, SelectReviewsSort,
   // Form
-  InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox, InputPrice, InputRadio,
-  
+  InputText, Textarea, InputRating, InputEmail, InputPassword, InputNumber, InputCheckbox, InputPrice, InputRadio, InputStock,
   // Edit product
   EditProductTitle, EditProductImages, EditProductPrice, EditProductDescription, EditProductCondition, EditProductShipping,
   // Notification

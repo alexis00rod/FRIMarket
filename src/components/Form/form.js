@@ -5,6 +5,7 @@ import { InputPassword } from "./InputPassword.jsx";
 import { InputPrice } from "./InputPrice.jsx";
 import { InputRadio } from "./InputRadio.jsx";
 import { InputRating } from "./InputRating.jsx";
+import { InputStock } from "./InputStock.jsx";
 import { InputText } from "./InputText.jsx";
 import { Textarea } from "./Textarea.jsx";
 
@@ -17,5 +18,6 @@ export {
   InputNumber,
   InputCheckbox,
   InputPrice,
-  InputRadio
+  InputRadio,
+  InputStock
 }
